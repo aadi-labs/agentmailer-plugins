@@ -1,0 +1,17 @@
+{
+  "name": "agentmailer",
+  "description": "Official AgentMailer plugins and skills from Aadi Labs.",
+  "owner": {
+    "name": "Aadi Labs",
+    "email": "support@agentmailer.ai"
+  },
+  "plugins": [
+    {
+      "name": "agentmailer",
+      "description": "Email inboxes and safe mail workflows for AI agents.",
+      "version": "0.1.0",
+      "source": "./plugins/agentmailer",
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "agentmailer",
+  "version": "0.1.0",
+  "description": "Give AI agents isolated email inboxes and safe workflows for reading, drafting, and sending mail.",
+  "author": {
+    "name": "Aadi Labs",
+    "email": "support@agentmailer.ai",
+    "url": "https://agentmailer.ai"
+  },
+  "homepage": "https://agentmailer.ai/docs",
+  "repository": "https://github.com/aadi-labs/agentmailer-plugins",
+  "license": "MIT",
+  "keywords": [
+    "agentmailer",
+    "email",
+    "ai-agents",
+    "inbox",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "AgentMailer",
+    "shortDescription": "Email inboxes and workflows for AI agents",
+    "longDescription": "Create isolated agent inboxes, search complete email threads, prepare drafts, and send or reply after explicit approval through AgentMailer's hosted MCP server.",
+    "developerName": "Aadi Labs",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://agentmailer.ai",
+    "privacyPolicyURL": "https://agentmailer.ai/privacy",
+    "termsOfServiceURL": "https://agentmailer.ai/terms",
+    "defaultPrompt": [
+      "Show my AgentMailer inboxes and summarize what each one is for.",
+      "Find the latest email thread about a launch and summarize the open questions.",
+      "Draft a reply for review without sending it."
+    ],
+    "brandColor": "#F15A3A",
+    "composerIcon": "./assets/agentmailer-icon-512.png",
+    "logo": "./assets/agentmailer-icon-512.png"
+  }
+}

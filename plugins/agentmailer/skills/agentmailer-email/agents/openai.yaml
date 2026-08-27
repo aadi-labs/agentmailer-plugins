@@ -1,0 +1,4 @@
+interface:
+  display_name: "AgentMailer Email"
+  short_description: "Read, draft, and send agent email safely"
+  default_prompt: "Use $agentmailer-email to handle this inbox workflow with explicit send confirmation."
