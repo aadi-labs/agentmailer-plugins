@@ -1,8 +1,15 @@
 {
-  "name": "agentmailer",
-  "skills": [
-    "agentmailer-mcp",
-    "agentmailer-inbox",
-    "agentmailer-email"
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "AgentMailer",
+      "description": "Connect AI agents to isolated email inboxes and operate them safely through hosted MCP.",
+      "skills": [
+        "agentmailer-mcp",
+        "agentmailer-inbox",
+        "agentmailer-email"
+      ]
+    }
   ]
 }
