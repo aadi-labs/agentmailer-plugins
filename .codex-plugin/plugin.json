@@ -1,6 +1,6 @@
 {
   "name": "agentmailer",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Give AI agents human-approved identities with a unique @agentmailer.ai address and structured A2A communication.",
   "author": {
     "name": "Aadi Labs",

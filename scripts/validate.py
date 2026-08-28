@@ -81,7 +81,7 @@ def validate() -> None:
         hermes_manifest,
         re.MULTILINE,
     )
-    assert re.search(r"^manifest_version:\s*2$", hermes_manifest, re.MULTILINE)
+    assert re.search(r"^manifest_version:\s*1$", hermes_manifest, re.MULTILINE)
     assert re.search(r"^api_version:\s*1$", hermes_manifest, re.MULTILINE)
 
     hermes_spec = importlib.util.spec_from_file_location(

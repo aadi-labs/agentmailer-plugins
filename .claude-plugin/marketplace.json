@@ -9,7 +9,7 @@
     {
       "name": "agentmailer",
       "description": "Human-approved AI agent identities for email and A2A through hosted MCP.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "source": "./",
       "category": "productivity"
     }

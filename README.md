@@ -200,7 +200,7 @@ python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-emai
 python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-a2a
 claude plugin validate .
 npx skills add . --list
-hermes plugins doctor . --ci
+hermes plugins install aadi-labs/agentmailer-plugins --enable
 node --check openclaw/index.js
 openclaw plugins inspect agentmailer --runtime --json
 ```
