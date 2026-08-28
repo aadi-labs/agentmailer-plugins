@@ -36,7 +36,7 @@
 ## Anthropic Plugin Directory
 
 - [ ] Submit the public GitHub plugin URL through Claude.ai or Console.
-- [ ] GitHub URL points at `plugins/agentmailer` or the public repository marketplace as requested by the portal.
+- [ ] GitHub URL points at the public repository root or marketplace as requested by the portal.
 - [ ] Automated plugin screening passes.
 
 ## OpenAI Plugins Directory
@@ -49,3 +49,10 @@
 - [ ] Enter the five positive and three negative cases from `test-cases.md`.
 - [ ] Select only regions where product support and legal terms are ready.
 - [ ] Submitter personally completes the policy attestations.
+
+## Additional ecosystem discovery
+
+- [ ] Publish `@aadi-labs/agentmailer` publicly to npm after confirming Aadi Labs scope access, then verify its `pi-package` gallery listing and Git install in a clean Pi environment.
+- [ ] Verify the OpenCode skills install, MCP OAuth, and one authenticated tool call in a clean environment; submit the repository to OpenCode's ecosystem list if it accepts integrations that are not event-hook plugins.
+- [ ] Run ClawHub package validation and a dry-run for the compatible OpenClaw bundle before publishing it under the verified Aadi Labs owner.
+- [ ] Verify Hermes installation from an immutable AgentMailer commit. Submit a community-index entry when the official `NousResearch/hermes-plugin-index` repository documented by Hermes is publicly reachable.

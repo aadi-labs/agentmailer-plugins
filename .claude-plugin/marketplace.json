@@ -9,8 +9,8 @@
     {
       "name": "agentmailer",
       "description": "Email inboxes and safe mail workflows for AI agents.",
-      "version": "0.1.0",
-      "source": "./plugins/agentmailer",
+      "version": "0.2.0",
+      "source": "./",
       "category": "productivity"
     }
   ]

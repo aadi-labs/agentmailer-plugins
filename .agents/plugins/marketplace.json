@@ -8,7 +8,7 @@
       "name": "agentmailer",
       "source": {
         "source": "local",
-        "path": "./plugins/agentmailer"
+        "path": "."
       },
       "policy": {
         "installation": "AVAILABLE",

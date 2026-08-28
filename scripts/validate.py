@@ -10,9 +10,10 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PLUGIN = ROOT / "plugins" / "agentmailer"
 SKILLS = ("agentmailer-mcp", "agentmailer-inbox", "agentmailer-email")
 EXPECTED_URL = "https://api.agentmailer.ai/mcp"
+PLUGIN_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
+MCP_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json"
 
 
 def load_json(path: Path) -> object:
@@ -26,10 +27,14 @@ def validate() -> None:
     required = (
         ROOT / ".agents/plugins/marketplace.json",
         ROOT / ".claude-plugin/marketplace.json",
-        PLUGIN / ".claude-plugin/plugin.json",
-        PLUGIN / ".codex-plugin/plugin.json",
-        PLUGIN / ".mcp.json",
-        PLUGIN / "assets/agentmailer-icon-512.png",
+        ROOT / ".claude-plugin/plugin.json",
+        ROOT / ".codex-plugin/plugin.json",
+        ROOT / ".mcp.json",
+        ROOT / "plugin.json",
+        ROOT / "mcp.json",
+        ROOT / "package.json",
+        ROOT / "compat/opencode/opencode.json",
+        ROOT / "plugins/agentmailer/assets/agentmailer-icon-512.png",
         ROOT / "README.md",
         ROOT / "LICENSE",
         ROOT / "SECURITY.md",
@@ -37,24 +42,61 @@ def validate() -> None:
     for path in required:
         assert path.is_file(), f"missing {path.relative_to(ROOT)}"
 
-    claude_manifest = load_json(PLUGIN / ".claude-plugin/plugin.json")
-    codex_manifest = load_json(PLUGIN / ".codex-plugin/plugin.json")
+    claude_manifest = load_json(ROOT / ".claude-plugin/plugin.json")
+    codex_manifest = load_json(ROOT / ".codex-plugin/plugin.json")
+    portable_manifest = load_json(ROOT / "plugin.json")
     assert isinstance(claude_manifest, dict)
     assert isinstance(codex_manifest, dict)
-    assert claude_manifest["name"] == codex_manifest["name"] == "agentmailer"
-    assert claude_manifest["version"] == codex_manifest["version"]
+    assert isinstance(portable_manifest, dict)
+    assert claude_manifest["name"] == codex_manifest["name"] == portable_manifest["name"] == "agentmailer"
+    assert claude_manifest["version"] == codex_manifest["version"] == portable_manifest["version"]
+    assert portable_manifest["$schema"] == PLUGIN_SCHEMA
 
-    claude_mcp = load_json(PLUGIN / ".mcp.json")
+    claude_mcp = load_json(ROOT / ".mcp.json")
+    portable_mcp = load_json(ROOT / "mcp.json")
     assert claude_mcp["mcpServers"]["agentmailer"]["url"] == EXPECTED_URL
+    assert portable_mcp["$schema"] == MCP_SCHEMA
+    assert portable_mcp["mcpServers"]["agentmailer"] == {
+        "type": "streamable-http",
+        "url": EXPECTED_URL,
+    }
     assert codex_manifest["mcpServers"] == "./.mcp.json"
 
+    codex_marketplace = load_json(ROOT / ".agents/plugins/marketplace.json")
+    claude_marketplace = load_json(ROOT / ".claude-plugin/marketplace.json")
+    assert codex_marketplace["plugins"][0]["source"]["path"] == "."
+    assert claude_marketplace["plugins"][0]["source"] == "./"
+    assert claude_marketplace["plugins"][0]["version"] == portable_manifest["version"]
+
+    pi_package = load_json(ROOT / "package.json")
+    assert pi_package["name"] == "@aadi-labs/agentmailer"
+    assert "pi-package" in pi_package["keywords"]
+    assert pi_package["pi"]["skills"] == ["./skills"]
+    assert pi_package["pi"]["image"].startswith("https://")
+    assert pi_package["version"] == portable_manifest["version"]
+
+    opencode = load_json(ROOT / "compat/opencode/opencode.json")
+    assert opencode["mcp"]["agentmailer"] == {
+        "type": "remote",
+        "url": EXPECTED_URL,
+        "enabled": True,
+    }
+
     for skill in SKILLS:
-        skill_file = PLUGIN / "skills" / skill / "SKILL.md"
+        skill_file = ROOT / "skills" / skill / "SKILL.md"
         assert skill_file.is_file(), f"missing {skill_file.relative_to(ROOT)}"
         text = skill_file.read_text(encoding="utf-8")
         assert re.search(rf"^name:\s*{re.escape(skill)}$", text, re.MULTILINE)
         assert re.search(r"^description:\s*\S.+$", text, re.MULTILINE)
         assert "TODO" not in text
+
+    obsolete_paths = (
+        ROOT / "plugins/agentmailer/.claude-plugin/plugin.json",
+        ROOT / "plugins/agentmailer/.codex-plugin/plugin.json",
+        ROOT / "plugins/agentmailer/.mcp.json",
+    )
+    for path in obsolete_paths:
+        assert not path.exists(), f"obsolete duplicate package path: {path.relative_to(ROOT)}"
 
     forbidden = re.compile(
         r"(?:gho" + r"_[A-Za-z0-9]{20,}|\bsk-[A-Za-z0-9_-]{16,}|Bearer\s+[A-Za-z0-9._-]{16,})"

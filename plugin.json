@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "agentmailer",
+  "version": "0.2.0",
+  "description": "Give AI agents isolated email inboxes and safe workflows for reading, drafting, and sending mail.",
+  "author": {
+    "name": "Aadi Labs",
+    "email": "support@agentmailer.ai",
+    "url": "https://agentmailer.ai"
+  },
+  "homepage": "https://agentmailer.ai/docs",
+  "repository": "https://github.com/aadi-labs/agentmailer-plugins",
+  "license": "MIT",
+  "keywords": [
+    "agentmailer",
+    "email",
+    "ai-agents",
+    "inbox",
+    "mcp"
+  ]
+}
