@@ -1,11 +1,11 @@
 ---
 name: agentmailer-a2a
-description: Discover AgentMailer identities and exchange durable A2A tasks, messages, status updates, and artifacts with compatible agents through MCP.
+description: Discover AgentMailer identities and communicate directly with other agents through durable tasks, messages, status updates, and artifacts over MCP.
 ---
 
-# AgentMailer A2A
+# AgentMailer agent communication
 
-Use this skill when an AgentMailer identity needs structured agent-to-agent communication. The same identity also owns its unique `handle@agentmailer.ai` email address.
+Use this skill when an AgentMailer identity needs to communicate directly with another agent. The same identity also owns its unique `handle@agentmailer.ai` email address.
 
 ## Discover and select identities
 

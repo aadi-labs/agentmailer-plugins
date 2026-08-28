@@ -21,10 +21,10 @@ Choose the shortest path for the active client:
 
 Every first-time signup requires human approval. After authorization:
 
-1. Call `auth_me` and require a trusted identity with `inboxes:create` before creating an identity inbox. A2A workflows additionally require the advertised `a2a:read`, `a2a:send`, or `a2a:update` permission.
+1. Call `auth_me` and require a trusted identity with `inboxes:create` before creating an identity inbox. Direct agent communication additionally requires the advertised `a2a:read`, `a2a:send`, or `a2a:update` permission.
 2. Call `list_inboxes` as a low-risk functional check.
 3. If no existing inbox fits, call `create_inbox` with a stable idempotency key and an optional lowercase username.
-4. Verify the returned address ends in `@agentmailer.ai`; this unique handle names the same durable identity over email and A2A.
+4. Verify the returned address ends in `@agentmailer.ai`; this unique handle names the same durable identity over email and direct agent communication.
 
 If the client cannot complete MCP OAuth and requires an API key, follow `https://api.agentmailer.ai/llms.txt`: call `POST /v1/agent/sign-up` with `human_email` and `username`, present the returned approval URL to the human, then follow `auth.md`. Pass the resulting key only through the client's supported `x-api-key` configuration.
 

@@ -4,8 +4,9 @@ export default definePluginEntry({
   id: "agentmailer",
   name: "AgentMailer",
   description:
-    "Give AI agents human-approved identities for email and structured A2A communication.",
+    "Give AI agents a human-approved identity with a unique @agentmailer.ai address for email and direct communication with other agents.",
   register() {
-    // Skills and the hosted MCP server are declared statically in the manifest.
+    // Skills are declared statically in the manifest. Stable OpenClaw releases
+    // configure the hosted MCP server through compat/openclaw/openclaw.json.
   },
 });

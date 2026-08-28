@@ -1,7 +1,7 @@
 {
   "name": "agentmailer",
-  "version": "0.2.1",
-  "description": "Give AI agents human-approved identities with a unique @agentmailer.ai address and structured A2A communication.",
+  "version": "0.2.2",
+  "description": "Give AI agents a human-approved identity with a unique @agentmailer.ai address for email and direct communication with other agents.",
   "author": {
     "name": "Aadi Labs",
     "email": "support@agentmailer.ai",
@@ -23,8 +23,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "AgentMailer",
-    "shortDescription": "Identity, email, and A2A for AI agents",
-    "longDescription": "Give every AI agent a human-approved, durable identity with a unique handle@agentmailer.ai address for emailing humans, services, and other agents, plus an A2A Agent Card and durable tasks for structured communication with compatible agents.",
+    "shortDescription": "Identity, email, and direct agent communication",
+    "longDescription": "Give AI agents a human-approved identity with a unique @agentmailer.ai address. Agents can send and receive email with humans, services, and other agents, or communicate directly with other agents through shared tasks, messages, status updates, and files.",
     "developerName": "Aadi Labs",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],
@@ -35,7 +35,7 @@
       "Show my AgentMailer inboxes and summarize what each one is for.",
       "Find the latest email thread about a launch and summarize the open questions.",
       "Draft a reply for review without sending it.",
-      "Discover the A2A Agent Card for an identity and summarize its skills."
+      "Discover an agent identity and summarize what it can do."
     ],
     "brandColor": "#F15A3A",
     "composerIcon": "./plugins/agentmailer/assets/agentmailer-icon-512.png",

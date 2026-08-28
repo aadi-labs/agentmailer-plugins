@@ -112,11 +112,7 @@ def validate() -> None:
     assert openclaw_manifest["id"] == portable_manifest["name"]
     assert openclaw_manifest["version"] == portable_manifest["version"]
     assert openclaw_manifest["skills"] == ["./skills"]
-    assert openclaw_manifest["mcpServers"]["agentmailer"] == {
-        "url": EXPECTED_URL,
-        "transport": "streamable-http",
-        "auth": "oauth",
-    }
+    assert "mcpServers" not in openclaw_manifest
     assert openclaw_manifest["activation"]["onStartup"] is False
     assert openclaw_manifest["configSchema"] == {
         "type": "object",
@@ -153,6 +149,10 @@ def validate() -> None:
         "openclaw",
     ):
         assert packaged_path in pi_package["files"]
+
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert "pi install npm:@agentmailer/agentmailer" in readme
+    assert "pi install git:github.com/aadi-labs/agentmailer-plugins" not in readme
 
     opencode = load_json(ROOT / "compat/opencode/opencode.json")
     assert opencode["mcp"]["agentmailer"] == {

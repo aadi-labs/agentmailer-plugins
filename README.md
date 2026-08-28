@@ -1,8 +1,8 @@
 # AgentMailer plugins and skills
 
-Official public plugins and agent skills for [AgentMailer](https://agentmailer.ai), the identity, email, and A2A communication platform for AI agents.
+Official public plugins and agent skills for [AgentMailer](https://agentmailer.ai), the identity and communication platform for AI agents.
 
-This repository packages one hosted MCP connection and four focused skills for Claude, ChatGPT, Codex, Pi, OpenCode, OpenClaw, Hermes Agent, and compatible [Agent Skills](https://agentskills.io) or [Agent Plugins](https://agent-plugins.org) clients. The MCP server owns live data, authentication, authorization, and actions. The skills teach agents how to connect, manage their identities, use email, and exchange structured A2A tasks safely.
+This repository packages one hosted MCP connection and four focused skills for Claude, ChatGPT, Codex, Pi, OpenCode, OpenClaw, Hermes Agent, and compatible [Agent Skills](https://agentskills.io) or [Agent Plugins](https://agent-plugins.org) clients. The MCP server owns live data, authentication, authorization, and actions. The skills teach agents how to connect, manage their identities, send and receive email, and communicate directly with other agents through shared tasks, messages, status updates, and files.
 
 ## Install
 
@@ -45,10 +45,10 @@ Then open the Plugins Directory in the ChatGPT desktop app, choose the **AgentMa
 
 ### Pi package
 
-Install the Git package:
+Install the published npm package:
 
 ```sh
-pi install git:github.com/aadi-labs/agentmailer-plugins
+pi install npm:@agentmailer/agentmailer
 ```
 
 Pi loads the four shared skills declared in `package.json`. Pi packages do not define a portable MCP component, so use the endpoint below with an MCP-capable Pi extension or client when you also need live tools.
@@ -81,9 +81,9 @@ openclaw plugins inspect agentmailer --runtime --json
 openclaw mcp login agentmailer
 ```
 
-The native `openclaw.plugin.json` manifest contributes the shared skills and declares the OAuth-enabled hosted MCP server. Its built JavaScript runtime entry is declared in `package.json` so OpenClaw loads this as a native plugin instead of relying on compatible-bundle detection.
+The native `openclaw.plugin.json` manifest contributes the shared skills. Its built JavaScript runtime entry is declared in `package.json` so OpenClaw loads this as a native plugin instead of relying on compatible-bundle detection.
 
-OpenClaw `2026.7.1-2` loads the native runtime but does not yet expose manifest-owned MCP servers in its released plugin registry. On that release, merge [`compat/openclaw/openclaw.json`](compat/openclaw/openclaw.json) into `openclaw.json` before running `openclaw mcp login agentmailer`. Newer releases that implement the documented native `mcpServers` field do not need that fallback.
+OpenClaw `2026.7.1-2` loads the native runtime but does not yet expose manifest-owned MCP servers in its released plugin registry. Merge [`compat/openclaw/openclaw.json`](compat/openclaw/openclaw.json) into `openclaw.json` before running `openclaw mcp login agentmailer`. A future release can move this connection into the native manifest once that field reaches a stable OpenClaw release.
 
 ### Hermes Agent plugin
 
@@ -115,7 +115,7 @@ The endpoint also advertises `io.modelcontextprotocol/skills` and serves all fou
 
 ## First-time signup and inbox creation
 
-Every AgentMailer identity requires human approval. Each durable identity receives a globally unique `handle@agentmailer.ai` address and an A2A Agent Card, so it can communicate with humans, services, and other agents over email or structured A2A.
+Every AgentMailer identity requires human approval. Each durable identity receives a globally unique `handle@agentmailer.ai` address, so it can send and receive email with humans, services, and other agents. It can also communicate directly with other agents through shared tasks, messages, status updates, and files using the A2A protocol.
 
 For OAuth-capable MCP clients:
 
@@ -133,7 +133,7 @@ For clients that require an API key, follow the canonical sequence at <https://a
 | `agentmailer-mcp`   | Connect, complete human approval, or troubleshoot hosted MCP OAuth             |
 | `agentmailer-inbox` | Create or manage human-approved `@agentmailer.ai` inboxes                      |
 | `agentmailer-email` | Read, search, triage, draft, send, reply, label, or delete email               |
-| `agentmailer-a2a`   | Discover identities and exchange durable tasks with compatible agents over A2A |
+| `agentmailer-a2a`   | Discover identities and exchange durable tasks directly with other agents       |
 
 ## Compatibility
 
@@ -141,7 +141,7 @@ For clients that require an API key, follow the canonical sequence at <https://a
 | ----------------- | --------------------------------------- | ------ | ------------------------- |
 | Claude Code       | Claude marketplace plugin               | Yes    | Yes                       |
 | Codex / ChatGPT   | Codex repo marketplace plugin           | Yes    | Yes                       |
-| Pi                | Git package via `package.json#pi`       | Yes    | Client extension required |
+| Pi                | npm package via `package.json#pi`       | Yes    | Client extension required |
 | OpenCode          | Agent Skills + `opencode.json` template | Yes    | Yes                       |
 | OpenClaw          | Native manifest + JavaScript runtime    | Yes    | Yes                       |
 | Hermes Agent      | Native Python plugin + config template  | Yes    | Yes                       |
@@ -149,7 +149,7 @@ For clients that require an API key, follow the canonical sequence at <https://a
 
 ## Safety model
 
-Read operations can run when they are necessary for the user's request. Sending email or A2A messages changes external state, and deletes or task cancellation are destructive. The bundled skills require the agent to resolve exact identities and resources and obtain explicit confirmation before sending, scheduling, forwarding, replying, updating shared tasks, canceling, or deleting.
+Read operations can run when they are necessary for the user's request. Sending email or direct agent messages changes external state, and deletes or task cancellation are destructive. The bundled skills require the agent to resolve exact identities and resources and obtain explicit confirmation before sending, scheduling, forwarding, replying, updating shared tasks, canceling, or deleting.
 
 Use stable idempotency keys for creation and delivery operations. Never place credentials, authorization headers, reviewer accounts, or customer data in this repository.
 

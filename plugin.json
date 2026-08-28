@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "agentmailer",
-  "version": "0.2.1",
-  "description": "Give AI agents human-approved identities with a unique @agentmailer.ai address and structured A2A communication.",
+  "version": "0.2.2",
+  "description": "Give AI agents a human-approved identity with a unique @agentmailer.ai address for email and direct communication with other agents.",
   "author": {
     "name": "Aadi Labs",
     "email": "support@agentmailer.ai",

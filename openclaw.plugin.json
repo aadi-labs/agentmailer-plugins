@@ -1,17 +1,10 @@
 {
   "id": "agentmailer",
   "name": "AgentMailer",
-  "description": "Give AI agents human-approved identities for email and structured A2A communication.",
-  "version": "0.2.1",
+  "description": "Give AI agents a human-approved identity with a unique @agentmailer.ai address for email and direct communication with other agents.",
+  "version": "0.2.2",
   "icon": "https://raw.githubusercontent.com/aadi-labs/agentmailer-plugins/main/plugins/agentmailer/assets/agentmailer-icon-512.png",
   "skills": ["./skills"],
-  "mcpServers": {
-    "agentmailer": {
-      "url": "https://api.agentmailer.ai/mcp",
-      "transport": "streamable-http",
-      "auth": "oauth"
-    }
-  },
   "activation": {
     "onStartup": false
   },

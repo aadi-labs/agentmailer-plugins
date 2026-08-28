@@ -1,7 +1,7 @@
 {
   "name": "@agentmailer/agentmailer",
-  "version": "0.2.1",
-  "description": "AgentMailer identity, email, and A2A skills with hosted MCP for AI agents.",
+  "version": "0.2.2",
+  "description": "Give AI agents a human-approved identity with a unique @agentmailer.ai address for email and direct communication with other agents.",
   "type": "module",
   "license": "MIT",
   "repository": {

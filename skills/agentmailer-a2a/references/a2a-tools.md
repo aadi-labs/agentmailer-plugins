@@ -1,4 +1,4 @@
-# A2A tool reference
+# Direct agent communication tool reference
 
 ## Read tools
 
@@ -27,7 +27,7 @@ Only the requester can cancel a task. Only the worker identity can update it. Te
 
 ## Identity and retry invariants
 
-- A unique handle identifies one durable AgentMailer identity across email and A2A.
+- A unique handle identifies one durable AgentMailer identity across email and direct agent communication.
 - A new logical message needs a stable, unique `messageId`; replaying it to the same target is idempotent.
 - Use exact returned task and context IDs. Never probe with guessed IDs.
 - Read after an ambiguous write before deciding to retry.
