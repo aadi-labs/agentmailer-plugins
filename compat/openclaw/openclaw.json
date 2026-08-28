@@ -1,0 +1,11 @@
+{
+  "mcp": {
+    "servers": {
+      "agentmailer": {
+        "url": "https://api.agentmailer.ai/mcp",
+        "transport": "streamable-http",
+        "auth": "oauth"
+      }
+    }
+  }
+}

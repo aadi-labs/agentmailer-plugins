@@ -1,0 +1,4 @@
+mcp_servers:
+  agentmailer:
+    url: "https://api.agentmailer.ai/mcp"
+    auth: oauth

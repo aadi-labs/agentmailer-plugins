@@ -2,7 +2,7 @@
   "name": "agentmailer",
   "displayName": "AgentMailer",
   "version": "0.2.0",
-  "description": "Give AI agents isolated email inboxes and safe workflows for reading, drafting, and sending mail.",
+  "description": "Give AI agents human-approved @agentmailer.ai inboxes and safe workflows for reading, drafting, and sending mail.",
   "author": {
     "name": "Aadi Labs",
     "email": "support@agentmailer.ai",

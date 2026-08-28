@@ -1,0 +1,25 @@
+{
+  "id": "agentmailer",
+  "name": "AgentMailer",
+  "description": "Give AI agents human-approved @agentmailer.ai inboxes and safe workflows for reading, drafting, and sending mail.",
+  "version": "0.2.0",
+  "icon": "https://raw.githubusercontent.com/aadi-labs/agentmailer-plugins/main/plugins/agentmailer/assets/agentmailer-icon-512.png",
+  "skills": [
+    "./skills"
+  ],
+  "mcpServers": {
+    "agentmailer": {
+      "url": "https://api.agentmailer.ai/mcp",
+      "transport": "streamable-http",
+      "auth": "oauth"
+    }
+  },
+  "activation": {
+    "onStartup": false
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

@@ -1,4 +1,4 @@
 interface:
   display_name: "AgentMailer MCP"
-  short_description: "Connect and troubleshoot hosted email MCP"
-  default_prompt: "Use $agentmailer-mcp to connect AgentMailer or diagnose its MCP authentication."
+  short_description: "Connect MCP with WorkOS human approval"
+  default_prompt: "Use $agentmailer-mcp to connect AgentMailer, complete WorkOS human approval, or diagnose MCP authentication."

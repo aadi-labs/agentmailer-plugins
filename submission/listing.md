@@ -15,7 +15,7 @@ Use this copy for the initial AgentMailer connector and plugin submissions. Conf
 - **MCP endpoint:** <https://api.agentmailer.ai/mcp>
 - **URL mode:** Universal
 - **Transport:** Streamable HTTP
-- **Authentication:** OAuth 2.0 through WorkOS AuthKit
+- **Authentication:** OAuth 2.0 through WorkOS AuthKit with human approval for every agent signup
 - **Suggested categories:** Developer tools, productivity, communication
 - **Publisher:** Aadi Labs, using an exactly matching verified identity in each portal
 
@@ -25,13 +25,13 @@ Give AI agents isolated email inboxes. Search complete threads, prepare drafts, 
 
 ### Long description
 
-AgentMailer gives software agents durable email identities without borrowing a person's inbox. Each organization can provision isolated agent inboxes, receive and search messages, preserve complete thread context, create drafts for review, send replies, and access attachments.
+AgentMailer gives software agents durable `handle@agentmailer.ai` identities without borrowing a person's inbox. Every signup requires human approval through WorkOS. Each organization can provision isolated agent inboxes, receive and search messages, preserve complete thread context, create drafts for review, send replies, and access attachments.
 
-The hosted MCP server uses OAuth and permission-scoped access. Read tools are separated from private writes, irreversible deletes, and actions that contact external recipients. The bundled skills teach agents to use exact resource IDs, stable idempotency keys, and explicit confirmation for sends, schedules, forwards, replies, and deletions.
+The hosted MCP server uses OAuth and permission-scoped access. After WorkOS human approval, clients call `auth_me` and then `create_inbox`; unverified credentials cannot create inboxes. Read tools are separated from private writes, irreversible deletes, and actions that contact external recipients. The bundled skills teach agents to use exact resource IDs, stable idempotency keys, and explicit confirmation for sends, schedules, forwards, replies, and deletions.
 
 ### Primary use cases
 
-1. Give a support, scheduling, operations, or coding agent its own persistent inbox and address.
+1. Give a human-approved support, scheduling, operations, or coding agent its own persistent `@agentmailer.ai` inbox and address.
 2. Find and summarize relevant email across messages and complete threads.
 3. Prepare a reply as a draft so a person can review it before sending.
 4. Send, reply, or forward email after the user confirms the recipients and content.

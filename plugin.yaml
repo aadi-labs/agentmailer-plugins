@@ -1,0 +1,9 @@
+name: agentmailer
+version: 0.2.0
+description: AgentMailer skills for human-approved @agentmailer.ai inboxes and safe hosted MCP workflows
+manifest_version: 2
+api_version: 1
+author: Aadi Labs
+license: MIT
+homepage: https://github.com/aadi-labs/agentmailer-plugins
+tags: [email, mcp, agent-skills]

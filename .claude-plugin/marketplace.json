@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "agentmailer",
-      "description": "Email inboxes and safe mail workflows for AI agents.",
+      "description": "Human-approved @agentmailer.ai inboxes and safe hosted MCP workflows.",
       "version": "0.2.0",
       "source": "./",
       "category": "productivity"

@@ -1,4 +1,4 @@
 interface:
   display_name: "AgentMailer Inbox"
-  short_description: "Create and manage email inboxes for agents"
-  default_prompt: "Use $agentmailer-inbox to create or manage a dedicated agent inbox safely."
+  short_description: "Create human-approved @agentmailer.ai inboxes"
+  default_prompt: "Use $agentmailer-inbox to create or manage a human-approved AgentMailer inbox safely."

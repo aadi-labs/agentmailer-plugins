@@ -2,6 +2,7 @@
   "name": "@aadi-labs/agentmailer",
   "version": "0.2.0",
   "description": "AgentMailer skills and hosted MCP configuration for AI coding agents.",
+  "type": "module",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,8 +14,12 @@
   },
   "files": [
     "skills",
+    "plugin.yaml",
+    "__init__.py",
     "plugin.json",
     "mcp.json",
+    "openclaw.plugin.json",
+    "openclaw",
     ".mcp.json",
     ".claude-plugin",
     ".codex-plugin",
@@ -34,5 +39,26 @@
       "./skills"
     ],
     "image": "https://raw.githubusercontent.com/aadi-labs/agentmailer-plugins/main/plugins/agentmailer/assets/agentmailer-icon-512.png"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.7.1-2"
+  },
+  "peerDependenciesMeta": {
+    "openclaw": {
+      "optional": true
+    }
+  },
+  "openclaw": {
+    "extensions": [
+      "./openclaw/index.js"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.7.1-2",
+      "minGatewayVersion": "2026.7.1-2"
+    },
+    "build": {
+      "openclawVersion": "2026.7.1-2",
+      "pluginSdkVersion": "2026.7.1-2"
+    }
   }
 }

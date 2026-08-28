@@ -1,7 +1,7 @@
 {
   "name": "agentmailer",
   "version": "0.2.0",
-  "description": "Give AI agents isolated email inboxes and safe workflows for reading, drafting, and sending mail.",
+  "description": "Give AI agents human-approved @agentmailer.ai inboxes and safe workflows for reading, drafting, and sending mail.",
   "author": {
     "name": "Aadi Labs",
     "email": "support@agentmailer.ai",
@@ -22,7 +22,7 @@
   "interface": {
     "displayName": "AgentMailer",
     "shortDescription": "Email inboxes and workflows for AI agents",
-    "longDescription": "Create isolated agent inboxes, search complete email threads, prepare drafts, and send or reply after explicit approval through AgentMailer's hosted MCP server.",
+    "longDescription": "Create human-approved @agentmailer.ai inboxes through WorkOS, search complete email threads, prepare drafts, and send or reply after explicit approval through AgentMailer's hosted MCP server.",
     "developerName": "Aadi Labs",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],

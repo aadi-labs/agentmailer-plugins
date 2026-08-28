@@ -54,5 +54,5 @@
 
 - [ ] Publish `@aadi-labs/agentmailer` publicly to npm after confirming Aadi Labs scope access, then verify its `pi-package` gallery listing and Git install in a clean Pi environment.
 - [ ] Verify the OpenCode skills install, MCP OAuth, and one authenticated tool call in a clean environment; submit the repository to OpenCode's ecosystem list if it accepts integrations that are not event-hook plugins.
-- [ ] Run ClawHub package validation and a dry-run for the compatible OpenClaw bundle before publishing it under the verified Aadi Labs owner.
-- [ ] Verify Hermes installation from an immutable AgentMailer commit. Submit a community-index entry when the official `NousResearch/hermes-plugin-index` repository documented by Hermes is publicly reachable.
+- [ ] Run native OpenClaw manifest/runtime inspection, package validation, and a ClawHub publish dry-run before publishing under the verified Aadi Labs owner.
+- [ ] Verify native Hermes `plugin.yaml` discovery, skill registration, OAuth MCP login, and installation from an immutable AgentMailer commit.

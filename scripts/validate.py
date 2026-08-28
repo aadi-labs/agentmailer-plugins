@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import importlib.util
 import json
 import re
 import sys
@@ -32,7 +33,13 @@ def validate() -> None:
         ROOT / ".mcp.json",
         ROOT / "plugin.json",
         ROOT / "mcp.json",
+        ROOT / "plugin.yaml",
+        ROOT / "__init__.py",
+        ROOT / "openclaw.plugin.json",
+        ROOT / "openclaw/index.js",
         ROOT / "package.json",
+        ROOT / "compat/hermes/config.yaml",
+        ROOT / "compat/openclaw/openclaw.json",
         ROOT / "compat/opencode/opencode.json",
         ROOT / "plugins/agentmailer/assets/agentmailer-icon-512.png",
         ROOT / "README.md",
@@ -62,6 +69,62 @@ def validate() -> None:
     }
     assert codex_manifest["mcpServers"] == "./.mcp.json"
 
+    hermes_manifest = (ROOT / "plugin.yaml").read_text(encoding="utf-8")
+    assert re.search(r"^name:\s*agentmailer$", hermes_manifest, re.MULTILINE)
+    assert re.search(
+        rf"^version:\s*{re.escape(portable_manifest['version'])}$",
+        hermes_manifest,
+        re.MULTILINE,
+    )
+    assert re.search(r"^manifest_version:\s*2$", hermes_manifest, re.MULTILINE)
+    assert re.search(r"^api_version:\s*1$", hermes_manifest, re.MULTILINE)
+
+    hermes_spec = importlib.util.spec_from_file_location(
+        "agentmailer_hermes_plugin", ROOT / "__init__.py"
+    )
+    assert hermes_spec and hermes_spec.loader
+    hermes_plugin = importlib.util.module_from_spec(hermes_spec)
+    hermes_spec.loader.exec_module(hermes_plugin)
+
+    class SkillContext:
+        def __init__(self) -> None:
+            self.skills: list[tuple[str, Path]] = []
+
+        def register_skill(self, name: str, path: Path) -> None:
+            self.skills.append((name, path))
+
+    skill_context = SkillContext()
+    hermes_plugin.register(skill_context)
+    assert [name for name, _ in skill_context.skills] == sorted(SKILLS)
+    assert all(path.is_file() for _, path in skill_context.skills)
+
+    hermes_mcp = (ROOT / "compat/hermes/config.yaml").read_text(encoding="utf-8")
+    assert "mcp_servers:" in hermes_mcp
+    assert f'url: "{EXPECTED_URL}"' in hermes_mcp
+    assert "auth: oauth" in hermes_mcp
+
+    openclaw_manifest = load_json(ROOT / "openclaw.plugin.json")
+    assert openclaw_manifest["id"] == portable_manifest["name"]
+    assert openclaw_manifest["version"] == portable_manifest["version"]
+    assert openclaw_manifest["skills"] == ["./skills"]
+    assert openclaw_manifest["mcpServers"]["agentmailer"] == {
+        "url": EXPECTED_URL,
+        "transport": "streamable-http",
+        "auth": "oauth",
+    }
+    assert openclaw_manifest["activation"]["onStartup"] is False
+    assert openclaw_manifest["configSchema"] == {
+        "type": "object",
+        "additionalProperties": False,
+        "properties": {},
+    }
+    openclaw_config = load_json(ROOT / "compat/openclaw/openclaw.json")
+    assert openclaw_config["mcp"]["servers"]["agentmailer"] == {
+        "url": EXPECTED_URL,
+        "transport": "streamable-http",
+        "auth": "oauth",
+    }
+
     codex_marketplace = load_json(ROOT / ".agents/plugins/marketplace.json")
     claude_marketplace = load_json(ROOT / ".claude-plugin/marketplace.json")
     assert codex_marketplace["plugins"][0]["source"]["path"] == "."
@@ -74,6 +137,17 @@ def validate() -> None:
     assert pi_package["pi"]["skills"] == ["./skills"]
     assert pi_package["pi"]["image"].startswith("https://")
     assert pi_package["version"] == portable_manifest["version"]
+    assert pi_package["type"] == "module"
+    assert pi_package["openclaw"]["extensions"] == ["./openclaw/index.js"]
+    assert pi_package["peerDependencies"]["openclaw"].startswith(">=")
+    assert pi_package["peerDependenciesMeta"]["openclaw"]["optional"] is True
+    for packaged_path in (
+        "plugin.yaml",
+        "__init__.py",
+        "openclaw.plugin.json",
+        "openclaw",
+    ):
+        assert packaged_path in pi_package["files"]
 
     opencode = load_json(ROOT / "compat/opencode/opencode.json")
     assert opencode["mcp"]["agentmailer"] == {

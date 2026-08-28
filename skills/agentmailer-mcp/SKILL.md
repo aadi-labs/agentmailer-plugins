@@ -1,6 +1,6 @@
 ---
 name: agentmailer-mcp
-description: Connect or troubleshoot AgentMailer's hosted MCP server in Claude Code, Codex, Cursor, and other MCP clients using OAuth discovery.
+description: Connect to AgentMailer's hosted MCP server, complete WorkOS human approval, or troubleshoot OAuth in Claude Code, Codex, Cursor, and other MCP clients.
 ---
 
 # AgentMailer MCP
@@ -19,7 +19,16 @@ Choose the shortest path for the active client:
 - Codex: `codex mcp add agentmailer --url https://api.agentmailer.ai/mcp`
 - Other clients: add the endpoint as a remote HTTP MCP server and complete OAuth in the client.
 
-After authorization, call `auth_me` first when permission or tenant scope is unclear. Use `list_inboxes` as a low-risk functional check.
+Every first-time signup requires a human to approve access through WorkOS. After authorization:
+
+1. Call `auth_me` and require a trusted identity with `inboxes:create` before creating an inbox.
+2. Call `list_inboxes` as a low-risk functional check.
+3. If no existing inbox fits, call `create_inbox` with a stable idempotency key and an optional lowercase username.
+4. Verify the returned address ends in `@agentmailer.ai`.
+
+If the client cannot complete MCP OAuth and requires an API key, follow `https://api.agentmailer.ai/llms.txt`: call `POST /v1/agent/sign-up` with `human_email` and `username`, present the returned WorkOS approval URL to the human, then follow `auth.md`. Pass the resulting key only through the client's supported `x-api-key` configuration.
+
+Do not call `create_inbox` with an unverified credential. A `human_approval_required` response means the WorkOS approval ceremony is incomplete; show the existing approval URL or restart the documented signup flow instead of retrying blindly.
 
 ## Diagnose
 

@@ -69,28 +69,37 @@ opencode mcp auth agentmailer
 
 AgentMailer uses OpenCode's native Agent Skills and remote MCP surfaces. It does not install an event-hook plugin because no OpenCode lifecycle hooks are required.
 
-### OpenClaw bundle
+### OpenClaw plugin
 
-OpenClaw understands the repository's Claude, Codex, skills, and MCP bundle directly:
+Install the native OpenClaw plugin from Git:
 
 ```sh
 openclaw plugins install git:github.com/aadi-labs/agentmailer-plugins
 openclaw plugins enable agentmailer
 openclaw gateway restart
 openclaw plugins inspect agentmailer --runtime --json
+openclaw mcp login agentmailer
 ```
 
-Review the source before installing. OpenClaw plugin bundles can load instructions and connect to MCP servers.
+The native `openclaw.plugin.json` manifest contributes the shared skills and declares the OAuth-enabled hosted MCP server. Its built JavaScript runtime entry is declared in `package.json` so OpenClaw loads this as a native plugin instead of relying on compatible-bundle detection.
+
+OpenClaw `2026.7.1-2` loads the native runtime but does not yet expose manifest-owned MCP servers in its released plugin registry. On that release, merge [`compat/openclaw/openclaw.json`](compat/openclaw/openclaw.json) into `openclaw.json` before running `openclaw mcp login agentmailer`. Newer releases that implement the documented native `mcpServers` field do not need that fallback.
 
 ### Hermes Agent plugin
 
-Hermes Agent supports the portable Agent Plugins v1 package at the repository root:
+Install and enable the native Hermes plugin:
 
 ```sh
 hermes plugins install aadi-labs/agentmailer-plugins --enable
 ```
 
 Hermes Desktop also supports this install link: [Install AgentMailer in Hermes](hermes://plugin/install?repo=aadi-labs/agentmailer-plugins&enable=1).
+
+The native `plugin.yaml` and `__init__.py` register all three shared skills through `ctx.register_skill()`. Hermes configures external MCP servers separately from native plugin registration, so merge [`compat/hermes/config.yaml`](compat/hermes/config.yaml) into `~/.hermes/config.yaml`, then authenticate:
+
+```sh
+hermes mcp login agentmailer
+```
 
 ### MCP only
 
@@ -102,12 +111,25 @@ https://api.agentmailer.ai/mcp
 
 The server advertises OAuth protected-resource metadata. Do not paste OAuth tokens into configuration files or prompts.
 
+## First-time signup and inbox creation
+
+Every AgentMailer identity requires human approval through WorkOS and receives an address at `handle@agentmailer.ai`.
+
+For OAuth-capable MCP clients:
+
+1. Connect to `https://api.agentmailer.ai/mcp` and open the WorkOS authorization flow.
+2. Ask the human owner to approve access.
+3. Call `auth_me`; continue only when it reports a trusted identity with `inboxes:create`.
+4. Call `create_inbox` with a stable idempotency key and the requested username.
+
+For clients that require an API key, follow the canonical sequence at <https://api.agentmailer.ai/llms.txt>: call `POST /v1/agent/sign-up` with `human_email` and `username`, show the returned WorkOS approval URL to that human, complete `auth.md` after approval, then pass the credential through the client's supported `x-api-key` configuration. Never put the key in prompts or committed files.
+
 ## Included skills
 
 | Skill | Use it for |
 | --- | --- |
-| `agentmailer-mcp` | Connect or troubleshoot the hosted MCP server and OAuth |
-| `agentmailer-inbox` | Create, inspect, update, or deactivate agent inboxes |
+| `agentmailer-mcp` | Connect, complete WorkOS human approval, or troubleshoot hosted MCP OAuth |
+| `agentmailer-inbox` | Create or manage human-approved `@agentmailer.ai` inboxes |
 | `agentmailer-email` | Read, search, triage, draft, send, reply, label, or delete email |
 
 ## Compatibility
@@ -118,8 +140,8 @@ The server advertises OAuth protected-resource metadata. Do not paste OAuth toke
 | Codex / ChatGPT | Codex repo marketplace plugin | Yes | Yes |
 | Pi | Git package via `package.json#pi` | Yes | Client extension required |
 | OpenCode | Agent Skills + `opencode.json` template | Yes | Yes |
-| OpenClaw | Compatible Claude/Codex bundle | Yes | Yes |
-| Hermes Agent | Agent Plugins v1 Git package | Yes | Yes |
+| OpenClaw | Native manifest + JavaScript runtime | Yes | Yes |
+| Hermes Agent | Native Python plugin + config template | Yes | Yes |
 | skills.sh clients | Agent Skills repository | Yes | Client-dependent |
 
 ## Safety model
@@ -153,8 +175,14 @@ See [SECURITY.md](SECURITY.md) before reporting a vulnerability.
 plugin.json                          Portable Agent Plugins v1 manifest
 mcp.json                             Portable Agent Plugins v1 MCP config
 package.json                         Pi package manifest
+plugin.yaml                          Native Hermes Agent manifest
+__init__.py                          Native Hermes Agent skill registration
+openclaw.plugin.json                 Native OpenClaw manifest
+openclaw/index.js                    Native OpenClaw runtime entry
 skills/                              Canonical shared skills
 compat/opencode/opencode.json        OpenCode remote MCP config template
+compat/hermes/config.yaml             Hermes OAuth MCP config template
+compat/openclaw/openclaw.json         OpenClaw MCP fallback for older releases
 submission/                          Review-ready listing and test material
 ```
 
@@ -167,6 +195,9 @@ python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-inbo
 python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-email
 claude plugin validate .
 npx skills add . --list
+hermes plugins doctor . --ci
+node --check openclaw/index.js
+openclaw plugins inspect agentmailer --runtime --json
 ```
 
 ## Contributing
