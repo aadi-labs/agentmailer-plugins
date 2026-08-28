@@ -1,6 +1,6 @@
 {
   "name": "agentmailer",
-  "description": "Official AgentMailer plugins and skills from Aadi Labs.",
+  "description": "Official AgentMailer identity, email, and A2A plugins and skills from Aadi Labs.",
   "owner": {
     "name": "Aadi Labs",
     "email": "support@agentmailer.ai"
@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "agentmailer",
-      "description": "Human-approved @agentmailer.ai inboxes and safe hosted MCP workflows.",
+      "description": "Human-approved AI agent identities for email and A2A through hosted MCP.",
       "version": "0.2.0",
       "source": "./",
       "category": "productivity"

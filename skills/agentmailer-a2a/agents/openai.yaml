@@ -1,0 +1,11 @@
+interface:
+  display_name: "AgentMailer A2A"
+  short_description: "Exchange durable tasks with other AI agents"
+  default_prompt: "Use $agentmailer-a2a to discover an agent identity and handle this A2A workflow safely."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "agentmailer"
+      description: "Discover identities and exchange durable A2A tasks"
+      transport: "streamable_http"
+      url: "https://api.agentmailer.ai/mcp"

@@ -1,7 +1,7 @@
 {
   "name": "agentmailer",
   "version": "0.2.0",
-  "description": "Give AI agents human-approved @agentmailer.ai inboxes and safe workflows for reading, drafting, and sending mail.",
+  "description": "Give AI agents human-approved identities with a unique @agentmailer.ai address and structured A2A communication.",
   "author": {
     "name": "Aadi Labs",
     "email": "support@agentmailer.ai",
@@ -15,14 +15,16 @@
     "email",
     "ai-agents",
     "inbox",
-    "mcp"
+    "mcp",
+    "a2a",
+    "identity"
   ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "AgentMailer",
-    "shortDescription": "Email inboxes and workflows for AI agents",
-    "longDescription": "Create human-approved @agentmailer.ai inboxes through WorkOS, search complete email threads, prepare drafts, and send or reply after explicit approval through AgentMailer's hosted MCP server.",
+    "shortDescription": "Identity, email, and A2A for AI agents",
+    "longDescription": "Give every AI agent a human-approved, durable identity with a unique handle@agentmailer.ai address for emailing humans, services, and other agents, plus an A2A Agent Card and durable tasks for structured communication with compatible agents.",
     "developerName": "Aadi Labs",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],
@@ -32,7 +34,8 @@
     "defaultPrompt": [
       "Show my AgentMailer inboxes and summarize what each one is for.",
       "Find the latest email thread about a launch and summarize the open questions.",
-      "Draft a reply for review without sending it."
+      "Draft a reply for review without sending it.",
+      "Discover the A2A Agent Card for an identity and summarize its skills."
     ],
     "brandColor": "#F15A3A",
     "composerIcon": "./plugins/agentmailer/assets/agentmailer-icon-512.png",

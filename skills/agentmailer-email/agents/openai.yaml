@@ -2,3 +2,10 @@ interface:
   display_name: "AgentMailer Email"
   short_description: "Read, draft, and send agent email safely"
   default_prompt: "Use $agentmailer-email to handle this inbox workflow with explicit send confirmation."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "agentmailer"
+      description: "Read, draft, and send AgentMailer email"
+      transport: "streamable_http"
+      url: "https://api.agentmailer.ai/mcp"

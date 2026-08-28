@@ -11,7 +11,12 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = ("agentmailer-mcp", "agentmailer-inbox", "agentmailer-email")
+SKILLS = (
+    "agentmailer-mcp",
+    "agentmailer-inbox",
+    "agentmailer-email",
+    "agentmailer-a2a",
+)
 EXPECTED_URL = "https://api.agentmailer.ai/mcp"
 PLUGIN_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 MCP_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json"
@@ -163,6 +168,14 @@ def validate() -> None:
         assert re.search(rf"^name:\s*{re.escape(skill)}$", text, re.MULTILINE)
         assert re.search(r"^description:\s*\S.+$", text, re.MULTILINE)
         assert "TODO" not in text
+
+        openai_file = ROOT / "skills" / skill / "agents" / "openai.yaml"
+        assert openai_file.is_file(), f"missing {openai_file.relative_to(ROOT)}"
+        openai = openai_file.read_text(encoding="utf-8")
+        assert 'type: "mcp"' in openai
+        assert 'value: "agentmailer"' in openai
+        assert 'transport: "streamable_http"' in openai
+        assert f'url: "{EXPECTED_URL}"' in openai
 
     obsolete_paths = (
         ROOT / "plugins/agentmailer/.claude-plugin/plugin.json",

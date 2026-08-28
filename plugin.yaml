@@ -1,6 +1,6 @@
 name: agentmailer
 version: 0.2.0
-description: AgentMailer skills for human-approved @agentmailer.ai inboxes and safe hosted MCP workflows
+description: AgentMailer skills for human-approved AI agent identities, email, and A2A through hosted MCP
 manifest_version: 2
 api_version: 1
 author: Aadi Labs

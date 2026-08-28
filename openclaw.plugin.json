@@ -1,12 +1,10 @@
 {
   "id": "agentmailer",
   "name": "AgentMailer",
-  "description": "Give AI agents human-approved @agentmailer.ai inboxes and safe workflows for reading, drafting, and sending mail.",
+  "description": "Give AI agents human-approved identities for email and structured A2A communication.",
   "version": "0.2.0",
   "icon": "https://raw.githubusercontent.com/aadi-labs/agentmailer-plugins/main/plugins/agentmailer/assets/agentmailer-icon-512.png",
-  "skills": [
-    "./skills"
-  ],
+  "skills": ["./skills"],
   "mcpServers": {
     "agentmailer": {
       "url": "https://api.agentmailer.ai/mcp",

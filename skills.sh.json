@@ -4,11 +4,12 @@
   "groupings": [
     {
       "title": "AgentMailer",
-      "description": "Connect AI agents to human-approved @agentmailer.ai inboxes and operate them safely through hosted MCP.",
+      "description": "Give AI agents human-approved identities for safe email and A2A communication through hosted MCP.",
       "skills": [
         "agentmailer-mcp",
         "agentmailer-inbox",
-        "agentmailer-email"
+        "agentmailer-email",
+        "agentmailer-a2a"
       ]
     }
   ]

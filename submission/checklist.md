@@ -4,7 +4,7 @@
 
 - [ ] GitHub repository is public under the verified publisher organization.
 - [ ] `claude plugin validate .` passes from the repository root.
-- [ ] `npx skills add aadi-labs/agentmailer-plugins --list` discovers all three skills.
+- [ ] `npx skills add aadi-labs/agentmailer-plugins --list` discovers all four skills.
 - [ ] Codex repo marketplace installs in a clean desktop environment.
 - [ ] Claude marketplace and plugin install in a clean Claude Code environment.
 - [ ] Repository About description, website, and topics are set for discovery.
@@ -12,6 +12,8 @@
 ## Deployed service
 
 - [ ] MCP endpoint and OAuth metadata return expected responses from the public internet.
+- [ ] MCP initialization advertises `io.modelcontextprotocol/skills` under `capabilities.extensions`.
+- [ ] `skills/list`, `skills/get`, and `resources/read` expose all four skills, and every returned resource matches its SHA-256 digest.
 - [ ] Every tool has a title and accurate `readOnlyHint`, `openWorldHint`, and `destructiveHint` annotations.
 - [ ] Public documentation, privacy, terms, and support URLs return `200`.
 - [ ] Every submitted tool passes an end-to-end reviewer-account run.
@@ -45,7 +47,8 @@
 - [ ] Aadi Labs developer or business identity is verified and matches the public listing.
 - [ ] Create a new **With MCP** submission using the Universal URL.
 - [ ] Complete the portal-provided domain challenge at `/.well-known/openai-apps-challenge` without replacing another plugin's active token.
-- [ ] Upload or import the final three skills and re-run Scan Tools.
+- [ ] Import the final four skills from the deployed MCP server with Scan Tools.
+- [ ] Re-run Scan Tools after every deployed skill change because the directory stores a static snapshot.
 - [ ] Enter the five positive and three negative cases from `test-cases.md`.
 - [ ] Select only regions where product support and legal terms are ready.
 - [ ] Submitter personally completes the policy attestations.

@@ -1,7 +1,7 @@
 {
   "name": "@aadi-labs/agentmailer",
   "version": "0.2.0",
-  "description": "AgentMailer skills and hosted MCP configuration for AI coding agents.",
+  "description": "AgentMailer identity, email, and A2A skills with hosted MCP for AI agents.",
   "type": "module",
   "license": "MIT",
   "repository": {
@@ -32,7 +32,9 @@
     "agentmailer",
     "agent-skills",
     "email",
-    "mcp"
+    "mcp",
+    "a2a",
+    "agent-identity"
   ],
   "pi": {
     "skills": [
