@@ -1,5 +1,5 @@
 {
-  "name": "@aadi-labs/agentmailer",
+  "name": "@agentmailer/agentmailer",
   "version": "0.2.1",
   "description": "AgentMailer identity, email, and A2A skills with hosted MCP for AI agents.",
   "type": "module",

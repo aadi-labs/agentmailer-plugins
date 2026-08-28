@@ -137,7 +137,7 @@ def validate() -> None:
     assert claude_marketplace["plugins"][0]["version"] == portable_manifest["version"]
 
     pi_package = load_json(ROOT / "package.json")
-    assert pi_package["name"] == "@aadi-labs/agentmailer"
+    assert pi_package["name"] == "@agentmailer/agentmailer"
     assert "pi-package" in pi_package["keywords"]
     assert pi_package["pi"]["skills"] == ["./skills"]
     assert pi_package["pi"]["image"].startswith("https://")
