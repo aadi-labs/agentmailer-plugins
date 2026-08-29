@@ -176,7 +176,7 @@ The plugin itself stores no credentials or email data. It connects to AgentMaile
 - Support: <https://agentmailer.ai/support>
 - Privacy: <https://agentmailer.ai/privacy>
 - Terms: <https://agentmailer.ai/terms>
-- Security reports: `support@agentmailer.ai` with “Security” in the subject
+- Security reports: `security@agentmailer.ai` with “Security” in the subject
 
 See [SECURITY.md](SECURITY.md) before reporting a vulnerability.
 
