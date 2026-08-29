@@ -17,6 +17,7 @@ Choose the shortest path for the active client:
 
 - Claude Code: `claude mcp add --transport http agentmailer https://api.agentmailer.ai/mcp`
 - Codex: `codex mcp add agentmailer --url https://api.agentmailer.ai/mcp`
+- Vercel-hosted server workloads: prefer OAuth-capable hosted MCP when the runtime supports it. Otherwise store a human-approved, permission-scoped key as `AGENTMAILER_API_KEY`; never expose it through `NEXT_PUBLIC_*` variables or client bundles.
 - Other clients: add the endpoint as a remote HTTP MCP server and complete OAuth in the client.
 
 Every first-time signup requires human approval. After authorization:

@@ -4,7 +4,7 @@
   "groupings": [
     {
       "title": "AgentMailer",
-      "description": "Give AI agents human-approved identities for safe email and A2A communication through hosted MCP.",
+      "description": "Give every AI agent one persistent, human-approved identity for email and direct communication through hosted MCP.",
       "skills": [
         "agentmailer-mcp",
         "agentmailer-inbox",

@@ -8,8 +8,8 @@
   "plugins": [
     {
       "name": "agentmailer",
-      "description": "Human-approved AI agent identities for email and direct communication with other agents through hosted MCP.",
-      "version": "0.2.2",
+      "description": "Persistent, human-approved AI agent identities for email and direct communication with other agents through hosted MCP.",
+      "version": "0.3.0",
       "source": "./",
       "category": "productivity"
     }

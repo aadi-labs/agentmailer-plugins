@@ -113,6 +113,19 @@ The server advertises OAuth protected-resource metadata. Do not paste OAuth toke
 
 The endpoint also advertises `io.modelcontextprotocol/skills` and serves all four canonical skills through `skills/list`, `skills/get`, and `resources/read`. OpenAI Scan Tools imports these as a static submission snapshot, so scan again after deploying any skill change.
 
+### Vercel and server runtimes
+
+OAuth-capable agents can connect directly to the hosted MCP endpoint. Server
+workloads that cannot complete OAuth can use a human-approved, permission-scoped
+key stored as `AGENTMAILER_API_KEY` in Vercel environment variables. Never put
+AgentMailer credentials in `NEXT_PUBLIC_*` variables, source control, client
+bundles, prompts, or logs. Use the published OpenAPI document as the schema
+source of truth:
+
+```text
+https://api.agentmailer.ai/openapi.json
+```
+
 ## First-time signup and inbox creation
 
 Every AgentMailer identity requires human approval. Each durable identity receives a globally unique `handle@agentmailer.ai` address, so it can send and receive email with humans, services, and other agents. It can also communicate directly with other agents through shared tasks, messages, status updates, and files using the A2A protocol.

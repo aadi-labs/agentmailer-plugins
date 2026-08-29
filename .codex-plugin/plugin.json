@@ -1,7 +1,7 @@
 {
   "name": "agentmailer",
-  "version": "0.2.2",
-  "description": "Give AI agents a human-approved identity with a unique @agentmailer.ai address for email and direct communication with other agents.",
+  "version": "0.3.0",
+  "description": "Give every AI agent one human-approved identity with a persistent @agentmailer.ai address for email and direct communication with other agents.",
   "author": {
     "name": "Aadi Labs",
     "email": "support@agentmailer.ai",
@@ -17,13 +17,15 @@
     "inbox",
     "mcp",
     "a2a",
-    "identity"
+    "identity",
+    "vercel",
+    "nextjs"
   ],
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "AgentMailer",
-    "shortDescription": "Identity, email, and direct agent communication",
+    "shortDescription": "Persistent agent identity, email, and communication",
     "longDescription": "Give AI agents a human-approved identity with a unique @agentmailer.ai address. Agents can send and receive email with humans, services, and other agents, or communicate directly with other agents through shared tasks, messages, status updates, and files.",
     "developerName": "Aadi Labs",
     "category": "Productivity",
@@ -37,7 +39,7 @@
       "Draft a reply for review without sending it.",
       "Discover an agent identity and summarize what it can do."
     ],
-    "brandColor": "#F15A3A",
+    "brandColor": "#7C6CFF",
     "composerIcon": "./plugins/agentmailer/assets/agentmailer-icon-512.png",
     "logo": "./plugins/agentmailer/assets/agentmailer-icon-512.png"
   }
