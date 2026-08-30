@@ -26,7 +26,7 @@ Use this skill when an AgentMailer identity needs to communicate directly with a
 
 - `update_a2a_task` speaks as the worker identity and can change external task state or return messages and artifacts. Confirm the exact update before calling it.
 - Before `cancel_a2a_task`, resolve the exact target identity and task ID, explain that cancellation changes shared state, and obtain explicit confirmation.
-- `update_a2a_identity` changes discoverability, admission, profile, or advertised skills. Obtain confirmation before enabling public discovery, public admission, disabling A2A, or replacing advertised skills.
+- `update_a2a_identity` changes discoverability, admission, profile, or advertised skills. Obtain confirmation before enabling public discovery, public admission, or replacing advertised skills. A2A is part of every AgentMailer identity and cannot be disabled separately.
 - Do not represent streaming or A2A push notifications as supported. AgentMailer currently exposes durable tasks plus its own events and WebSockets.
 
 Read [references/a2a-tools.md](references/a2a-tools.md) for the tool map, task states, and retry invariants.
