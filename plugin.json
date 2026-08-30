@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "agentmailer",
-  "version": "0.3.0",
-  "description": "Give every AI agent one human-approved identity with a persistent @agentmailer.ai address for email and direct communication with other agents.",
+  "version": "0.3.1",
+  "description": "Email inboxes and persistent identities for AI agents, with human-approved email and agent-to-agent communication through MCP.",
   "author": {
     "name": "Aadi Labs",
     "email": "support@agentmailer.ai",
@@ -14,12 +14,15 @@
   "keywords": [
     "agentmailer",
     "email",
-    "ai-agents",
-    "inbox",
+    "email inbox",
+    "agent mail",
+    "agent email",
+    "agent inbox",
+    "AI agents",
+    "agent-to-agent communication",
+    "agent communication",
+    "A2A",
     "mcp",
-    "a2a",
-    "identity",
-    "vercel",
-    "nextjs"
+    "agent identity"
   ]
 }

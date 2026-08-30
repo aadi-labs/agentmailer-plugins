@@ -130,7 +130,9 @@ def validate() -> None:
     claude_marketplace = load_json(ROOT / ".claude-plugin/marketplace.json")
     assert codex_marketplace["plugins"][0]["source"]["path"] == "."
     assert claude_marketplace["plugins"][0]["source"] == "./"
-    assert claude_marketplace["plugins"][0]["version"] == portable_manifest["version"]
+    assert "version" not in claude_marketplace["plugins"][0]
+    assert claude_marketplace["plugins"][0]["skills"] == "./skills/"
+    assert claude_marketplace["plugins"][0]["mcpServers"] == "./.mcp.json"
 
     pi_package = load_json(ROOT / "package.json")
     assert pi_package["name"] == "@agentmailer/agentmailer"

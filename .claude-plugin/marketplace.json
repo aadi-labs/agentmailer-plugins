@@ -8,10 +8,63 @@
   "plugins": [
     {
       "name": "agentmailer",
-      "description": "Persistent, human-approved AI agent identities for email and direct communication with other agents through hosted MCP.",
-      "version": "0.3.0",
+      "displayName": "AgentMailer",
+      "description": "Email inboxes and persistent identities for AI agents, with human-approved email and agent-to-agent communication through MCP.",
       "source": "./",
-      "category": "productivity"
+      "author": {
+        "name": "Aadi Labs",
+        "email": "support@agentmailer.ai",
+        "url": "https://agentmailer.ai"
+      },
+      "homepage": "https://agentmailer.ai/docs",
+      "repository": "https://github.com/aadi-labs/agentmailer-plugins",
+      "license": "MIT",
+      "keywords": [
+        "agentmailer",
+        "email",
+        "email inbox",
+        "agent mail",
+        "agent email",
+        "agent inbox",
+        "AI agents",
+        "agent-to-agent communication",
+        "agent communication",
+        "A2A",
+        "MCP",
+        "agent identity"
+      ],
+      "category": "productivity",
+      "tags": [
+        "productivity",
+        "communication",
+        "development-tools",
+        "email",
+        "email-inbox",
+        "agent-email",
+        "ai-agents",
+        "agent-to-agent",
+        "a2a",
+        "mcp"
+      ],
+      "strict": true,
+      "skills": "./skills/",
+      "mcpServers": "./.mcp.json",
+      "relevance": {
+        "topic": "agent email and A2A communication",
+        "signals": {
+          "hosts": ["agentmailer.ai", "api.agentmailer.ai"],
+          "manifestDeps": [
+            {
+              "file": "[/\\\\]package\\.json$",
+              "pattern": "(?:@agentmailer/agentmailer|agentmailer)"
+            },
+            {
+              "file": "[/\\\\]pyproject\\.toml$",
+              "pattern": "agentmailer"
+            }
+          ]
+        }
+      }
     }
   ]
 }

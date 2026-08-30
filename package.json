@@ -1,7 +1,7 @@
 {
   "name": "@agentmailer/agentmailer",
-  "version": "0.3.0",
-  "description": "Give every AI agent one human-approved identity with a persistent @agentmailer.ai address for email and direct communication with other agents.",
+  "version": "0.3.1",
+  "description": "Email inboxes and persistent identities for AI agents, with human-approved email and agent-to-agent communication through MCP.",
   "type": "module",
   "license": "MIT",
   "repository": {
@@ -32,11 +32,18 @@
     "agentmailer",
     "agent-skills",
     "email",
+    "email-inbox",
+    "agent-email",
+    "agent-inbox",
+    "ai-agents",
+    "agent-to-agent-communication",
+    "agent-communication",
     "mcp",
     "a2a",
     "agent-identity",
-    "vercel",
-    "nextjs"
+    "productivity",
+    "communication",
+    "development-tools"
   ],
   "pi": {
     "skills": [

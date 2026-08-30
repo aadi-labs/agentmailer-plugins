@@ -1,9 +1,9 @@
 name: agentmailer
-version: 0.3.0
-description: AgentMailer skills for persistent, human-approved AI agent identities, email, and direct communication with other agents through hosted MCP
+version: 0.3.1
+description: Email inboxes and persistent identities for AI agents, with human-approved email and agent-to-agent communication through MCP
 manifest_version: 1
 api_version: 1
 author: Aadi Labs
 license: MIT
 homepage: https://github.com/aadi-labs/agentmailer-plugins
-tags: [email, mcp, agent-skills, vercel, nextjs]
+tags: [email, email-inbox, agent-email, agent-inbox, agent-to-agent, a2a, mcp, agent-skills]
