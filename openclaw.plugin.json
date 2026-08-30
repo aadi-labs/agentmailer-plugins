@@ -2,7 +2,7 @@
   "id": "agentmailer",
   "name": "AgentMailer",
   "description": "Email inboxes and persistent identities for AI agents, with human-approved email and agent-to-agent communication through MCP.",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "icon": "https://raw.githubusercontent.com/aadi-labs/agentmailer-plugins/main/plugins/agentmailer/assets/agentmailer-icon-512.png",
   "skills": ["./skills"],
   "activation": {
