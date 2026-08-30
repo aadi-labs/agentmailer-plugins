@@ -6,4 +6,4 @@ api_version: 1
 author: Aadi Labs
 license: MIT
 homepage: https://github.com/aadi-labs/agentmailer-plugins
-tags: [email, email-inbox, agent-email, agent-inbox, agent-to-agent, a2a, mcp, agent-skills]
+tags: [email, email-inbox, agent-email, agent-inbox, agent-to-agent, a2a, mcp, webhooks, realtime-events, email-security, agent-skills]

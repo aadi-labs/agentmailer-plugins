@@ -23,6 +23,9 @@
     "agent communication",
     "A2A",
     "mcp",
-    "agent identity"
+    "agent identity",
+    "webhooks",
+    "realtime events",
+    "email security"
   ]
 }

@@ -9,3 +9,5 @@ dependencies:
       description: "Discover identities and exchange durable tasks with other agents"
       transport: "streamable_http"
       url: "https://api.agentmailer.ai/mcp"
+policy:
+  allow_implicit_invocation: true

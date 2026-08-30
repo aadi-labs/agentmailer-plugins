@@ -3,7 +3,8 @@
   "skills": [
     "agentmailer-mcp",
     "agentmailer-inbox",
-    "agentmailer-email",
+    "agentmailer-check-email",
+    "agentmailer-send-email",
     "agentmailer-a2a"
   ]
 }

@@ -9,3 +9,5 @@ dependencies:
       description: "Create and manage AgentMailer identities and inboxes"
       transport: "streamable_http"
       url: "https://api.agentmailer.ai/mcp"
+policy:
+  allow_implicit_invocation: true

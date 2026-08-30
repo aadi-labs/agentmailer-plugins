@@ -23,6 +23,7 @@
     ".mcp.json",
     ".claude-plugin",
     ".codex-plugin",
+    ".cursor-plugin",
     "compat",
     "README.md",
     "LICENSE"
@@ -41,6 +42,9 @@
     "mcp",
     "a2a",
     "agent-identity",
+    "webhooks",
+    "realtime-events",
+    "email-security",
     "productivity",
     "communication",
     "development-tools"

@@ -9,3 +9,5 @@ dependencies:
       description: "Connect to AgentMailer and inspect authentication"
       transport: "streamable_http"
       url: "https://api.agentmailer.ai/mcp"
+policy:
+  allow_implicit_invocation: true

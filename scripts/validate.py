@@ -14,7 +14,26 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILLS = (
     "agentmailer-mcp",
     "agentmailer-inbox",
+    "agentmailer-check-email",
+    "agentmailer-send-email",
     "agentmailer-email",
+    "agentmailer-a2a",
+    "agentmailer-events",
+    "agentmailer-security",
+)
+MCP_SKILLS = {
+    "agentmailer-mcp",
+    "agentmailer-inbox",
+    "agentmailer-check-email",
+    "agentmailer-send-email",
+    "agentmailer-email",
+    "agentmailer-a2a",
+}
+HOSTED_SKILLS = (
+    "agentmailer-mcp",
+    "agentmailer-inbox",
+    "agentmailer-check-email",
+    "agentmailer-send-email",
     "agentmailer-a2a",
 )
 EXPECTED_URL = "https://api.agentmailer.ai/mcp"
@@ -30,11 +49,19 @@ def load_json(path: Path) -> object:
 
 
 def validate() -> None:
+    discovered_skills = sorted(
+        path.name
+        for path in (ROOT / "skills").iterdir()
+        if path.is_dir() and (path / "SKILL.md").is_file()
+    )
+    assert discovered_skills == sorted(SKILLS), "skills directory and package index disagree"
+
     required = (
         ROOT / ".agents/plugins/marketplace.json",
         ROOT / ".claude-plugin/marketplace.json",
         ROOT / ".claude-plugin/plugin.json",
         ROOT / ".codex-plugin/plugin.json",
+        ROOT / ".cursor-plugin/plugin.json",
         ROOT / ".mcp.json",
         ROOT / "plugin.json",
         ROOT / "mcp.json",
@@ -57,12 +84,30 @@ def validate() -> None:
     claude_manifest = load_json(ROOT / ".claude-plugin/plugin.json")
     codex_manifest = load_json(ROOT / ".codex-plugin/plugin.json")
     portable_manifest = load_json(ROOT / "plugin.json")
+    cursor_manifest = load_json(ROOT / ".cursor-plugin/plugin.json")
     assert isinstance(claude_manifest, dict)
     assert isinstance(codex_manifest, dict)
     assert isinstance(portable_manifest, dict)
-    assert claude_manifest["name"] == codex_manifest["name"] == portable_manifest["name"] == "agentmailer"
-    assert claude_manifest["version"] == codex_manifest["version"] == portable_manifest["version"]
+    assert isinstance(cursor_manifest, dict)
+    assert claude_manifest["name"] == codex_manifest["name"] == cursor_manifest["name"] == portable_manifest["name"] == "agentmailer"
+    assert claude_manifest["version"] == codex_manifest["version"] == cursor_manifest["version"] == portable_manifest["version"]
     assert portable_manifest["$schema"] == PLUGIN_SCHEMA
+    canonical_keywords = set(portable_manifest["keywords"])
+    for manifest in (claude_manifest, codex_manifest, cursor_manifest):
+        assert set(manifest["keywords"]) == canonical_keywords
+    assert {
+        "email inbox",
+        "agent mail",
+        "agent email",
+        "agent-to-agent communication",
+        "webhooks",
+        "realtime events",
+        "email security",
+    }.issubset(canonical_keywords)
+    for field in ("skills", "mcpServers", "logo"):
+        value = cursor_manifest[field]
+        assert isinstance(value, str) and value.startswith("./")
+        assert (ROOT / value[2:]).exists(), f"invalid Cursor path: {value}"
 
     claude_mcp = load_json(ROOT / ".mcp.json")
     portable_mcp = load_json(ROOT / "mcp.json")
@@ -133,6 +178,17 @@ def validate() -> None:
     assert "version" not in claude_marketplace["plugins"][0]
     assert claude_marketplace["plugins"][0]["skills"] == "./skills/"
     assert claude_marketplace["plugins"][0]["mcpServers"] == "./.mcp.json"
+    assert set(claude_marketplace["plugins"][0]["keywords"]) == canonical_keywords
+    assert {
+        "productivity",
+        "communication",
+        "development-tools",
+        "email",
+        "agent-email",
+        "webhooks",
+        "realtime-events",
+        "email-security",
+    }.issubset(set(claude_marketplace["plugins"][0]["tags"]))
 
     pi_package = load_json(ROOT / "package.json")
     assert pi_package["name"] == "@agentmailer/agentmailer"
@@ -149,6 +205,7 @@ def validate() -> None:
         "__init__.py",
         "openclaw.plugin.json",
         "openclaw",
+        ".cursor-plugin",
     ):
         assert packaged_path in pi_package["files"]
 
@@ -174,10 +231,32 @@ def validate() -> None:
         openai_file = ROOT / "skills" / skill / "agents" / "openai.yaml"
         assert openai_file.is_file(), f"missing {openai_file.relative_to(ROOT)}"
         openai = openai_file.read_text(encoding="utf-8")
-        assert 'type: "mcp"' in openai
-        assert 'value: "agentmailer"' in openai
-        assert 'transport: "streamable_http"' in openai
-        assert f'url: "{EXPECTED_URL}"' in openai
+        assert f"${skill}" in openai
+        if skill in MCP_SKILLS:
+            assert 'type: "mcp"' in openai
+            assert 'value: "agentmailer"' in openai
+            assert 'transport: "streamable_http"' in openai
+            assert f'url: "{EXPECTED_URL}"' in openai
+        else:
+            assert "dependencies:" not in openai
+        expected_policy = "false" if skill == "agentmailer-email" else "true"
+        assert f"allow_implicit_invocation: {expected_policy}" in openai
+
+    skill_catalog = load_json(ROOT / "skills.json")
+    assert skill_catalog["skills"] == list(HOSTED_SKILLS)
+    skills_sh = load_json(ROOT / "skills.sh.json")
+    assert skills_sh["groupings"][0]["skills"] == list(SKILLS)
+
+    markdown_link = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+    for path in ROOT.rglob("*.md"):
+        if ".git" in path.parts or "reports" in path.parts:
+            continue
+        for target in markdown_link.findall(path.read_text(encoding="utf-8")):
+            target = target.strip().strip("<>").split("#", 1)[0]
+            if not target or re.match(r"^[a-z][a-z0-9+.-]*:", target, re.IGNORECASE):
+                continue
+            resolved = (path.parent / target).resolve()
+            assert resolved.exists(), f"broken link in {path.relative_to(ROOT)}: {target}"
 
     obsolete_paths = (
         ROOT / "plugins/agentmailer/.claude-plugin/plugin.json",

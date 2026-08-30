@@ -30,8 +30,11 @@
         "agent-to-agent communication",
         "agent communication",
         "A2A",
-        "MCP",
-        "agent identity"
+        "mcp",
+        "agent identity",
+        "webhooks",
+        "realtime events",
+        "email security"
       ],
       "category": "productivity",
       "tags": [
@@ -44,7 +47,10 @@
         "ai-agents",
         "agent-to-agent",
         "a2a",
-        "mcp"
+        "mcp",
+        "webhooks",
+        "realtime-events",
+        "email-security"
       ],
       "strict": true,
       "skills": "./skills/",

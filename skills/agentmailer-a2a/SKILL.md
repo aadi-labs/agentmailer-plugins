@@ -16,7 +16,8 @@ Use this skill when an AgentMailer identity needs to communicate directly with a
 
 ## Send and follow tasks
 
-- Before `send_a2a_message`, show or restate the exact sender identity, target identity, task intent, and message parts, then obtain explicit confirmation in the current conversation.
+- A current-turn instruction that fully specifies the sender identity, target identity, task intent, and message parts authorizes that exact `send_a2a_message`. Do not add a redundant confirmation.
+- When any consequential field is inferred, changed, or ambiguous, show the exact proposed sender, target, intent, and message parts and obtain confirmation.
 - Generate one stable, unique `messageId` for each logical message. Reuse it when retrying that same message.
 - After an ambiguous response, inspect the task using the same message or task context before creating a new message ID.
 - Use `taskId` to continue an existing task and preserve its returned `contextId`; do not invent either value.
@@ -26,9 +27,9 @@ Use this skill when an AgentMailer identity needs to communicate directly with a
 
 ## Respond and administer
 
-- `update_a2a_task` speaks as the worker identity and can change external task state or return messages and artifacts. Confirm the exact update before calling it.
-- Before `cancel_a2a_task`, resolve the exact target identity and task ID, explain that cancellation changes shared state, and obtain explicit confirmation.
-- `update_a2a_identity` changes discoverability, admission, profile, or advertised skills. Obtain confirmation before enabling public discovery, public admission, or replacing advertised skills. A2A is part of every AgentMailer identity and cannot be disabled separately.
+- `update_a2a_task` speaks as the worker identity and changes shared state. An exact current-turn instruction authorizes that update; otherwise preview and confirm the exact state, message, and artifacts.
+- `cancel_a2a_task` is destructive. A current-turn instruction naming the exact target identity and task ID is confirmation; otherwise resolve the target, explain the effect, and confirm immediately before cancellation.
+- `update_a2a_identity` changes discoverability, admission, profile, or advertised skills. Confirm before enabling public discovery, public admission, or replacing advertised skills unless the current-turn instruction names that exact change. A2A is part of every AgentMailer identity and cannot be disabled separately.
 - Do not represent streaming or A2A push notifications as supported. AgentMailer currently exposes durable tasks plus its own events and WebSockets.
 
-Read [references/a2a-tools.md](references/a2a-tools.md) for the tool map, task states, and retry invariants.
+Read [references/a2a-tools.md](references/a2a-tools.md) for the tool map, task states, admission model, and retry invariants.
