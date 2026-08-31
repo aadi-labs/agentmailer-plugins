@@ -1,0 +1,56 @@
+name: Verify published clients
+
+on:
+  workflow_dispatch:
+    inputs:
+      typescript_version:
+        description: Published @agentmailer/sdk version
+        required: true
+        type: string
+      python_version:
+        description: Published agentmailer version
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  typescript:
+    runs-on: ubuntu-latest
+    environment: client-smoke
+    env:
+      AGENTMAILER_SMOKE_API_KEY: ${{ secrets.AGENTMAILER_SMOKE_API_KEY }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - run: npm install "@agentmailer/sdk@${{ inputs.typescript_version }}"
+      - name: Import the registry artifact and list one inbox
+        run: |
+          node --input-type=module <<'NODE'
+          import { AgentMailerClient } from "@agentmailer/sdk";
+          const client = new AgentMailerClient({ apiKey: process.env.AGENTMAILER_SMOKE_API_KEY });
+          const page = await client.inboxes.list({ limit: 1 });
+          console.log(`npm artifact passed (${page.inboxes.length} inboxes returned).`);
+          NODE
+
+  python:
+    runs-on: ubuntu-latest
+    environment: client-smoke
+    env:
+      AGENTMAILER_API_KEY: ${{ secrets.AGENTMAILER_SMOKE_API_KEY }}
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "agentmailer==${{ inputs.python_version }}"
+      - name: Import the registry artifact and list one inbox
+        run: |
+          python - <<'PY'
+          import os
+          from agentmailer import AgentMailer
+          page = AgentMailer(api_key=os.environ["AGENTMAILER_API_KEY"]).inboxes.list(limit=1)
+          print(f"PyPI artifact passed ({len(page.inboxes)} inboxes returned).")
+          PY

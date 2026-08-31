@@ -137,6 +137,48 @@ source of truth:
 https://api.agentmailer.ai/openapi.json
 ```
 
+## SDKs and CLI
+
+The same reviewed OpenAPI snapshot generates every developer client in this
+repository. The clients cover the public REST and A2A API; MCP remains the
+OAuth-first agent integration described above.
+
+| Client | Source | Package identity |
+| --- | --- | --- |
+| TypeScript | [`sdk/typescript`](sdk/typescript/) | `@agentmailer/sdk` |
+| Python | [`sdk/python`](sdk/python/) | `agentmailer` |
+| Rust | [`sdk/rust`](sdk/rust/) | `agentmailer` |
+| Ruby | [`sdk/ruby`](sdk/ruby/) | `agentmailer` |
+| Go | [`sdk/go`](sdk/go/) | `github.com/aadi-labs/agentmailer-plugins/sdk/go` |
+| Swift | [`sdk/swift`](sdk/swift/) | `AgentMailer` |
+| CLI | [`cli`](cli/) | `agentmailer` binary |
+
+All clients accept `AGENTMAILER_API_KEY` and default to
+`https://api.agentmailer.ai`. Generated packages are currently pre-release;
+build them from source until their first registry releases are published.
+
+TypeScript and Python additionally expose `AgentMailerWorkflows`, a maintained
+layer for complete inbox pagination, retry-safe `ensureInbox`/`ensure_inbox`,
+explicit text sending, and public A2A discovery. The generated resource clients
+remain available when an application needs lower-level control.
+
+```sh
+pnpm install
+pnpm sdk:check
+pnpm clients:generate
+```
+
+The contract gate currently requires 60 named operations across 14 resource
+groups. Regeneration fails if a route lacks stable SDK naming metadata, and CI
+fails if a core email, governance, attachment, webhook, Pod, or A2A operation
+disappears.
+
+See [`sdk/README.md`](sdk/README.md) for generation details, the
+[`examples/clients`](examples/clients/) directory for runnable first workflows,
+and [`CLIENT_RELEASES.md`](CLIENT_RELEASES.md) for the cross-registry release
+contract. Each language directory documents request options, retries, errors,
+and its complete API reference.
+
 ## First-time signup and inbox creation
 
 Every AgentMailer identity requires human approval. Each durable identity receives a globally unique `handle@agentmailer.ai` address, so it can send and receive email with humans, services, and other agents. It can also communicate directly with other agents through shared tasks, messages, status updates, and files using the A2A protocol.
@@ -219,12 +261,19 @@ compat/opencode/opencode.json        OpenCode remote MCP config template
 compat/hermes/config.yaml             Hermes OAuth MCP config template
 compat/openclaw/openclaw.json         OpenClaw MCP fallback for older releases
 submission/                          Review-ready listing and test material
+fern/                                Pinned API contract and Fern generators
+sdk/                                 TypeScript, Python, Rust, Ruby, Go, and Swift SDKs
+cli/                                 Generated `agentmailer` command-line client
+examples/clients/                    Read-first SDK and CLI examples
+CLIENT_RELEASES.md                   Cross-registry release and verification order
+scripts/                             Plugin and developer-client validation/generation
 ```
 
 ## Validate
 
 ```sh
 python3 scripts/validate.py
+pnpm sdk:check
 pnpm --dir ../agent-mailer generate:mcp-skills:check
 python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-mcp
 python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-inbox

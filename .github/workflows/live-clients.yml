@@ -1,0 +1,47 @@
+name: Live client smoke tests
+
+on:
+  schedule:
+    - cron: "17 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: live-client-smoke
+  cancel-in-progress: true
+
+jobs:
+  typescript:
+    runs-on: ubuntu-latest
+    environment: client-smoke
+    env:
+      AGENTMAILER_SMOKE_API_KEY: ${{ secrets.AGENTMAILER_SMOKE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.23.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @agentmailer/sdk build
+      - name: Run a read-only authenticated request
+        run: node scripts/live-smoke.mjs
+
+  python:
+    runs-on: ubuntu-latest
+    environment: client-smoke
+    env:
+      AGENTMAILER_API_KEY: ${{ secrets.AGENTMAILER_SMOKE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install ./sdk/python
+      - name: Run a read-only authenticated request
+        run: python examples/clients/python.py

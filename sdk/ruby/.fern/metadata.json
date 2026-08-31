@@ -1,0 +1,13 @@
+{
+  "cliVersion": "5.108.0",
+  "generatorName": "fernapi/fern-ruby-sdk",
+  "generatorVersion": "1.23.2",
+  "generatorConfig": {
+    "moduleName": "AgentMailer",
+    "enableWireTests": true
+  },
+  "originGitCommit": "d6d77ef753a50cd753ec97af88a9703821abb40a",
+  "originGitCommitIsDirty": true,
+  "invokedBy": "manual",
+  "requestedVersion": "0.1.0"
+}

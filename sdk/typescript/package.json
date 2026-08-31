@@ -1,0 +1,235 @@
+{
+    "name": "@agentmailer/sdk",
+    "version": "0.1.0",
+    "private": false,
+    "type": "commonjs",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.mjs",
+    "types": "./dist/cjs/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/esm/index.d.mts",
+                "default": "./dist/esm/index.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/index.d.ts",
+                "default": "./dist/cjs/index.js"
+            },
+            "default": "./dist/cjs/index.js"
+        },
+        "./agent": {
+            "import": {
+                "types": "./dist/esm/api/resources/agent/exports.d.mts",
+                "default": "./dist/esm/api/resources/agent/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/agent/exports.d.ts",
+                "default": "./dist/cjs/api/resources/agent/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/agent/exports.js"
+        },
+        "./inboxes": {
+            "import": {
+                "types": "./dist/esm/api/resources/inboxes/exports.d.mts",
+                "default": "./dist/esm/api/resources/inboxes/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/inboxes/exports.d.ts",
+                "default": "./dist/cjs/api/resources/inboxes/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/inboxes/exports.js"
+        },
+        "./messages": {
+            "import": {
+                "types": "./dist/esm/api/resources/messages/exports.d.mts",
+                "default": "./dist/esm/api/resources/messages/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/messages/exports.d.ts",
+                "default": "./dist/cjs/api/resources/messages/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/messages/exports.js"
+        },
+        "./threads": {
+            "import": {
+                "types": "./dist/esm/api/resources/threads/exports.d.mts",
+                "default": "./dist/esm/api/resources/threads/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/threads/exports.d.ts",
+                "default": "./dist/cjs/api/resources/threads/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/threads/exports.js"
+        },
+        "./drafts": {
+            "import": {
+                "types": "./dist/esm/api/resources/drafts/exports.d.mts",
+                "default": "./dist/esm/api/resources/drafts/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/drafts/exports.d.ts",
+                "default": "./dist/cjs/api/resources/drafts/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/drafts/exports.js"
+        },
+        "./attachments": {
+            "import": {
+                "types": "./dist/esm/api/resources/attachments/exports.d.mts",
+                "default": "./dist/esm/api/resources/attachments/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/attachments/exports.d.ts",
+                "default": "./dist/cjs/api/resources/attachments/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/attachments/exports.js"
+        },
+        "./pods": {
+            "import": {
+                "types": "./dist/esm/api/resources/pods/exports.d.mts",
+                "default": "./dist/esm/api/resources/pods/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/pods/exports.d.ts",
+                "default": "./dist/cjs/api/resources/pods/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/pods/exports.js"
+        },
+        "./domains": {
+            "import": {
+                "types": "./dist/esm/api/resources/domains/exports.d.mts",
+                "default": "./dist/esm/api/resources/domains/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/domains/exports.d.ts",
+                "default": "./dist/cjs/api/resources/domains/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/domains/exports.js"
+        },
+        "./webhooks": {
+            "import": {
+                "types": "./dist/esm/api/resources/webhooks/exports.d.mts",
+                "default": "./dist/esm/api/resources/webhooks/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/webhooks/exports.d.ts",
+                "default": "./dist/cjs/api/resources/webhooks/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/webhooks/exports.js"
+        },
+        "./labels": {
+            "import": {
+                "types": "./dist/esm/api/resources/labels/exports.d.mts",
+                "default": "./dist/esm/api/resources/labels/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/labels/exports.d.ts",
+                "default": "./dist/cjs/api/resources/labels/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/labels/exports.js"
+        },
+        "./lists": {
+            "import": {
+                "types": "./dist/esm/api/resources/lists/exports.d.mts",
+                "default": "./dist/esm/api/resources/lists/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/lists/exports.d.ts",
+                "default": "./dist/cjs/api/resources/lists/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/lists/exports.js"
+        },
+        "./events": {
+            "import": {
+                "types": "./dist/esm/api/resources/events/exports.d.mts",
+                "default": "./dist/esm/api/resources/events/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/events/exports.d.ts",
+                "default": "./dist/cjs/api/resources/events/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/events/exports.js"
+        },
+        "./billing": {
+            "import": {
+                "types": "./dist/esm/api/resources/billing/exports.d.mts",
+                "default": "./dist/esm/api/resources/billing/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/billing/exports.d.ts",
+                "default": "./dist/cjs/api/resources/billing/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/billing/exports.js"
+        },
+        "./a2A": {
+            "import": {
+                "types": "./dist/esm/api/resources/a2A/exports.d.mts",
+                "default": "./dist/esm/api/resources/a2A/exports.mjs"
+            },
+            "require": {
+                "types": "./dist/cjs/api/resources/a2A/exports.d.ts",
+                "default": "./dist/cjs/api/resources/a2A/exports.js"
+            },
+            "default": "./dist/cjs/api/resources/a2A/exports.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist",
+        "reference.md",
+        "README.md",
+        "LICENSE"
+    ],
+    "scripts": {
+        "format": "biome format --write --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "format:check": "biome format --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "lint": "biome lint --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "lint:fix": "biome lint --fix --unsafe --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "check": "biome check --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "check:fix": "biome check --fix --unsafe --skip-parse-errors --no-errors-on-unmatched --max-diagnostics=none",
+        "build": "pnpm build:cjs && pnpm build:esm",
+        "build:cjs": "tsc --project ./tsconfig.cjs.json",
+        "build:esm": "tsc --project ./tsconfig.esm.json && node scripts/rename-to-esm-files.js dist/esm",
+        "test": "vitest",
+        "test:unit": "vitest --project unit",
+        "test:wire": "vitest --project wire"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "webpack": "^5.105.4",
+        "ts-loader": "^9.5.4",
+        "vitest": "^4.1.1",
+        "msw": "2.11.2",
+        "@types/node": "^20.0.0",
+        "typescript": "~5.9.3",
+        "@biomejs/biome": "2.4.10"
+    },
+    "browser": {
+        "fs": false,
+        "os": false,
+        "path": false,
+        "stream": false,
+        "crypto": false
+    },
+    "packageManager": "pnpm@10.33.0",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "sideEffects": false,
+    "description": "Official TypeScript SDK for the AgentMailer API.",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/aadi-labs/agentmailer-plugins.git",
+        "directory": "sdk/typescript"
+    },
+    "author": {
+        "name": "Aadi Labs",
+        "email": "support@agentmailer.ai",
+        "url": "https://agentmailer.ai"
+    },
+    "homepage": "https://agentmailer.ai/docs",
+    "bugs": {
+        "url": "https://github.com/aadi-labs/agentmailer-plugins/issues"
+    }
+}

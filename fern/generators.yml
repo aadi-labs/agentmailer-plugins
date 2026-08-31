@@ -1,0 +1,140 @@
+# yaml-language-server: $schema=https://schema.buildwithfern.dev/generators-yml.json
+auth-schemes:
+  bearerAuth:
+    scheme: bearer
+    token:
+      name: apiKey
+      env: AGENTMAILER_API_KEY
+
+api:
+  auth: bearerAuth
+  specs:
+    - openapi: ./openapi/openapi.json
+      origin: https://api.agentmailer.ai/openapi.json
+      settings:
+        inline-path-parameters: false
+        respect-forward-compatible-enums: true
+  settings:
+    auto-generate-idempotency-key:
+      header-name: Idempotency-Key
+      methods:
+        - POST
+        - PUT
+        - PATCH
+default-group: all-sdks
+aliases:
+  all-sdks:
+    - typescript-sdk
+    - python-sdk
+    - rust-sdk
+    - ruby-sdk
+    - go-sdk
+    - swift-sdk
+  all:
+    - typescript-sdk
+    - python-sdk
+    - rust-sdk
+    - ruby-sdk
+    - go-sdk
+    - swift-sdk
+    - cli
+groups:
+  typescript-sdk:
+    generators:
+      - name: fern-typescript-sdk
+        version: 3.88.3
+        output:
+          location: local-file-system
+          path: ../sdk/typescript
+        config:
+          naming:
+            namespace: AgentMailer
+            client: AgentMailerClient
+            error: AgentMailerError
+            timeoutError: AgentMailerTimeoutError
+            environment: AgentMailerEnvironment
+          generateWireTests: true
+          packageJson:
+            name: "@agentmailer/sdk"
+            description: Official TypeScript SDK for the AgentMailer API.
+            license: MIT
+            repository:
+              type: git
+              url: https://github.com/aadi-labs/agentmailer-plugins.git
+              directory: sdk/typescript
+            author:
+              name: Aadi Labs
+              email: support@agentmailer.ai
+              url: https://agentmailer.ai
+  python-sdk:
+    generators:
+      - name: fern-python-sdk
+        version: 5.29.2
+        output:
+          location: local-file-system
+          path: ../sdk/python
+        config:
+          package_name: agentmailer
+          client_class_name: AgentMailer
+          environment_class_name: AgentMailerEnvironment
+          enable_wire_tests: true
+  rust-sdk:
+    generators:
+      - name: fern-rust-sdk
+        version: 0.46.4
+        output:
+          location: local-file-system
+          path: ../sdk/rust
+        config:
+          clientClassName: AgentMailer
+          crateName: agentmailer
+          crateVersion: 0.1.0
+          enableWireTests: true
+          packageDescription: Official Rust SDK for the AgentMailer API.
+          packageLicense: MIT
+          packageRepository: https://github.com/aadi-labs/agentmailer-plugins
+  ruby-sdk:
+    generators:
+      - name: fern-ruby-sdk
+        version: 1.23.2
+        output:
+          location: local-file-system
+          path: ../sdk/ruby
+        config:
+          moduleName: AgentMailer
+          enableWireTests: true
+  go-sdk:
+    generators:
+      - name: fern-go-sdk
+        version: 1.57.9
+        output:
+          location: local-file-system
+          path: ../sdk/go
+        config:
+          module:
+            path: github.com/aadi-labs/agentmailer-plugins/sdk/go
+          clientName: AgentMailer
+          clientConstructorName: New
+          enableWireTests: true
+  swift-sdk:
+    generators:
+      - name: fern-swift-sdk
+        version: 0.36.1
+        output:
+          location: local-file-system
+          path: ../sdk/swift
+        config:
+          clientClassName: AgentMailer
+          environmentEnumName: AgentMailerEnvironment
+          moduleName: AgentMailer
+          enableWireTests: true
+  cli:
+    generators:
+      - name: fern-cli-generator
+        version: 0.38.7
+        output:
+          location: local-file-system
+          path: ../cli
+        config:
+          binaryName: agentmailer
+          customCommands: false

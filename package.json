@@ -3,6 +3,7 @@
   "version": "0.3.2",
   "description": "Email inboxes and persistent identities for AI agents, with human-approved email and agent-to-agent communication through MCP.",
   "type": "module",
+  "packageManager": "pnpm@11.23.0",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -28,6 +29,25 @@
     "README.md",
     "LICENSE"
   ],
+  "scripts": {
+    "validate": "python3 scripts/validate.py",
+    "check": "pnpm validate && pnpm sdk:check",
+    "sdk:check": "fern check && node scripts/check-client-surface.mjs",
+    "sdk:drift:check": "pnpm sdk:sync:check",
+    "sdk:sync": "node scripts/sync-openapi.mjs",
+    "sdk:sync:check": "node scripts/sync-openapi.mjs --check",
+    "sdk:postprocess": "node scripts/postprocess-sdks.mjs && node scripts/clean-generated-dependencies.mjs && sh scripts/tidy-go.sh",
+    "sdk:generate": "pnpm sdk:generate:local",
+    "sdk:generate:local": "pnpm sdk:sync && sh scripts/generate-local.sh all-sdks && pnpm sdk:postprocess && pnpm install --frozen-lockfile",
+    "cli:generate": "pnpm cli:generate:local",
+    "cli:generate:local": "pnpm sdk:sync && sh scripts/generate-local.sh cli && node scripts/postprocess-cli.mjs",
+    "clients:generate": "pnpm clients:generate:local",
+    "clients:generate:local": "pnpm sdk:sync && sh scripts/generate-local.sh all && pnpm sdk:postprocess && node scripts/postprocess-cli.mjs && pnpm install --frozen-lockfile",
+    "test:typescript": "pnpm --filter @agentmailer/sdk test:unit -- --run",
+    "test:go": "sh scripts/test-go.sh",
+    "test:rust": "sh scripts/test-rust.sh",
+    "test:swift": "swift test --package-path sdk/swift"
+  },
   "keywords": [
     "pi-package",
     "agentmailer",
@@ -75,5 +95,8 @@
       "openclawVersion": "2026.7.1-2",
       "pluginSdkVersion": "2026.7.1-2"
     }
+  },
+  "devDependencies": {
+    "fern-api": "5.108.0"
   }
 }

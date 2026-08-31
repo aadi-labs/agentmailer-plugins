@@ -1,0 +1,35 @@
+{
+    "cliVersion": "5.108.0",
+    "generatorName": "fernapi/fern-typescript-sdk",
+    "generatorVersion": "3.88.3",
+    "generatorConfig": {
+        "naming": {
+            "namespace": "AgentMailer",
+            "client": "AgentMailerClient",
+            "error": "AgentMailerError",
+            "timeoutError": "AgentMailerTimeoutError",
+            "environment": "AgentMailerEnvironment"
+        },
+        "generateWireTests": true,
+        "packageJson": {
+            "name": "@agentmailer/sdk",
+            "description": "Official TypeScript SDK for the AgentMailer API.",
+            "license": "MIT",
+            "repository": {
+                "type": "git",
+                "url": "https://github.com/aadi-labs/agentmailer-plugins.git",
+                "directory": "sdk/typescript"
+            },
+            "author": {
+                "name": "Aadi Labs",
+                "email": "support@agentmailer.ai",
+                "url": "https://agentmailer.ai"
+            }
+        }
+    },
+    "originGitCommit": "d6d77ef753a50cd753ec97af88a9703821abb40a",
+    "originGitCommitIsDirty": true,
+    "invokedBy": "manual",
+    "requestedVersion": "0.1.0",
+    "sdkVersion": "0.1.0"
+}

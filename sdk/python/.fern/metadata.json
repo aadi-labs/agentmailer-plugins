@@ -1,0 +1,15 @@
+{
+  "cliVersion": "5.108.0",
+  "generatorName": "fernapi/fern-python-sdk",
+  "generatorVersion": "5.29.2",
+  "generatorConfig": {
+    "package_name": "agentmailer",
+    "client_class_name": "AgentMailer",
+    "environment_class_name": "AgentMailerEnvironment",
+    "enable_wire_tests": true
+  },
+  "originGitCommit": "d6d77ef753a50cd753ec97af88a9703821abb40a",
+  "originGitCommitIsDirty": true,
+  "invokedBy": "manual",
+  "requestedVersion": "0.1.0"
+}

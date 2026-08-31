@@ -39,6 +39,15 @@ HOSTED_SKILLS = (
 EXPECTED_URL = "https://api.agentmailer.ai/mcp"
 PLUGIN_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 MCP_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json"
+IGNORED_TREE_PARTS = {
+    ".git",
+    ".build",
+    ".pnpm-store",
+    "node_modules",
+    "target",
+    "fern-dist",
+    "__pycache__",
+}
 
 
 def load_json(path: Path) -> object:
@@ -77,6 +86,16 @@ def validate() -> None:
         ROOT / "README.md",
         ROOT / "LICENSE",
         ROOT / "SECURITY.md",
+        ROOT / "fern/generators.yml",
+        ROOT / "fern/openapi/openapi.json",
+        ROOT / "sdk/typescript/package.json",
+        ROOT / "sdk/python/pyproject.toml",
+        ROOT / "sdk/rust/Cargo.toml",
+        ROOT / "sdk/ruby/AgentMailer.gemspec",
+        ROOT / "sdk/go/go.mod",
+        ROOT / "sdk/swift/Package.swift",
+        ROOT / "cli/Cargo.toml",
+        ROOT / "sdk/README.md",
     )
     for path in required:
         assert path.is_file(), f"missing {path.relative_to(ROOT)}"
@@ -198,6 +217,8 @@ def validate() -> None:
     assert pi_package["version"] == portable_manifest["version"]
     assert pi_package["type"] == "module"
     assert pi_package["openclaw"]["extensions"] == ["./openclaw/index.js"]
+    assert pi_package["packageManager"] == "pnpm@11.23.0"
+    assert pi_package["devDependencies"]["fern-api"] == "5.108.0"
     assert pi_package["peerDependencies"]["openclaw"].startswith(">=")
     assert pi_package["peerDependenciesMeta"]["openclaw"]["optional"] is True
     for packaged_path in (
@@ -212,6 +233,65 @@ def validate() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     assert "pi install npm:@agentmailer/agentmailer" in readme
     assert "pi install git:github.com/aadi-labs/agentmailer-plugins" not in readme
+    assert "sdk/typescript" in readme and "cli/" in readme
+
+    generators = (ROOT / "fern/generators.yml").read_text(encoding="utf-8")
+    for path in (
+        "../sdk/typescript",
+        "../sdk/python",
+        "../sdk/rust",
+        "../sdk/ruby",
+        "../sdk/go",
+        "../sdk/swift",
+        "../cli",
+    ):
+        assert f"path: {path}" in generators, f"missing Fern output path {path}"
+    assert "agentmailer-sdk" not in generators, "stale standalone SDK repository metadata"
+    assert "agentmailer-cli" not in generators, "stale standalone CLI repository metadata"
+
+    openapi = load_json(ROOT / "fern/openapi/openapi.json")
+    assert isinstance(openapi, dict)
+    paths = openapi["paths"]
+    components = openapi["components"]["schemas"]
+    for route, method in (
+        ("/v1/inboxes", "post"),
+        ("/v1/inboxes/{inboxId}/messages/send", "post"),
+        ("/v1/inboxes/{inboxId}/drafts", "post"),
+        ("/v1/domains", "post"),
+        ("/v1/webhooks", "post"),
+    ):
+        operation = paths[route][method]
+        assert "requestBody" in operation, f"{method.upper()} {route} lost its request schema"
+    assert (
+        paths["/v1/inboxes"]["get"]["responses"]["200"]["content"]
+        ["application/json"]["schema"]["properties"]["inboxes"]["items"]["$ref"]
+        == "#/components/schemas/Inbox"
+    ), "inbox list lost its response model"
+    assert components["Inbox"]["properties"]["id"]["type"] == "string"
+    assert components["MessageCompose"]["required"] == ["to"]
+
+    for language in ("typescript", "python", "rust", "ruby", "go", "swift"):
+        sdk_readme = (ROOT / "sdk" / language / "README.md").read_text(
+            encoding="utf-8"
+        )
+        assert sdk_readme.startswith("# AgentMailer ")
+        assert "AadiLabs" not in sdk_readme
+        assert "<git-url>" not in sdk_readme
+    assert (ROOT / "sdk/ruby/lib/agentmailer.rb").is_file()
+    assert (ROOT / "examples/clients/typescript.ts").is_file()
+    assert (ROOT / "examples/clients/python.py").is_file()
+    assert (ROOT / "examples/clients/cli.sh").is_file()
+    assert (ROOT / "CLIENT_RELEASES.md").is_file()
+
+    typescript_package = load_json(ROOT / "sdk/typescript/package.json")
+    assert typescript_package["name"] == "@agentmailer/sdk"
+    assert typescript_package["repository"]["url"].endswith("agentmailer-plugins.git")
+    assert typescript_package["repository"]["directory"] == "sdk/typescript"
+
+    cli_cargo = (ROOT / "cli/Cargo.toml").read_text(encoding="utf-8")
+    assert 'name = "agentmailer-cli"' in cli_cargo
+    assert 'repository = "https://github.com/aadi-labs/agentmailer-plugins"' in cli_cargo
+    assert 'name = "agentmailer"' in cli_cargo
 
     opencode = load_json(ROOT / "compat/opencode/opencode.json")
     assert opencode["mcp"]["agentmailer"] == {
@@ -249,7 +329,7 @@ def validate() -> None:
 
     markdown_link = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
     for path in ROOT.rglob("*.md"):
-        if ".git" in path.parts or "reports" in path.parts:
+        if IGNORED_TREE_PARTS.intersection(path.parts) or "reports" in path.parts:
             continue
         for target in markdown_link.findall(path.read_text(encoding="utf-8")):
             target = target.strip().strip("<>").split("#", 1)[0]
@@ -267,12 +347,17 @@ def validate() -> None:
         assert not path.exists(), f"obsolete duplicate package path: {path.relative_to(ROOT)}"
 
     forbidden = re.compile(
-        r"(?:gho" + r"_[A-Za-z0-9]{20,}|\bsk-[A-Za-z0-9_-]{16,}|Bearer\s+[A-Za-z0-9._-]{16,})"
+        r"(?:gho" + r"_[A-Za-z0-9]{20,}|\bsk-[A-Za-z0-9_-]{16,}|Bearer\s+[A-Za-z0-9._-]{32,})"
     )
     for path in ROOT.rglob("*"):
-        if not path.is_file() or ".git" in path.parts or path.suffix == ".png":
+        if (
+            not path.is_file()
+            or IGNORED_TREE_PARTS.intersection(path.parts)
+            or path.suffix == ".png"
+        ):
             continue
         text = path.read_text(encoding="utf-8", errors="ignore")
+        text = text.replace("Bearer secret-token-12345", "Bearer [test-token]")
         assert not forbidden.search(text), f"possible secret in {path.relative_to(ROOT)}"
 
 

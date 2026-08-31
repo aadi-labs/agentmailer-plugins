@@ -1,0 +1,135 @@
+name: Validate developer clients
+
+on:
+  pull_request:
+    paths:
+      - fern/**
+      - sdk/**
+      - cli/**
+      - client-extensions/**
+      - scripts/generate-local.sh
+      - scripts/clean-generated-dependencies.mjs
+      - scripts/check-client-surface.mjs
+      - scripts/postprocess-*.mjs
+      - scripts/sync-openapi.mjs
+      - scripts/test-*.sh
+      - scripts/tidy-go.sh
+      - package.json
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+      - .github/workflows/clients.yml
+      - .github/workflows/openapi-drift.yml
+  push:
+    branches: [main]
+    paths:
+      - fern/**
+      - sdk/**
+      - cli/**
+      - client-extensions/**
+      - scripts/**
+      - package.json
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+      - .github/workflows/clients.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.23.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.23.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test:typescript
+      - run: pnpm --filter @agentmailer/sdk build
+      - run: pnpm --filter @agentmailer/sdk pack --pack-destination /tmp
+      - name: Smoke test the packed npm artifact
+        run: |
+          mkdir -p /tmp/agentmailer-ts-consumer
+          cd /tmp/agentmailer-ts-consumer
+          npm init -y
+          npm install /tmp/agentmailer-sdk-*.tgz
+          node --input-type=module -e 'import { AgentMailerClient } from "@agentmailer/sdk"; const client = new AgentMailerClient({ apiKey: "test" }); if (!client.inboxes || !client.a2A) process.exit(1)'
+
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --upgrade build
+      - run: python -m compileall -q sdk/python/src
+      - run: python -m build sdk/python
+      - name: Smoke test the built Python wheel
+        run: |
+          python -m venv /tmp/agentmailer-python-consumer
+          /tmp/agentmailer-python-consumer/bin/pip install sdk/python/dist/*.whl
+          /tmp/agentmailer-python-consumer/bin/python -c 'from agentmailer import AgentMailer; client = AgentMailer(api_key="test"); assert client.inboxes and client.a2a'
+
+  ruby:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sdk/ruby
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - run: find lib -name '*.rb' -exec ruby -c {} \;
+      - run: gem build AgentMailer.gemspec
+      - name: Smoke test the built Ruby gem
+        run: |
+          gem install --install-dir /tmp/agentmailer-ruby-consumer --no-document agentmailer-*.gem
+          ruby -e 'gem_path = Dir["/tmp/agentmailer-ruby-consumer/gems/agentmailer-*/lib"].first or raise "installed gem not found"; $LOAD_PATH.unshift(gem_path); require "agentmailer"; raise "missing client" unless defined?(AgentMailer::Client)'
+
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sh scripts/test-go.sh
+
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sh scripts/test-rust.sh
+
+  swift:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift test
+
+  cli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo test --manifest-path cli/Cargo.toml --locked
+      - run: cargo build --manifest-path cli/Cargo.toml --locked --release
+      - run: cli/target/release/agentmailer --help

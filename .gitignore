@@ -5,3 +5,14 @@ __pycache__/
 .claude/
 .codex/
 submission/
+node_modules/
+**/node_modules/
+**/dist/
+**/fern-dist/
+**/package-lock.json
+**/.build/
+**/target/
+**/*.gem
+.env
+.env.*
+!.env.example

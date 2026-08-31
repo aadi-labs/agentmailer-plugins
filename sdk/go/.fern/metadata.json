@@ -1,0 +1,18 @@
+{
+  "cliVersion": "5.108.0",
+  "generatorName": "fernapi/fern-go-sdk",
+  "generatorVersion": "1.57.9",
+  "generatorConfig": {
+    "module": {
+      "path": "github.com/aadi-labs/agentmailer-plugins/sdk/go"
+    },
+    "clientName": "AgentMailer",
+    "clientConstructorName": "New",
+    "enableWireTests": true
+  },
+  "originGitCommit": "d6d77ef753a50cd753ec97af88a9703821abb40a",
+  "originGitCommitIsDirty": true,
+  "invokedBy": "manual",
+  "requestedVersion": "0.1.0",
+  "sdkVersion": "v0.1.0"
+}

@@ -1,0 +1,9 @@
+packages:
+  - sdk/typescript
+
+autoInstallPeers: false
+
+allowBuilds:
+  "@scarf/scarf": false
+  esbuild: true
+  msw: false
