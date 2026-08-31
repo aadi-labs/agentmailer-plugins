@@ -1,18 +1,48 @@
 .DS_Store
 *.zip
+
+# Python environments, caches, and packaging output
 __pycache__/
-*.pyc
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+*.egg-info/
+.coverage
+coverage.xml
+htmlcov/
+
+# Local agent and submission output
 .claude/
 .codex/
 submission/
+
+# Dependencies and package-manager caches
 node_modules/
 **/node_modules/
+.pnpm-store/
+**/package-lock.json
+
+# Build and test output
 **/dist/
 **/fern-dist/
-**/package-lock.json
 **/.build/
 **/target/
 **/*.gem
+coverage/
+.cache/
+.vite/
+*.tsbuildinfo
+
+# Swift package and Xcode output
+.swiftpm/
+DerivedData/
+
+# Local environment files
 .env
 .env.*
 !.env.example
