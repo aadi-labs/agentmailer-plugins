@@ -16,14 +16,10 @@ trap cleanup EXIT INT TERM
 DOCKER_CONFIG="$generator_docker_config" DOCKER_HOST="$docker_host" \
   docker compose -p "$compose_project" -f "$compose_file" up -d --wait
 
-wiremock_port="$(
-  DOCKER_CONFIG="$generator_docker_config" DOCKER_HOST="$docker_host" \
-    docker compose -p "$compose_project" -f "$compose_file" port wiremock 8080 | sed 's/.*://'
-)"
-
 DOCKER_CONFIG="$generator_docker_config" DOCKER_HOST="$docker_host" \
   docker run --rm \
-    -e "WIREMOCK_URL=http://host.docker.internal:$wiremock_port" \
+    --network "${compose_project}_default" \
+    -e "WIREMOCK_URL=http://wiremock:8080" \
     -v "$(pwd)/sdk/go:/workspace" \
     -w /workspace \
     golang:1.24-bookworm \

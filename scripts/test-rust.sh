@@ -16,15 +16,12 @@ trap cleanup EXIT INT TERM
 DOCKER_CONFIG="$generator_docker_config" DOCKER_HOST="$docker_host" \
   docker compose -p "$compose_project" -f "$compose_file" up -d --wait
 
-wiremock_port="$(
-  DOCKER_CONFIG="$generator_docker_config" DOCKER_HOST="$docker_host" \
-    docker compose -p "$compose_project" -f "$compose_file" port wiremock 8080 | sed 's/.*://'
-)"
-
 DOCKER_CONFIG="$generator_docker_config" DOCKER_HOST="$docker_host" \
   docker run --rm \
-    -e "WIREMOCK_URL=http://host.docker.internal:$wiremock_port" \
+    --network "${compose_project}_default" \
+    -e "CARGO_TARGET_DIR=/tmp/agentmailer-target" \
+    -e "WIREMOCK_URL=http://wiremock:8080" \
     -v "$(pwd):/workspace" \
     -w /workspace \
     rust:1.90-bookworm \
-    sh -c 'cargo test --manifest-path sdk/rust/Cargo.toml && cargo test --locked --manifest-path cli/Cargo.toml'
+    sh -c 'cargo test --manifest-path sdk/rust/Cargo.toml -- --test-threads=1 && cargo test --locked --manifest-path cli/Cargo.toml -- --test-threads=1'
