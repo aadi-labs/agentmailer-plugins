@@ -34,6 +34,8 @@
     "check": "pnpm validate && pnpm sdk:check",
     "sdk:check": "fern check && node scripts/check-client-surface.mjs",
     "sdk:drift:check": "pnpm sdk:sync:check",
+    "examples:check": "pnpm --filter '@agentmailer/example-*' check",
+    "examples:generate": "node scripts/generate-examples.mjs",
     "sdk:sync": "node scripts/sync-openapi.mjs",
     "sdk:sync:check": "node scripts/sync-openapi.mjs --check",
     "sdk:postprocess": "node scripts/postprocess-sdks.mjs && node scripts/clean-generated-dependencies.mjs && sh scripts/tidy-go.sh",

@@ -21,3 +21,7 @@ If `auth_me` reports an unverified identity or creation returns `human_approval_
 `delete_inbox` deactivates the mailbox and reserves its handle. Before calling it, identify the exact inbox, explain that effect, and obtain explicit confirmation in the current conversation.
 
 Read [references/inbox-tools.md](references/inbox-tools.md) when choosing tool inputs or handling permissions.
+
+## Examples
+
+Start with the [AgentMailer quickstart](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/agentmailer-quickstart) for inbox discovery and the [human-approved signup example](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/agentmailer-human-approved-signup) for the first-time identity ceremony. Browse the [complete examples catalog](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples) for inbox-backed application workflows.

@@ -41,3 +41,7 @@ Read [references/troubleshooting.md](references/troubleshooting.md) when connect
 - a successful connection with no inboxes yet.
 
 Never claim the connection works until an authenticated tool call succeeds.
+
+## Examples
+
+Use the [human-approved signup example](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/agentmailer-human-approved-signup) to understand the approval boundary, then the [quickstart](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/agentmailer-quickstart) or [CLI workflows](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/cli) for a low-risk authenticated check. Browse the [complete examples catalog](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples) for application-specific integrations.

@@ -174,7 +174,7 @@ fails if a core email, governance, attachment, webhook, Pod, or A2A operation
 disappears.
 
 See [`sdk/README.md`](sdk/README.md) for generation details, the
-[`examples/clients`](examples/clients/) directory for runnable first workflows,
+[`examples`](examples/) directory for runnable quickstarts and production-shaped workflows,
 and [`CLIENT_RELEASES.md`](CLIENT_RELEASES.md) for the cross-registry release
 contract. Each language directory documents request options, retries, errors,
 and its complete API reference.
@@ -264,7 +264,7 @@ submission/                          Review-ready listing and test material
 fern/                                Pinned API contract and Fern generators
 sdk/                                 TypeScript, Python, Rust, Ruby, Go, and Swift SDKs
 cli/                                 Generated `agentmailer` command-line client
-examples/clients/                    Read-first SDK and CLI examples
+examples/                            Named Python and TypeScript workflow examples
 CLIENT_RELEASES.md                   Cross-registry release and verification order
 scripts/                             Plugin and developer-client validation/generation
 ```

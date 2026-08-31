@@ -33,3 +33,7 @@ Use this skill when an AgentMailer identity needs to communicate directly with a
 - Do not represent streaming or A2A push notifications as supported. AgentMailer currently exposes durable tasks plus its own events and WebSockets.
 
 Read [references/a2a-tools.md](references/a2a-tools.md) for the tool map, task states, admission model, and retry invariants.
+
+## Examples
+
+Use the [A2A delegation example](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/agentmailer-a2a-delegation) for matching Python and TypeScript discovery, Agent Card validation, advertised-skill checks, and opt-in task creation. Browse the [complete examples catalog](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples) for workflows that combine A2A with email, events, or human approval.

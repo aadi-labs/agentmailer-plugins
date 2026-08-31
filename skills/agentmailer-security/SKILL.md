@@ -18,3 +18,7 @@ Use this skill for architecture, implementation review, incident analysis, or po
 - Keep credentials out of prompts, messages, client bundles, committed files, telemetry, and logs.
 
 For implementation or audit work, read [references/threat-model.md](references/threat-model.md). For action authorization, read [references/authorization.md](references/authorization.md).
+
+## Examples
+
+Review the [approval inbox](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/agentmailer-approval-inbox), [signed webhook consumer](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/agentmailer-webhook-consumer), and [x402 payment agent](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/agentmailer-x402-payment-agent) for concrete human-approval, untrusted-input, replay, and consequential-action boundaries. The [complete examples catalog](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples) applies the same defaults across every workflow.

@@ -1,5 +1,6 @@
 packages:
   - sdk/typescript
+  - examples/*/typescript
 
 autoInstallPeers: false
 

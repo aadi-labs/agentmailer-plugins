@@ -1,0 +1,15 @@
+{
+  "name": "@agentmailer/example-browser-use",
+  "private": true,
+  "type": "module",
+  "scripts": { "check": "tsc --noEmit", "start": "tsx agent.ts" },
+  "dependencies": {
+    "@agentmailer/sdk": "workspace:*",
+    "playwright": "^1.55.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.11",
+    "tsx": "^4.20.6",
+    "typescript": "~5.9.2"
+  }
+}

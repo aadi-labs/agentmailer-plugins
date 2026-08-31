@@ -96,9 +96,68 @@ def validate() -> None:
         ROOT / "sdk/swift/Package.swift",
         ROOT / "cli/Cargo.toml",
         ROOT / "sdk/README.md",
+        ROOT / "examples/README.md",
+        ROOT / "examples/tsconfig.json",
+        ROOT / "examples/agentmailer-quickstart/README.md",
+        ROOT / "examples/agentmailer-quickstart/typescript/example.ts",
+        ROOT / "examples/agentmailer-quickstart/typescript/package.json",
+        ROOT / "examples/agentmailer-quickstart/python/example.py",
+        ROOT / "examples/agentmailer-quickstart/python/requirements.txt",
+        ROOT / "examples/agentmailer-human-approved-signup/README.md",
+        ROOT / "examples/agentmailer-human-approved-signup/typescript/example.ts",
+        ROOT / "examples/agentmailer-human-approved-signup/typescript/package.json",
+        ROOT / "examples/agentmailer-human-approved-signup/python/example.py",
+        ROOT / "examples/agentmailer-human-approved-signup/python/requirements.txt",
+        ROOT / "examples/agentmailer-support-agent/README.md",
+        ROOT / "examples/agentmailer-support-agent/typescript/example.ts",
+        ROOT / "examples/agentmailer-support-agent/typescript/package.json",
+        ROOT / "examples/agentmailer-support-agent/python/example.py",
+        ROOT / "examples/agentmailer-support-agent/python/requirements.txt",
+        ROOT / "examples/agentmailer-a2a-delegation/README.md",
+        ROOT / "examples/agentmailer-a2a-delegation/typescript/example.ts",
+        ROOT / "examples/agentmailer-a2a-delegation/typescript/package.json",
+        ROOT / "examples/agentmailer-a2a-delegation/python/example.py",
+        ROOT / "examples/agentmailer-a2a-delegation/python/requirements.txt",
+        ROOT / "examples/agentmailer-webhook-consumer/README.md",
+        ROOT / "examples/agentmailer-webhook-consumer/typescript/example.ts",
+        ROOT / "examples/agentmailer-webhook-consumer/typescript/package.json",
+        ROOT / "examples/agentmailer-webhook-consumer/python/example.py",
+        ROOT / "examples/agentmailer-webhook-consumer/python/requirements.txt",
+        ROOT / "examples/cli/README.md",
+        ROOT / "examples/cli/list-inboxes.sh",
+        ROOT / "examples/cli/inbox-monitor.sh",
+        ROOT / "examples/cli/discover-agent.sh",
+        ROOT / "examples/cli/send-email.sh",
     )
     for path in required:
         assert path.is_file(), f"missing {path.relative_to(ROOT)}"
+
+    for skill_path in sorted((ROOT / "skills").glob("*/SKILL.md")):
+        skill_text = skill_path.read_text(encoding="utf-8")
+        assert "## Examples" in skill_text, f"missing examples section in {skill_path.relative_to(ROOT)}"
+        assert "github.com/aadi-labs/agentmailer-plugins/tree/main/examples" in skill_text, (
+            f"missing examples catalog link in {skill_path.relative_to(ROOT)}"
+        )
+
+    example_directories = sorted((ROOT / "examples").glob("agentmailer-*"))
+    assert len(example_directories) >= 35, "expected complete named example catalog"
+    for directory in example_directories:
+        assert (directory / "README.md").is_file(), f"missing {directory.name}/README.md"
+        assert (directory / "python/requirements.txt").is_file(), (
+            f"missing {directory.name}/python/requirements.txt"
+        )
+        assert any((directory / "python" / name).is_file() for name in ("agent.py", "example.py")), (
+            f"missing Python implementation for {directory.name}"
+        )
+        assert (directory / "typescript/package.json").is_file(), (
+            f"missing {directory.name}/typescript/package.json"
+        )
+        assert (directory / "typescript/tsconfig.json").is_file(), (
+            f"missing {directory.name}/typescript/tsconfig.json"
+        )
+        assert any((directory / "typescript" / name).is_file() for name in ("agent.ts", "example.ts")), (
+            f"missing TypeScript implementation for {directory.name}"
+        )
 
     claude_manifest = load_json(ROOT / ".claude-plugin/plugin.json")
     codex_manifest = load_json(ROOT / ".codex-plugin/plugin.json")

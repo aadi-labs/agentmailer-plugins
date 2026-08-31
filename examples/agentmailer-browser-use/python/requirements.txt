@@ -1,0 +1,2 @@
+-e ../../../sdk/python
+browser-use>=0.12.2

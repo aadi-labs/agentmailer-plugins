@@ -28,3 +28,7 @@ Use this skill when the requested outcome changes mailbox state or communicates 
 Deleting a message, thread, or draft is destructive; deleting a draft also cancels its scheduled send. A current-turn instruction naming the exact target is confirmation. Otherwise, resolve the target, explain the effect, and obtain confirmation immediately before deletion.
 
 Read [references/write-tools.md](references/write-tools.md) for the authorization matrix, tool map, and retry invariants.
+
+## Examples
+
+Use the [support agent](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/agentmailer-support-agent) for draft-first replies, the [scheduling agent](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/agentmailer-scheduling-agent) for thread-aware coordination, and the [GTM agent](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/agentmailer-gtm-agent) for explicit opt-in outbound delivery. Browse the [complete examples catalog](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples) for additional Python, TypeScript, and CLI write patterns.

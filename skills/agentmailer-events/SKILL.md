@@ -24,3 +24,7 @@ Use signed webhooks for durable server-to-server delivery and the Pod-scoped Web
 - Handle `resync_required` by reconciling current state through the API before reconnecting from a valid cursor.
 
 Read [references/events-api.md](references/events-api.md) for endpoints, event types, and delivery invariants.
+
+## Examples
+
+Use the [signed webhook consumer](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples/agentmailer-webhook-consumer) for matching Python and TypeScript raw-body verification, replay-window enforcement, and event-processing boundaries. Browse the [complete examples catalog](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples) for event-driven agent workflows.
