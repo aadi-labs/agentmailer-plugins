@@ -16,6 +16,9 @@ jobs:
         with:
           node-version: 22
       - name: Validate manifests and skills
-        run: python3 scripts/validate.py
+        run: |
+          python3 scripts/skills.py check
+          python3 -m unittest tests/test_skills_tooling.py
+          python3 scripts/validate.py
       - name: Verify Skills CLI discovery
         run: npx --yes skills add . --list

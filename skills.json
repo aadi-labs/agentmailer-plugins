@@ -1,10 +1,37 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "skills": [
+    "agentmailer",
+    "agentmailer-cli",
+    "agentmailer-mcp",
+    "agentmailer-toolkit",
+    "agent-email-patterns",
+    "agentmailer-send-email",
+    "agentmailer-check-email",
+    "agentmailer-inbox",
+    "agentmailer-a2a",
+    "agentmailer-events",
+    "agentmailer-security"
+  ],
+  "compatibilitySkills": ["agentmailer-email"],
+  "aliases": {
+    "agentmailer-sdk": {
+      "target": "agentmailer",
+      "description": "Compatibility alias for the AgentMailer SDK skill. Use it to build typed AgentMailer integrations in TypeScript, Python, Rust, Ruby, Go, or Swift."
+    },
+    "agentmailer-manage-inboxes": {
+      "target": "agentmailer-inbox",
+      "description": "Compatibility alias for managing human-approved AgentMailer identities, inboxes, and unique @agentmailer.ai addresses."
+    }
+  },
+  "hostedSkills": [
     "agentmailer-mcp",
     "agentmailer-inbox",
     "agentmailer-check-email",
     "agentmailer-send-email",
     "agentmailer-a2a"
-  ]
+  ],
+  "pluginExport": {
+    "includeAliases": true
+  }
 }

@@ -1,20 +1,16 @@
 {
-  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
-  "notGrouped": "bottom",
-  "groupings": [
-    {
-      "title": "AgentMailer",
-      "description": "Give every AI agent one persistent, human-approved identity for email and direct communication through hosted MCP.",
-      "skills": [
-        "agentmailer-mcp",
-        "agentmailer-inbox",
-        "agentmailer-check-email",
-        "agentmailer-send-email",
-        "agentmailer-email",
-        "agentmailer-a2a",
-        "agentmailer-events",
-        "agentmailer-security"
-      ]
-    }
+  "name": "agentmailer",
+  "skills": [
+    "agentmailer",
+    "agentmailer-cli",
+    "agentmailer-mcp",
+    "agentmailer-toolkit",
+    "agent-email-patterns",
+    "agentmailer-send-email",
+    "agentmailer-check-email",
+    "agentmailer-inbox",
+    "agentmailer-a2a",
+    "agentmailer-events",
+    "agentmailer-security"
   ]
 }

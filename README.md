@@ -7,7 +7,15 @@ engine. It owns identity, email and A2A exchange, delivery, events, and policy;
 the calling agent runtime owns model calls, tools, schedules, checkpoints, and
 business approvals.
 
-This repository packages one hosted MCP connection and eight focused skills for Claude, ChatGPT, Codex, Cursor, Pi, OpenCode, OpenClaw, Hermes Agent, and compatible [Agent Skills](https://agentskills.io) or [Agent Plugins](https://agent-plugins.org) clients. The MCP server owns live data, authentication, authorization, and actions. The skills teach agents how to connect, manage identities, read and send email, consume signed events, secure communication workflows, and communicate directly with other agents through shared tasks, messages, status updates, and files.
+This repository is the canonical source for eleven AgentMailer skills, one compatibility skill, two generated aliases, and one hosted MCP connection for Claude, ChatGPT, Codex, Cursor, Pi, OpenCode, OpenClaw, Hermes Agent, and compatible [Agent Skills](https://agentskills.io) or [Agent Plugins](https://agent-plugins.org) clients. Top-level skill directories are the authoring source used by skills.sh. `skills/` is a deterministic client export; do not edit it directly. The MCP server owns live data, authentication, authorization, and actions.
+
+## Agent entry points
+
+- [AGENTS.md](AGENTS.md) explains the repository boundaries and safe change workflow.
+- [plugin.json](plugin.json) is the portable Agent Plugins manifest.
+- [mcp.json](mcp.json) configures the hosted Streamable HTTP MCP server.
+- [skills.json](skills.json) and [skills.sh.json](skills.sh.json) index the installable skills.
+- [AgentMailer machine reference](https://agentmailer.ai/llms.txt) links the live API, authentication, discovery, and pricing surfaces.
 
 ## Install
 
@@ -67,7 +75,7 @@ Install the published npm package:
 pi install npm:@agentmailer/agentmailer
 ```
 
-Pi loads the eight shared skills declared in `package.json`. Pi packages do not define a portable MCP component, so use the endpoint below with an MCP-capable Pi extension or client when you also need live tools.
+Pi loads the generated shared skill export declared in `package.json`. Pi packages do not define a portable MCP component, so use the endpoint below with an MCP-capable Pi extension or client when you also need live tools.
 
 ### OpenCode
 
@@ -111,7 +119,7 @@ hermes plugins install aadi-labs/agentmailer-plugins --enable
 
 Hermes Desktop also supports this install link: [Install AgentMailer in Hermes](hermes://plugin/install?repo=aadi-labs/agentmailer-plugins&enable=1).
 
-The native `plugin.yaml` and `__init__.py` register all eight shared skills through `ctx.register_skill()`. Hermes configures external MCP servers separately from native plugin registration, so merge [`compat/hermes/config.yaml`](compat/hermes/config.yaml) into `~/.hermes/config.yaml`, then authenticate:
+The native `plugin.yaml` and `__init__.py` register the generated shared skill export through `ctx.register_skill()`. Hermes configures external MCP servers separately from native plugin registration, so merge [`compat/hermes/config.yaml`](compat/hermes/config.yaml) into `~/.hermes/config.yaml`, then authenticate:
 
 ```sh
 hermes mcp login agentmailer
@@ -201,7 +209,11 @@ For clients that require an API key, follow the canonical sequence at <https://a
 
 | Skill | Use it for |
 | --- | --- |
+| `agentmailer` | Build typed integrations with the TypeScript, Python, Rust, Ruby, Go, or Swift SDK |
+| `agentmailer-cli` | Operate AgentMailer from a shell with structured output and safe retries |
 | `agentmailer-mcp` | Connect, complete human approval, or troubleshoot hosted MCP OAuth |
+| `agentmailer-toolkit` | Add narrow AgentMailer tools and event adapters to agent frameworks |
+| `agent-email-patterns` | Design durable, least-privilege email and A2A communication systems |
 | `agentmailer-inbox` | Create or manage human-approved `@agentmailer.ai` inboxes |
 | `agentmailer-check-email` | Read, search, summarize, or triage without changing mailbox state |
 | `agentmailer-send-email` | Draft, send, reply, forward, schedule, label, or delete email |
@@ -209,6 +221,8 @@ For clients that require an API key, follow the canonical sequence at <https://a
 | `agentmailer-events` | Build signed webhook and replayable realtime consumers |
 | `agentmailer-security` | Design and review secure communication and authorization boundaries |
 | `agentmailer-email` | Compatibility router for installations using the original combined skill |
+
+`agentmailer-sdk` aliases `agentmailer`, and `agentmailer-manage-inboxes` aliases `agentmailer-inbox`. Aliases are generated for compatibility and are omitted from the skills.sh catalog to keep search results focused.
 
 ## Compatibility
 
@@ -261,7 +275,11 @@ plugin.yaml                          Native Hermes Agent manifest
 __init__.py                          Native Hermes Agent skill registration
 openclaw.plugin.json                 Native OpenClaw manifest
 openclaw/index.js                    Native OpenClaw runtime entry
-skills/                              Canonical shared skills
+agentmailer*/                        Canonical AgentMailer skill directories
+agent-email-patterns/                Canonical architecture-pattern skill
+skills.json                          Canonical catalog, aliases, and hosted subset
+skills.sh.json                       Generated skills.sh discovery catalog
+skills/                              Generated plugin/client export; do not edit
 compat/opencode/opencode.json        OpenCode remote MCP config template
 compat/hermes/config.yaml             Hermes OAuth MCP config template
 compat/openclaw/openclaw.json         OpenClaw MCP fallback for older releases
@@ -277,17 +295,10 @@ scripts/                             Plugin and developer-client validation/gene
 ## Validate
 
 ```sh
-python3 scripts/validate.py
+pnpm skills:build
+pnpm validate
 pnpm sdk:check
 pnpm --dir ../agent-mailer generate:mcp-skills:check
-python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-mcp
-python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-inbox
-python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-check-email
-python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-send-email
-python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-email
-python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-a2a
-python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-events
-python3 /path/to/skill-creator/scripts/quick_validate.py skills/agentmailer-security
 claude plugin validate .
 npx skills add . --list
 hermes plugins install aadi-labs/agentmailer-plugins --enable
@@ -297,7 +308,7 @@ openclaw plugins inspect agentmailer --runtime --json
 
 ## Contributing
 
-Issues and pull requests are welcome. Keep provider-neutral behavior in the shared skills and platform-specific packaging in the manifests. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Issues and pull requests are welcome. Edit the top-level canonical skill, run `pnpm skills:build`, and commit the generated `skills/` export with it. Keep provider-neutral behavior in shared skills and platform-specific packaging in manifests. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 

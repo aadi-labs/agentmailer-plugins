@@ -11,16 +11,11 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILLS = (
-    "agentmailer-mcp",
-    "agentmailer-inbox",
-    "agentmailer-check-email",
-    "agentmailer-send-email",
-    "agentmailer-email",
-    "agentmailer-a2a",
-    "agentmailer-events",
-    "agentmailer-security",
-)
+SKILL_CATALOG = json.loads((ROOT / "skills.json").read_text(encoding="utf-8"))
+CANONICAL_SKILLS = tuple(SKILL_CATALOG["skills"])
+COMPATIBILITY_SKILLS = tuple(SKILL_CATALOG.get("compatibilitySkills", []))
+ALIASES = tuple(SKILL_CATALOG.get("aliases", {}))
+SKILLS = (*CANONICAL_SKILLS, *COMPATIBILITY_SKILLS, *ALIASES)
 MCP_SKILLS = {
     "agentmailer-mcp",
     "agentmailer-inbox",
@@ -28,14 +23,9 @@ MCP_SKILLS = {
     "agentmailer-send-email",
     "agentmailer-email",
     "agentmailer-a2a",
+    "agentmailer-manage-inboxes",
 }
-HOSTED_SKILLS = (
-    "agentmailer-mcp",
-    "agentmailer-inbox",
-    "agentmailer-check-email",
-    "agentmailer-send-email",
-    "agentmailer-a2a",
-)
+HOSTED_SKILLS = tuple(SKILL_CATALOG["hostedSkills"])
 EXPECTED_URL = "https://api.agentmailer.ai/mcp"
 PLUGIN_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 MCP_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json"
@@ -66,6 +56,8 @@ def validate() -> None:
     assert discovered_skills == sorted(SKILLS), "skills directory and package index disagree"
 
     required = (
+        ROOT / "skills.json",
+        ROOT / "skills.sh.json",
         ROOT / ".agents/plugins/marketplace.json",
         ROOT / ".claude-plugin/marketplace.json",
         ROOT / ".claude-plugin/plugin.json",
@@ -131,6 +123,9 @@ def validate() -> None:
     )
     for path in required:
         assert path.is_file(), f"missing {path.relative_to(ROOT)}"
+
+    for skill in (*CANONICAL_SKILLS, *COMPATIBILITY_SKILLS):
+        assert (ROOT / skill / "SKILL.md").is_file(), f"missing canonical {skill}/SKILL.md"
 
     for skill_path in sorted((ROOT / "skills").glob("*/SKILL.md")):
         skill_text = skill_path.read_text(encoding="utf-8")
@@ -382,9 +377,10 @@ def validate() -> None:
         assert f"allow_implicit_invocation: {expected_policy}" in openai
 
     skill_catalog = load_json(ROOT / "skills.json")
-    assert skill_catalog["skills"] == list(HOSTED_SKILLS)
+    assert skill_catalog["skills"] == list(CANONICAL_SKILLS)
+    assert skill_catalog["hostedSkills"] == list(HOSTED_SKILLS)
     skills_sh = load_json(ROOT / "skills.sh.json")
-    assert skills_sh["groupings"][0]["skills"] == list(SKILLS)
+    assert skills_sh == {"name": "agentmailer", "skills": list(CANONICAL_SKILLS)}
 
     markdown_link = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
     for path in ROOT.rglob("*.md"):
