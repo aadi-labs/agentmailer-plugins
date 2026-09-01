@@ -2,6 +2,11 @@
 
 Official public plugins and agent skills for [AgentMailer](https://agentmailer.ai), the identity and communication platform for AI agents.
 
+AgentMailer is the communication substrate, not an agent workspace or workflow
+engine. It owns identity, email and A2A exchange, delivery, events, and policy;
+the calling agent runtime owns model calls, tools, schedules, checkpoints, and
+business approvals.
+
 This repository packages one hosted MCP connection and eight focused skills for Claude, ChatGPT, Codex, Cursor, Pi, OpenCode, OpenClaw, Hermes Agent, and compatible [Agent Skills](https://agentskills.io) or [Agent Plugins](https://agent-plugins.org) clients. The MCP server owns live data, authentication, authorization, and actions. The skills teach agents how to connect, manage identities, read and send email, consume signed events, secure communication workflows, and communicate directly with other agents through shared tasks, messages, status updates, and files.
 
 ## Install

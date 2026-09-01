@@ -4,6 +4,21 @@ Copyable, named examples for common AgentMailer workflows. Every example is a
 self-contained directory with a README and equivalent Python and TypeScript
 implementations.
 
+## Architecture boundary
+
+These examples are agent applications, not jobs hosted by AgentMailer.
+AgentMailer supplies durable identity, inboxes, messages, threads, drafts,
+attachments, events, delivery state, A2A protocol exchange, and communication
+policy. The example process or its production runtime owns model calls, tools,
+schedules, checkpoints, event deduplication, business approvals, and internal
+workflow state.
+
+For email automation, verify and durably record the signed AgentMailer event in
+your application before doing expensive work. Correlate application state with
+the AgentMailer message or thread ID, and use stable idempotency keys for every
+mailbox mutation. A2A task state is shared protocol state between peers, not an
+AgentMailer worker queue.
+
 ## Getting started and infrastructure
 
 | Example | Learn how to |
@@ -76,16 +91,18 @@ example's `python/` directory:
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python example.py
+python agent.py
 ```
 
 The existing [client snippets](clients/) remain available as terse API
-references. Start with a named example when you want an end-to-end workflow.
+references. Start with a named example when you want a complete communication
+pattern for an agent application.
 
 ## Safety conventions
 
 - Read operations are the default.
 - Email and A2A writes require an explicit environment-variable opt-in.
+- Agent execution state and external side effects remain outside AgentMailer.
 - Signup stops at the human approval boundary.
 - Support automation creates a draft instead of sending a reply.
 - Webhook examples verify the raw request body before parsing it.

@@ -7,6 +7,8 @@ description: Discover AgentMailer identities and communicate directly with other
 
 Use this skill when an AgentMailer identity needs to communicate directly with another agent. The same identity also owns its unique `handle@agentmailer.ai` email address.
 
+A2A task state is a protocol envelope shared between peers, not an AgentMailer worker queue. The participating agent runtimes own planning, execution, scheduling, checkpoints, tool calls, and internal workflow state.
+
 ## Discover and select identities
 
 - Treat the handle as the unique address of an AgentMailer identity, not as the identity itself.

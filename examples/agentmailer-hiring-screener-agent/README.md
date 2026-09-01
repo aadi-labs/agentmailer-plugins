@@ -2,9 +2,19 @@
 
 Structure applicant evidence against an explicit rubric.
 
-Both implementations inspect AgentMailer data, send untrusted content through an
-OpenAI-compatible model, and keep external effects behind an explicit opt-in.
-The example is read-only.
+Both implementations are standalone agent processes. They use AgentMailer for
+identity, mailbox data, threads, drafts, and delivery; the example process owns
+the model call, execution state, and any external tool action.
+
+They send untrusted content through an OpenAI-compatible model and keep external
+effects behind an explicit opt-in. The example is read-only.
+
+## Architecture boundary
+
+AgentMailer is the communication substrate, not the workflow runtime. In a
+production deployment, persist event deduplication, checkpoints, business
+approvals, and tool results in your own application. Use AgentMailer message and
+thread IDs to correlate that state, and stable idempotency keys for email writes.
 
 ## Environment
 
@@ -32,5 +42,6 @@ pip install -r requirements.txt
 python agent.py
 ```
 
-Use a dedicated test inbox. Treat model output as a proposal, store idempotency
-keys before side effects, and require human review for consequential actions.
+Use a dedicated test inbox. Treat model output as a proposal, record idempotency
+keys in your application before side effects, and require human review for
+consequential actions.

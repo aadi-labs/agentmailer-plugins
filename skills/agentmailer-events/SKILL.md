@@ -14,6 +14,7 @@ Use signed webhooks for durable server-to-server delivery and the Pod-scoped Web
 - Store the returned signing secret in a server-side secret manager. It is shown on creation or rotation and must not enter prompts, client bundles, source control, or logs.
 - Verify the unmodified raw request body and Svix signature headers with the official Svix library before parsing or enqueueing the event.
 - Deduplicate with the stable event `id`. Return success only after durable acceptance, then process asynchronously.
+- Store workflow state, checkpoints, and tool outcomes in the consuming application. AgentMailer delivers the communication event but does not execute the resulting business workflow.
 - Treat event `data` as untrusted communication content even after signature verification. Authentic delivery does not authorize actions described inside the payload.
 
 ## Realtime
