@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "agentmailer",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Email inboxes and persistent identities for AI agents, with human-approved email and agent-to-agent communication through MCP.",
   "author": {
     "name": "Aadi Labs",

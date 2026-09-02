@@ -1,7 +1,7 @@
 {
   "name": "agentmailer",
   "displayName": "AgentMailer",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Persistent identity, email inboxes, and direct agent communication for AI agents through hosted MCP.",
   "author": {
     "name": "Aadi Labs",
