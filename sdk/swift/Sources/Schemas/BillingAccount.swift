@@ -3,8 +3,6 @@ import Foundation
 public struct BillingAccount: Codable, Hashable, Sendable {
     public let plan: BillingAccountPlan
     public let status: BillingAccountStatus
-    public let stripeCustomerId: Nullable<String>
-    public let stripeSubscriptionId: Nullable<String>
     public let currentPeriodEnd: Nullable<Date>
     public let inboxLimit: Nullable<Int>
     public let monthlySendLimit: Nullable<Int>
@@ -16,8 +14,6 @@ public struct BillingAccount: Codable, Hashable, Sendable {
     public init(
         plan: BillingAccountPlan,
         status: BillingAccountStatus,
-        stripeCustomerId: Nullable<String>,
-        stripeSubscriptionId: Nullable<String>,
         currentPeriodEnd: Nullable<Date>,
         inboxLimit: Nullable<Int>,
         monthlySendLimit: Nullable<Int>,
@@ -27,8 +23,6 @@ public struct BillingAccount: Codable, Hashable, Sendable {
     ) {
         self.plan = plan
         self.status = status
-        self.stripeCustomerId = stripeCustomerId
-        self.stripeSubscriptionId = stripeSubscriptionId
         self.currentPeriodEnd = currentPeriodEnd
         self.inboxLimit = inboxLimit
         self.monthlySendLimit = monthlySendLimit
@@ -41,8 +35,6 @@ public struct BillingAccount: Codable, Hashable, Sendable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.plan = try container.decode(BillingAccountPlan.self, forKey: .plan)
         self.status = try container.decode(BillingAccountStatus.self, forKey: .status)
-        self.stripeCustomerId = try container.decode(Nullable<String>.self, forKey: .stripeCustomerId)
-        self.stripeSubscriptionId = try container.decode(Nullable<String>.self, forKey: .stripeSubscriptionId)
         self.currentPeriodEnd = try container.decode(Nullable<Date>.self, forKey: .currentPeriodEnd)
         self.inboxLimit = try container.decode(Nullable<Int>.self, forKey: .inboxLimit)
         self.monthlySendLimit = try container.decode(Nullable<Int>.self, forKey: .monthlySendLimit)
@@ -56,8 +48,6 @@ public struct BillingAccount: Codable, Hashable, Sendable {
         try encoder.encodeAdditionalProperties(self.additionalProperties)
         try container.encode(self.plan, forKey: .plan)
         try container.encode(self.status, forKey: .status)
-        try container.encode(self.stripeCustomerId, forKey: .stripeCustomerId)
-        try container.encode(self.stripeSubscriptionId, forKey: .stripeSubscriptionId)
         try container.encode(self.currentPeriodEnd, forKey: .currentPeriodEnd)
         try container.encode(self.inboxLimit, forKey: .inboxLimit)
         try container.encode(self.monthlySendLimit, forKey: .monthlySendLimit)
@@ -69,8 +59,6 @@ public struct BillingAccount: Codable, Hashable, Sendable {
     enum CodingKeys: String, CodingKey, CaseIterable {
         case plan
         case status
-        case stripeCustomerId
-        case stripeSubscriptionId
         case currentPeriodEnd
         case inboxLimit
         case monthlySendLimit

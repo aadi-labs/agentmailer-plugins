@@ -84,27 +84,23 @@ func (b *BillingSelection) MarshalJSON() ([]byte, error) {
 }
 
 var (
-	billingAccountFieldPlan                 = big.NewInt(1 << 0)
-	billingAccountFieldStatus               = big.NewInt(1 << 1)
-	billingAccountFieldStripeCustomerID     = big.NewInt(1 << 2)
-	billingAccountFieldStripeSubscriptionID = big.NewInt(1 << 3)
-	billingAccountFieldCurrentPeriodEnd     = big.NewInt(1 << 4)
-	billingAccountFieldInboxLimit           = big.NewInt(1 << 5)
-	billingAccountFieldMonthlySendLimit     = big.NewInt(1 << 6)
-	billingAccountFieldCustomDomainLimit    = big.NewInt(1 << 7)
-	billingAccountFieldBillingInterval      = big.NewInt(1 << 8)
+	billingAccountFieldPlan              = big.NewInt(1 << 0)
+	billingAccountFieldStatus            = big.NewInt(1 << 1)
+	billingAccountFieldCurrentPeriodEnd  = big.NewInt(1 << 4)
+	billingAccountFieldInboxLimit        = big.NewInt(1 << 5)
+	billingAccountFieldMonthlySendLimit  = big.NewInt(1 << 6)
+	billingAccountFieldCustomDomainLimit = big.NewInt(1 << 7)
+	billingAccountFieldBillingInterval   = big.NewInt(1 << 8)
 )
 
 type BillingAccount struct {
-	Plan                 BillingAccountPlan             `json:"plan" url:"plan"`
-	Status               BillingAccountStatus           `json:"status" url:"status"`
-	StripeCustomerID     *string                        `json:"stripeCustomerId,omitempty" url:"stripeCustomerId,omitempty"`
-	StripeSubscriptionID *string                        `json:"stripeSubscriptionId,omitempty" url:"stripeSubscriptionId,omitempty"`
-	CurrentPeriodEnd     *time.Time                     `json:"currentPeriodEnd,omitempty" url:"currentPeriodEnd,omitempty"`
-	InboxLimit           *int                           `json:"inboxLimit,omitempty" url:"inboxLimit,omitempty"`
-	MonthlySendLimit     *int                           `json:"monthlySendLimit,omitempty" url:"monthlySendLimit,omitempty"`
-	CustomDomainLimit    *int                           `json:"customDomainLimit,omitempty" url:"customDomainLimit,omitempty"`
-	BillingInterval      *BillingAccountBillingInterval `json:"billingInterval,omitempty" url:"billingInterval,omitempty"`
+	Plan              BillingAccountPlan             `json:"plan" url:"plan"`
+	Status            BillingAccountStatus           `json:"status" url:"status"`
+	CurrentPeriodEnd  *time.Time                     `json:"currentPeriodEnd,omitempty" url:"currentPeriodEnd,omitempty"`
+	InboxLimit        *int                           `json:"inboxLimit,omitempty" url:"inboxLimit,omitempty"`
+	MonthlySendLimit  *int                           `json:"monthlySendLimit,omitempty" url:"monthlySendLimit,omitempty"`
+	CustomDomainLimit *int                           `json:"customDomainLimit,omitempty" url:"customDomainLimit,omitempty"`
+	BillingInterval   *BillingAccountBillingInterval `json:"billingInterval,omitempty" url:"billingInterval,omitempty"`
 
 	// Private bitmask of fields set to an explicit value and therefore not to be omitted
 	explicitFields *big.Int `json:"-" url:"-"`
@@ -125,20 +121,6 @@ func (b *BillingAccount) GetStatus() BillingAccountStatus {
 		return ""
 	}
 	return b.Status
-}
-
-func (b *BillingAccount) GetStripeCustomerID() *string {
-	if b == nil {
-		return nil
-	}
-	return b.StripeCustomerID
-}
-
-func (b *BillingAccount) GetStripeSubscriptionID() *string {
-	if b == nil {
-		return nil
-	}
-	return b.StripeSubscriptionID
 }
 
 func (b *BillingAccount) GetCurrentPeriodEnd() *time.Time {
@@ -202,20 +184,6 @@ func (b *BillingAccount) SetPlan(plan BillingAccountPlan) {
 func (b *BillingAccount) SetStatus(status BillingAccountStatus) {
 	b.Status = status
 	b.require(billingAccountFieldStatus)
-}
-
-// SetStripeCustomerID sets the StripeCustomerID field and marks it as non-optional;
-// this prevents an empty or null value for this field from being omitted during serialization.
-func (b *BillingAccount) SetStripeCustomerID(stripeCustomerID *string) {
-	b.StripeCustomerID = stripeCustomerID
-	b.require(billingAccountFieldStripeCustomerID)
-}
-
-// SetStripeSubscriptionID sets the StripeSubscriptionID field and marks it as non-optional;
-// this prevents an empty or null value for this field from being omitted during serialization.
-func (b *BillingAccount) SetStripeSubscriptionID(stripeSubscriptionID *string) {
-	b.StripeSubscriptionID = stripeSubscriptionID
-	b.require(billingAccountFieldStripeSubscriptionID)
 }
 
 // SetCurrentPeriodEnd sets the CurrentPeriodEnd field and marks it as non-optional;

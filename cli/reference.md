@@ -132,7 +132,7 @@ Create a direct attachment upload
 
 #### `agentmailer billing create-checkout`
 
-Create a Stripe subscription Checkout session
+Create a subscription checkout session
 
 `POST /v1/billing/checkout`
 
@@ -142,7 +142,7 @@ Create a Stripe subscription Checkout session
 
 #### `agentmailer billing create-portal`
 
-Create a Stripe customer portal session
+Create a billing management session
 
 `POST /v1/billing/portal`
 
@@ -716,4 +716,3 @@ These flags are available on every command:
 | `-q, --quiet` | Suppress stdout on success |
 | `-h, --help` | Print help |
 | `-V, --version` | Print version |
-

@@ -15,12 +15,6 @@ from .billing_account_status import BillingAccountStatus
 class BillingAccount(UniversalBaseModel):
     plan: BillingAccountPlan
     status: BillingAccountStatus
-    stripe_customer_id: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="stripeCustomerId"), pydantic.Field(alias="stripeCustomerId")
-    ] = None
-    stripe_subscription_id: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="stripeSubscriptionId"), pydantic.Field(alias="stripeSubscriptionId")
-    ] = None
     current_period_end: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="currentPeriodEnd"), pydantic.Field(alias="currentPeriodEnd")
     ] = None

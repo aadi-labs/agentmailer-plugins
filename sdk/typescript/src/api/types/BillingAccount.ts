@@ -3,8 +3,6 @@
 export interface BillingAccount {
     plan: BillingAccount.Plan;
     status: BillingAccount.Status;
-    stripeCustomerId: string | null;
-    stripeSubscriptionId: string | null;
     currentPeriodEnd: string | null;
     inboxLimit: number | null;
     monthlySendLimit: number | null;

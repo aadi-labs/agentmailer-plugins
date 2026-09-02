@@ -4,6 +4,7 @@ import contextlib
 import importlib.util
 import io
 import json
+import re
 import shutil
 import tempfile
 import unittest
@@ -57,6 +58,30 @@ class SkillsToolingTests(unittest.TestCase):
             self.repository / "agentmailer-sdk/agents/openai.yaml"
         ).read_text(encoding="utf-8")
         self.assertIn("$agentmailer-sdk", openai)
+
+    def test_public_guidance_does_not_expose_backend_vendors(self) -> None:
+        catalog = json.loads((SOURCE_ROOT / "skills.json").read_text(encoding="utf-8"))
+        public_files = [
+            SOURCE_ROOT / "README.md",
+            SOURCE_ROOT / "fern/openapi/openapi.json",
+            SOURCE_ROOT / "cli/cli/agentmailer/openapi0.json",
+            SOURCE_ROOT / "cli/reference.md",
+        ]
+        for name in (*catalog["skills"], *catalog.get("compatibilitySkills", [])):
+            public_files.extend((SOURCE_ROOT / name).rglob("*.md"))
+
+        forbidden = re.compile(
+            r"WorkOS|Svix|Amazon SES|AWS SES|PlanetScale|Stalwart|"
+            r"Cloudflare Durable|Vercel-hosted|x-workos-permission|Create a Stripe",
+            re.IGNORECASE,
+        )
+        leaks = []
+        for path in public_files:
+            match = forbidden.search(path.read_text(encoding="utf-8"))
+            if match:
+                leaks.append(f"{path.relative_to(SOURCE_ROOT)}: {match.group(0)}")
+
+        self.assertEqual(leaks, [])
 
 
 if __name__ == "__main__":

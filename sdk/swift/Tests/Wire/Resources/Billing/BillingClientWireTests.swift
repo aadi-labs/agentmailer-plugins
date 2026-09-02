@@ -12,8 +12,6 @@ import AgentMailer
                   "billing": {
                     "plan": "free",
                     "status": "active",
-                    "stripeCustomerId": "stripeCustomerId",
-                    "stripeSubscriptionId": "stripeSubscriptionId",
                     "currentPeriodEnd": "2024-01-15T09:30:00Z",
                     "inboxLimit": 1,
                     "monthlySendLimit": 1,
@@ -33,8 +31,6 @@ import AgentMailer
             billing: BillingAccount(
                 plan: BillingAccountPlan.free,
                 status: BillingAccountStatus.active,
-                stripeCustomerId: Nullable<String>.value("stripeCustomerId"),
-                stripeSubscriptionId: Nullable<String>.value("stripeSubscriptionId"),
                 currentPeriodEnd: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                 inboxLimit: Nullable<Int>.value(1),
                 monthlySendLimit: Nullable<Int>.value(1),
@@ -55,8 +51,6 @@ import AgentMailer
                   "billing": {
                     "plan": "free",
                     "status": "active",
-                    "stripeCustomerId": "stripeCustomerId",
-                    "stripeSubscriptionId": "stripeSubscriptionId",
                     "currentPeriodEnd": "2024-01-15T09:30:00Z",
                     "inboxLimit": 1,
                     "monthlySendLimit": 1,
@@ -76,8 +70,6 @@ import AgentMailer
             billing: BillingAccount(
                 plan: BillingAccountPlan.free,
                 status: BillingAccountStatus.active,
-                stripeCustomerId: Nullable<String>.value("stripeCustomerId"),
-                stripeSubscriptionId: Nullable<String>.value("stripeSubscriptionId"),
                 currentPeriodEnd: Nullable<Date>.value(try! Date("2024-01-15T09:30:00Z", strategy: .iso8601)),
                 inboxLimit: Nullable<Int>.value(1),
                 monthlySendLimit: Nullable<Int>.value(1),

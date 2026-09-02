@@ -1884,7 +1884,7 @@
       },
       "response": {
         "status": 200,
-        "body": "{\n  \"billing\": {\n    \"plan\": \"free\",\n    \"status\": \"active\",\n    \"stripeCustomerId\": \"stripeCustomerId\",\n    \"stripeSubscriptionId\": \"stripeSubscriptionId\",\n    \"currentPeriodEnd\": \"2024-01-15T09:30:00Z\",\n    \"inboxLimit\": 1,\n    \"monthlySendLimit\": 1,\n    \"customDomainLimit\": 1,\n    \"billingInterval\": \"month\"\n  }\n}",
+        "body": "{\n  \"billing\": {\n    \"plan\": \"free\",\n    \"status\": \"active\",\n    \"currentPeriodEnd\": \"2024-01-15T09:30:00Z\",\n    \"inboxLimit\": 1,\n    \"monthlySendLimit\": 1,\n    \"customDomainLimit\": 1,\n    \"billingInterval\": \"month\"\n  }\n}",
         "headers": {
           "Content-Type": "application/json"
         }
@@ -1904,7 +1904,7 @@
     },
     {
       "id": "68530d6b-eaf9-4252-b084-e8fde42d020c",
-      "name": "Create a Stripe subscription Checkout session - default",
+      "name": "Create a subscription checkout session - default",
       "request": {
         "urlPathTemplate": "/v1/billing/checkout",
         "method": "POST",
@@ -1935,7 +1935,7 @@
     },
     {
       "id": "b6933dde-e3d8-489d-b6f0-cc9f694025fe",
-      "name": "Create a Stripe customer portal session - default",
+      "name": "Create a billing management session - default",
       "request": {
         "urlPathTemplate": "/v1/billing/portal",
         "method": "POST",

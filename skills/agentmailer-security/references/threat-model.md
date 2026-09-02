@@ -15,7 +15,7 @@
 3. **Cross-tenant access**: use opaque returned IDs, enforce organization and Pod scope, and stop on authorization failures rather than probing alternatives.
 4. **Outbound data leakage**: resolve exact recipients and visible fields; confirm inferred or sensitive delivery; avoid automatic reply-all and BCC.
 5. **Duplicate effects**: use stable idempotency keys or message IDs and reconcile ambiguous writes before retrying.
-6. **Webhook spoofing or replay**: verify the unmodified raw body with the endpoint secret and official Svix library; deduplicate by event ID after verification.
+6. **Webhook spoofing or replay**: verify the unmodified raw body with the AgentMailer endpoint secret and delivered signature headers; deduplicate by event ID after verification.
 7. **Destructive ambiguity**: identify the exact resource and effect immediately before deletion, cancellation, secret rotation, or admission-policy changes.
 8. **Unsafe observability**: record event type, opaque IDs, outcome, latency, and actor scope; redact bodies, credentials, attachment URLs, and unnecessary recipient data.
 

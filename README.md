@@ -135,14 +135,19 @@ https://api.agentmailer.ai/mcp
 
 The server advertises OAuth protected-resource metadata. Do not paste OAuth tokens into configuration files or prompts.
 
+Adding the endpoint and authenticating it are separate steps. For Codex run
+`codex mcp login agentmailer` after `codex mcp add`; for Claude Code run
+`claude mcp login agentmailer` after `claude mcp add`. In other clients, use the
+MCP OAuth login or authenticate action after saving the server.
+
 The endpoint also advertises `io.modelcontextprotocol/skills` and serves the five MCP-dependent operational skills through `skills/list`, `skills/get`, and `resources/read`. Regenerate and deploy the API skill snapshot before claiming hosted parity. OpenAI Scan Tools imports a static submission snapshot, so scan again after that deployment.
 
-### Vercel and server runtimes
+### Server runtimes
 
 OAuth-capable agents can connect directly to the hosted MCP endpoint. Server
 workloads that cannot complete OAuth can use a human-approved, permission-scoped
-key stored as `AGENTMAILER_API_KEY` in Vercel environment variables. Never put
-AgentMailer credentials in `NEXT_PUBLIC_*` variables, source control, client
+key stored as `AGENTMAILER_API_KEY` in the runtime's secret store. Never put
+AgentMailer credentials in public environment variables, source control, client
 bundles, prompts, or logs. Use the published OpenAPI document as the schema
 source of truth:
 
@@ -198,8 +203,8 @@ Every AgentMailer identity requires human approval. Each durable identity receiv
 
 For OAuth-capable MCP clients:
 
-1. Connect to `https://api.agentmailer.ai/mcp` and open the human-approved OAuth flow.
-2. Ask the human owner to approve access.
+1. Add `https://api.agentmailer.ai/mcp` to the client.
+2. Run the client's MCP OAuth login action, then ask the human owner to approve access.
 3. Call `auth_me`; continue only when it reports a trusted identity with `inboxes:create`.
 4. Call `create_inbox` with a stable idempotency key and the requested username.
 

@@ -15,10 +15,13 @@ Prefer the client's native remote-MCP configuration so it can discover OAuth fro
 
 Choose the shortest path for the active client:
 
-- Claude Code: `claude mcp add --transport http agentmailer https://api.agentmailer.ai/mcp`
-- Codex: `codex mcp add agentmailer --url https://api.agentmailer.ai/mcp`
-- Vercel-hosted server workloads: prefer OAuth-capable hosted MCP when the runtime supports it. Otherwise store a human-approved, permission-scoped key as `AGENTMAILER_API_KEY`; never expose it through `NEXT_PUBLIC_*` variables or client bundles.
-- Other clients: add the endpoint as a remote HTTP MCP server and complete OAuth in the client.
+- Claude Code: run `claude mcp add --transport http agentmailer https://api.agentmailer.ai/mcp`, then `claude mcp login agentmailer`.
+- Codex: run `codex mcp add agentmailer --url https://api.agentmailer.ai/mcp`, then `codex mcp login agentmailer`.
+- OpenCode: add the remote server configuration, then run `opencode mcp auth agentmailer`.
+- OpenClaw: add the remote server configuration, then run `openclaw mcp login agentmailer`.
+- Hermes: add the remote server configuration, then run `hermes mcp login agentmailer`.
+- Server workloads: prefer OAuth-capable hosted MCP when the runtime supports it. For direct REST access, follow `https://api.agentmailer.ai/auth.md` exactly.
+- Other clients: add the endpoint as a remote HTTP MCP server, then run the client's MCP OAuth login or authenticate action.
 
 Every first-time signup requires human approval. After authorization:
 
@@ -27,7 +30,7 @@ Every first-time signup requires human approval. After authorization:
 3. If no existing inbox fits, call `create_inbox` with a stable idempotency key and an optional lowercase username.
 4. Verify the returned address ends in `@agentmailer.ai`; this unique handle names the same durable identity over email and direct agent communication.
 
-If the client cannot complete MCP OAuth and requires an API key, follow `https://api.agentmailer.ai/llms.txt`: call `POST /v1/agent/sign-up` with `human_email` and `username`, present the returned approval URL to the human, then follow `auth.md`. Pass the resulting key only through the client's supported `x-api-key` configuration.
+If the client cannot complete MCP OAuth or needs direct REST access, follow `https://api.agentmailer.ai/auth.md` exactly. Do not invent or partially reproduce its signup and token procedure.
 
 Do not call `create_inbox` with an unverified credential. A `human_approval_required` response means the approval ceremony is incomplete; show the existing approval URL or restart the documented signup flow instead of retrying blindly.
 

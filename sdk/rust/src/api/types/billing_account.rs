@@ -4,12 +4,6 @@ pub use crate::prelude::*;
 pub struct BillingAccount {
     pub plan: BillingAccountPlan,
     pub status: BillingAccountStatus,
-    #[serde(rename = "stripeCustomerId")]
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub stripe_customer_id: Option<String>,
-    #[serde(rename = "stripeSubscriptionId")]
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub stripe_subscription_id: Option<String>,
     #[serde(rename = "currentPeriodEnd")]
     #[serde(skip_serializing_if = "Option::is_none")]
     #[serde(default)]
@@ -40,8 +34,6 @@ impl BillingAccount {
 pub struct BillingAccountBuilder {
     plan: Option<BillingAccountPlan>,
     status: Option<BillingAccountStatus>,
-    stripe_customer_id: Option<String>,
-    stripe_subscription_id: Option<String>,
     current_period_end: Option<DateTime<FixedOffset>>,
     inbox_limit: Option<i64>,
     monthly_send_limit: Option<i64>,
@@ -57,16 +49,6 @@ impl BillingAccountBuilder {
 
     pub fn status(mut self, value: BillingAccountStatus) -> Self {
         self.status = Some(value);
-        self
-    }
-
-    pub fn stripe_customer_id(mut self, value: impl Into<String>) -> Self {
-        self.stripe_customer_id = Some(value.into());
-        self
-    }
-
-    pub fn stripe_subscription_id(mut self, value: impl Into<String>) -> Self {
-        self.stripe_subscription_id = Some(value.into());
         self
     }
 
@@ -105,8 +87,6 @@ impl BillingAccountBuilder {
             status: self
                 .status
                 .ok_or_else(|| BuildError::missing_field("status"))?,
-            stripe_customer_id: self.stripe_customer_id,
-            stripe_subscription_id: self.stripe_subscription_id,
             current_period_end: self.current_period_end,
             inbox_limit: self.inbox_limit,
             monthly_send_limit: self.monthly_send_limit,

@@ -12,8 +12,6 @@ describe("BillingClient", () => {
             billing: {
                 plan: "free",
                 status: "active",
-                stripeCustomerId: "stripeCustomerId",
-                stripeSubscriptionId: "stripeSubscriptionId",
                 currentPeriodEnd: "2024-01-15T09:30:00Z",
                 inboxLimit: 1,
                 monthlySendLimit: 1,
