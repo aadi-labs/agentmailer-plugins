@@ -4,6 +4,20 @@
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create an approved agent's inbox
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -21,7 +35,9 @@ client = AgentMailer(
     environment=AgentMailerEnvironment.DEFAULT,
 )
 
-client.agent.bootstrap()
+client.agent.bootstrap(
+    idempotency_key="Idempotency-Key",
+)
 
 ```
 </dd>
@@ -37,16 +53,24 @@ client.agent.bootstrap()
 <dl>
 <dd>
 
-**requested_local_part:** `typing.Optional[str]` 
-    
+**idempotency_key:** `str` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**pod_name:** `typing.Optional[str]` 
-    
+**requested_local_part:** `typing.Optional[str]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pod_name:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
@@ -54,7 +78,7 @@ client.agent.bootstrap()
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -68,6 +92,20 @@ client.agent.bootstrap()
 <details><summary><code>client.agent.<a href="src/agentmailer/agent/client.py">sign_up</a>(...) -> SignUpAgentResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Start human approval for an agent
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -105,16 +143,16 @@ client.agent.sign_up(
 <dl>
 <dd>
 
-**human_email:** `str` 
-    
+**human_email:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**username:** `str` 
-    
+**username:** `str`
+
 </dd>
 </dl>
 
@@ -122,7 +160,7 @@ client.agent.sign_up(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -137,6 +175,20 @@ client.agent.sign_up(
 <details><summary><code>client.inboxes.<a href="src/agentmailer/inboxes/client.py">list</a>(...) -> ListInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List inboxes
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -171,16 +223,16 @@ client.inboxes.list()
 <dl>
 <dd>
 
-**limit:** `typing.Optional[int]` 
-    
+**limit:** `typing.Optional[int]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**page_token:** `typing.Optional[str]` 
-    
+**page_token:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
@@ -188,7 +240,7 @@ client.inboxes.list()
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -202,6 +254,20 @@ client.inboxes.list()
 <details><summary><code>client.inboxes.<a href="src/agentmailer/inboxes/client.py">create</a>(...) -> CreateInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create an inbox
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -236,48 +302,56 @@ client.inboxes.create()
 <dl>
 <dd>
 
-**username:** `typing.Optional[str]` 
-    
+**idempotency_key:** `typing.Optional[str]` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**pod_id:** `typing.Optional[str]` 
-    
+**username:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**domain_id:** `typing.Optional[str]` 
-    
+**pod_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**client_id:** `typing.Optional[str]` 
-    
+**domain_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**display_name:** `typing.Optional[str]` 
-    
+**client_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**metadata:** `typing.Optional[typing.Dict[str, InboxCreateMetadataValue]]` 
-    
+**display_name:** `typing.Optional[str]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**metadata:** `typing.Optional[typing.Dict[str, InboxCreateMetadataValue]]`
+
 </dd>
 </dl>
 
@@ -285,7 +359,7 @@ client.inboxes.create()
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -299,6 +373,20 @@ client.inboxes.create()
 <details><summary><code>client.inboxes.<a href="src/agentmailer/inboxes/client.py">get</a>(...) -> GetInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get an inbox
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -335,8 +423,8 @@ client.inboxes.get(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
@@ -344,7 +432,7 @@ client.inboxes.get(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -358,6 +446,20 @@ client.inboxes.get(
 <details><summary><code>client.inboxes.<a href="src/agentmailer/inboxes/client.py">delete</a>(...)</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete an inbox
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -394,8 +496,8 @@ client.inboxes.delete(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
@@ -403,7 +505,7 @@ client.inboxes.delete(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -417,6 +519,20 @@ client.inboxes.delete(
 <details><summary><code>client.inboxes.<a href="src/agentmailer/inboxes/client.py">update</a>(...) -> UpdateInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update an inbox
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -453,32 +569,32 @@ client.inboxes.update(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**display_name:** `typing.Optional[str]` 
-    
+**display_name:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**client_id:** `typing.Optional[str]` 
-    
+**client_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**metadata:** `typing.Optional[typing.Dict[str, typing.Optional[InboxUpdateMetadataValue]]]` 
-    
+**metadata:** `typing.Optional[typing.Dict[str, typing.Optional[InboxUpdateMetadataValue]]]`
+
 </dd>
 </dl>
 
@@ -486,7 +602,7 @@ client.inboxes.update(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -500,6 +616,20 @@ client.inboxes.update(
 <details><summary><code>client.inboxes.<a href="src/agentmailer/inboxes/client.py">issue_credentials</a>(...) -> IssueCredentialsInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Issue new IMAP and SMTP credentials
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -536,8 +666,8 @@ client.inboxes.issue_credentials(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
@@ -545,7 +675,879 @@ client.inboxes.issue_credentials(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## ChannelEndpoints
+<details><summary><code>client.channel_endpoints.<a href="src/agentmailer/channel_endpoints/client.py">list</a>() -> ListChannelEndpointsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List human-channel endpoints
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from agentmailer import AgentMailer
+from agentmailer.environment import AgentMailerEnvironment
+
+client = AgentMailer(
+    api_key="<token>",
+    environment=AgentMailerEnvironment.DEFAULT,
+)
+
+client.channel_endpoints.list()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channel_endpoints.<a href="src/agentmailer/channel_endpoints/client.py">create</a>(...) -> CreateChannelEndpointsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Assign a human-channel endpoint
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from agentmailer import AgentMailer
+from agentmailer.environment import AgentMailerEnvironment
+
+client = AgentMailer(
+    api_key="<token>",
+    environment=AgentMailerEnvironment.DEFAULT,
+)
+
+client.channel_endpoints.create(
+    inbox_id="inboxId",
+    pod_id="podId",
+    channel="sms",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**inbox_id:** `str`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pod_id:** `str`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**channel:** `ChannelEndpointCreateChannel`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channel_endpoints.<a href="src/agentmailer/channel_endpoints/client.py">get</a>(...) -> GetChannelEndpointsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a human-channel endpoint
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from agentmailer import AgentMailer
+from agentmailer.environment import AgentMailerEnvironment
+
+client = AgentMailer(
+    api_key="<token>",
+    environment=AgentMailerEnvironment.DEFAULT,
+)
+
+client.channel_endpoints.get(
+    endpoint_id="endpointId",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**endpoint_id:** `str`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channel_endpoints.<a href="src/agentmailer/channel_endpoints/client.py">update</a>(...) -> UpdateChannelEndpointsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Enable or disable a human-channel endpoint
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from agentmailer import AgentMailer
+from agentmailer.environment import AgentMailerEnvironment
+
+client = AgentMailer(
+    api_key="<token>",
+    environment=AgentMailerEnvironment.DEFAULT,
+)
+
+client.channel_endpoints.update(
+    endpoint_id="endpointId",
+    status="active",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**endpoint_id:** `str`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `ChannelEndpointUpdateStatus`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## ChannelConversations
+<details><summary><code>client.channel_conversations.<a href="src/agentmailer/channel_conversations/client.py">list</a>(...) -> ListChannelConversationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List human-channel conversations
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from agentmailer import AgentMailer
+from agentmailer.environment import AgentMailerEnvironment
+
+client = AgentMailer(
+    api_key="<token>",
+    environment=AgentMailerEnvironment.DEFAULT,
+)
+
+client.channel_conversations.list()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_token:** `typing.Optional[str]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**endpoint_id:** `typing.Optional[str]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**channel:** `typing.Optional[ListChannelConversationsRequestChannel]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `typing.Optional[ListChannelConversationsRequestStatus]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channel_conversations.<a href="src/agentmailer/channel_conversations/client.py">get</a>(...) -> GetChannelConversationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a human-channel conversation
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from agentmailer import AgentMailer
+from agentmailer.environment import AgentMailerEnvironment
+
+client = AgentMailer(
+    api_key="<token>",
+    environment=AgentMailerEnvironment.DEFAULT,
+)
+
+client.channel_conversations.get(
+    conversation_id="conversationId",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**conversation_id:** `str`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channel_conversations.<a href="src/agentmailer/channel_conversations/client.py">update</a>(...) -> UpdateChannelConversationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Open or close a human-channel conversation
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from agentmailer import AgentMailer
+from agentmailer.environment import AgentMailerEnvironment
+
+client = AgentMailer(
+    api_key="<token>",
+    environment=AgentMailerEnvironment.DEFAULT,
+)
+
+client.channel_conversations.update(
+    conversation_id="conversationId",
+    status="active",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**conversation_id:** `str`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `ChannelConversationUpdateStatus`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## ChannelRecipientPermissions
+<details><summary><code>client.channel_recipient_permissions.<a href="src/agentmailer/channel_recipient_permissions/client.py">list</a>(...) -> ListChannelRecipientPermissionsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List human-channel consent and opt-out state
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from agentmailer import AgentMailer
+from agentmailer.environment import AgentMailerEnvironment
+
+client = AgentMailer(
+    api_key="<token>",
+    environment=AgentMailerEnvironment.DEFAULT,
+)
+
+client.channel_recipient_permissions.list()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_token:** `typing.Optional[str]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**endpoint_id:** `typing.Optional[str]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**channel:** `typing.Optional[ListChannelRecipientPermissionsRequestChannel]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `typing.Optional[ListChannelRecipientPermissionsRequestStatus]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## ChannelMessages
+<details><summary><code>client.channel_messages.<a href="src/agentmailer/channel_messages/client.py">list</a>(...) -> ListChannelMessagesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List human-channel messages
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from agentmailer import AgentMailer
+from agentmailer.environment import AgentMailerEnvironment
+
+client = AgentMailer(
+    api_key="<token>",
+    environment=AgentMailerEnvironment.DEFAULT,
+)
+
+client.channel_messages.list()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_token:** `typing.Optional[str]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**endpoint_id:** `typing.Optional[str]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**conversation_id:** `typing.Optional[str]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**channel:** `typing.Optional[ListChannelMessagesRequestChannel]`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channel_messages.<a href="src/agentmailer/channel_messages/client.py">send</a>(...) -> SendChannelMessagesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Sends through an assigned SMS, MMS, RCS, WhatsApp, or outbound voice endpoint. Supports RCS rich cards and replies, plus WhatsApp media and reply buttons. All non-template WhatsApp messages require a recipient message within the last 24 hours; otherwise use an approved template.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from agentmailer import AgentMailer, ChannelMessageSend_Sms, ChannelMessageSendSmsConsent, ChannelMessageSendSmsContent
+from agentmailer.environment import AgentMailerEnvironment
+import datetime
+
+client = AgentMailer(
+    api_key="<token>",
+    environment=AgentMailerEnvironment.DEFAULT,
+)
+
+client.channel_messages.send(
+    idempotency_key="Idempotency-Key",
+    request=ChannelMessageSend_Sms(
+        endpoint_id="endpointId",
+        to="to",
+        consent=ChannelMessageSendSmsConsent(
+            basis="explicit",
+            captured_at=datetime.datetime.fromisoformat("2024-01-15T09:30:00+00:00"),
+            reference="reference",
+        ),
+        content=ChannelMessageSendSmsContent(
+            type="text",
+            body="body",
+        ),
+    ),
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**idempotency_key:** `str` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `ChannelMessageSend`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+
 </dd>
 </dl>
 </dd>
@@ -560,6 +1562,20 @@ client.inboxes.issue_credentials(
 <details><summary><code>client.messages.<a href="src/agentmailer/messages/client.py">list</a>(...) -> ListMessagesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List or search messages
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -596,64 +1612,64 @@ client.messages.list(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**limit:** `typing.Optional[int]` 
-    
+**limit:** `typing.Optional[int]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**page_token:** `typing.Optional[str]` 
-    
+**page_token:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**thread_id:** `typing.Optional[str]` 
-    
+**thread_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**label:** `typing.Optional[str]` 
-    
+**label:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**query:** `typing.Optional[str]` 
-    
+**query:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**before:** `typing.Optional[datetime.datetime]` 
-    
+**before:** `typing.Optional[datetime.datetime]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**after:** `typing.Optional[datetime.datetime]` 
-    
+**after:** `typing.Optional[datetime.datetime]`
+
 </dd>
 </dl>
 
@@ -661,7 +1677,7 @@ client.messages.list(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -675,6 +1691,20 @@ client.messages.list(
 <details><summary><code>client.messages.<a href="src/agentmailer/messages/client.py">send</a>(...) -> SendMessagesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Send a message
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -695,6 +1725,7 @@ client = AgentMailer(
 
 client.messages.send(
     inbox_id="inboxId",
+    idempotency_key="Idempotency-Key",
     to=[
         "to"
     ],
@@ -714,16 +1745,24 @@ client.messages.send(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `MessageCompose` 
-    
+**idempotency_key:** `str` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `MessageCompose`
+
 </dd>
 </dl>
 
@@ -731,7 +1770,7 @@ client.messages.send(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -745,6 +1784,20 @@ client.messages.send(
 <details><summary><code>client.messages.<a href="src/agentmailer/messages/client.py">get</a>(...) -> GetMessagesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a message
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -782,16 +1835,16 @@ client.messages.get(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**message_id:** `str` 
-    
+**message_id:** `str`
+
 </dd>
 </dl>
 
@@ -799,7 +1852,7 @@ client.messages.get(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -813,6 +1866,20 @@ client.messages.get(
 <details><summary><code>client.messages.<a href="src/agentmailer/messages/client.py">delete</a>(...)</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a message
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -850,16 +1917,16 @@ client.messages.delete(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**message_id:** `str` 
-    
+**message_id:** `str`
+
 </dd>
 </dl>
 
@@ -867,7 +1934,7 @@ client.messages.delete(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -881,6 +1948,20 @@ client.messages.delete(
 <details><summary><code>client.messages.<a href="src/agentmailer/messages/client.py">reply</a>(...) -> ReplyMessagesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Reply to a message
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -902,6 +1983,7 @@ client = AgentMailer(
 client.messages.reply(
     inbox_id="inboxId",
     message_id="messageId",
+    idempotency_key="Idempotency-Key",
 )
 
 ```
@@ -918,24 +2000,32 @@ client.messages.reply(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**message_id:** `str` 
-    
+**message_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `ReplyCompose` 
-    
+**idempotency_key:** `str` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `ReplyCompose`
+
 </dd>
 </dl>
 
@@ -943,7 +2033,7 @@ client.messages.reply(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -957,6 +2047,20 @@ client.messages.reply(
 <details><summary><code>client.messages.<a href="src/agentmailer/messages/client.py">reply_all</a>(...) -> ReplyAllMessagesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Reply all to a message
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -978,6 +2082,7 @@ client = AgentMailer(
 client.messages.reply_all(
     inbox_id="inboxId",
     message_id="messageId",
+    idempotency_key="Idempotency-Key",
 )
 
 ```
@@ -994,24 +2099,32 @@ client.messages.reply_all(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**message_id:** `str` 
-    
+**message_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `ReplyCompose` 
-    
+**idempotency_key:** `str` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `ReplyCompose`
+
 </dd>
 </dl>
 
@@ -1019,7 +2132,7 @@ client.messages.reply_all(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -1033,6 +2146,20 @@ client.messages.reply_all(
 <details><summary><code>client.messages.<a href="src/agentmailer/messages/client.py">forward</a>(...) -> ForwardMessagesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Forward a message
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1054,6 +2181,7 @@ client = AgentMailer(
 client.messages.forward(
     inbox_id="inboxId",
     message_id="messageId",
+    idempotency_key="Idempotency-Key",
     to=[
         "to"
     ],
@@ -1073,24 +2201,32 @@ client.messages.forward(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**message_id:** `str` 
-    
+**message_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `MessageCompose` 
-    
+**idempotency_key:** `str` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `MessageCompose`
+
 </dd>
 </dl>
 
@@ -1098,7 +2234,7 @@ client.messages.forward(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -1113,6 +2249,20 @@ client.messages.forward(
 <details><summary><code>client.threads.<a href="src/agentmailer/threads/client.py">list</a>(...) -> ListThreadsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List or search threads
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1149,56 +2299,56 @@ client.threads.list(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**limit:** `typing.Optional[int]` 
-    
+**limit:** `typing.Optional[int]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**page_token:** `typing.Optional[str]` 
-    
+**page_token:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**label:** `typing.Optional[str]` 
-    
+**label:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**query:** `typing.Optional[str]` 
-    
+**query:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**before:** `typing.Optional[datetime.datetime]` 
-    
+**before:** `typing.Optional[datetime.datetime]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**after:** `typing.Optional[datetime.datetime]` 
-    
+**after:** `typing.Optional[datetime.datetime]`
+
 </dd>
 </dl>
 
@@ -1206,7 +2356,7 @@ client.threads.list(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -1220,6 +2370,20 @@ client.threads.list(
 <details><summary><code>client.threads.<a href="src/agentmailer/threads/client.py">get</a>(...) -> GetThreadsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a thread and conversation
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1257,16 +2421,16 @@ client.threads.get(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**thread_id:** `str` 
-    
+**thread_id:** `str`
+
 </dd>
 </dl>
 
@@ -1274,7 +2438,7 @@ client.threads.get(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -1289,6 +2453,20 @@ client.threads.get(
 <details><summary><code>client.drafts.<a href="src/agentmailer/drafts/client.py">list</a>(...) -> ListDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List drafts
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1325,8 +2503,8 @@ client.drafts.list(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
@@ -1334,7 +2512,7 @@ client.drafts.list(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -1348,6 +2526,20 @@ client.drafts.list(
 <details><summary><code>client.drafts.<a href="src/agentmailer/drafts/client.py">create</a>(...) -> CreateDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1384,104 +2576,104 @@ client.drafts.create(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**to:** `typing.Optional[typing.List[DraftCreateToItem]]` 
-    
+**to:** `typing.Optional[typing.List[DraftCreateToItem]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**cc:** `typing.Optional[typing.List[DraftCreateCcItem]]` 
-    
+**cc:** `typing.Optional[typing.List[DraftCreateCcItem]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**bcc:** `typing.Optional[typing.List[DraftCreateBccItem]]` 
-    
+**bcc:** `typing.Optional[typing.List[DraftCreateBccItem]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**reply_to:** `typing.Optional[typing.List[DraftCreateReplyToItem]]` 
-    
+**reply_to:** `typing.Optional[typing.List[DraftCreateReplyToItem]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**subject:** `typing.Optional[str]` 
-    
+**subject:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**text:** `typing.Optional[str]` 
-    
+**text:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**html:** `typing.Optional[str]` 
-    
+**html:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**headers:** `typing.Optional[typing.Dict[str, str]]` 
-    
+**headers:** `typing.Optional[typing.Dict[str, str]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**attachments:** `typing.Optional[typing.List[DraftCreateAttachmentsItem]]` 
-    
+**attachments:** `typing.Optional[typing.List[DraftCreateAttachmentsItem]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**reply_to_message_id:** `typing.Optional[str]` 
-    
+**reply_to_message_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**forward_message_id:** `typing.Optional[str]` 
-    
+**forward_message_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**send_at:** `typing.Optional[datetime.datetime]` 
-    
+**send_at:** `typing.Optional[datetime.datetime]`
+
 </dd>
 </dl>
 
@@ -1489,7 +2681,7 @@ client.drafts.create(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -1503,6 +2695,20 @@ client.drafts.create(
 <details><summary><code>client.drafts.<a href="src/agentmailer/drafts/client.py">get</a>(...) -> GetDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1540,16 +2746,16 @@ client.drafts.get(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**draft_id:** `str` 
-    
+**draft_id:** `str`
+
 </dd>
 </dl>
 
@@ -1557,7 +2763,7 @@ client.drafts.get(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -1571,6 +2777,20 @@ client.drafts.get(
 <details><summary><code>client.drafts.<a href="src/agentmailer/drafts/client.py">delete</a>(...)</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1608,16 +2828,16 @@ client.drafts.delete(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**draft_id:** `str` 
-    
+**draft_id:** `str`
+
 </dd>
 </dl>
 
@@ -1625,7 +2845,7 @@ client.drafts.delete(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -1639,6 +2859,20 @@ client.drafts.delete(
 <details><summary><code>client.drafts.<a href="src/agentmailer/drafts/client.py">update</a>(...) -> UpdateDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1676,112 +2910,112 @@ client.drafts.update(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**draft_id:** `str` 
-    
+**draft_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**to:** `typing.Optional[typing.List[DraftUpdateToItem]]` 
-    
+**to:** `typing.Optional[typing.List[DraftUpdateToItem]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**cc:** `typing.Optional[typing.List[DraftUpdateCcItem]]` 
-    
+**cc:** `typing.Optional[typing.List[DraftUpdateCcItem]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**bcc:** `typing.Optional[typing.List[DraftUpdateBccItem]]` 
-    
+**bcc:** `typing.Optional[typing.List[DraftUpdateBccItem]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**reply_to:** `typing.Optional[typing.List[DraftUpdateReplyToItem]]` 
-    
+**reply_to:** `typing.Optional[typing.List[DraftUpdateReplyToItem]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**subject:** `typing.Optional[str]` 
-    
+**subject:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**text:** `typing.Optional[str]` 
-    
+**text:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**html:** `typing.Optional[str]` 
-    
+**html:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**headers:** `typing.Optional[typing.Dict[str, str]]` 
-    
+**headers:** `typing.Optional[typing.Dict[str, str]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**attachments:** `typing.Optional[typing.List[DraftUpdateAttachmentsItem]]` 
-    
+**attachments:** `typing.Optional[typing.List[DraftUpdateAttachmentsItem]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**reply_to_message_id:** `typing.Optional[str]` 
-    
+**reply_to_message_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**forward_message_id:** `typing.Optional[str]` 
-    
+**forward_message_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**send_at:** `typing.Optional[datetime.datetime]` 
-    
+**send_at:** `typing.Optional[datetime.datetime]`
+
 </dd>
 </dl>
 
@@ -1789,7 +3023,7 @@ client.drafts.update(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -1803,6 +3037,20 @@ client.drafts.update(
 <details><summary><code>client.drafts.<a href="src/agentmailer/drafts/client.py">send</a>(...) -> SendDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Send a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1824,6 +3072,7 @@ client = AgentMailer(
 client.drafts.send(
     inbox_id="inboxId",
     draft_id="draftId",
+    idempotency_key="Idempotency-Key",
 )
 
 ```
@@ -1840,16 +3089,24 @@ client.drafts.send(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**draft_id:** `str` 
-    
+**draft_id:** `str`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**idempotency_key:** `str` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
 </dd>
 </dl>
 
@@ -1857,7 +3114,7 @@ client.drafts.send(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -1872,6 +3129,20 @@ client.drafts.send(
 <details><summary><code>client.attachments.<a href="src/agentmailer/attachments/client.py">upload</a>(...) -> typing.Dict[str, typing.Any]</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a direct attachment upload
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1912,40 +3183,40 @@ client.attachments.upload(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**filename:** `str` 
-    
+**filename:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**content_type:** `str` 
-    
+**content_type:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**size:** `int` 
-    
+**size:** `int`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**checksum_sha256:** `str` 
-    
+**checksum_sha256:** `str`
+
 </dd>
 </dl>
 
@@ -1953,7 +3224,7 @@ client.attachments.upload(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -1967,6 +3238,20 @@ client.attachments.upload(
 <details><summary><code>client.attachments.<a href="src/agentmailer/attachments/client.py">complete</a>(...) -> CompleteAttachmentsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Complete a direct attachment upload
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2004,16 +3289,16 @@ client.attachments.complete(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**attachment_id:** `str` 
-    
+**attachment_id:** `str`
+
 </dd>
 </dl>
 
@@ -2021,7 +3306,7 @@ client.attachments.complete(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2035,6 +3320,20 @@ client.attachments.complete(
 <details><summary><code>client.attachments.<a href="src/agentmailer/attachments/client.py">download</a>(...) -> DownloadAttachmentsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a short-lived attachment download
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2072,16 +3371,16 @@ client.attachments.download(
 <dl>
 <dd>
 
-**inbox_id:** `str` 
-    
+**inbox_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**attachment_id:** `str` 
-    
+**attachment_id:** `str`
+
 </dd>
 </dl>
 
@@ -2089,7 +3388,7 @@ client.attachments.download(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2104,6 +3403,20 @@ client.attachments.download(
 <details><summary><code>client.pods.<a href="src/agentmailer/pods/client.py">list</a>() -> ListPodsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List Pods
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2139,7 +3452,7 @@ client.pods.list()
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2153,6 +3466,20 @@ client.pods.list()
 <details><summary><code>client.pods.<a href="src/agentmailer/pods/client.py">create</a>(...) -> CreatePodsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a Pod
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2189,8 +3516,8 @@ client.pods.create(
 <dl>
 <dd>
 
-**name:** `str` 
-    
+**name:** `str`
+
 </dd>
 </dl>
 
@@ -2198,7 +3525,7 @@ client.pods.create(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2212,6 +3539,20 @@ client.pods.create(
 <details><summary><code>client.pods.<a href="src/agentmailer/pods/client.py">get</a>(...) -> GetPodsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a Pod
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2248,8 +3589,8 @@ client.pods.get(
 <dl>
 <dd>
 
-**pod_id:** `str` 
-    
+**pod_id:** `str`
+
 </dd>
 </dl>
 
@@ -2257,7 +3598,7 @@ client.pods.get(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2271,6 +3612,20 @@ client.pods.get(
 <details><summary><code>client.pods.<a href="src/agentmailer/pods/client.py">delete</a>(...)</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a Pod
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2307,8 +3662,8 @@ client.pods.delete(
 <dl>
 <dd>
 
-**pod_id:** `str` 
-    
+**pod_id:** `str`
+
 </dd>
 </dl>
 
@@ -2316,7 +3671,7 @@ client.pods.delete(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2330,6 +3685,20 @@ client.pods.delete(
 <details><summary><code>client.pods.<a href="src/agentmailer/pods/client.py">update</a>(...) -> UpdatePodsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a Pod
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2367,16 +3736,16 @@ client.pods.update(
 <dl>
 <dd>
 
-**pod_id:** `str` 
-    
+**pod_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**name:** `str` 
-    
+**name:** `str`
+
 </dd>
 </dl>
 
@@ -2384,7 +3753,7 @@ client.pods.update(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2399,6 +3768,20 @@ client.pods.update(
 <details><summary><code>client.domains.<a href="src/agentmailer/domains/client.py">list</a>() -> ListDomainsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List custom domains
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2434,7 +3817,7 @@ client.domains.list()
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2448,6 +3831,20 @@ client.domains.list()
 <details><summary><code>client.domains.<a href="src/agentmailer/domains/client.py">create</a>(...) -> CreateDomainsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a custom domain
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2484,16 +3881,16 @@ client.domains.create(
 <dl>
 <dd>
 
-**domain:** `str` 
-    
+**domain:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**pod_id:** `typing.Optional[str]` 
-    
+**pod_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
@@ -2501,7 +3898,7 @@ client.domains.create(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2515,6 +3912,20 @@ client.domains.create(
 <details><summary><code>client.domains.<a href="src/agentmailer/domains/client.py">get</a>(...) -> GetDomainsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a custom domain
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2551,8 +3962,8 @@ client.domains.get(
 <dl>
 <dd>
 
-**domain_id:** `str` 
-    
+**domain_id:** `str`
+
 </dd>
 </dl>
 
@@ -2560,7 +3971,7 @@ client.domains.get(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2574,6 +3985,20 @@ client.domains.get(
 <details><summary><code>client.domains.<a href="src/agentmailer/domains/client.py">delete</a>(...)</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a custom domain
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2610,8 +4035,8 @@ client.domains.delete(
 <dl>
 <dd>
 
-**domain_id:** `str` 
-    
+**domain_id:** `str`
+
 </dd>
 </dl>
 
@@ -2619,7 +4044,7 @@ client.domains.delete(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2633,6 +4058,20 @@ client.domains.delete(
 <details><summary><code>client.domains.<a href="src/agentmailer/domains/client.py">verify</a>(...) -> VerifyDomainsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Verify a custom domain's DNS records
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2669,8 +4108,8 @@ client.domains.verify(
 <dl>
 <dd>
 
-**domain_id:** `str` 
-    
+**domain_id:** `str`
+
 </dd>
 </dl>
 
@@ -2678,7 +4117,7 @@ client.domains.verify(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2693,6 +4132,20 @@ client.domains.verify(
 <details><summary><code>client.webhooks.<a href="src/agentmailer/webhooks/client.py">list</a>() -> ListWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List webhook endpoints
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2728,7 +4181,7 @@ client.webhooks.list()
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2742,6 +4195,20 @@ client.webhooks.list()
 <details><summary><code>client.webhooks.<a href="src/agentmailer/webhooks/client.py">create</a>(...) -> CreateWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a webhook endpoint
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2778,40 +4245,40 @@ client.webhooks.create(
 <dl>
 <dd>
 
-**url:** `str` 
-    
+**url:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**pod_id:** `typing.Optional[str]` 
-    
+**pod_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**inbox_id:** `typing.Optional[str]` 
-    
+**inbox_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**event_types:** `typing.Optional[typing.List[WebhookCreateEventTypesItem]]` 
-    
+**event_types:** `typing.Optional[typing.List[WebhookCreateEventTypesItem]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**description:** `typing.Optional[str]` 
-    
+**description:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
@@ -2819,7 +4286,7 @@ client.webhooks.create(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2833,6 +4300,20 @@ client.webhooks.create(
 <details><summary><code>client.webhooks.<a href="src/agentmailer/webhooks/client.py">get</a>(...) -> GetWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a webhook endpoint
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2869,8 +4350,8 @@ client.webhooks.get(
 <dl>
 <dd>
 
-**webhook_id:** `str` 
-    
+**webhook_id:** `str`
+
 </dd>
 </dl>
 
@@ -2878,7 +4359,7 @@ client.webhooks.get(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2892,6 +4373,20 @@ client.webhooks.get(
 <details><summary><code>client.webhooks.<a href="src/agentmailer/webhooks/client.py">delete</a>(...)</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a webhook endpoint
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2928,8 +4423,8 @@ client.webhooks.delete(
 <dl>
 <dd>
 
-**webhook_id:** `str` 
-    
+**webhook_id:** `str`
+
 </dd>
 </dl>
 
@@ -2937,7 +4432,7 @@ client.webhooks.delete(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -2951,6 +4446,20 @@ client.webhooks.delete(
 <details><summary><code>client.webhooks.<a href="src/agentmailer/webhooks/client.py">update</a>(...) -> UpdateWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a webhook endpoint
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2987,40 +4496,40 @@ client.webhooks.update(
 <dl>
 <dd>
 
-**webhook_id:** `str` 
-    
+**webhook_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**url:** `typing.Optional[str]` 
-    
+**url:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**event_types:** `typing.Optional[typing.List[WebhookUpdateEventTypesItem]]` 
-    
+**event_types:** `typing.Optional[typing.List[WebhookUpdateEventTypesItem]]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**description:** `typing.Optional[str]` 
-    
+**description:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**enabled:** `typing.Optional[bool]` 
-    
+**enabled:** `typing.Optional[bool]`
+
 </dd>
 </dl>
 
@@ -3028,7 +4537,7 @@ client.webhooks.update(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3042,6 +4551,20 @@ client.webhooks.update(
 <details><summary><code>client.webhooks.<a href="src/agentmailer/webhooks/client.py">rotate_secret</a>(...) -> RotateSecretWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Rotate a webhook signing secret
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3078,8 +4601,8 @@ client.webhooks.rotate_secret(
 <dl>
 <dd>
 
-**webhook_id:** `str` 
-    
+**webhook_id:** `str`
+
 </dd>
 </dl>
 
@@ -3087,7 +4610,7 @@ client.webhooks.rotate_secret(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3102,6 +4625,20 @@ client.webhooks.rotate_secret(
 <details><summary><code>client.labels.<a href="src/agentmailer/labels/client.py">list</a>(...) -> ListLabelsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List labels
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3136,8 +4673,8 @@ client.labels.list()
 <dl>
 <dd>
 
-**pod_id:** `typing.Optional[str]` 
-    
+**pod_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
@@ -3145,7 +4682,7 @@ client.labels.list()
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3159,6 +4696,20 @@ client.labels.list()
 <details><summary><code>client.labels.<a href="src/agentmailer/labels/client.py">create</a>(...) -> CreateLabelsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a label
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3196,24 +4747,24 @@ client.labels.create(
 <dl>
 <dd>
 
-**pod_id:** `str` 
-    
+**pod_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**name:** `str` 
-    
+**name:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**color:** `typing.Optional[str]` 
-    
+**color:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
@@ -3221,7 +4772,7 @@ client.labels.create(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3235,6 +4786,20 @@ client.labels.create(
 <details><summary><code>client.labels.<a href="src/agentmailer/labels/client.py">delete</a>(...)</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a label
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3271,8 +4836,8 @@ client.labels.delete(
 <dl>
 <dd>
 
-**label_id:** `str` 
-    
+**label_id:** `str`
+
 </dd>
 </dl>
 
@@ -3280,7 +4845,7 @@ client.labels.delete(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3294,6 +4859,20 @@ client.labels.delete(
 <details><summary><code>client.labels.<a href="src/agentmailer/labels/client.py">update_message</a>(...) -> UpdateMessageLabelsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Add or remove message labels
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3330,16 +4909,16 @@ client.labels.update_message(
 <dl>
 <dd>
 
-**message_id:** `str` 
-    
+**message_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `LabelMutation` 
-    
+**request:** `LabelMutation`
+
 </dd>
 </dl>
 
@@ -3347,7 +4926,7 @@ client.labels.update_message(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3361,6 +4940,20 @@ client.labels.update_message(
 <details><summary><code>client.labels.<a href="src/agentmailer/labels/client.py">update_thread</a>(...) -> UpdateThreadLabelsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Add or remove thread labels
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3397,16 +4990,16 @@ client.labels.update_thread(
 <dl>
 <dd>
 
-**thread_id:** `str` 
-    
+**thread_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `LabelMutation` 
-    
+**request:** `LabelMutation`
+
 </dd>
 </dl>
 
@@ -3414,7 +5007,7 @@ client.labels.update_thread(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3429,6 +5022,20 @@ client.labels.update_thread(
 <details><summary><code>client.lists.<a href="src/agentmailer/lists/client.py">list</a>(...) -> ListListsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List allow and block lists
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3463,8 +5070,8 @@ client.lists.list()
 <dl>
 <dd>
 
-**pod_id:** `typing.Optional[str]` 
-    
+**pod_id:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
@@ -3472,7 +5079,7 @@ client.lists.list()
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3486,6 +5093,20 @@ client.lists.list()
 <details><summary><code>client.lists.<a href="src/agentmailer/lists/client.py">create</a>(...) -> CreateListsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create an allow or block list
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3524,24 +5145,24 @@ client.lists.create(
 <dl>
 <dd>
 
-**pod_id:** `str` 
-    
+**pod_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**name:** `str` 
-    
+**name:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**kind:** `ListCreateKind` 
-    
+**kind:** `ListCreateKind`
+
 </dd>
 </dl>
 
@@ -3549,7 +5170,7 @@ client.lists.create(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3563,6 +5184,20 @@ client.lists.create(
 <details><summary><code>client.lists.<a href="src/agentmailer/lists/client.py">delete</a>(...)</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete an allow or block list
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3599,8 +5234,8 @@ client.lists.delete(
 <dl>
 <dd>
 
-**list_id:** `str` 
-    
+**list_id:** `str`
+
 </dd>
 </dl>
 
@@ -3608,7 +5243,7 @@ client.lists.delete(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3622,6 +5257,20 @@ client.lists.delete(
 <details><summary><code>client.lists.<a href="src/agentmailer/lists/client.py">add_entry</a>(...) -> AddEntryListsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Add an address pattern to a list
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3659,24 +5308,24 @@ client.lists.add_entry(
 <dl>
 <dd>
 
-**list_id:** `str` 
-    
+**list_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**address_pattern:** `str` 
-    
+**address_pattern:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**note:** `typing.Optional[str]` 
-    
+**note:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
@@ -3684,7 +5333,7 @@ client.lists.add_entry(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3698,6 +5347,20 @@ client.lists.add_entry(
 <details><summary><code>client.lists.<a href="src/agentmailer/lists/client.py">remove_entry</a>(...) -> RemoveEntryListsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Remove an address pattern from a list
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3734,16 +5397,16 @@ client.lists.remove_entry(
 <dl>
 <dd>
 
-**list_id:** `str` 
-    
+**list_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**address_pattern:** `typing.Optional[str]` 
-    
+**address_pattern:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
@@ -3751,7 +5414,7 @@ client.lists.remove_entry(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3766,6 +5429,20 @@ client.lists.remove_entry(
 <details><summary><code>client.events.<a href="src/agentmailer/events/client.py">create_ticket</a>(...) -> CreateTicketEventsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a short-lived realtime ticket
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3802,8 +5479,8 @@ client.events.create_ticket(
 <dl>
 <dd>
 
-**pod_id:** `str` 
-    
+**pod_id:** `str`
+
 </dd>
 </dl>
 
@@ -3811,7 +5488,7 @@ client.events.create_ticket(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3826,6 +5503,20 @@ client.events.create_ticket(
 <details><summary><code>client.billing.<a href="src/agentmailer/billing/client.py">get</a>() -> GetBillingResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get plan and subscription entitlement
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3861,7 +5552,7 @@ client.billing.get()
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3875,6 +5566,20 @@ client.billing.get()
 <details><summary><code>client.billing.<a href="src/agentmailer/billing/client.py">create_checkout</a>(...) -> CreateCheckoutBillingResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a subscription checkout session
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3909,32 +5614,32 @@ client.billing.create_checkout()
 <dl>
 <dd>
 
-**inboxes:** `typing.Optional[int]` 
-    
+**inboxes:** `typing.Optional[int]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**monthly_messages:** `typing.Optional[int]` 
-    
+**monthly_messages:** `typing.Optional[int]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**custom_domains:** `typing.Optional[int]` 
-    
+**custom_domains:** `typing.Optional[int]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**interval:** `typing.Optional[BillingSelectionInterval]` 
-    
+**interval:** `typing.Optional[BillingSelectionInterval]`
+
 </dd>
 </dl>
 
@@ -3942,7 +5647,7 @@ client.billing.create_checkout()
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -3956,6 +5661,20 @@ client.billing.create_checkout()
 <details><summary><code>client.billing.<a href="src/agentmailer/billing/client.py">create_portal</a>() -> CreatePortalBillingResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a billing management session
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3991,7 +5710,7 @@ client.billing.create_portal()
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -4006,6 +5725,20 @@ client.billing.create_portal()
 <details><summary><code>client.a2a.<a href="src/agentmailer/a2a/client.py">send_task</a>(...) -> typing.Dict[str, typing.Any]</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Call an agent over A2A JSON-RPC
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -4044,40 +5777,40 @@ client.a2a.send_task(
 <dl>
 <dd>
 
-**handle:** `str` 
-    
+**handle:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**jsonrpc:** `A2AJsonRpcRequestJsonrpc` 
-    
+**jsonrpc:** `A2AJsonRpcRequestJsonrpc`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**method:** `str` 
-    
+**method:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**id:** `typing.Optional[A2AJsonRpcRequestId]` 
-    
+**id:** `typing.Optional[A2AJsonRpcRequestId]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**params:** `typing.Optional[typing.Dict[str, typing.Any]]` 
-    
+**params:** `typing.Optional[typing.Dict[str, typing.Any]]`
+
 </dd>
 </dl>
 
@@ -4085,7 +5818,7 @@ client.a2a.send_task(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -4099,6 +5832,20 @@ client.a2a.send_task(
 <details><summary><code>client.a2a.<a href="src/agentmailer/a2a/client.py">get_agent_card</a>(...) -> A2AAgentCard</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Discover an agent's public A2A card
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -4135,8 +5882,8 @@ client.a2a.get_agent_card(
 <dl>
 <dd>
 
-**handle:** `str` 
-    
+**handle:** `str`
+
 </dd>
 </dl>
 
@@ -4144,7 +5891,7 @@ client.a2a.get_agent_card(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -4158,6 +5905,20 @@ client.a2a.get_agent_card(
 <details><summary><code>client.a2a.<a href="src/agentmailer/a2a/client.py">update_task</a>(...) -> UpdateTaskA2AResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update an assigned A2A task
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -4195,32 +5956,32 @@ client.a2a.update_task(
 <dl>
 <dd>
 
-**task_id:** `str` 
-    
+**task_id:** `str`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**state:** `A2ATaskUpdateState` 
-    
+**state:** `A2ATaskUpdateState`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**message:** `typing.Optional[A2ATaskUpdateMessage]` 
-    
+**message:** `typing.Optional[A2ATaskUpdateMessage]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**artifacts:** `typing.Optional[typing.List[A2ATaskUpdateArtifactsItem]]` 
-    
+**artifacts:** `typing.Optional[typing.List[A2ATaskUpdateArtifactsItem]]`
+
 </dd>
 </dl>
 
@@ -4228,7 +5989,7 @@ client.a2a.update_task(
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -4242,6 +6003,20 @@ client.a2a.update_task(
 <details><summary><code>client.a2a.<a href="src/agentmailer/a2a/client.py">update_identity</a>(...) -> typing.Dict[str, typing.Any]</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update the calling agent's public A2A profile
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -4276,40 +6051,40 @@ client.a2a.update_identity()
 <dl>
 <dd>
 
-**publicly_discoverable:** `typing.Optional[bool]` 
-    
+**publicly_discoverable:** `typing.Optional[bool]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**admission_mode:** `typing.Optional[A2AIdentitySettingsAdmissionMode]` 
-    
+**admission_mode:** `typing.Optional[A2AIdentitySettingsAdmissionMode]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**name:** `typing.Optional[str]` 
-    
+**name:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**description:** `typing.Optional[str]` 
-    
+**description:** `typing.Optional[str]`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**skills:** `typing.Optional[typing.List[A2AIdentitySettingsSkillsItem]]` 
-    
+**skills:** `typing.Optional[typing.List[A2AIdentitySettingsSkillsItem]]`
+
 </dd>
 </dl>
 
@@ -4317,7 +6092,7 @@ client.a2a.update_identity()
 <dd>
 
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
+
 </dd>
 </dl>
 </dd>
@@ -4327,4 +6102,3 @@ client.a2a.update_identity()
 </dd>
 </dl>
 </details>
-

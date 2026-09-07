@@ -38,6 +38,8 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
+// List inboxes
+//
 // Example:
 //
 //	request := &_go.ListInboxesRequest{}
@@ -61,6 +63,8 @@ func (c *Client) List(
 	return response.Body, nil
 }
 
+// Create an inbox
+//
 // Example:
 //
 //	request := &_go.InboxCreate{}
@@ -84,6 +88,8 @@ func (c *Client) Create(
 	return response.Body, nil
 }
 
+// Get an inbox
+//
 // Example:
 //
 //	client.Inboxes.Get(
@@ -106,6 +112,8 @@ func (c *Client) Get(
 	return response.Body, nil
 }
 
+// Delete an inbox
+//
 // Example:
 //
 //	client.Inboxes.Delete(
@@ -128,6 +136,8 @@ func (c *Client) Delete(
 	return nil
 }
 
+// Update an inbox
+//
 // Example:
 //
 //	request := &_go.InboxUpdate{}
@@ -154,6 +164,8 @@ func (c *Client) Update(
 	return response.Body, nil
 }
 
+// Issue new IMAP and SMTP credentials
+//
 // Example:
 //
 //	client.Inboxes.IssueCredentials(

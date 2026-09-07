@@ -9,7 +9,7 @@ export interface SignUpAgentResponse {
 
 export namespace SignUpAgentResponse {
     export const Status = {
-        PendingHumanApproval: "pending_human_approval",
-    } as const;
-    export type Status = (typeof Status)[keyof typeof Status];
+            PendingHumanApproval: "pending_human_approval"
+        } as const;
+    export type Status = typeof Status[keyof typeof Status];
 }

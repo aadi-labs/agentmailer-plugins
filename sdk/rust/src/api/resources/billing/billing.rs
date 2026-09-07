@@ -13,6 +13,16 @@ impl BillingClient {
         })
     }
 
+    /// Get plan and subscription entitlement
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -37,6 +47,16 @@ impl BillingClient {
             .await
     }
 
+    /// Create a subscription checkout session
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -76,6 +96,16 @@ impl BillingClient {
             .await
     }
 
+    /// Create a billing management session
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run

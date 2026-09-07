@@ -38,6 +38,7 @@ class MessagesWireTest < WireMockTestCase
 
     @client.messages.send_(
       inbox_id: "inboxId",
+      idempotency_key: "Idempotency-Key",
       to: ["to"],
       request_options: {
         additional_headers: {
@@ -105,6 +106,7 @@ class MessagesWireTest < WireMockTestCase
     @client.messages.reply(
       inbox_id: "inboxId",
       message_id: "messageId",
+      idempotency_key: "Idempotency-Key",
       request_options: {
         additional_headers: {
           "X-Test-Id" => "messages.reply.0"
@@ -127,6 +129,7 @@ class MessagesWireTest < WireMockTestCase
     @client.messages.reply_all(
       inbox_id: "inboxId",
       message_id: "messageId",
+      idempotency_key: "Idempotency-Key",
       request_options: {
         additional_headers: {
           "X-Test-Id" => "messages.reply_all.0"
@@ -149,6 +152,7 @@ class MessagesWireTest < WireMockTestCase
     @client.messages.forward(
       inbox_id: "inboxId",
       message_id: "messageId",
+      idempotency_key: "Idempotency-Key",
       to: ["to"],
       request_options: {
         additional_headers: {

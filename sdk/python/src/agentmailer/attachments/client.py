@@ -38,6 +38,8 @@ class AttachmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> typing.Dict[str, typing.Any]:
         """
+        Create a direct attachment upload
+
         Parameters
         ----------
         inbox_id : str
@@ -87,6 +89,8 @@ class AttachmentsClient:
         self, inbox_id: str, attachment_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> CompleteAttachmentsResponse:
         """
+        Complete a direct attachment upload
+
         Parameters
         ----------
         inbox_id : str
@@ -120,6 +124,8 @@ class AttachmentsClient:
         self, inbox_id: str, attachment_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> DownloadAttachmentsResponse:
         """
+        Create a short-lived attachment download
+
         Parameters
         ----------
         inbox_id : str
@@ -176,6 +182,8 @@ class AsyncAttachmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> typing.Dict[str, typing.Any]:
         """
+        Create a direct attachment upload
+
         Parameters
         ----------
         inbox_id : str
@@ -233,6 +241,8 @@ class AsyncAttachmentsClient:
         self, inbox_id: str, attachment_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> CompleteAttachmentsResponse:
         """
+        Complete a direct attachment upload
+
         Parameters
         ----------
         inbox_id : str
@@ -274,6 +284,8 @@ class AsyncAttachmentsClient:
         self, inbox_id: str, attachment_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> DownloadAttachmentsResponse:
         """
+        Create a short-lived attachment download
+
         Parameters
         ----------
         inbox_id : str

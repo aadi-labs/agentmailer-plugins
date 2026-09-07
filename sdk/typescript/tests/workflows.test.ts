@@ -45,4 +45,26 @@ describe("AgentMailerWorkflows", () => {
 
         expect(list).toHaveBeenNthCalledWith(2, { limit: 100, page_token: "next" });
     });
+
+    it("preserves the caller idempotency key when sending text", async () => {
+        const send = vi.fn().mockResolvedValue({ message: { id: "msg_sent" } });
+        const client = { messages: { send } } as unknown as AgentMailerClient;
+
+        await new AgentMailerWorkflows(client).sendText({
+            inboxId: "inb_sender",
+            idempotencyKey: "send-welcome-42",
+            to: "recipient@example.com",
+            subject: "Welcome",
+            text: "Hello",
+        });
+
+        expect(send).toHaveBeenCalledWith("inb_sender", {
+            "Idempotency-Key": "send-welcome-42",
+            body: {
+                to: ["recipient@example.com"],
+                subject: "Welcome",
+                text: "Hello",
+            },
+        });
+    });
 });

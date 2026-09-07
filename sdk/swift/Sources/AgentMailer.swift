@@ -4,6 +4,10 @@ import Foundation
 public final class AgentMailer: Sendable {
     public let agent: AgentClient
     public let inboxes: InboxesClient
+    public let channelEndpoints: ChannelEndpointsClient
+    public let channelConversations: ChannelConversationsClient
+    public let channelRecipientPermissions: ChannelRecipientPermissionsClient
+    public let channelMessages: ChannelMessagesClient
     public let messages: MessagesClient
     public let threads: ThreadsClient
     public let drafts: DraftsClient
@@ -100,6 +104,10 @@ public final class AgentMailer: Sendable {
         )
         self.agent = AgentClient(config: config)
         self.inboxes = InboxesClient(config: config)
+        self.channelEndpoints = ChannelEndpointsClient(config: config)
+        self.channelConversations = ChannelConversationsClient(config: config)
+        self.channelRecipientPermissions = ChannelRecipientPermissionsClient(config: config)
+        self.channelMessages = ChannelMessagesClient(config: config)
         self.messages = MessagesClient(config: config)
         self.threads = ThreadsClient(config: config)
         self.drafts = DraftsClient(config: config)

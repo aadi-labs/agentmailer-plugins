@@ -30,13 +30,19 @@ class AgentClient:
     def bootstrap(
         self,
         *,
+        idempotency_key: str,
         requested_local_part: typing.Optional[str] = OMIT,
         pod_name: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BootstrapResponse:
         """
+        Create an approved agent's inbox
+
         Parameters
         ----------
+        idempotency_key : str
+            Stable caller-generated key used to make retries safe without duplicating the operation.
+
         requested_local_part : typing.Optional[str]
 
         pod_name : typing.Optional[str]
@@ -56,10 +62,15 @@ class AgentClient:
         client = AgentMailer(
             api_key="YOUR_API_KEY",
         )
-        client.agent.bootstrap()
+        client.agent.bootstrap(
+            idempotency_key="Idempotency-Key",
+        )
         """
         _response = self._raw_client.bootstrap(
-            requested_local_part=requested_local_part, pod_name=pod_name, request_options=request_options
+            idempotency_key=idempotency_key,
+            requested_local_part=requested_local_part,
+            pod_name=pod_name,
+            request_options=request_options,
         )
         return _response.data
 
@@ -67,6 +78,8 @@ class AgentClient:
         self, *, human_email: str, username: str, request_options: typing.Optional[RequestOptions] = None
     ) -> SignUpAgentResponse:
         """
+        Start human approval for an agent
+
         Parameters
         ----------
         human_email : str
@@ -117,13 +130,19 @@ class AsyncAgentClient:
     async def bootstrap(
         self,
         *,
+        idempotency_key: str,
         requested_local_part: typing.Optional[str] = OMIT,
         pod_name: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BootstrapResponse:
         """
+        Create an approved agent's inbox
+
         Parameters
         ----------
+        idempotency_key : str
+            Stable caller-generated key used to make retries safe without duplicating the operation.
+
         requested_local_part : typing.Optional[str]
 
         pod_name : typing.Optional[str]
@@ -148,13 +167,18 @@ class AsyncAgentClient:
 
 
         async def main() -> None:
-            await client.agent.bootstrap()
+            await client.agent.bootstrap(
+                idempotency_key="Idempotency-Key",
+            )
 
 
         asyncio.run(main())
         """
         _response = await self._raw_client.bootstrap(
-            requested_local_part=requested_local_part, pod_name=pod_name, request_options=request_options
+            idempotency_key=idempotency_key,
+            requested_local_part=requested_local_part,
+            pod_name=pod_name,
+            request_options=request_options,
         )
         return _response.data
 
@@ -162,6 +186,8 @@ class AsyncAgentClient:
         self, *, human_email: str, username: str, request_options: typing.Optional[RequestOptions] = None
     ) -> SignUpAgentResponse:
         """
+        Start human approval for an agent
+
         Parameters
         ----------
         human_email : str

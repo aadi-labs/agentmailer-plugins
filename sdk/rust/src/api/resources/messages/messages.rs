@@ -13,6 +13,16 @@ impl MessagesClient {
         })
     }
 
+    /// List or search messages
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -62,6 +72,16 @@ impl MessagesClient {
             .await
     }
 
+    /// Send a message
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -82,7 +102,7 @@ impl MessagesClient {
     ///                 to: vec![MessageComposeToItem::String("to".to_string())],
     ///                 ..Default::default()
     ///             },
-    ///             None,
+    ///             Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
     ///         )
     ///         .await;
     /// }
@@ -104,6 +124,16 @@ impl MessagesClient {
             .await
     }
 
+    /// Get a message
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -139,6 +169,16 @@ impl MessagesClient {
             .await
     }
 
+    /// Delete a message
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// Empty response
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -174,6 +214,16 @@ impl MessagesClient {
             .await
     }
 
+    /// Reply to a message
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -194,7 +244,7 @@ impl MessagesClient {
     ///             &ReplyCompose {
     ///                 ..Default::default()
     ///             },
-    ///             None,
+    ///             Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
     ///         )
     ///         .await;
     /// }
@@ -217,6 +267,16 @@ impl MessagesClient {
             .await
     }
 
+    /// Reply all to a message
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -237,7 +297,7 @@ impl MessagesClient {
     ///             &ReplyCompose {
     ///                 ..Default::default()
     ///             },
-    ///             None,
+    ///             Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
     ///         )
     ///         .await;
     /// }
@@ -260,6 +320,16 @@ impl MessagesClient {
             .await
     }
 
+    /// Forward a message
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -281,7 +351,7 @@ impl MessagesClient {
     ///                 to: vec![MessageComposeToItem::String("to".to_string())],
     ///                 ..Default::default()
     ///             },
-    ///             None,
+    ///             Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
     ///         )
     ///         .await;
     /// }

@@ -107,6 +107,7 @@ import AgentMailer
             )
         )
         let response = try await client.agent.bootstrap(
+            idempotencyKey: "Idempotency-Key",
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
@@ -217,6 +218,7 @@ import AgentMailer
             )
         )
         let response = try await client.agent.bootstrap(
+            idempotencyKey: "idempotencyKey",
             request: .init(),
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )

@@ -13,9 +13,12 @@ if (process.env.SEND_EXAMPLE === "1") {
   if (!sender) throw new Error("Create an inbox before sending email");
 
   const { message } = await client.messages.send(sender.id, {
-    to: ["recipient@example.com"],
-    subject: "Hello from AgentMailer",
-    text: "Sent with the AgentMailer TypeScript SDK.",
+    "Idempotency-Key": crypto.randomUUID(),
+    body: {
+      to: ["recipient@example.com"],
+      subject: "Hello from AgentMailer",
+      text: "Sent with the AgentMailer TypeScript SDK.",
+    },
   });
   console.log(message.id, message.status);
 }

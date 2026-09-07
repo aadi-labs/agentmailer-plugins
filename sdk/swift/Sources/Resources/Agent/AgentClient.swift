@@ -7,6 +7,8 @@ public final class AgentClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
+    /// Create an approved agent's inbox
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -14,23 +16,32 @@ public final class AgentClient: Sendable {
     /// private func main() async throws {
     ///     let client = AgentMailer(apiKey: "<token>")
     ///
-    ///     _ = try await client.agent.bootstrap(request: .init())
+    ///     _ = try await client.agent.bootstrap(
+    ///         idempotencyKey: "Idempotency-Key",
+    ///         request: .init()
+    ///     )
     /// }
     ///
     /// try await main()
     /// ```
     ///
+    /// - Parameter idempotencyKey: Stable caller-generated key used to make retries safe without duplicating the operation.
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func bootstrap(request: Requests.BootstrapRequest, requestOptions: RequestOptions? = nil) async throws -> BootstrapResponse {
+    public func bootstrap(idempotencyKey: String, request: Requests.BootstrapRequest, requestOptions: RequestOptions? = nil) async throws -> BootstrapResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/agent/bootstrap",
+            headers: [
+                "Idempotency-Key": idempotencyKey
+            ],
             body: request,
             requestOptions: requestOptions,
             responseType: BootstrapResponse.self
         )
     }
 
+    /// Start human approval for an agent
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer

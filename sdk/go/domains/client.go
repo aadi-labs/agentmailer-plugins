@@ -38,6 +38,8 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
+// List custom domains
+//
 // Example:
 //
 //	client.Domains.List(
@@ -57,6 +59,8 @@ func (c *Client) List(
 	return response.Body, nil
 }
 
+// Create a custom domain
+//
 // Example:
 //
 //	request := &_go.DomainCreate{
@@ -82,6 +86,8 @@ func (c *Client) Create(
 	return response.Body, nil
 }
 
+// Get a custom domain
+//
 // Example:
 //
 //	client.Domains.Get(
@@ -104,6 +110,8 @@ func (c *Client) Get(
 	return response.Body, nil
 }
 
+// Delete a custom domain
+//
 // Example:
 //
 //	client.Domains.Delete(
@@ -126,6 +134,8 @@ func (c *Client) Delete(
 	return nil
 }
 
+// Verify a custom domain's DNS records
+//
 // Example:
 //
 //	client.Domains.Verify(

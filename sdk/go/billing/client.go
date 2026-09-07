@@ -38,6 +38,8 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
+// Get plan and subscription entitlement
+//
 // Example:
 //
 //	client.Billing.Get(
@@ -57,6 +59,8 @@ func (c *Client) Get(
 	return response.Body, nil
 }
 
+// Create a subscription checkout session
+//
 // Example:
 //
 //	request := &_go.BillingSelection{}
@@ -80,6 +84,8 @@ func (c *Client) CreateCheckout(
 	return response.Body, nil
 }
 
+// Create a billing management session
+//
 // Example:
 //
 //	client.Billing.CreatePortal(

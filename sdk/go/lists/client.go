@@ -38,6 +38,8 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
+// List allow and block lists
+//
 // Example:
 //
 //	request := &_go.ListListsRequest{}
@@ -61,6 +63,8 @@ func (c *Client) List(
 	return response.Body, nil
 }
 
+// Create an allow or block list
+//
 // Example:
 //
 //	request := &_go.ListCreate{
@@ -88,6 +92,8 @@ func (c *Client) Create(
 	return response.Body, nil
 }
 
+// Delete an allow or block list
+//
 // Example:
 //
 //	client.Lists.Delete(
@@ -110,6 +116,8 @@ func (c *Client) Delete(
 	return nil
 }
 
+// Add an address pattern to a list
+//
 // Example:
 //
 //	request := &_go.ListEntry{
@@ -138,6 +146,8 @@ func (c *Client) AddEntry(
 	return response.Body, nil
 }
 
+// Remove an address pattern from a list
+//
 // Example:
 //
 //	request := &_go.RemoveEntryListsRequest{}

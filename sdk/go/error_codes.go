@@ -3,7 +3,34 @@
 package api
 
 import (
+	core "github.com/aadi-labs/agentmailer-plugins/sdk/go/core"
 	internal "github.com/aadi-labs/agentmailer-plugins/sdk/go/internal"
 )
 
-var ErrorCodes internal.ErrorCodes = internal.ErrorCodes{}
+var ErrorCodes internal.ErrorCodes = internal.ErrorCodes{
+	400: func(apiError *core.APIError) error {
+		return &BadRequestError{
+			APIError: apiError,
+		}
+	},
+	401: func(apiError *core.APIError) error {
+		return &UnauthorizedError{
+			APIError: apiError,
+		}
+	},
+	403: func(apiError *core.APIError) error {
+		return &ForbiddenError{
+			APIError: apiError,
+		}
+	},
+	429: func(apiError *core.APIError) error {
+		return &TooManyRequestsError{
+			APIError: apiError,
+		}
+	},
+	500: func(apiError *core.APIError) error {
+		return &InternalServerError{
+			APIError: apiError,
+		}
+	},
+}

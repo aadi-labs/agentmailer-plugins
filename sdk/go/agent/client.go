@@ -38,9 +38,13 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
+// Create an approved agent's inbox
+//
 // Example:
 //
-//	request := &_go.BootstrapRequest{}
+//	request := &_go.BootstrapRequest{
+//	    IdempotencyKey: "Idempotency-Key",
+//	}
 //	client.Agent.Bootstrap(
 //	    context.TODO(),
 //	    request,
@@ -61,6 +65,8 @@ func (c *Client) Bootstrap(
 	return response.Body, nil
 }
 
+// Start human approval for an agent
+//
 // Example:
 //
 //	request := &_go.SignUpAgentRequest{

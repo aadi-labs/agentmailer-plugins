@@ -11,21 +11,24 @@ import (
 )
 
 var (
-	inboxCreateFieldUsername    = big.NewInt(1 << 0)
-	inboxCreateFieldPodID       = big.NewInt(1 << 1)
-	inboxCreateFieldDomainID    = big.NewInt(1 << 2)
-	inboxCreateFieldClientID    = big.NewInt(1 << 3)
-	inboxCreateFieldDisplayName = big.NewInt(1 << 4)
-	inboxCreateFieldMetadata    = big.NewInt(1 << 5)
+	inboxCreateFieldIdempotencyKey = big.NewInt(1 << 0)
+	inboxCreateFieldUsername       = big.NewInt(1 << 1)
+	inboxCreateFieldPodID          = big.NewInt(1 << 2)
+	inboxCreateFieldDomainID       = big.NewInt(1 << 3)
+	inboxCreateFieldClientID       = big.NewInt(1 << 4)
+	inboxCreateFieldDisplayName    = big.NewInt(1 << 5)
+	inboxCreateFieldMetadata       = big.NewInt(1 << 6)
 )
 
 type InboxCreate struct {
-	Username    *string                              `json:"username,omitempty" url:"-"`
-	PodID       *string                              `json:"podId,omitempty" url:"-"`
-	DomainID    *string                              `json:"domainId,omitempty" url:"-"`
-	ClientID    *string                              `json:"clientId,omitempty" url:"-"`
-	DisplayName *string                              `json:"displayName,omitempty" url:"-"`
-	Metadata    map[string]*InboxCreateMetadataValue `json:"metadata,omitempty" url:"-"`
+	// Stable caller-generated key used to make retries safe without duplicating the operation.
+	IdempotencyKey *string                              `json:"-" url:"-"`
+	Username       *string                              `json:"username,omitempty" url:"-"`
+	PodID          *string                              `json:"podId,omitempty" url:"-"`
+	DomainID       *string                              `json:"domainId,omitempty" url:"-"`
+	ClientID       *string                              `json:"clientId,omitempty" url:"-"`
+	DisplayName    *string                              `json:"displayName,omitempty" url:"-"`
+	Metadata       map[string]*InboxCreateMetadataValue `json:"metadata,omitempty" url:"-"`
 
 	// Private bitmask of fields set to an explicit value and therefore not to be omitted
 	explicitFields *big.Int `json:"-" url:"-"`
@@ -36,6 +39,13 @@ func (i *InboxCreate) require(field *big.Int) {
 		i.explicitFields = big.NewInt(0)
 	}
 	i.explicitFields.Or(i.explicitFields, field)
+}
+
+// SetIdempotencyKey sets the IdempotencyKey field and marks it as non-optional;
+// this prevents an empty or null value for this field from being omitted during serialization.
+func (i *InboxCreate) SetIdempotencyKey(idempotencyKey *string) {
+	i.IdempotencyKey = idempotencyKey
+	i.require(inboxCreateFieldIdempotencyKey)
 }
 
 // SetUsername sets the Username field and marks it as non-optional;

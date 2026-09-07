@@ -38,3 +38,26 @@ def test_list_all_inboxes_follows_pagination() -> None:
 
     assert AgentMailerWorkflows(client).list_all_inboxes() == [first, second]
     assert list_method.call_args_list[1].kwargs["page_token"] == "next"
+
+
+def test_send_text_preserves_the_caller_idempotency_key() -> None:
+    message = SimpleNamespace(id="msg_sent")
+    send = Mock(return_value=SimpleNamespace(message=message))
+    client = SimpleNamespace(messages=SimpleNamespace(send=send))
+
+    result = AgentMailerWorkflows(client).send_text(
+        inbox_id="inb_sender",
+        idempotency_key="send-welcome-42",
+        to="recipient@example.com",
+        subject="Welcome",
+        text="Hello",
+    )
+
+    assert result is message
+    send.assert_called_once_with(
+        "inb_sender",
+        idempotency_key="send-welcome-42",
+        to=["recipient@example.com"],
+        subject="Welcome",
+        text="Hello",
+    )

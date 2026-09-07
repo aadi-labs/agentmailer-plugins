@@ -4,6 +4,20 @@
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create an approved agent's inbox
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -13,7 +27,9 @@
 <dd>
 
 ```go
-request := &_go.BootstrapRequest{}
+request := &_go.BootstrapRequest{
+    IdempotencyKey: "Idempotency-Key",
+}
 client.Agent.Bootstrap(
     context.TODO(),
     request,
@@ -32,16 +48,24 @@ client.Agent.Bootstrap(
 <dl>
 <dd>
 
-**requestedLocalPart:** `*string` 
-    
+**idempotencyKey:** `string` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**podName:** `*string` 
-    
+**requestedLocalPart:** `*string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**podName:** `*string`
+
 </dd>
 </dl>
 </dd>
@@ -55,6 +79,20 @@ client.Agent.Bootstrap(
 <details><summary><code>client.Agent.SignUp(request) -> *_go.SignUpAgentResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Start human approval for an agent
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -87,16 +125,16 @@ client.Agent.SignUp(
 <dl>
 <dd>
 
-**humanEmail:** `string` 
-    
+**humanEmail:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**username:** `string` 
-    
+**username:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -111,6 +149,20 @@ client.Agent.SignUp(
 <details><summary><code>client.Inboxes.List() -> *_go.ListInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List inboxes
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -140,16 +192,16 @@ client.Inboxes.List(
 <dl>
 <dd>
 
-**limit:** `*int` 
-    
+**limit:** `*int`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**pageToken:** `*string` 
-    
+**pageToken:** `*string`
+
 </dd>
 </dl>
 </dd>
@@ -163,6 +215,20 @@ client.Inboxes.List(
 <details><summary><code>client.Inboxes.Create(request) -> *_go.CreateInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create an inbox
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -192,48 +258,56 @@ client.Inboxes.Create(
 <dl>
 <dd>
 
-**username:** `*string` 
-    
+**idempotencyKey:** `*string` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**podID:** `*string` 
-    
+**username:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**domainID:** `*string` 
-    
+**podID:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**clientID:** `*string` 
-    
+**domainID:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**displayName:** `*string` 
-    
+**clientID:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**metadata:** `map[string]*_go.InboxCreateMetadataValue` 
-    
+**displayName:** `*string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**metadata:** `map[string]*_go.InboxCreateMetadataValue`
+
 </dd>
 </dl>
 </dd>
@@ -247,6 +321,20 @@ client.Inboxes.Create(
 <details><summary><code>client.Inboxes.Get(InboxID) -> *_go.GetInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get an inbox
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -275,8 +363,8 @@ client.Inboxes.Get(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -290,6 +378,20 @@ client.Inboxes.Get(
 <details><summary><code>client.Inboxes.Delete(InboxID) -> error</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete an inbox
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -318,8 +420,8 @@ client.Inboxes.Delete(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -333,6 +435,20 @@ client.Inboxes.Delete(
 <details><summary><code>client.Inboxes.Update(InboxID, request) -> *_go.UpdateInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update an inbox
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -363,32 +479,32 @@ client.Inboxes.Update(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**displayName:** `*string` 
-    
+**displayName:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**clientID:** `*string` 
-    
+**clientID:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**metadata:** `map[string]*_go.InboxUpdateMetadataValue` 
-    
+**metadata:** `map[string]*_go.InboxUpdateMetadataValue`
+
 </dd>
 </dl>
 </dd>
@@ -402,6 +518,20 @@ client.Inboxes.Update(
 <details><summary><code>client.Inboxes.IssueCredentials(InboxID) -> *_go.IssueCredentialsInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Issue new IMAP and SMTP credentials
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -430,8 +560,738 @@ client.Inboxes.IssueCredentials(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## ChannelEndpoints
+<details><summary><code>client.ChannelEndpoints.List() -> *_go.ListChannelEndpointsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List human-channel endpoints
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```go
+client.ChannelEndpoints.List(
+    context.TODO(),
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ChannelEndpoints.Create(request) -> *_go.CreateChannelEndpointsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Assign a human-channel endpoint
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```go
+request := &_go.ChannelEndpointCreate{
+    InboxID: "inboxId",
+    PodID: "podId",
+    Channel: _go.ChannelEndpointCreateChannelSms,
+}
+client.ChannelEndpoints.Create(
+    context.TODO(),
+    request,
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**inboxID:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**podID:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**channel:** `*_go.ChannelEndpointCreateChannel`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ChannelEndpoints.Get(EndpointID) -> *_go.GetChannelEndpointsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a human-channel endpoint
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```go
+client.ChannelEndpoints.Get(
+    context.TODO(),
+    "endpointId",
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**endpointID:** `string`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ChannelEndpoints.Update(EndpointID, request) -> *_go.UpdateChannelEndpointsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Enable or disable a human-channel endpoint
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```go
+request := &_go.ChannelEndpointUpdate{
+    Status: _go.ChannelEndpointUpdateStatusActive,
+}
+client.ChannelEndpoints.Update(
+    context.TODO(),
+    "endpointId",
+    request,
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**endpointID:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `*_go.ChannelEndpointUpdateStatus`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## ChannelConversations
+<details><summary><code>client.ChannelConversations.List() -> *_go.ListChannelConversationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List human-channel conversations
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```go
+request := &_go.ListChannelConversationsRequest{}
+client.ChannelConversations.List(
+    context.TODO(),
+    request,
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**limit:** `*int`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pageToken:** `*string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**endpointID:** `*string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**channel:** `*_go.ListChannelConversationsRequestChannel`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `*_go.ListChannelConversationsRequestStatus`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ChannelConversations.Get(ConversationID) -> *_go.GetChannelConversationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a human-channel conversation
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```go
+client.ChannelConversations.Get(
+    context.TODO(),
+    "conversationId",
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**conversationID:** `string`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ChannelConversations.Update(ConversationID, request) -> *_go.UpdateChannelConversationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Open or close a human-channel conversation
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```go
+request := &_go.ChannelConversationUpdate{
+    Status: _go.ChannelConversationUpdateStatusActive,
+}
+client.ChannelConversations.Update(
+    context.TODO(),
+    "conversationId",
+    request,
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**conversationID:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `*_go.ChannelConversationUpdateStatus`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## ChannelRecipientPermissions
+<details><summary><code>client.ChannelRecipientPermissions.List() -> *_go.ListChannelRecipientPermissionsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List human-channel consent and opt-out state
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```go
+request := &_go.ListChannelRecipientPermissionsRequest{}
+client.ChannelRecipientPermissions.List(
+    context.TODO(),
+    request,
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**limit:** `*int`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pageToken:** `*string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**endpointID:** `*string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**channel:** `*_go.ListChannelRecipientPermissionsRequestChannel`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `*_go.ListChannelRecipientPermissionsRequestStatus`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## ChannelMessages
+<details><summary><code>client.ChannelMessages.List() -> *_go.ListChannelMessagesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List human-channel messages
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```go
+request := &_go.ListChannelMessagesRequest{}
+client.ChannelMessages.List(
+    context.TODO(),
+    request,
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**limit:** `*int`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pageToken:** `*string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**endpointID:** `*string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**conversationID:** `*string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**channel:** `*_go.ListChannelMessagesRequestChannel`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.ChannelMessages.Send(request) -> *_go.SendChannelMessagesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Sends through an assigned SMS, MMS, RCS, WhatsApp, or outbound voice endpoint. Supports RCS rich cards and replies, plus WhatsApp media and reply buttons. All non-template WhatsApp messages require a recipient message within the last 24 hours; otherwise use an approved template.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```go
+request := &_go.SendChannelMessagesRequest{
+    IdempotencyKey: "Idempotency-Key",
+    Body: &_go.ChannelMessageSend{
+        Sms: &_go.ChannelMessageSendSms{
+            EndpointID: "endpointId",
+            To: "to",
+            Consent: &_go.ChannelMessageSendSmsConsent{
+                Basis: _go.ChannelMessageSendSmsConsentBasisExplicit,
+                CapturedAt: _go.MustParseDateTime(
+                    "2024-01-15T09:30:00Z",
+                ),
+                Reference: "reference",
+            },
+            Content: &_go.ChannelMessageSendSmsContent{
+                Type: _go.ChannelMessageSendSmsContentTypeText,
+                Body: "body",
+            },
+        },
+    },
+}
+client.ChannelMessages.Send(
+    context.TODO(),
+    request,
+)
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**idempotencyKey:** `string` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `*_go.ChannelMessageSend`
+
 </dd>
 </dl>
 </dd>
@@ -446,6 +1306,20 @@ client.Inboxes.IssueCredentials(
 <details><summary><code>client.Messages.List(InboxID) -> *_go.ListMessagesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List or search messages
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -476,64 +1350,64 @@ client.Messages.List(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**limit:** `*int` 
-    
+**limit:** `*int`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**pageToken:** `*string` 
-    
+**pageToken:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**threadID:** `*string` 
-    
+**threadID:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**label:** `*string` 
-    
+**label:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**query:** `*string` 
-    
+**query:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**before:** `*time.Time` 
-    
+**before:** `*time.Time`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**after:** `*time.Time` 
-    
+**after:** `*time.Time`
+
 </dd>
 </dl>
 </dd>
@@ -548,6 +1422,20 @@ client.Messages.List(
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Send a message
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -557,10 +1445,13 @@ client.Messages.List(
 <dd>
 
 ```go
-request := &_go.MessageCompose{
-    To: []*_go.MessageComposeToItem{
-        &_go.MessageComposeToItem{
-            String: "to",
+request := &_go.SendMessagesRequest{
+    IdempotencyKey: "Idempotency-Key",
+    Body: &_go.MessageCompose{
+        To: []*_go.MessageComposeToItem{
+            &_go.MessageComposeToItem{
+                String: "to",
+            },
         },
     },
 }
@@ -583,16 +1474,24 @@ client.Messages.Send(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `*_go.MessageCompose` 
-    
+**idempotencyKey:** `string` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `*_go.MessageCompose`
+
 </dd>
 </dl>
 </dd>
@@ -606,6 +1505,20 @@ client.Messages.Send(
 <details><summary><code>client.Messages.Get(InboxID, MessageID) -> *_go.GetMessagesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a message
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -635,16 +1548,16 @@ client.Messages.Get(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**messageID:** `string` 
-    
+**messageID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -658,6 +1571,20 @@ client.Messages.Get(
 <details><summary><code>client.Messages.Delete(InboxID, MessageID) -> error</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a message
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -687,16 +1614,16 @@ client.Messages.Delete(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**messageID:** `string` 
-    
+**messageID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -711,6 +1638,20 @@ client.Messages.Delete(
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Reply to a message
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -720,7 +1661,10 @@ client.Messages.Delete(
 <dd>
 
 ```go
-request := &_go.ReplyCompose{}
+request := &_go.ReplyMessagesRequest{
+    IdempotencyKey: "Idempotency-Key",
+    Body: &_go.ReplyCompose{},
+}
 client.Messages.Reply(
     context.TODO(),
     "inboxId",
@@ -741,24 +1685,32 @@ client.Messages.Reply(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**messageID:** `string` 
-    
+**messageID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `*_go.ReplyCompose` 
-    
+**idempotencyKey:** `string` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `*_go.ReplyCompose`
+
 </dd>
 </dl>
 </dd>
@@ -773,6 +1725,20 @@ client.Messages.Reply(
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Reply all to a message
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -782,7 +1748,10 @@ client.Messages.Reply(
 <dd>
 
 ```go
-request := &_go.ReplyCompose{}
+request := &_go.ReplyAllMessagesRequest{
+    IdempotencyKey: "Idempotency-Key",
+    Body: &_go.ReplyCompose{},
+}
 client.Messages.ReplyAll(
     context.TODO(),
     "inboxId",
@@ -803,24 +1772,32 @@ client.Messages.ReplyAll(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**messageID:** `string` 
-    
+**messageID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `*_go.ReplyCompose` 
-    
+**idempotencyKey:** `string` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `*_go.ReplyCompose`
+
 </dd>
 </dl>
 </dd>
@@ -835,6 +1812,20 @@ client.Messages.ReplyAll(
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Forward a message
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -844,10 +1835,13 @@ client.Messages.ReplyAll(
 <dd>
 
 ```go
-request := &_go.MessageCompose{
-    To: []*_go.MessageComposeToItem{
-        &_go.MessageComposeToItem{
-            String: "to",
+request := &_go.ForwardMessagesRequest{
+    IdempotencyKey: "Idempotency-Key",
+    Body: &_go.MessageCompose{
+        To: []*_go.MessageComposeToItem{
+            &_go.MessageComposeToItem{
+                String: "to",
+            },
         },
     },
 }
@@ -871,24 +1865,32 @@ client.Messages.Forward(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**messageID:** `string` 
-    
+**messageID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `*_go.MessageCompose` 
-    
+**idempotencyKey:** `string` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `*_go.MessageCompose`
+
 </dd>
 </dl>
 </dd>
@@ -903,6 +1905,20 @@ client.Messages.Forward(
 <details><summary><code>client.Threads.List(InboxID) -> *_go.ListThreadsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List or search threads
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -933,56 +1949,56 @@ client.Threads.List(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**limit:** `*int` 
-    
+**limit:** `*int`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**pageToken:** `*string` 
-    
+**pageToken:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**label:** `*string` 
-    
+**label:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**query:** `*string` 
-    
+**query:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**before:** `*time.Time` 
-    
+**before:** `*time.Time`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**after:** `*time.Time` 
-    
+**after:** `*time.Time`
+
 </dd>
 </dl>
 </dd>
@@ -996,6 +2012,20 @@ client.Threads.List(
 <details><summary><code>client.Threads.Get(InboxID, ThreadID) -> *_go.GetThreadsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a thread and conversation
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1025,16 +2055,16 @@ client.Threads.Get(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**threadID:** `string` 
-    
+**threadID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -1049,6 +2079,20 @@ client.Threads.Get(
 <details><summary><code>client.Drafts.List(InboxID) -> *_go.ListDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List drafts
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1077,8 +2121,8 @@ client.Drafts.List(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -1092,6 +2136,20 @@ client.Drafts.List(
 <details><summary><code>client.Drafts.Create(InboxID, request) -> *_go.CreateDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1122,104 +2180,104 @@ client.Drafts.Create(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**to:** `[]*_go.DraftCreateToItem` 
-    
+**to:** `[]*_go.DraftCreateToItem`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**cc:** `[]*_go.DraftCreateCcItem` 
-    
+**cc:** `[]*_go.DraftCreateCcItem`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**bcc:** `[]*_go.DraftCreateBccItem` 
-    
+**bcc:** `[]*_go.DraftCreateBccItem`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**replyTo:** `[]*_go.DraftCreateReplyToItem` 
-    
+**replyTo:** `[]*_go.DraftCreateReplyToItem`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**subject:** `*string` 
-    
+**subject:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**text:** `*string` 
-    
+**text:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**html:** `*string` 
-    
+**html:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**headers:** `map[string]string` 
-    
+**headers:** `map[string]string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**attachments:** `[]*_go.DraftCreateAttachmentsItem` 
-    
+**attachments:** `[]*_go.DraftCreateAttachmentsItem`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**replyToMessageID:** `*string` 
-    
+**replyToMessageID:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**forwardMessageID:** `*string` 
-    
+**forwardMessageID:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**sendAt:** `*time.Time` 
-    
+**sendAt:** `*time.Time`
+
 </dd>
 </dl>
 </dd>
@@ -1233,6 +2291,20 @@ client.Drafts.Create(
 <details><summary><code>client.Drafts.Get(InboxID, DraftID) -> *_go.GetDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1262,16 +2334,16 @@ client.Drafts.Get(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**draftID:** `string` 
-    
+**draftID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -1285,6 +2357,20 @@ client.Drafts.Get(
 <details><summary><code>client.Drafts.Delete(InboxID, DraftID) -> error</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1314,16 +2400,16 @@ client.Drafts.Delete(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**draftID:** `string` 
-    
+**draftID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -1337,6 +2423,20 @@ client.Drafts.Delete(
 <details><summary><code>client.Drafts.Update(InboxID, DraftID, request) -> *_go.UpdateDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1368,112 +2468,112 @@ client.Drafts.Update(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**draftID:** `string` 
-    
+**draftID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**to:** `[]*_go.DraftUpdateToItem` 
-    
+**to:** `[]*_go.DraftUpdateToItem`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**cc:** `[]*_go.DraftUpdateCcItem` 
-    
+**cc:** `[]*_go.DraftUpdateCcItem`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**bcc:** `[]*_go.DraftUpdateBccItem` 
-    
+**bcc:** `[]*_go.DraftUpdateBccItem`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**replyTo:** `[]*_go.DraftUpdateReplyToItem` 
-    
+**replyTo:** `[]*_go.DraftUpdateReplyToItem`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**subject:** `*string` 
-    
+**subject:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**text:** `*string` 
-    
+**text:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**html:** `*string` 
-    
+**html:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**headers:** `map[string]string` 
-    
+**headers:** `map[string]string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**attachments:** `[]*_go.DraftUpdateAttachmentsItem` 
-    
+**attachments:** `[]*_go.DraftUpdateAttachmentsItem`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**replyToMessageID:** `*string` 
-    
+**replyToMessageID:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**forwardMessageID:** `*string` 
-    
+**forwardMessageID:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**sendAt:** `*time.Time` 
-    
+**sendAt:** `*time.Time`
+
 </dd>
 </dl>
 </dd>
@@ -1488,6 +2588,20 @@ client.Drafts.Update(
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Send a draft
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -1497,10 +2611,14 @@ client.Drafts.Update(
 <dd>
 
 ```go
+request := &_go.SendDraftsRequest{
+    IdempotencyKey: "Idempotency-Key",
+}
 client.Drafts.Send(
     context.TODO(),
     "inboxId",
     "draftId",
+    request,
 )
 ```
 </dd>
@@ -1516,16 +2634,24 @@ client.Drafts.Send(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**draftID:** `string` 
-    
+**draftID:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**idempotencyKey:** `string` — Stable caller-generated key used to make retries safe without duplicating the operation.
+
 </dd>
 </dl>
 </dd>
@@ -1540,6 +2666,20 @@ client.Drafts.Send(
 <details><summary><code>client.Attachments.Upload(InboxID, request) -> map[string]any</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a direct attachment upload
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1575,40 +2715,40 @@ client.Attachments.Upload(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**filename:** `string` 
-    
+**filename:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**contentType:** `string` 
-    
+**contentType:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**size:** `int` 
-    
+**size:** `int`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**checksumSha256:** `string` 
-    
+**checksumSha256:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -1622,6 +2762,20 @@ client.Attachments.Upload(
 <details><summary><code>client.Attachments.Complete(InboxID, AttachmentID) -> *_go.CompleteAttachmentsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Complete a direct attachment upload
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1651,16 +2805,16 @@ client.Attachments.Complete(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**attachmentID:** `string` 
-    
+**attachmentID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -1674,6 +2828,20 @@ client.Attachments.Complete(
 <details><summary><code>client.Attachments.Download(InboxID, AttachmentID) -> *_go.DownloadAttachmentsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a short-lived attachment download
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1703,16 +2871,16 @@ client.Attachments.Download(
 <dl>
 <dd>
 
-**inboxID:** `string` 
-    
+**inboxID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**attachmentID:** `string` 
-    
+**attachmentID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -1727,6 +2895,20 @@ client.Attachments.Download(
 <details><summary><code>client.Pods.List() -> *_go.ListPodsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List Pods
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1754,6 +2936,20 @@ client.Pods.List(
 <details><summary><code>client.Pods.Create(request) -> *_go.CreatePodsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a Pod
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1785,8 +2981,8 @@ client.Pods.Create(
 <dl>
 <dd>
 
-**name:** `string` 
-    
+**name:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -1800,6 +2996,20 @@ client.Pods.Create(
 <details><summary><code>client.Pods.Get(PodID) -> *_go.GetPodsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a Pod
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1828,8 +3038,8 @@ client.Pods.Get(
 <dl>
 <dd>
 
-**podID:** `string` 
-    
+**podID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -1843,6 +3053,20 @@ client.Pods.Get(
 <details><summary><code>client.Pods.Delete(PodID) -> error</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a Pod
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1871,8 +3095,8 @@ client.Pods.Delete(
 <dl>
 <dd>
 
-**podID:** `string` 
-    
+**podID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -1886,6 +3110,20 @@ client.Pods.Delete(
 <details><summary><code>client.Pods.Update(PodID, request) -> *_go.UpdatePodsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a Pod
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1918,16 +3156,16 @@ client.Pods.Update(
 <dl>
 <dd>
 
-**podID:** `string` 
-    
+**podID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**name:** `string` 
-    
+**name:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -1942,6 +3180,20 @@ client.Pods.Update(
 <details><summary><code>client.Domains.List() -> *_go.ListDomainsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List custom domains
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1969,6 +3221,20 @@ client.Domains.List(
 <details><summary><code>client.Domains.Create(request) -> *_go.CreateDomainsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a custom domain
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2000,16 +3266,16 @@ client.Domains.Create(
 <dl>
 <dd>
 
-**domain:** `string` 
-    
+**domain:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**podID:** `*string` 
-    
+**podID:** `*string`
+
 </dd>
 </dl>
 </dd>
@@ -2023,6 +3289,20 @@ client.Domains.Create(
 <details><summary><code>client.Domains.Get(DomainID) -> *_go.GetDomainsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a custom domain
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2051,8 +3331,8 @@ client.Domains.Get(
 <dl>
 <dd>
 
-**domainID:** `string` 
-    
+**domainID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -2066,6 +3346,20 @@ client.Domains.Get(
 <details><summary><code>client.Domains.Delete(DomainID) -> error</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a custom domain
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2094,8 +3388,8 @@ client.Domains.Delete(
 <dl>
 <dd>
 
-**domainID:** `string` 
-    
+**domainID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -2109,6 +3403,20 @@ client.Domains.Delete(
 <details><summary><code>client.Domains.Verify(DomainID) -> *_go.VerifyDomainsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Verify a custom domain's DNS records
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2137,8 +3445,8 @@ client.Domains.Verify(
 <dl>
 <dd>
 
-**domainID:** `string` 
-    
+**domainID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -2153,6 +3461,20 @@ client.Domains.Verify(
 <details><summary><code>client.Webhooks.List() -> *_go.ListWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List webhook endpoints
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2180,6 +3502,20 @@ client.Webhooks.List(
 <details><summary><code>client.Webhooks.Create(request) -> *_go.CreateWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a webhook endpoint
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2211,40 +3547,40 @@ client.Webhooks.Create(
 <dl>
 <dd>
 
-**url:** `string` 
-    
+**url:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**podID:** `*string` 
-    
+**podID:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**inboxID:** `*string` 
-    
+**inboxID:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**eventTypes:** `[]*_go.WebhookCreateEventTypesItem` 
-    
+**eventTypes:** `[]*_go.WebhookCreateEventTypesItem`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**description:** `*string` 
-    
+**description:** `*string`
+
 </dd>
 </dl>
 </dd>
@@ -2258,6 +3594,20 @@ client.Webhooks.Create(
 <details><summary><code>client.Webhooks.Get(WebhookID) -> *_go.GetWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a webhook endpoint
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2286,8 +3636,8 @@ client.Webhooks.Get(
 <dl>
 <dd>
 
-**webhookID:** `string` 
-    
+**webhookID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -2301,6 +3651,20 @@ client.Webhooks.Get(
 <details><summary><code>client.Webhooks.Delete(WebhookID) -> error</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a webhook endpoint
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2329,8 +3693,8 @@ client.Webhooks.Delete(
 <dl>
 <dd>
 
-**webhookID:** `string` 
-    
+**webhookID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -2344,6 +3708,20 @@ client.Webhooks.Delete(
 <details><summary><code>client.Webhooks.Update(WebhookID, request) -> *_go.UpdateWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a webhook endpoint
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2374,40 +3752,40 @@ client.Webhooks.Update(
 <dl>
 <dd>
 
-**webhookID:** `string` 
-    
+**webhookID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**url:** `*string` 
-    
+**url:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**eventTypes:** `[]*_go.WebhookUpdateEventTypesItem` 
-    
+**eventTypes:** `[]*_go.WebhookUpdateEventTypesItem`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**description:** `*string` 
-    
+**description:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**enabled:** `*bool` 
-    
+**enabled:** `*bool`
+
 </dd>
 </dl>
 </dd>
@@ -2421,6 +3799,20 @@ client.Webhooks.Update(
 <details><summary><code>client.Webhooks.RotateSecret(WebhookID) -> *_go.RotateSecretWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Rotate a webhook signing secret
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2449,8 +3841,8 @@ client.Webhooks.RotateSecret(
 <dl>
 <dd>
 
-**webhookID:** `string` 
-    
+**webhookID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -2465,6 +3857,20 @@ client.Webhooks.RotateSecret(
 <details><summary><code>client.Labels.List() -> *_go.ListLabelsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List labels
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2494,8 +3900,8 @@ client.Labels.List(
 <dl>
 <dd>
 
-**podID:** `*string` 
-    
+**podID:** `*string`
+
 </dd>
 </dl>
 </dd>
@@ -2509,6 +3915,20 @@ client.Labels.List(
 <details><summary><code>client.Labels.Create(request) -> *_go.CreateLabelsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a label
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2541,24 +3961,24 @@ client.Labels.Create(
 <dl>
 <dd>
 
-**podID:** `string` 
-    
+**podID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**name:** `string` 
-    
+**name:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**color:** `*string` 
-    
+**color:** `*string`
+
 </dd>
 </dl>
 </dd>
@@ -2572,6 +3992,20 @@ client.Labels.Create(
 <details><summary><code>client.Labels.Delete(LabelID) -> error</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a label
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2600,8 +4034,8 @@ client.Labels.Delete(
 <dl>
 <dd>
 
-**labelID:** `string` 
-    
+**labelID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -2615,6 +4049,20 @@ client.Labels.Delete(
 <details><summary><code>client.Labels.UpdateMessage(MessageID, request) -> *_go.UpdateMessageLabelsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Add or remove message labels
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2645,16 +4093,16 @@ client.Labels.UpdateMessage(
 <dl>
 <dd>
 
-**messageID:** `string` 
-    
+**messageID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `*_go.LabelMutation` 
-    
+**request:** `*_go.LabelMutation`
+
 </dd>
 </dl>
 </dd>
@@ -2668,6 +4116,20 @@ client.Labels.UpdateMessage(
 <details><summary><code>client.Labels.UpdateThread(ThreadID, request) -> *_go.UpdateThreadLabelsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Add or remove thread labels
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2698,16 +4160,16 @@ client.Labels.UpdateThread(
 <dl>
 <dd>
 
-**threadID:** `string` 
-    
+**threadID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `*_go.LabelMutation` 
-    
+**request:** `*_go.LabelMutation`
+
 </dd>
 </dl>
 </dd>
@@ -2722,6 +4184,20 @@ client.Labels.UpdateThread(
 <details><summary><code>client.Lists.List() -> *_go.ListListsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List allow and block lists
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2751,8 +4227,8 @@ client.Lists.List(
 <dl>
 <dd>
 
-**podID:** `*string` 
-    
+**podID:** `*string`
+
 </dd>
 </dl>
 </dd>
@@ -2766,6 +4242,20 @@ client.Lists.List(
 <details><summary><code>client.Lists.Create(request) -> *_go.CreateListsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create an allow or block list
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2799,24 +4289,24 @@ client.Lists.Create(
 <dl>
 <dd>
 
-**podID:** `string` 
-    
+**podID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**name:** `string` 
-    
+**name:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**kind:** `*_go.ListCreateKind` 
-    
+**kind:** `*_go.ListCreateKind`
+
 </dd>
 </dl>
 </dd>
@@ -2830,6 +4320,20 @@ client.Lists.Create(
 <details><summary><code>client.Lists.Delete(ListID) -> error</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete an allow or block list
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2858,8 +4362,8 @@ client.Lists.Delete(
 <dl>
 <dd>
 
-**listID:** `string` 
-    
+**listID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -2873,6 +4377,20 @@ client.Lists.Delete(
 <details><summary><code>client.Lists.AddEntry(ListID, request) -> *_go.AddEntryListsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Add an address pattern to a list
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2905,24 +4423,24 @@ client.Lists.AddEntry(
 <dl>
 <dd>
 
-**listID:** `string` 
-    
+**listID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**addressPattern:** `string` 
-    
+**addressPattern:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**note:** `*string` 
-    
+**note:** `*string`
+
 </dd>
 </dl>
 </dd>
@@ -2936,6 +4454,20 @@ client.Lists.AddEntry(
 <details><summary><code>client.Lists.RemoveEntry(ListID) -> *_go.RemoveEntryListsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Remove an address pattern from a list
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2966,16 +4498,16 @@ client.Lists.RemoveEntry(
 <dl>
 <dd>
 
-**listID:** `string` 
-    
+**listID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**addressPattern:** `*string` 
-    
+**addressPattern:** `*string`
+
 </dd>
 </dl>
 </dd>
@@ -2990,6 +4522,20 @@ client.Lists.RemoveEntry(
 <details><summary><code>client.Events.CreateTicket(request) -> *_go.CreateTicketEventsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a short-lived realtime ticket
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3021,8 +4567,8 @@ client.Events.CreateTicket(
 <dl>
 <dd>
 
-**podID:** `string` 
-    
+**podID:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -3037,6 +4583,20 @@ client.Events.CreateTicket(
 <details><summary><code>client.Billing.Get() -> *_go.GetBillingResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get plan and subscription entitlement
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3064,6 +4624,20 @@ client.Billing.Get(
 <details><summary><code>client.Billing.CreateCheckout(request) -> *_go.CreateCheckoutBillingResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a subscription checkout session
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3093,32 +4667,32 @@ client.Billing.CreateCheckout(
 <dl>
 <dd>
 
-**inboxes:** `*int` 
-    
+**inboxes:** `*int`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**monthlyMessages:** `*int` 
-    
+**monthlyMessages:** `*int`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**customDomains:** `*int` 
-    
+**customDomains:** `*int`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**interval:** `*_go.BillingSelectionInterval` 
-    
+**interval:** `*_go.BillingSelectionInterval`
+
 </dd>
 </dl>
 </dd>
@@ -3132,6 +4706,20 @@ client.Billing.CreateCheckout(
 <details><summary><code>client.Billing.CreatePortal() -> *_go.CreatePortalBillingResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a billing management session
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3160,6 +4748,20 @@ client.Billing.CreatePortal(
 <details><summary><code>client.A2A.SendTask(Handle, request) -> map[string]any</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Call an agent over A2A JSON-RPC
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3193,40 +4795,40 @@ client.A2A.SendTask(
 <dl>
 <dd>
 
-**handle:** `string` 
-    
+**handle:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**jsonrpc:** `*_go.A2AJsonRpcRequestJsonrpc` 
-    
+**jsonrpc:** `*_go.A2AJsonRpcRequestJsonrpc`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**id:** `*_go.A2AJsonRpcRequestId` 
-    
+**id:** `*_go.A2AJsonRpcRequestId`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**method:** `string` 
-    
+**method:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**params:** `map[string]any` 
-    
+**params:** `map[string]any`
+
 </dd>
 </dl>
 </dd>
@@ -3240,6 +4842,20 @@ client.A2A.SendTask(
 <details><summary><code>client.A2A.GetAgentCard(Handle) -> *_go.A2AAgentCard</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Discover an agent's public A2A card
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3268,8 +4884,8 @@ client.A2A.GetAgentCard(
 <dl>
 <dd>
 
-**handle:** `string` 
-    
+**handle:** `string`
+
 </dd>
 </dl>
 </dd>
@@ -3283,6 +4899,20 @@ client.A2A.GetAgentCard(
 <details><summary><code>client.A2A.UpdateTask(TaskID, request) -> *_go.UpdateTaskA2AResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update an assigned A2A task
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3315,32 +4945,32 @@ client.A2A.UpdateTask(
 <dl>
 <dd>
 
-**taskID:** `string` 
-    
+**taskID:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**state:** `*_go.A2ATaskUpdateState` 
-    
+**state:** `*_go.A2ATaskUpdateState`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**message:** `*_go.A2ATaskUpdateMessage` 
-    
+**message:** `*_go.A2ATaskUpdateMessage`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**artifacts:** `[]*_go.A2ATaskUpdateArtifactsItem` 
-    
+**artifacts:** `[]*_go.A2ATaskUpdateArtifactsItem`
+
 </dd>
 </dl>
 </dd>
@@ -3354,6 +4984,20 @@ client.A2A.UpdateTask(
 <details><summary><code>client.A2A.UpdateIdentity(request) -> map[string]any</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update the calling agent's public A2A profile
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3383,40 +5027,40 @@ client.A2A.UpdateIdentity(
 <dl>
 <dd>
 
-**publiclyDiscoverable:** `*bool` 
-    
+**publiclyDiscoverable:** `*bool`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**admissionMode:** `*_go.A2AIdentitySettingsAdmissionMode` 
-    
+**admissionMode:** `*_go.A2AIdentitySettingsAdmissionMode`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**name:** `*string` 
-    
+**name:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**description:** `*string` 
-    
+**description:** `*string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**skills:** `[]*_go.A2AIdentitySettingsSkillsItem` 
-    
+**skills:** `[]*_go.A2AIdentitySettingsSkillsItem`
+
 </dd>
 </dl>
 </dd>
@@ -3426,4 +5070,3 @@ client.A2A.UpdateIdentity(
 </dd>
 </dl>
 </details>
-

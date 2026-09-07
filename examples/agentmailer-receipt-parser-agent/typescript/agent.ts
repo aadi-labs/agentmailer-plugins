@@ -26,8 +26,8 @@ if (CONFIG.mode === "reply" && process.env.CREATE_DRAFT_EXAMPLE === "1") {
   console.log(`Created draft ${draft.draft.id}; it has not been sent.`);
 }
 if (["outbound", "digest"].includes(CONFIG.mode) && process.env.SEND_EXAMPLE === "1") {
-  const sent = await client.messages.send(inboxId, { to: [required("AGENTMAILER_RECIPIENT")],
-    subject: required("AGENTMAILER_SUBJECT"), text: proposal });
+  const sent = await client.messages.send(inboxId, { "Idempotency-Key": crypto.randomUUID(), body: {
+    to: [required("AGENTMAILER_RECIPIENT")], subject: required("AGENTMAILER_SUBJECT"), text: proposal } });
   console.log(`Queued ${sent.message.id}.`);
 }
 if (CONFIG.mode === "action" && process.env.EXECUTE_ACTION_EXAMPLE === "1") {

@@ -38,6 +38,8 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
+// Create a direct attachment upload
+//
 // Example:
 //
 //	request := &_go.AttachmentUploadCreate{
@@ -69,6 +71,8 @@ func (c *Client) Upload(
 	return response.Body, nil
 }
 
+// Complete a direct attachment upload
+//
 // Example:
 //
 //	client.Attachments.Complete(
@@ -94,6 +98,8 @@ func (c *Client) Complete(
 	return response.Body, nil
 }
 
+// Create a short-lived attachment download
+//
 // Example:
 //
 //	client.Attachments.Download(

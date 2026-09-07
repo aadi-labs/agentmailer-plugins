@@ -10,6 +10,8 @@ module AgentMailer
         @client = client
       end
 
+      # List drafts
+      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -45,6 +47,8 @@ module AgentMailer
         end
       end
 
+      # Create a draft
+      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Drafts::Types::DraftCreate]
       # @option request_options [String] :base_url
@@ -87,6 +91,8 @@ module AgentMailer
         end
       end
 
+      # Get a draft
+      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -126,6 +132,8 @@ module AgentMailer
         end
       end
 
+      # Delete a draft
+      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -163,6 +171,8 @@ module AgentMailer
         raise error_class.new(response.body, code: code)
       end
 
+      # Update a draft
+      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Drafts::Types::DraftUpdate]
       # @option request_options [String] :base_url
@@ -209,6 +219,8 @@ module AgentMailer
         end
       end
 
+      # Send a draft
+      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -218,20 +230,26 @@ module AgentMailer
       # @option request_options [Integer] :timeout_in_seconds
       # @option params [String] :inbox_id
       # @option params [String] :draft_id
+      # @option params [String] :idempotency_key
       #
       # @example
       #   client.drafts.send_(
       #     inbox_id: "inboxId",
-      #     draft_id: "draftId"
+      #     draft_id: "draftId",
+      #     idempotency_key: "Idempotency-Key"
       #   )
       #
       # @return [AgentMailer::Drafts::Types::SendDraftsResponse]
       def send_(request_options: {}, **params)
         params = AgentMailer::Internal::Types::Utils.normalize_keys(params)
+        headers = {}
+        headers["Idempotency-Key"] = params[:idempotency_key] if params[:idempotency_key]
+
         request = AgentMailer::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inboxes/#{URI.encode_uri_component(params[:inbox_id].to_s)}/drafts/#{URI.encode_uri_component(params[:draft_id].to_s)}/send",
+          headers: headers,
           request_options: request_options
         )
         begin

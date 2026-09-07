@@ -7,6 +7,8 @@ public final class InboxesClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
+    /// List inboxes
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -34,6 +36,8 @@ public final class InboxesClient: Sendable {
         )
     }
 
+    /// Create an inbox
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -47,17 +51,23 @@ public final class InboxesClient: Sendable {
     /// try await main()
     /// ```
     ///
+    /// - Parameter idempotencyKey: Stable caller-generated key used to make retries safe without duplicating the operation.
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func create(request: Requests.InboxCreate, requestOptions: RequestOptions? = nil) async throws -> CreateInboxesResponse {
+    public func create(idempotencyKey: String? = nil, request: Requests.InboxCreate, requestOptions: RequestOptions? = nil) async throws -> CreateInboxesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inboxes",
+            headers: [
+                "Idempotency-Key": idempotencyKey
+            ],
             body: request,
             requestOptions: requestOptions,
             responseType: CreateInboxesResponse.self
         )
     }
 
+    /// Get an inbox
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -81,6 +91,8 @@ public final class InboxesClient: Sendable {
         )
     }
 
+    /// Delete an inbox
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -103,6 +115,8 @@ public final class InboxesClient: Sendable {
         )
     }
 
+    /// Update an inbox
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -130,6 +144,8 @@ public final class InboxesClient: Sendable {
         )
     }
 
+    /// Issue new IMAP and SMTP credentials
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer

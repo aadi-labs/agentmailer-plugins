@@ -158,6 +158,32 @@ func (d *DraftCreate) MarshalJSON() ([]byte, error) {
 }
 
 var (
+	sendDraftsRequestFieldIdempotencyKey = big.NewInt(1 << 0)
+)
+
+type SendDraftsRequest struct {
+	// Stable caller-generated key used to make retries safe without duplicating the operation.
+	IdempotencyKey string `json:"-" url:"-"`
+
+	// Private bitmask of fields set to an explicit value and therefore not to be omitted
+	explicitFields *big.Int `json:"-" url:"-"`
+}
+
+func (s *SendDraftsRequest) require(field *big.Int) {
+	if s.explicitFields == nil {
+		s.explicitFields = big.NewInt(0)
+	}
+	s.explicitFields.Or(s.explicitFields, field)
+}
+
+// SetIdempotencyKey sets the IdempotencyKey field and marks it as non-optional;
+// this prevents an empty or null value for this field from being omitted during serialization.
+func (s *SendDraftsRequest) SetIdempotencyKey(idempotencyKey string) {
+	s.IdempotencyKey = idempotencyKey
+	s.require(sendDraftsRequestFieldIdempotencyKey)
+}
+
+var (
 	draftFieldTo               = big.NewInt(1 << 0)
 	draftFieldCc               = big.NewInt(1 << 1)
 	draftFieldBcc              = big.NewInt(1 << 2)

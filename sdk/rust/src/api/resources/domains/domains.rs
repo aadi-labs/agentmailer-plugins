@@ -13,6 +13,16 @@ impl DomainsClient {
         })
     }
 
+    /// List custom domains
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -37,6 +47,16 @@ impl DomainsClient {
             .await
     }
 
+    /// Create a custom domain
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -77,6 +97,16 @@ impl DomainsClient {
             .await
     }
 
+    /// Get a custom domain
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -108,6 +138,16 @@ impl DomainsClient {
             .await
     }
 
+    /// Delete a custom domain
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// Empty response
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -139,6 +179,16 @@ impl DomainsClient {
             .await
     }
 
+    /// Verify a custom domain's DNS records
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run

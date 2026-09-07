@@ -7,6 +7,8 @@ public final class DomainsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
+    /// List custom domains
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -30,6 +32,8 @@ public final class DomainsClient: Sendable {
         )
     }
 
+    /// Create a custom domain
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -54,6 +58,8 @@ public final class DomainsClient: Sendable {
         )
     }
 
+    /// Get a custom domain
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -77,6 +83,8 @@ public final class DomainsClient: Sendable {
         )
     }
 
+    /// Delete a custom domain
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -99,6 +107,8 @@ public final class DomainsClient: Sendable {
         )
     }
 
+    /// Verify a custom domain's DNS records
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer

@@ -38,6 +38,8 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
+// List or search threads
+//
 // Example:
 //
 //	request := &_go.ListThreadsRequest{}
@@ -64,6 +66,8 @@ func (c *Client) List(
 	return response.Body, nil
 }
 
+// Get a thread and conversation
+//
 // Example:
 //
 //	client.Threads.Get(

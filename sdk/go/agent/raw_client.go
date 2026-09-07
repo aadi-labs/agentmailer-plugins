@@ -48,6 +48,7 @@ func (r *RawClient) Bootstrap(
 		r.options.ToHeader(),
 		options.ToHeader(),
 	)
+	headers.Add("Idempotency-Key", request.IdempotencyKey)
 	headers.Add("Content-Type", "application/json")
 	core.SetIdempotencyKeyHeader(headers)
 
@@ -65,6 +66,7 @@ func (r *RawClient) Bootstrap(
 			Client:          options.HTTPClient,
 			Request:         request,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -110,6 +112,7 @@ func (r *RawClient) SignUp(
 			Client:          options.HTTPClient,
 			Request:         request,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {

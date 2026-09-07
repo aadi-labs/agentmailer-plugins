@@ -10,6 +10,8 @@ module AgentMailer
         @client = client
       end
 
+      # List or search threads
+      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -60,6 +62,8 @@ module AgentMailer
         end
       end
 
+      # Get a thread and conversation
+      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url

@@ -40,6 +40,19 @@ pinned Docker generator images, so contributors do not need a Fern Cloud
 account. The CLI generator is currently an early-access Fern feature, but the
 pinned generator is already configured and verified in this repository.
 
+Generation uses `--generate-tests` to emit full source projects, manifests, and
+tests. It deliberately does not use Fern's `--package`: dependency installation
+and artifact builds belong to the repository toolchain, not the generator.
+TypeScript uses the same pinned pnpm version as the root package. After
+generation and post-processing, the frozen workspace lockfile is installed.
+Build artifacts separately, as CI does:
+
+```bash
+pnpm --filter @agentmailer/sdk build
+pnpm --filter @agentmailer/sdk pack --pack-destination /tmp
+python -m build sdk/python
+```
+
 ## Authentication
 
 Generated clients use `AGENTMAILER_API_KEY` and default to

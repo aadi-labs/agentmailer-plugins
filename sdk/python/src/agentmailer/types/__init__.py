@@ -45,6 +45,81 @@ if typing.TYPE_CHECKING:
     from .bootstrap_response_links import BootstrapResponseLinks
     from .bootstrap_response_organization import BootstrapResponseOrganization
     from .bootstrap_response_pod import BootstrapResponsePod
+    from .channel_conversation import ChannelConversation
+    from .channel_conversation_channel import ChannelConversationChannel
+    from .channel_conversation_status import ChannelConversationStatus
+    from .channel_endpoint import ChannelEndpoint
+    from .channel_endpoint_capabilities_item import ChannelEndpointCapabilitiesItem
+    from .channel_endpoint_channel import ChannelEndpointChannel
+    from .channel_endpoint_status import ChannelEndpointStatus
+    from .channel_message import ChannelMessage
+    from .channel_message_channel import ChannelMessageChannel
+    from .channel_message_direction import ChannelMessageDirection
+    from .channel_message_safety import ChannelMessageSafety
+    from .channel_message_safety_action import ChannelMessageSafetyAction
+    from .channel_message_safety_classifier import ChannelMessageSafetyClassifier
+    from .channel_message_safety_model_status import ChannelMessageSafetyModelStatus
+    from .channel_message_safety_risk import ChannelMessageSafetyRisk
+    from .channel_message_send import (
+        ChannelMessageSend,
+        ChannelMessageSend_Mms,
+        ChannelMessageSend_Rcs,
+        ChannelMessageSend_Sms,
+        ChannelMessageSend_Voice,
+        ChannelMessageSend_Whatsapp,
+    )
+    from .channel_message_send_mms import ChannelMessageSendMms
+    from .channel_message_send_mms_consent import ChannelMessageSendMmsConsent
+    from .channel_message_send_mms_consent_basis import ChannelMessageSendMmsConsentBasis
+    from .channel_message_send_mms_content import ChannelMessageSendMmsContent
+    from .channel_message_send_mms_content_type import ChannelMessageSendMmsContentType
+    from .channel_message_send_rcs import ChannelMessageSendRcs
+    from .channel_message_send_rcs_consent import ChannelMessageSendRcsConsent
+    from .channel_message_send_rcs_consent_basis import ChannelMessageSendRcsConsentBasis
+    from .channel_message_send_rcs_content import (
+        ChannelMessageSendRcsContent,
+        ChannelMessageSendRcsContent_RichCard,
+        ChannelMessageSendRcsContent_Text,
+    )
+    from .channel_message_send_rcs_content_rich_card import ChannelMessageSendRcsContentRichCard
+    from .channel_message_send_rcs_content_rich_card_replies_item import ChannelMessageSendRcsContentRichCardRepliesItem
+    from .channel_message_send_rcs_content_text import ChannelMessageSendRcsContentText
+    from .channel_message_send_rcs_fallback import ChannelMessageSendRcsFallback
+    from .channel_message_send_sms import ChannelMessageSendSms
+    from .channel_message_send_sms_consent import ChannelMessageSendSmsConsent
+    from .channel_message_send_sms_consent_basis import ChannelMessageSendSmsConsentBasis
+    from .channel_message_send_sms_content import ChannelMessageSendSmsContent
+    from .channel_message_send_sms_content_type import ChannelMessageSendSmsContentType
+    from .channel_message_send_sms_message_type import ChannelMessageSendSmsMessageType
+    from .channel_message_send_voice import ChannelMessageSendVoice
+    from .channel_message_send_voice_consent import ChannelMessageSendVoiceConsent
+    from .channel_message_send_voice_consent_basis import ChannelMessageSendVoiceConsentBasis
+    from .channel_message_send_voice_content import ChannelMessageSendVoiceContent
+    from .channel_message_send_voice_content_type import ChannelMessageSendVoiceContentType
+    from .channel_message_send_voice_text_type import ChannelMessageSendVoiceTextType
+    from .channel_message_send_whatsapp import ChannelMessageSendWhatsapp
+    from .channel_message_send_whatsapp_consent import ChannelMessageSendWhatsappConsent
+    from .channel_message_send_whatsapp_consent_basis import ChannelMessageSendWhatsappConsentBasis
+    from .channel_message_send_whatsapp_content import (
+        ChannelMessageSendWhatsappContent,
+        ChannelMessageSendWhatsappContent_Buttons,
+        ChannelMessageSendWhatsappContent_Media,
+        ChannelMessageSendWhatsappContent_Template,
+        ChannelMessageSendWhatsappContent_Text,
+    )
+    from .channel_message_send_whatsapp_content_buttons import ChannelMessageSendWhatsappContentButtons
+    from .channel_message_send_whatsapp_content_buttons_buttons_item import (
+        ChannelMessageSendWhatsappContentButtonsButtonsItem,
+    )
+    from .channel_message_send_whatsapp_content_media import ChannelMessageSendWhatsappContentMedia
+    from .channel_message_send_whatsapp_content_media_kind import ChannelMessageSendWhatsappContentMediaKind
+    from .channel_message_send_whatsapp_content_template import ChannelMessageSendWhatsappContentTemplate
+    from .channel_message_send_whatsapp_content_text import ChannelMessageSendWhatsappContentText
+    from .channel_message_status import ChannelMessageStatus
+    from .channel_recipient_permission import ChannelRecipientPermission
+    from .channel_recipient_permission_channel import ChannelRecipientPermissionChannel
+    from .channel_recipient_permission_consent_basis import ChannelRecipientPermissionConsentBasis
+    from .channel_recipient_permission_status import ChannelRecipientPermissionStatus
     from .domain import Domain
     from .domain_records_item import DomainRecordsItem
     from .domain_records_item_type import DomainRecordsItemType
@@ -165,6 +240,73 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BootstrapResponseLinks": ".bootstrap_response_links",
     "BootstrapResponseOrganization": ".bootstrap_response_organization",
     "BootstrapResponsePod": ".bootstrap_response_pod",
+    "ChannelConversation": ".channel_conversation",
+    "ChannelConversationChannel": ".channel_conversation_channel",
+    "ChannelConversationStatus": ".channel_conversation_status",
+    "ChannelEndpoint": ".channel_endpoint",
+    "ChannelEndpointCapabilitiesItem": ".channel_endpoint_capabilities_item",
+    "ChannelEndpointChannel": ".channel_endpoint_channel",
+    "ChannelEndpointStatus": ".channel_endpoint_status",
+    "ChannelMessage": ".channel_message",
+    "ChannelMessageChannel": ".channel_message_channel",
+    "ChannelMessageDirection": ".channel_message_direction",
+    "ChannelMessageSafety": ".channel_message_safety",
+    "ChannelMessageSafetyAction": ".channel_message_safety_action",
+    "ChannelMessageSafetyClassifier": ".channel_message_safety_classifier",
+    "ChannelMessageSafetyModelStatus": ".channel_message_safety_model_status",
+    "ChannelMessageSafetyRisk": ".channel_message_safety_risk",
+    "ChannelMessageSend": ".channel_message_send",
+    "ChannelMessageSendMms": ".channel_message_send_mms",
+    "ChannelMessageSendMmsConsent": ".channel_message_send_mms_consent",
+    "ChannelMessageSendMmsConsentBasis": ".channel_message_send_mms_consent_basis",
+    "ChannelMessageSendMmsContent": ".channel_message_send_mms_content",
+    "ChannelMessageSendMmsContentType": ".channel_message_send_mms_content_type",
+    "ChannelMessageSendRcs": ".channel_message_send_rcs",
+    "ChannelMessageSendRcsConsent": ".channel_message_send_rcs_consent",
+    "ChannelMessageSendRcsConsentBasis": ".channel_message_send_rcs_consent_basis",
+    "ChannelMessageSendRcsContent": ".channel_message_send_rcs_content",
+    "ChannelMessageSendRcsContentRichCard": ".channel_message_send_rcs_content_rich_card",
+    "ChannelMessageSendRcsContentRichCardRepliesItem": ".channel_message_send_rcs_content_rich_card_replies_item",
+    "ChannelMessageSendRcsContentText": ".channel_message_send_rcs_content_text",
+    "ChannelMessageSendRcsContent_RichCard": ".channel_message_send_rcs_content",
+    "ChannelMessageSendRcsContent_Text": ".channel_message_send_rcs_content",
+    "ChannelMessageSendRcsFallback": ".channel_message_send_rcs_fallback",
+    "ChannelMessageSendSms": ".channel_message_send_sms",
+    "ChannelMessageSendSmsConsent": ".channel_message_send_sms_consent",
+    "ChannelMessageSendSmsConsentBasis": ".channel_message_send_sms_consent_basis",
+    "ChannelMessageSendSmsContent": ".channel_message_send_sms_content",
+    "ChannelMessageSendSmsContentType": ".channel_message_send_sms_content_type",
+    "ChannelMessageSendSmsMessageType": ".channel_message_send_sms_message_type",
+    "ChannelMessageSendVoice": ".channel_message_send_voice",
+    "ChannelMessageSendVoiceConsent": ".channel_message_send_voice_consent",
+    "ChannelMessageSendVoiceConsentBasis": ".channel_message_send_voice_consent_basis",
+    "ChannelMessageSendVoiceContent": ".channel_message_send_voice_content",
+    "ChannelMessageSendVoiceContentType": ".channel_message_send_voice_content_type",
+    "ChannelMessageSendVoiceTextType": ".channel_message_send_voice_text_type",
+    "ChannelMessageSendWhatsapp": ".channel_message_send_whatsapp",
+    "ChannelMessageSendWhatsappConsent": ".channel_message_send_whatsapp_consent",
+    "ChannelMessageSendWhatsappConsentBasis": ".channel_message_send_whatsapp_consent_basis",
+    "ChannelMessageSendWhatsappContent": ".channel_message_send_whatsapp_content",
+    "ChannelMessageSendWhatsappContentButtons": ".channel_message_send_whatsapp_content_buttons",
+    "ChannelMessageSendWhatsappContentButtonsButtonsItem": ".channel_message_send_whatsapp_content_buttons_buttons_item",
+    "ChannelMessageSendWhatsappContentMedia": ".channel_message_send_whatsapp_content_media",
+    "ChannelMessageSendWhatsappContentMediaKind": ".channel_message_send_whatsapp_content_media_kind",
+    "ChannelMessageSendWhatsappContentTemplate": ".channel_message_send_whatsapp_content_template",
+    "ChannelMessageSendWhatsappContentText": ".channel_message_send_whatsapp_content_text",
+    "ChannelMessageSendWhatsappContent_Buttons": ".channel_message_send_whatsapp_content",
+    "ChannelMessageSendWhatsappContent_Media": ".channel_message_send_whatsapp_content",
+    "ChannelMessageSendWhatsappContent_Template": ".channel_message_send_whatsapp_content",
+    "ChannelMessageSendWhatsappContent_Text": ".channel_message_send_whatsapp_content",
+    "ChannelMessageSend_Mms": ".channel_message_send",
+    "ChannelMessageSend_Rcs": ".channel_message_send",
+    "ChannelMessageSend_Sms": ".channel_message_send",
+    "ChannelMessageSend_Voice": ".channel_message_send",
+    "ChannelMessageSend_Whatsapp": ".channel_message_send",
+    "ChannelMessageStatus": ".channel_message_status",
+    "ChannelRecipientPermission": ".channel_recipient_permission",
+    "ChannelRecipientPermissionChannel": ".channel_recipient_permission_channel",
+    "ChannelRecipientPermissionConsentBasis": ".channel_recipient_permission_consent_basis",
+    "ChannelRecipientPermissionStatus": ".channel_recipient_permission_status",
     "Domain": ".domain",
     "DomainRecordsItem": ".domain_records_item",
     "DomainRecordsItemType": ".domain_records_item_type",
@@ -305,6 +447,73 @@ __all__ = [
     "BootstrapResponseLinks",
     "BootstrapResponseOrganization",
     "BootstrapResponsePod",
+    "ChannelConversation",
+    "ChannelConversationChannel",
+    "ChannelConversationStatus",
+    "ChannelEndpoint",
+    "ChannelEndpointCapabilitiesItem",
+    "ChannelEndpointChannel",
+    "ChannelEndpointStatus",
+    "ChannelMessage",
+    "ChannelMessageChannel",
+    "ChannelMessageDirection",
+    "ChannelMessageSafety",
+    "ChannelMessageSafetyAction",
+    "ChannelMessageSafetyClassifier",
+    "ChannelMessageSafetyModelStatus",
+    "ChannelMessageSafetyRisk",
+    "ChannelMessageSend",
+    "ChannelMessageSendMms",
+    "ChannelMessageSendMmsConsent",
+    "ChannelMessageSendMmsConsentBasis",
+    "ChannelMessageSendMmsContent",
+    "ChannelMessageSendMmsContentType",
+    "ChannelMessageSendRcs",
+    "ChannelMessageSendRcsConsent",
+    "ChannelMessageSendRcsConsentBasis",
+    "ChannelMessageSendRcsContent",
+    "ChannelMessageSendRcsContentRichCard",
+    "ChannelMessageSendRcsContentRichCardRepliesItem",
+    "ChannelMessageSendRcsContentText",
+    "ChannelMessageSendRcsContent_RichCard",
+    "ChannelMessageSendRcsContent_Text",
+    "ChannelMessageSendRcsFallback",
+    "ChannelMessageSendSms",
+    "ChannelMessageSendSmsConsent",
+    "ChannelMessageSendSmsConsentBasis",
+    "ChannelMessageSendSmsContent",
+    "ChannelMessageSendSmsContentType",
+    "ChannelMessageSendSmsMessageType",
+    "ChannelMessageSendVoice",
+    "ChannelMessageSendVoiceConsent",
+    "ChannelMessageSendVoiceConsentBasis",
+    "ChannelMessageSendVoiceContent",
+    "ChannelMessageSendVoiceContentType",
+    "ChannelMessageSendVoiceTextType",
+    "ChannelMessageSendWhatsapp",
+    "ChannelMessageSendWhatsappConsent",
+    "ChannelMessageSendWhatsappConsentBasis",
+    "ChannelMessageSendWhatsappContent",
+    "ChannelMessageSendWhatsappContentButtons",
+    "ChannelMessageSendWhatsappContentButtonsButtonsItem",
+    "ChannelMessageSendWhatsappContentMedia",
+    "ChannelMessageSendWhatsappContentMediaKind",
+    "ChannelMessageSendWhatsappContentTemplate",
+    "ChannelMessageSendWhatsappContentText",
+    "ChannelMessageSendWhatsappContent_Buttons",
+    "ChannelMessageSendWhatsappContent_Media",
+    "ChannelMessageSendWhatsappContent_Template",
+    "ChannelMessageSendWhatsappContent_Text",
+    "ChannelMessageSend_Mms",
+    "ChannelMessageSend_Rcs",
+    "ChannelMessageSend_Sms",
+    "ChannelMessageSend_Voice",
+    "ChannelMessageSend_Whatsapp",
+    "ChannelMessageStatus",
+    "ChannelRecipientPermission",
+    "ChannelRecipientPermissionChannel",
+    "ChannelRecipientPermissionConsentBasis",
+    "ChannelRecipientPermissionStatus",
     "Domain",
     "DomainRecordsItem",
     "DomainRecordsItemType",

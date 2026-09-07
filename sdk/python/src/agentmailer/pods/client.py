@@ -31,6 +31,8 @@ class PodsClient:
 
     def list(self, *, request_options: typing.Optional[RequestOptions] = None) -> ListPodsResponse:
         """
+        List Pods
+
         Parameters
         ----------
         request_options : typing.Optional[RequestOptions]
@@ -55,6 +57,8 @@ class PodsClient:
 
     def create(self, *, name: str, request_options: typing.Optional[RequestOptions] = None) -> CreatePodsResponse:
         """
+        Create a Pod
+
         Parameters
         ----------
         name : str
@@ -83,6 +87,8 @@ class PodsClient:
 
     def get(self, pod_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> GetPodsResponse:
         """
+        Get a Pod
+
         Parameters
         ----------
         pod_id : str
@@ -111,6 +117,8 @@ class PodsClient:
 
     def delete(self, pod_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
+        Delete a Pod
+
         Parameters
         ----------
         pod_id : str
@@ -140,6 +148,8 @@ class PodsClient:
         self, pod_id: str, *, name: str, request_options: typing.Optional[RequestOptions] = None
     ) -> UpdatePodsResponse:
         """
+        Update a Pod
+
         Parameters
         ----------
         pod_id : str
@@ -187,6 +197,8 @@ class AsyncPodsClient:
 
     async def list(self, *, request_options: typing.Optional[RequestOptions] = None) -> ListPodsResponse:
         """
+        List Pods
+
         Parameters
         ----------
         request_options : typing.Optional[RequestOptions]
@@ -219,6 +231,8 @@ class AsyncPodsClient:
 
     async def create(self, *, name: str, request_options: typing.Optional[RequestOptions] = None) -> CreatePodsResponse:
         """
+        Create a Pod
+
         Parameters
         ----------
         name : str
@@ -255,6 +269,8 @@ class AsyncPodsClient:
 
     async def get(self, pod_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> GetPodsResponse:
         """
+        Get a Pod
+
         Parameters
         ----------
         pod_id : str
@@ -291,6 +307,8 @@ class AsyncPodsClient:
 
     async def delete(self, pod_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
+        Delete a Pod
+
         Parameters
         ----------
         pod_id : str
@@ -328,6 +346,8 @@ class AsyncPodsClient:
         self, pod_id: str, *, name: str, request_options: typing.Optional[RequestOptions] = None
     ) -> UpdatePodsResponse:
         """
+        Update a Pod
+
         Parameters
         ----------
         pod_id : str

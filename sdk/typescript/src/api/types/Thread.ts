@@ -15,8 +15,8 @@ export namespace Thread {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 }

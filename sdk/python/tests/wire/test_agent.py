@@ -5,7 +5,9 @@ def test_agent_bootstrap() -> None:
     """Test bootstrap endpoint with WireMock"""
     test_id = "agent.bootstrap.0"
     client = get_client(test_id)
-    client.agent.bootstrap()
+    client.agent.bootstrap(
+        idempotency_key="Idempotency-Key",
+    )
     verify_request_count(test_id, "POST", "/v1/agent/bootstrap", None, 1)
 
 

@@ -7,6 +7,8 @@ public final class ListsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
+    /// List allow and block lists
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -33,6 +35,8 @@ public final class ListsClient: Sendable {
         )
     }
 
+    /// Create an allow or block list
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -61,6 +65,8 @@ public final class ListsClient: Sendable {
         )
     }
 
+    /// Delete an allow or block list
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -83,6 +89,8 @@ public final class ListsClient: Sendable {
         )
     }
 
+    /// Add an address pattern to a list
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -110,6 +118,8 @@ public final class ListsClient: Sendable {
         )
     }
 
+    /// Remove an address pattern from a list
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer

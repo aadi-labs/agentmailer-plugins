@@ -4,6 +4,8 @@ module AgentMailer
   module Inboxes
     module Types
       class InboxCreate < Internal::Types::Model
+        field :idempotency_key, -> { String }, optional: true, nullable: false, api_name: "Idempotency-Key"
+
         field :username, -> { String }, optional: true, nullable: false
 
         field :pod_id, -> { String }, optional: true, nullable: false, api_name: "podId"

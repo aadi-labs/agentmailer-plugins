@@ -14,16 +14,16 @@ export interface A2ATaskUpdate {
 
 export namespace A2ATaskUpdate {
     export const State = {
-        TaskStateSubmitted: "TASK_STATE_SUBMITTED",
-        TaskStateWorking: "TASK_STATE_WORKING",
-        TaskStateCompleted: "TASK_STATE_COMPLETED",
-        TaskStateFailed: "TASK_STATE_FAILED",
-        TaskStateCanceled: "TASK_STATE_CANCELED",
-        TaskStateInputRequired: "TASK_STATE_INPUT_REQUIRED",
-        TaskStateRejected: "TASK_STATE_REJECTED",
-        TaskStateAuthRequired: "TASK_STATE_AUTH_REQUIRED",
-    } as const;
-    export type State = (typeof State)[keyof typeof State];
+            TaskStateSubmitted: "TASK_STATE_SUBMITTED",
+            TaskStateWorking: "TASK_STATE_WORKING",
+            TaskStateCompleted: "TASK_STATE_COMPLETED",
+            TaskStateFailed: "TASK_STATE_FAILED",
+            TaskStateCanceled: "TASK_STATE_CANCELED",
+            TaskStateInputRequired: "TASK_STATE_INPUT_REQUIRED",
+            TaskStateRejected: "TASK_STATE_REJECTED",
+            TaskStateAuthRequired: "TASK_STATE_AUTH_REQUIRED"
+        } as const;
+    export type State = typeof State[keyof typeof State];
 
     export interface Message {
         messageId: string;
@@ -38,10 +38,10 @@ export namespace A2ATaskUpdate {
 
     export namespace Message {
         export const Role = {
-            RoleUser: "ROLE_USER",
-            RoleAgent: "ROLE_AGENT",
-        } as const;
-        export type Role = (typeof Role)[keyof typeof Role];
+                RoleUser: "ROLE_USER",
+                RoleAgent: "ROLE_AGENT"
+            } as const;
+        export type Role = typeof Role[keyof typeof Role];
         export type Parts = Parts.Item[];
 
         export namespace Parts {

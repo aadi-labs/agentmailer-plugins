@@ -152,7 +152,11 @@ async fn test_drafts_send_with_wiremock() {
 
     let result = client
         .drafts
-        .send(&"inboxId".to_string(), &"draftId".to_string(), None)
+        .send(
+            &"inboxId".to_string(),
+            &"draftId".to_string(),
+            Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
+        )
         .await;
 
     assert!(result.is_ok(), "Client method call should succeed");

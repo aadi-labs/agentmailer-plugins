@@ -12,6 +12,9 @@ export interface InboxUpdate {
 
 export namespace InboxUpdate {
     export namespace Metadata {
-        export type Value = string | number | boolean;
+        export type Value =
+            | string
+            | number
+            | boolean;
     }
 }

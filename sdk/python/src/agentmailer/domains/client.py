@@ -31,6 +31,8 @@ class DomainsClient:
 
     def list(self, *, request_options: typing.Optional[RequestOptions] = None) -> ListDomainsResponse:
         """
+        List custom domains
+
         Parameters
         ----------
         request_options : typing.Optional[RequestOptions]
@@ -61,6 +63,8 @@ class DomainsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateDomainsResponse:
         """
+        Create a custom domain
+
         Parameters
         ----------
         domain : str
@@ -91,6 +95,8 @@ class DomainsClient:
 
     def get(self, domain_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> GetDomainsResponse:
         """
+        Get a custom domain
+
         Parameters
         ----------
         domain_id : str
@@ -119,6 +125,8 @@ class DomainsClient:
 
     def delete(self, domain_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
+        Delete a custom domain
+
         Parameters
         ----------
         domain_id : str
@@ -148,6 +156,8 @@ class DomainsClient:
         self, domain_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> VerifyDomainsResponse:
         """
+        Verify a custom domain's DNS records
+
         Parameters
         ----------
         domain_id : str
@@ -192,6 +202,8 @@ class AsyncDomainsClient:
 
     async def list(self, *, request_options: typing.Optional[RequestOptions] = None) -> ListDomainsResponse:
         """
+        List custom domains
+
         Parameters
         ----------
         request_options : typing.Optional[RequestOptions]
@@ -230,6 +242,8 @@ class AsyncDomainsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateDomainsResponse:
         """
+        Create a custom domain
+
         Parameters
         ----------
         domain : str
@@ -270,6 +284,8 @@ class AsyncDomainsClient:
         self, domain_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> GetDomainsResponse:
         """
+        Get a custom domain
+
         Parameters
         ----------
         domain_id : str
@@ -306,6 +322,8 @@ class AsyncDomainsClient:
 
     async def delete(self, domain_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
+        Delete a custom domain
+
         Parameters
         ----------
         domain_id : str
@@ -343,6 +361,8 @@ class AsyncDomainsClient:
         self, domain_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> VerifyDomainsResponse:
         """
+        Verify a custom domain's DNS records
+
         Parameters
         ----------
         domain_id : str

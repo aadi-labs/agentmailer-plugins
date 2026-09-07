@@ -7,6 +7,8 @@ public final class EventsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
+    /// Create a short-lived realtime ticket
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer

@@ -8,6 +8,10 @@ Full command reference for `agentmailer`.
 - [`agentmailer agent`](#agentmailer-agent)
 - [`agentmailer attachments`](#agentmailer-attachments)
 - [`agentmailer billing`](#agentmailer-billing)
+- [`agentmailer channel-conversations`](#agentmailer-channel-conversations)
+- [`agentmailer channel-endpoints`](#agentmailer-channel-endpoints)
+- [`agentmailer channel-messages`](#agentmailer-channel-messages)
+- [`agentmailer channel-recipient-permissions`](#agentmailer-channel-recipient-permissions)
 - [`agentmailer domains`](#agentmailer-domains)
 - [`agentmailer drafts`](#agentmailer-drafts)
 - [`agentmailer events`](#agentmailer-events)
@@ -77,6 +81,7 @@ Create an approved agent's inbox
 
 | Flag | Type | Required | Description |
 |------|------|----------|-------------|
+| `--idempotency-key` | `string` | Yes | Stable caller-generated key used to make retries safe without duplicating the operation. |
 | `--json` | `JSON` | No | Request body as JSON (or use individual body-field flags) |
 
 #### `agentmailer agent sign-up`
@@ -151,6 +156,133 @@ Create a billing management session
 Get plan and subscription entitlement
 
 `GET /v1/billing`
+
+---
+
+### `agentmailer channel-conversations`
+
+#### `agentmailer channel-conversations get`
+
+Get a human-channel conversation
+
+`GET /v1/channel-conversations/{conversationId}`
+
+| Flag | Type | Required | Description |
+|------|------|----------|-------------|
+| `--conversation-id` | `string` | Yes |  |
+
+#### `agentmailer channel-conversations list`
+
+List human-channel conversations
+
+`GET /v1/channel-conversations`
+
+| Flag | Type | Required | Description |
+|------|------|----------|-------------|
+| `--limit` | `integer` | No |  |
+| `--page-token` | `string` | No |  |
+| `--endpoint-id` | `string` | No |  |
+| `--channel` | `sms | mms | rcs | whatsapp | voice` | No |  |
+| `--status` | `active | closed` | No |  |
+
+#### `agentmailer channel-conversations update`
+
+Open or close a human-channel conversation
+
+`PATCH /v1/channel-conversations/{conversationId}`
+
+| Flag | Type | Required | Description |
+|------|------|----------|-------------|
+| `--conversation-id` | `string` | Yes |  |
+| `--json` | `JSON` | Yes | Request body as JSON (or use individual body-field flags) |
+
+---
+
+### `agentmailer channel-endpoints`
+
+#### `agentmailer channel-endpoints create`
+
+Assign a human-channel endpoint
+
+`POST /v1/channel-endpoints`
+
+| Flag | Type | Required | Description |
+|------|------|----------|-------------|
+| `--json` | `JSON` | Yes | Request body as JSON (or use individual body-field flags) |
+
+#### `agentmailer channel-endpoints get`
+
+Get a human-channel endpoint
+
+`GET /v1/channel-endpoints/{endpointId}`
+
+| Flag | Type | Required | Description |
+|------|------|----------|-------------|
+| `--endpoint-id` | `string` | Yes |  |
+
+#### `agentmailer channel-endpoints list`
+
+List human-channel endpoints
+
+`GET /v1/channel-endpoints`
+
+#### `agentmailer channel-endpoints update`
+
+Enable or disable a human-channel endpoint
+
+`PATCH /v1/channel-endpoints/{endpointId}`
+
+| Flag | Type | Required | Description |
+|------|------|----------|-------------|
+| `--endpoint-id` | `string` | Yes |  |
+| `--json` | `JSON` | Yes | Request body as JSON (or use individual body-field flags) |
+
+---
+
+### `agentmailer channel-messages`
+
+#### `agentmailer channel-messages list`
+
+List human-channel messages
+
+`GET /v1/channel-messages`
+
+| Flag | Type | Required | Description |
+|------|------|----------|-------------|
+| `--limit` | `integer` | No |  |
+| `--page-token` | `string` | No |  |
+| `--endpoint-id` | `string` | No |  |
+| `--conversation-id` | `string` | No |  |
+| `--channel` | `sms | mms | rcs | whatsapp | voice` | No |  |
+
+#### `agentmailer channel-messages send`
+
+Sends through an assigned SMS, MMS, RCS, WhatsApp, or outbound voice endpoint. Supports RCS rich cards and replies, plus WhatsApp media and reply buttons. All non-template WhatsApp messages require a recipient message within the last 24 hours; otherwise use an approved template.
+
+`POST /v1/channel-messages`
+
+| Flag | Type | Required | Description |
+|------|------|----------|-------------|
+| `--idempotency-key` | `string` | Yes | Stable caller-generated key used to make retries safe without duplicating the operation. |
+| `--json` | `JSON` | Yes | Request body as JSON (or use individual body-field flags) |
+
+---
+
+### `agentmailer channel-recipient-permissions`
+
+#### `agentmailer channel-recipient-permissions list`
+
+List human-channel consent and opt-out state
+
+`GET /v1/channel-recipient-permissions`
+
+| Flag | Type | Required | Description |
+|------|------|----------|-------------|
+| `--limit` | `integer` | No |  |
+| `--page-token` | `string` | No |  |
+| `--endpoint-id` | `string` | No |  |
+| `--channel` | `sms | mms | rcs | whatsapp | voice` | No |  |
+| `--status` | `consented | opted_out` | No |  |
 
 ---
 
@@ -259,6 +391,7 @@ Send a draft
 |------|------|----------|-------------|
 | `--inbox-id` | `string` | Yes |  |
 | `--draft-id` | `string` | Yes |  |
+| `--idempotency-key` | `string` | Yes | Stable caller-generated key used to make retries safe without duplicating the operation. |
 
 #### `agentmailer drafts update`
 
@@ -298,6 +431,7 @@ Create an inbox
 
 | Flag | Type | Required | Description |
 |------|------|----------|-------------|
+| `--idempotency-key` | `string` | No | Stable caller-generated key used to make retries safe without duplicating the operation. |
 | `--json` | `JSON` | No | Request body as JSON (or use individual body-field flags) |
 
 #### `agentmailer inboxes delete`
@@ -489,6 +623,7 @@ Forward a message
 |------|------|----------|-------------|
 | `--inbox-id` | `string` | Yes |  |
 | `--message-id` | `string` | Yes |  |
+| `--idempotency-key` | `string` | Yes | Stable caller-generated key used to make retries safe without duplicating the operation. |
 | `--json` | `JSON` | Yes | Request body as JSON (or use individual body-field flags) |
 
 #### `agentmailer messages get`
@@ -529,6 +664,7 @@ Reply to a message
 |------|------|----------|-------------|
 | `--inbox-id` | `string` | Yes |  |
 | `--message-id` | `string` | Yes |  |
+| `--idempotency-key` | `string` | Yes | Stable caller-generated key used to make retries safe without duplicating the operation. |
 | `--json` | `JSON` | Yes | Request body as JSON (or use individual body-field flags) |
 
 #### `agentmailer messages reply-all`
@@ -541,6 +677,7 @@ Reply all to a message
 |------|------|----------|-------------|
 | `--inbox-id` | `string` | Yes |  |
 | `--message-id` | `string` | Yes |  |
+| `--idempotency-key` | `string` | Yes | Stable caller-generated key used to make retries safe without duplicating the operation. |
 | `--json` | `JSON` | Yes | Request body as JSON (or use individual body-field flags) |
 
 #### `agentmailer messages send`
@@ -552,6 +689,7 @@ Send a message
 | Flag | Type | Required | Description |
 |------|------|----------|-------------|
 | `--inbox-id` | `string` | Yes |  |
+| `--idempotency-key` | `string` | Yes | Stable caller-generated key used to make retries safe without duplicating the operation. |
 | `--json` | `JSON` | Yes | Request body as JSON (or use individual body-field flags) |
 
 ---

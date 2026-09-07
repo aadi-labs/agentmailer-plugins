@@ -11,7 +11,7 @@
  */
 export function mergeAdditionalBodyParameters(
     body: unknown,
-    additionalBodyParameters: Record<string, unknown> | undefined,
+    additionalBodyParameters: Record<string, unknown> | undefined
 ): unknown {
     if (additionalBodyParameters == null) {
         return body;

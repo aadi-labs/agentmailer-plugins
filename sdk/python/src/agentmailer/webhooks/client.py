@@ -34,6 +34,8 @@ class WebhooksClient:
 
     def list(self, *, request_options: typing.Optional[RequestOptions] = None) -> ListWebhooksResponse:
         """
+        List webhook endpoints
+
         Parameters
         ----------
         request_options : typing.Optional[RequestOptions]
@@ -67,6 +69,8 @@ class WebhooksClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateWebhooksResponse:
         """
+        Create a webhook endpoint
+
         Parameters
         ----------
         url : str
@@ -110,6 +114,8 @@ class WebhooksClient:
 
     def get(self, webhook_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> GetWebhooksResponse:
         """
+        Get a webhook endpoint
+
         Parameters
         ----------
         webhook_id : str
@@ -138,6 +144,8 @@ class WebhooksClient:
 
     def delete(self, webhook_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
+        Delete a webhook endpoint
+
         Parameters
         ----------
         webhook_id : str
@@ -174,6 +182,8 @@ class WebhooksClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UpdateWebhooksResponse:
         """
+        Update a webhook endpoint
+
         Parameters
         ----------
         webhook_id : str
@@ -219,6 +229,8 @@ class WebhooksClient:
         self, webhook_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> RotateSecretWebhooksResponse:
         """
+        Rotate a webhook signing secret
+
         Parameters
         ----------
         webhook_id : str
@@ -263,6 +275,8 @@ class AsyncWebhooksClient:
 
     async def list(self, *, request_options: typing.Optional[RequestOptions] = None) -> ListWebhooksResponse:
         """
+        List webhook endpoints
+
         Parameters
         ----------
         request_options : typing.Optional[RequestOptions]
@@ -304,6 +318,8 @@ class AsyncWebhooksClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateWebhooksResponse:
         """
+        Create a webhook endpoint
+
         Parameters
         ----------
         url : str
@@ -357,6 +373,8 @@ class AsyncWebhooksClient:
         self, webhook_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> GetWebhooksResponse:
         """
+        Get a webhook endpoint
+
         Parameters
         ----------
         webhook_id : str
@@ -393,6 +411,8 @@ class AsyncWebhooksClient:
 
     async def delete(self, webhook_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
+        Delete a webhook endpoint
+
         Parameters
         ----------
         webhook_id : str
@@ -437,6 +457,8 @@ class AsyncWebhooksClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UpdateWebhooksResponse:
         """
+        Update a webhook endpoint
+
         Parameters
         ----------
         webhook_id : str
@@ -490,6 +512,8 @@ class AsyncWebhooksClient:
         self, webhook_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> RotateSecretWebhooksResponse:
         """
+        Rotate a webhook signing secret
+
         Parameters
         ----------
         webhook_id : str

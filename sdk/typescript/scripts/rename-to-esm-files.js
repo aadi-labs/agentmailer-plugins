@@ -58,12 +58,12 @@ function hasFileExtension(importPath) {
 
 function resolveExtensionlessImport(dir, importPath) {
     const resolvedPath = path.resolve(dir, importPath);
-    if (fsSync.existsSync(`${resolvedPath}.js`)) {
-        return `${importPath}.mjs`;
+    if (fsSync.existsSync(resolvedPath + ".js")) {
+        return importPath + ".mjs";
     }
     const indexPath = path.join(resolvedPath, "index.js");
     if (fsSync.existsSync(indexPath)) {
-        return `${importPath}/index.mjs`;
+        return importPath + "/index.mjs";
     }
     return null;
 }
@@ -109,7 +109,8 @@ async function updateFileContents(file) {
     }
 
     // Handle extensionless dynamic imports
-    const dynamicExtensionless = /(yield\s+import|await\s+import|import)\s*\(\s*['"](\.\.?\/[^'"]+?)['"]\s*\)/g;
+    const dynamicExtensionless =
+        /(yield\s+import|await\s+import|import)\s*\(\s*['"](\.\.?\/[^'"]+?)['"]\s*\)/g;
     const dynamicReplacements = [];
     while ((match = dynamicExtensionless.exec(newContent)) !== null) {
         const importPath = match[2];

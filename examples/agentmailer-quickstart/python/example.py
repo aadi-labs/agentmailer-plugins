@@ -1,4 +1,5 @@
 import os
+from uuid import uuid4
 
 from agentmailer import AgentMailer, AgentMailerWorkflows
 
@@ -21,6 +22,7 @@ if os.environ.get("SEND_EXAMPLE") == "1":
         raise RuntimeError("Create an inbox before sending the example")
     message = workflows.send_text(
         inbox_id=inboxes[0].id,
+        idempotency_key=str(uuid4()),
         to=required("AGENTMAILER_RECIPIENT"),
         subject="Hello from AgentMailer",
         text="This message was sent from the AgentMailer Python quickstart.",

@@ -1,6 +1,7 @@
 import json
 import os
 import urllib.request
+from uuid import uuid4
 
 from agentmailer import AgentMailer
 
@@ -46,8 +47,8 @@ if CONFIG["mode"] == "reply" and os.environ.get("CREATE_DRAFT_EXAMPLE") == "1":
         subject=f"Re: {message.subject}", text=proposal).draft
     print(f"Created draft {draft.id}; it has not been sent.")
 if CONFIG["mode"] in ("outbound", "digest") and os.environ.get("SEND_EXAMPLE") == "1":
-    sent = client.messages.send(inbox_id, to=[required("AGENTMAILER_RECIPIENT")],
-        subject=required("AGENTMAILER_SUBJECT"), text=proposal).message
+    sent = client.messages.send(inbox_id, idempotency_key=str(uuid4()),
+        to=[required("AGENTMAILER_RECIPIENT")], subject=required("AGENTMAILER_SUBJECT"), text=proposal).message
     print(f"Queued {sent.id}.")
 if CONFIG["mode"] == "action" and os.environ.get("EXECUTE_ACTION_EXAMPLE") == "1":
     request = urllib.request.Request(required("ACTION_WEBHOOK_URL"), method="POST",

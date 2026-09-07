@@ -38,6 +38,8 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
+// List webhook endpoints
+//
 // Example:
 //
 //	client.Webhooks.List(
@@ -57,6 +59,8 @@ func (c *Client) List(
 	return response.Body, nil
 }
 
+// Create a webhook endpoint
+//
 // Example:
 //
 //	request := &_go.WebhookCreate{
@@ -82,6 +86,8 @@ func (c *Client) Create(
 	return response.Body, nil
 }
 
+// Get a webhook endpoint
+//
 // Example:
 //
 //	client.Webhooks.Get(
@@ -104,6 +110,8 @@ func (c *Client) Get(
 	return response.Body, nil
 }
 
+// Delete a webhook endpoint
+//
 // Example:
 //
 //	client.Webhooks.Delete(
@@ -126,6 +134,8 @@ func (c *Client) Delete(
 	return nil
 }
 
+// Update a webhook endpoint
+//
 // Example:
 //
 //	request := &_go.WebhookUpdate{}
@@ -152,6 +162,8 @@ func (c *Client) Update(
 	return response.Body, nil
 }
 
+// Rotate a webhook signing secret
+//
 // Example:
 //
 //	client.Webhooks.RotateSecret(

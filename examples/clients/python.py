@@ -1,4 +1,5 @@
 import os
+from uuid import uuid4
 
 from agentmailer import AgentMailer
 
@@ -16,6 +17,7 @@ if os.environ.get("SEND_EXAMPLE") == "1":
 
     result = client.messages.send(
         response.inboxes[0].id,
+        idempotency_key=str(uuid4()),
         to=["recipient@example.com"],
         subject="Hello from AgentMailer",
         text="Sent with the AgentMailer Python SDK.",

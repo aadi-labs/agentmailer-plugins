@@ -72,6 +72,7 @@ func (r *RawClient) List(
 			QueryParameters: options.QueryParameters,
 			Client:          options.HTTPClient,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -87,7 +88,7 @@ func (r *RawClient) List(
 func (r *RawClient) Send(
 	ctx context.Context,
 	inboxID string,
-	request *_go.MessageCompose,
+	request *_go.SendMessagesRequest,
 	opts ...option.RequestOption,
 ) (*core.Response[*_go.SendMessagesResponse], error) {
 	options := core.NewRequestOptions(opts...)
@@ -104,6 +105,8 @@ func (r *RawClient) Send(
 		r.options.ToHeader(),
 		options.ToHeader(),
 	)
+	headers.Add("Idempotency-Key", request.IdempotencyKey)
+	headers.Add("Content-Type", "application/json")
 	core.SetIdempotencyKeyHeader(headers)
 
 	var response *_go.SendMessagesResponse
@@ -120,6 +123,7 @@ func (r *RawClient) Send(
 			Client:          options.HTTPClient,
 			Request:         request,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -166,6 +170,7 @@ func (r *RawClient) Get(
 			QueryParameters: options.QueryParameters,
 			Client:          options.HTTPClient,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -210,6 +215,7 @@ func (r *RawClient) Delete(
 			BodyProperties:  options.BodyProperties,
 			QueryParameters: options.QueryParameters,
 			Client:          options.HTTPClient,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -226,7 +232,7 @@ func (r *RawClient) Reply(
 	ctx context.Context,
 	inboxID string,
 	messageID string,
-	request *_go.ReplyCompose,
+	request *_go.ReplyMessagesRequest,
 	opts ...option.RequestOption,
 ) (*core.Response[*_go.ReplyMessagesResponse], error) {
 	options := core.NewRequestOptions(opts...)
@@ -244,6 +250,8 @@ func (r *RawClient) Reply(
 		r.options.ToHeader(),
 		options.ToHeader(),
 	)
+	headers.Add("Idempotency-Key", request.IdempotencyKey)
+	headers.Add("Content-Type", "application/json")
 	core.SetIdempotencyKeyHeader(headers)
 
 	var response *_go.ReplyMessagesResponse
@@ -260,6 +268,7 @@ func (r *RawClient) Reply(
 			Client:          options.HTTPClient,
 			Request:         request,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -276,7 +285,7 @@ func (r *RawClient) ReplyAll(
 	ctx context.Context,
 	inboxID string,
 	messageID string,
-	request *_go.ReplyCompose,
+	request *_go.ReplyAllMessagesRequest,
 	opts ...option.RequestOption,
 ) (*core.Response[*_go.ReplyAllMessagesResponse], error) {
 	options := core.NewRequestOptions(opts...)
@@ -294,6 +303,8 @@ func (r *RawClient) ReplyAll(
 		r.options.ToHeader(),
 		options.ToHeader(),
 	)
+	headers.Add("Idempotency-Key", request.IdempotencyKey)
+	headers.Add("Content-Type", "application/json")
 	core.SetIdempotencyKeyHeader(headers)
 
 	var response *_go.ReplyAllMessagesResponse
@@ -310,6 +321,7 @@ func (r *RawClient) ReplyAll(
 			Client:          options.HTTPClient,
 			Request:         request,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -326,7 +338,7 @@ func (r *RawClient) Forward(
 	ctx context.Context,
 	inboxID string,
 	messageID string,
-	request *_go.MessageCompose,
+	request *_go.ForwardMessagesRequest,
 	opts ...option.RequestOption,
 ) (*core.Response[*_go.ForwardMessagesResponse], error) {
 	options := core.NewRequestOptions(opts...)
@@ -344,6 +356,8 @@ func (r *RawClient) Forward(
 		r.options.ToHeader(),
 		options.ToHeader(),
 	)
+	headers.Add("Idempotency-Key", request.IdempotencyKey)
+	headers.Add("Content-Type", "application/json")
 	core.SetIdempotencyKeyHeader(headers)
 
 	var response *_go.ForwardMessagesResponse
@@ -360,6 +374,7 @@ func (r *RawClient) Forward(
 			Client:          options.HTTPClient,
 			Request:         request,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {

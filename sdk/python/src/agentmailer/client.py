@@ -15,6 +15,13 @@ if typing.TYPE_CHECKING:
     from .agent.client import AgentClient, AsyncAgentClient
     from .attachments.client import AsyncAttachmentsClient, AttachmentsClient
     from .billing.client import AsyncBillingClient, BillingClient
+    from .channel_conversations.client import AsyncChannelConversationsClient, ChannelConversationsClient
+    from .channel_endpoints.client import AsyncChannelEndpointsClient, ChannelEndpointsClient
+    from .channel_messages.client import AsyncChannelMessagesClient, ChannelMessagesClient
+    from .channel_recipient_permissions.client import (
+        AsyncChannelRecipientPermissionsClient,
+        ChannelRecipientPermissionsClient,
+    )
     from .domains.client import AsyncDomainsClient, DomainsClient
     from .drafts.client import AsyncDraftsClient, DraftsClient
     from .events.client import AsyncEventsClient, EventsClient
@@ -113,6 +120,10 @@ class AgentMailer:
         )
         self._agent: typing.Optional[AgentClient] = None
         self._inboxes: typing.Optional[InboxesClient] = None
+        self._channel_endpoints: typing.Optional[ChannelEndpointsClient] = None
+        self._channel_conversations: typing.Optional[ChannelConversationsClient] = None
+        self._channel_recipient_permissions: typing.Optional[ChannelRecipientPermissionsClient] = None
+        self._channel_messages: typing.Optional[ChannelMessagesClient] = None
         self._messages: typing.Optional[MessagesClient] = None
         self._threads: typing.Optional[ThreadsClient] = None
         self._drafts: typing.Optional[DraftsClient] = None
@@ -141,6 +152,38 @@ class AgentMailer:
 
             self._inboxes = InboxesClient(client_wrapper=self._client_wrapper)
         return self._inboxes
+
+    @property
+    def channel_endpoints(self):
+        if self._channel_endpoints is None:
+            from .channel_endpoints.client import ChannelEndpointsClient  # noqa: E402
+
+            self._channel_endpoints = ChannelEndpointsClient(client_wrapper=self._client_wrapper)
+        return self._channel_endpoints
+
+    @property
+    def channel_conversations(self):
+        if self._channel_conversations is None:
+            from .channel_conversations.client import ChannelConversationsClient  # noqa: E402
+
+            self._channel_conversations = ChannelConversationsClient(client_wrapper=self._client_wrapper)
+        return self._channel_conversations
+
+    @property
+    def channel_recipient_permissions(self):
+        if self._channel_recipient_permissions is None:
+            from .channel_recipient_permissions.client import ChannelRecipientPermissionsClient  # noqa: E402
+
+            self._channel_recipient_permissions = ChannelRecipientPermissionsClient(client_wrapper=self._client_wrapper)
+        return self._channel_recipient_permissions
+
+    @property
+    def channel_messages(self):
+        if self._channel_messages is None:
+            from .channel_messages.client import ChannelMessagesClient  # noqa: E402
+
+            self._channel_messages = ChannelMessagesClient(client_wrapper=self._client_wrapper)
+        return self._channel_messages
 
     @property
     def messages(self):
@@ -346,6 +389,10 @@ class AsyncAgentMailer:
         )
         self._agent: typing.Optional[AsyncAgentClient] = None
         self._inboxes: typing.Optional[AsyncInboxesClient] = None
+        self._channel_endpoints: typing.Optional[AsyncChannelEndpointsClient] = None
+        self._channel_conversations: typing.Optional[AsyncChannelConversationsClient] = None
+        self._channel_recipient_permissions: typing.Optional[AsyncChannelRecipientPermissionsClient] = None
+        self._channel_messages: typing.Optional[AsyncChannelMessagesClient] = None
         self._messages: typing.Optional[AsyncMessagesClient] = None
         self._threads: typing.Optional[AsyncThreadsClient] = None
         self._drafts: typing.Optional[AsyncDraftsClient] = None
@@ -374,6 +421,40 @@ class AsyncAgentMailer:
 
             self._inboxes = AsyncInboxesClient(client_wrapper=self._client_wrapper)
         return self._inboxes
+
+    @property
+    def channel_endpoints(self):
+        if self._channel_endpoints is None:
+            from .channel_endpoints.client import AsyncChannelEndpointsClient  # noqa: E402
+
+            self._channel_endpoints = AsyncChannelEndpointsClient(client_wrapper=self._client_wrapper)
+        return self._channel_endpoints
+
+    @property
+    def channel_conversations(self):
+        if self._channel_conversations is None:
+            from .channel_conversations.client import AsyncChannelConversationsClient  # noqa: E402
+
+            self._channel_conversations = AsyncChannelConversationsClient(client_wrapper=self._client_wrapper)
+        return self._channel_conversations
+
+    @property
+    def channel_recipient_permissions(self):
+        if self._channel_recipient_permissions is None:
+            from .channel_recipient_permissions.client import AsyncChannelRecipientPermissionsClient  # noqa: E402
+
+            self._channel_recipient_permissions = AsyncChannelRecipientPermissionsClient(
+                client_wrapper=self._client_wrapper
+            )
+        return self._channel_recipient_permissions
+
+    @property
+    def channel_messages(self):
+        if self._channel_messages is None:
+            from .channel_messages.client import AsyncChannelMessagesClient  # noqa: E402
+
+            self._channel_messages = AsyncChannelMessagesClient(client_wrapper=self._client_wrapper)
+        return self._channel_messages
 
     @property
     def messages(self):

@@ -8,6 +8,8 @@ on:
       - cli/**
       - client-extensions/**
       - scripts/generate-local.sh
+      - scripts/generate-local.test.mjs
+      - scripts/check-docker-engine.mjs
       - scripts/clean-generated-dependencies.mjs
       - scripts/check-client-surface.mjs
       - scripts/postprocess-*.mjs

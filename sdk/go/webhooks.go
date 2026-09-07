@@ -319,21 +319,29 @@ func (w *Webhook) String() string {
 type WebhookEventTypesItem string
 
 const (
-	WebhookEventTypesItemInboxProvisioning       WebhookEventTypesItem = "inbox.provisioning"
-	WebhookEventTypesItemInboxCreated            WebhookEventTypesItem = "inbox.created"
-	WebhookEventTypesItemInboxProvisioningFailed WebhookEventTypesItem = "inbox.provisioning_failed"
-	WebhookEventTypesItemMessageReceived         WebhookEventTypesItem = "message.received"
-	WebhookEventTypesItemMessageSendRequested    WebhookEventTypesItem = "message.send.requested"
-	WebhookEventTypesItemMessageSent             WebhookEventTypesItem = "message.sent"
-	WebhookEventTypesItemMessageDelivered        WebhookEventTypesItem = "message.delivered"
-	WebhookEventTypesItemMessageBounced          WebhookEventTypesItem = "message.bounced"
-	WebhookEventTypesItemMessageComplained       WebhookEventTypesItem = "message.complained"
-	WebhookEventTypesItemMessageRejected         WebhookEventTypesItem = "message.rejected"
-	WebhookEventTypesItemDomainVerified          WebhookEventTypesItem = "domain.verified"
-	WebhookEventTypesItemA2ATaskCreated          WebhookEventTypesItem = "a2a.task.created"
-	WebhookEventTypesItemA2ATaskMessage          WebhookEventTypesItem = "a2a.task.message"
-	WebhookEventTypesItemA2ATaskCanceled         WebhookEventTypesItem = "a2a.task.canceled"
-	WebhookEventTypesItemA2ASentTaskUpdated      WebhookEventTypesItem = "a2a.sent_task.updated"
+	WebhookEventTypesItemInboxProvisioning           WebhookEventTypesItem = "inbox.provisioning"
+	WebhookEventTypesItemInboxCreated                WebhookEventTypesItem = "inbox.created"
+	WebhookEventTypesItemInboxProvisioningFailed     WebhookEventTypesItem = "inbox.provisioning_failed"
+	WebhookEventTypesItemMessageReceived             WebhookEventTypesItem = "message.received"
+	WebhookEventTypesItemMessageSendRequested        WebhookEventTypesItem = "message.send.requested"
+	WebhookEventTypesItemMessageSent                 WebhookEventTypesItem = "message.sent"
+	WebhookEventTypesItemMessageDelivered            WebhookEventTypesItem = "message.delivered"
+	WebhookEventTypesItemMessageBounced              WebhookEventTypesItem = "message.bounced"
+	WebhookEventTypesItemMessageComplained           WebhookEventTypesItem = "message.complained"
+	WebhookEventTypesItemMessageRejected             WebhookEventTypesItem = "message.rejected"
+	WebhookEventTypesItemChannelEndpointCreated      WebhookEventTypesItem = "channel.endpoint.created"
+	WebhookEventTypesItemChannelMessageReceived      WebhookEventTypesItem = "channel.message.received"
+	WebhookEventTypesItemChannelMessageBlocked       WebhookEventTypesItem = "channel.message.blocked"
+	WebhookEventTypesItemChannelMessageSendRequested WebhookEventTypesItem = "channel.message.send.requested"
+	WebhookEventTypesItemChannelMessageSent          WebhookEventTypesItem = "channel.message.sent"
+	WebhookEventTypesItemChannelMessageDelivered     WebhookEventTypesItem = "channel.message.delivered"
+	WebhookEventTypesItemChannelMessageRead          WebhookEventTypesItem = "channel.message.read"
+	WebhookEventTypesItemChannelMessageFailed        WebhookEventTypesItem = "channel.message.failed"
+	WebhookEventTypesItemDomainVerified              WebhookEventTypesItem = "domain.verified"
+	WebhookEventTypesItemA2ATaskCreated              WebhookEventTypesItem = "a2a.task.created"
+	WebhookEventTypesItemA2ATaskMessage              WebhookEventTypesItem = "a2a.task.message"
+	WebhookEventTypesItemA2ATaskCanceled             WebhookEventTypesItem = "a2a.task.canceled"
+	WebhookEventTypesItemA2ASentTaskUpdated          WebhookEventTypesItem = "a2a.sent_task.updated"
 )
 
 func NewWebhookEventTypesItemFromString(s string) (WebhookEventTypesItem, error) {
@@ -358,6 +366,22 @@ func NewWebhookEventTypesItemFromString(s string) (WebhookEventTypesItem, error)
 		return WebhookEventTypesItemMessageComplained, nil
 	case "message.rejected":
 		return WebhookEventTypesItemMessageRejected, nil
+	case "channel.endpoint.created":
+		return WebhookEventTypesItemChannelEndpointCreated, nil
+	case "channel.message.received":
+		return WebhookEventTypesItemChannelMessageReceived, nil
+	case "channel.message.blocked":
+		return WebhookEventTypesItemChannelMessageBlocked, nil
+	case "channel.message.send.requested":
+		return WebhookEventTypesItemChannelMessageSendRequested, nil
+	case "channel.message.sent":
+		return WebhookEventTypesItemChannelMessageSent, nil
+	case "channel.message.delivered":
+		return WebhookEventTypesItemChannelMessageDelivered, nil
+	case "channel.message.read":
+		return WebhookEventTypesItemChannelMessageRead, nil
+	case "channel.message.failed":
+		return WebhookEventTypesItemChannelMessageFailed, nil
 	case "domain.verified":
 		return WebhookEventTypesItemDomainVerified, nil
 	case "a2a.task.created":
@@ -838,21 +862,29 @@ func (u *UpdateWebhooksResponse) String() string {
 type WebhookCreateEventTypesItem string
 
 const (
-	WebhookCreateEventTypesItemInboxProvisioning       WebhookCreateEventTypesItem = "inbox.provisioning"
-	WebhookCreateEventTypesItemInboxCreated            WebhookCreateEventTypesItem = "inbox.created"
-	WebhookCreateEventTypesItemInboxProvisioningFailed WebhookCreateEventTypesItem = "inbox.provisioning_failed"
-	WebhookCreateEventTypesItemMessageReceived         WebhookCreateEventTypesItem = "message.received"
-	WebhookCreateEventTypesItemMessageSendRequested    WebhookCreateEventTypesItem = "message.send.requested"
-	WebhookCreateEventTypesItemMessageSent             WebhookCreateEventTypesItem = "message.sent"
-	WebhookCreateEventTypesItemMessageDelivered        WebhookCreateEventTypesItem = "message.delivered"
-	WebhookCreateEventTypesItemMessageBounced          WebhookCreateEventTypesItem = "message.bounced"
-	WebhookCreateEventTypesItemMessageComplained       WebhookCreateEventTypesItem = "message.complained"
-	WebhookCreateEventTypesItemMessageRejected         WebhookCreateEventTypesItem = "message.rejected"
-	WebhookCreateEventTypesItemDomainVerified          WebhookCreateEventTypesItem = "domain.verified"
-	WebhookCreateEventTypesItemA2ATaskCreated          WebhookCreateEventTypesItem = "a2a.task.created"
-	WebhookCreateEventTypesItemA2ATaskMessage          WebhookCreateEventTypesItem = "a2a.task.message"
-	WebhookCreateEventTypesItemA2ATaskCanceled         WebhookCreateEventTypesItem = "a2a.task.canceled"
-	WebhookCreateEventTypesItemA2ASentTaskUpdated      WebhookCreateEventTypesItem = "a2a.sent_task.updated"
+	WebhookCreateEventTypesItemInboxProvisioning           WebhookCreateEventTypesItem = "inbox.provisioning"
+	WebhookCreateEventTypesItemInboxCreated                WebhookCreateEventTypesItem = "inbox.created"
+	WebhookCreateEventTypesItemInboxProvisioningFailed     WebhookCreateEventTypesItem = "inbox.provisioning_failed"
+	WebhookCreateEventTypesItemMessageReceived             WebhookCreateEventTypesItem = "message.received"
+	WebhookCreateEventTypesItemMessageSendRequested        WebhookCreateEventTypesItem = "message.send.requested"
+	WebhookCreateEventTypesItemMessageSent                 WebhookCreateEventTypesItem = "message.sent"
+	WebhookCreateEventTypesItemMessageDelivered            WebhookCreateEventTypesItem = "message.delivered"
+	WebhookCreateEventTypesItemMessageBounced              WebhookCreateEventTypesItem = "message.bounced"
+	WebhookCreateEventTypesItemMessageComplained           WebhookCreateEventTypesItem = "message.complained"
+	WebhookCreateEventTypesItemMessageRejected             WebhookCreateEventTypesItem = "message.rejected"
+	WebhookCreateEventTypesItemChannelEndpointCreated      WebhookCreateEventTypesItem = "channel.endpoint.created"
+	WebhookCreateEventTypesItemChannelMessageReceived      WebhookCreateEventTypesItem = "channel.message.received"
+	WebhookCreateEventTypesItemChannelMessageBlocked       WebhookCreateEventTypesItem = "channel.message.blocked"
+	WebhookCreateEventTypesItemChannelMessageSendRequested WebhookCreateEventTypesItem = "channel.message.send.requested"
+	WebhookCreateEventTypesItemChannelMessageSent          WebhookCreateEventTypesItem = "channel.message.sent"
+	WebhookCreateEventTypesItemChannelMessageDelivered     WebhookCreateEventTypesItem = "channel.message.delivered"
+	WebhookCreateEventTypesItemChannelMessageRead          WebhookCreateEventTypesItem = "channel.message.read"
+	WebhookCreateEventTypesItemChannelMessageFailed        WebhookCreateEventTypesItem = "channel.message.failed"
+	WebhookCreateEventTypesItemDomainVerified              WebhookCreateEventTypesItem = "domain.verified"
+	WebhookCreateEventTypesItemA2ATaskCreated              WebhookCreateEventTypesItem = "a2a.task.created"
+	WebhookCreateEventTypesItemA2ATaskMessage              WebhookCreateEventTypesItem = "a2a.task.message"
+	WebhookCreateEventTypesItemA2ATaskCanceled             WebhookCreateEventTypesItem = "a2a.task.canceled"
+	WebhookCreateEventTypesItemA2ASentTaskUpdated          WebhookCreateEventTypesItem = "a2a.sent_task.updated"
 )
 
 func NewWebhookCreateEventTypesItemFromString(s string) (WebhookCreateEventTypesItem, error) {
@@ -877,6 +909,22 @@ func NewWebhookCreateEventTypesItemFromString(s string) (WebhookCreateEventTypes
 		return WebhookCreateEventTypesItemMessageComplained, nil
 	case "message.rejected":
 		return WebhookCreateEventTypesItemMessageRejected, nil
+	case "channel.endpoint.created":
+		return WebhookCreateEventTypesItemChannelEndpointCreated, nil
+	case "channel.message.received":
+		return WebhookCreateEventTypesItemChannelMessageReceived, nil
+	case "channel.message.blocked":
+		return WebhookCreateEventTypesItemChannelMessageBlocked, nil
+	case "channel.message.send.requested":
+		return WebhookCreateEventTypesItemChannelMessageSendRequested, nil
+	case "channel.message.sent":
+		return WebhookCreateEventTypesItemChannelMessageSent, nil
+	case "channel.message.delivered":
+		return WebhookCreateEventTypesItemChannelMessageDelivered, nil
+	case "channel.message.read":
+		return WebhookCreateEventTypesItemChannelMessageRead, nil
+	case "channel.message.failed":
+		return WebhookCreateEventTypesItemChannelMessageFailed, nil
 	case "domain.verified":
 		return WebhookCreateEventTypesItemDomainVerified, nil
 	case "a2a.task.created":
@@ -899,21 +947,29 @@ func (w WebhookCreateEventTypesItem) Ptr() *WebhookCreateEventTypesItem {
 type WebhookUpdateEventTypesItem string
 
 const (
-	WebhookUpdateEventTypesItemInboxProvisioning       WebhookUpdateEventTypesItem = "inbox.provisioning"
-	WebhookUpdateEventTypesItemInboxCreated            WebhookUpdateEventTypesItem = "inbox.created"
-	WebhookUpdateEventTypesItemInboxProvisioningFailed WebhookUpdateEventTypesItem = "inbox.provisioning_failed"
-	WebhookUpdateEventTypesItemMessageReceived         WebhookUpdateEventTypesItem = "message.received"
-	WebhookUpdateEventTypesItemMessageSendRequested    WebhookUpdateEventTypesItem = "message.send.requested"
-	WebhookUpdateEventTypesItemMessageSent             WebhookUpdateEventTypesItem = "message.sent"
-	WebhookUpdateEventTypesItemMessageDelivered        WebhookUpdateEventTypesItem = "message.delivered"
-	WebhookUpdateEventTypesItemMessageBounced          WebhookUpdateEventTypesItem = "message.bounced"
-	WebhookUpdateEventTypesItemMessageComplained       WebhookUpdateEventTypesItem = "message.complained"
-	WebhookUpdateEventTypesItemMessageRejected         WebhookUpdateEventTypesItem = "message.rejected"
-	WebhookUpdateEventTypesItemDomainVerified          WebhookUpdateEventTypesItem = "domain.verified"
-	WebhookUpdateEventTypesItemA2ATaskCreated          WebhookUpdateEventTypesItem = "a2a.task.created"
-	WebhookUpdateEventTypesItemA2ATaskMessage          WebhookUpdateEventTypesItem = "a2a.task.message"
-	WebhookUpdateEventTypesItemA2ATaskCanceled         WebhookUpdateEventTypesItem = "a2a.task.canceled"
-	WebhookUpdateEventTypesItemA2ASentTaskUpdated      WebhookUpdateEventTypesItem = "a2a.sent_task.updated"
+	WebhookUpdateEventTypesItemInboxProvisioning           WebhookUpdateEventTypesItem = "inbox.provisioning"
+	WebhookUpdateEventTypesItemInboxCreated                WebhookUpdateEventTypesItem = "inbox.created"
+	WebhookUpdateEventTypesItemInboxProvisioningFailed     WebhookUpdateEventTypesItem = "inbox.provisioning_failed"
+	WebhookUpdateEventTypesItemMessageReceived             WebhookUpdateEventTypesItem = "message.received"
+	WebhookUpdateEventTypesItemMessageSendRequested        WebhookUpdateEventTypesItem = "message.send.requested"
+	WebhookUpdateEventTypesItemMessageSent                 WebhookUpdateEventTypesItem = "message.sent"
+	WebhookUpdateEventTypesItemMessageDelivered            WebhookUpdateEventTypesItem = "message.delivered"
+	WebhookUpdateEventTypesItemMessageBounced              WebhookUpdateEventTypesItem = "message.bounced"
+	WebhookUpdateEventTypesItemMessageComplained           WebhookUpdateEventTypesItem = "message.complained"
+	WebhookUpdateEventTypesItemMessageRejected             WebhookUpdateEventTypesItem = "message.rejected"
+	WebhookUpdateEventTypesItemChannelEndpointCreated      WebhookUpdateEventTypesItem = "channel.endpoint.created"
+	WebhookUpdateEventTypesItemChannelMessageReceived      WebhookUpdateEventTypesItem = "channel.message.received"
+	WebhookUpdateEventTypesItemChannelMessageBlocked       WebhookUpdateEventTypesItem = "channel.message.blocked"
+	WebhookUpdateEventTypesItemChannelMessageSendRequested WebhookUpdateEventTypesItem = "channel.message.send.requested"
+	WebhookUpdateEventTypesItemChannelMessageSent          WebhookUpdateEventTypesItem = "channel.message.sent"
+	WebhookUpdateEventTypesItemChannelMessageDelivered     WebhookUpdateEventTypesItem = "channel.message.delivered"
+	WebhookUpdateEventTypesItemChannelMessageRead          WebhookUpdateEventTypesItem = "channel.message.read"
+	WebhookUpdateEventTypesItemChannelMessageFailed        WebhookUpdateEventTypesItem = "channel.message.failed"
+	WebhookUpdateEventTypesItemDomainVerified              WebhookUpdateEventTypesItem = "domain.verified"
+	WebhookUpdateEventTypesItemA2ATaskCreated              WebhookUpdateEventTypesItem = "a2a.task.created"
+	WebhookUpdateEventTypesItemA2ATaskMessage              WebhookUpdateEventTypesItem = "a2a.task.message"
+	WebhookUpdateEventTypesItemA2ATaskCanceled             WebhookUpdateEventTypesItem = "a2a.task.canceled"
+	WebhookUpdateEventTypesItemA2ASentTaskUpdated          WebhookUpdateEventTypesItem = "a2a.sent_task.updated"
 )
 
 func NewWebhookUpdateEventTypesItemFromString(s string) (WebhookUpdateEventTypesItem, error) {
@@ -938,6 +994,22 @@ func NewWebhookUpdateEventTypesItemFromString(s string) (WebhookUpdateEventTypes
 		return WebhookUpdateEventTypesItemMessageComplained, nil
 	case "message.rejected":
 		return WebhookUpdateEventTypesItemMessageRejected, nil
+	case "channel.endpoint.created":
+		return WebhookUpdateEventTypesItemChannelEndpointCreated, nil
+	case "channel.message.received":
+		return WebhookUpdateEventTypesItemChannelMessageReceived, nil
+	case "channel.message.blocked":
+		return WebhookUpdateEventTypesItemChannelMessageBlocked, nil
+	case "channel.message.send.requested":
+		return WebhookUpdateEventTypesItemChannelMessageSendRequested, nil
+	case "channel.message.sent":
+		return WebhookUpdateEventTypesItemChannelMessageSent, nil
+	case "channel.message.delivered":
+		return WebhookUpdateEventTypesItemChannelMessageDelivered, nil
+	case "channel.message.read":
+		return WebhookUpdateEventTypesItemChannelMessageRead, nil
+	case "channel.message.failed":
+		return WebhookUpdateEventTypesItemChannelMessageFailed, nil
 	case "domain.verified":
 		return WebhookUpdateEventTypesItemDomainVerified, nil
 	case "a2a.task.created":

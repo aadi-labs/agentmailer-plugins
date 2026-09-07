@@ -11,6 +11,46 @@ import (
 )
 
 var (
+	forwardMessagesRequestFieldIdempotencyKey = big.NewInt(1 << 0)
+)
+
+type ForwardMessagesRequest struct {
+	// Stable caller-generated key used to make retries safe without duplicating the operation.
+	IdempotencyKey string          `json:"-" url:"-"`
+	Body           *MessageCompose `json:"-" url:"-"`
+
+	// Private bitmask of fields set to an explicit value and therefore not to be omitted
+	explicitFields *big.Int `json:"-" url:"-"`
+}
+
+func (f *ForwardMessagesRequest) require(field *big.Int) {
+	if f.explicitFields == nil {
+		f.explicitFields = big.NewInt(0)
+	}
+	f.explicitFields.Or(f.explicitFields, field)
+}
+
+// SetIdempotencyKey sets the IdempotencyKey field and marks it as non-optional;
+// this prevents an empty or null value for this field from being omitted during serialization.
+func (f *ForwardMessagesRequest) SetIdempotencyKey(idempotencyKey string) {
+	f.IdempotencyKey = idempotencyKey
+	f.require(forwardMessagesRequestFieldIdempotencyKey)
+}
+
+func (f *ForwardMessagesRequest) UnmarshalJSON(data []byte) error {
+	body := new(MessageCompose)
+	if err := json.Unmarshal(data, &body); err != nil {
+		return err
+	}
+	f.Body = body
+	return nil
+}
+
+func (f *ForwardMessagesRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(f.Body)
+}
+
+var (
 	listMessagesRequestFieldLimit     = big.NewInt(1 << 0)
 	listMessagesRequestFieldPageToken = big.NewInt(1 << 1)
 	listMessagesRequestFieldThreadID  = big.NewInt(1 << 2)
@@ -87,6 +127,126 @@ func (l *ListMessagesRequest) SetBefore(before *time.Time) {
 func (l *ListMessagesRequest) SetAfter(after *time.Time) {
 	l.After = after
 	l.require(listMessagesRequestFieldAfter)
+}
+
+var (
+	replyMessagesRequestFieldIdempotencyKey = big.NewInt(1 << 0)
+)
+
+type ReplyMessagesRequest struct {
+	// Stable caller-generated key used to make retries safe without duplicating the operation.
+	IdempotencyKey string        `json:"-" url:"-"`
+	Body           *ReplyCompose `json:"-" url:"-"`
+
+	// Private bitmask of fields set to an explicit value and therefore not to be omitted
+	explicitFields *big.Int `json:"-" url:"-"`
+}
+
+func (r *ReplyMessagesRequest) require(field *big.Int) {
+	if r.explicitFields == nil {
+		r.explicitFields = big.NewInt(0)
+	}
+	r.explicitFields.Or(r.explicitFields, field)
+}
+
+// SetIdempotencyKey sets the IdempotencyKey field and marks it as non-optional;
+// this prevents an empty or null value for this field from being omitted during serialization.
+func (r *ReplyMessagesRequest) SetIdempotencyKey(idempotencyKey string) {
+	r.IdempotencyKey = idempotencyKey
+	r.require(replyMessagesRequestFieldIdempotencyKey)
+}
+
+func (r *ReplyMessagesRequest) UnmarshalJSON(data []byte) error {
+	body := new(ReplyCompose)
+	if err := json.Unmarshal(data, &body); err != nil {
+		return err
+	}
+	r.Body = body
+	return nil
+}
+
+func (r *ReplyMessagesRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(r.Body)
+}
+
+var (
+	replyAllMessagesRequestFieldIdempotencyKey = big.NewInt(1 << 0)
+)
+
+type ReplyAllMessagesRequest struct {
+	// Stable caller-generated key used to make retries safe without duplicating the operation.
+	IdempotencyKey string        `json:"-" url:"-"`
+	Body           *ReplyCompose `json:"-" url:"-"`
+
+	// Private bitmask of fields set to an explicit value and therefore not to be omitted
+	explicitFields *big.Int `json:"-" url:"-"`
+}
+
+func (r *ReplyAllMessagesRequest) require(field *big.Int) {
+	if r.explicitFields == nil {
+		r.explicitFields = big.NewInt(0)
+	}
+	r.explicitFields.Or(r.explicitFields, field)
+}
+
+// SetIdempotencyKey sets the IdempotencyKey field and marks it as non-optional;
+// this prevents an empty or null value for this field from being omitted during serialization.
+func (r *ReplyAllMessagesRequest) SetIdempotencyKey(idempotencyKey string) {
+	r.IdempotencyKey = idempotencyKey
+	r.require(replyAllMessagesRequestFieldIdempotencyKey)
+}
+
+func (r *ReplyAllMessagesRequest) UnmarshalJSON(data []byte) error {
+	body := new(ReplyCompose)
+	if err := json.Unmarshal(data, &body); err != nil {
+		return err
+	}
+	r.Body = body
+	return nil
+}
+
+func (r *ReplyAllMessagesRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(r.Body)
+}
+
+var (
+	sendMessagesRequestFieldIdempotencyKey = big.NewInt(1 << 0)
+)
+
+type SendMessagesRequest struct {
+	// Stable caller-generated key used to make retries safe without duplicating the operation.
+	IdempotencyKey string          `json:"-" url:"-"`
+	Body           *MessageCompose `json:"-" url:"-"`
+
+	// Private bitmask of fields set to an explicit value and therefore not to be omitted
+	explicitFields *big.Int `json:"-" url:"-"`
+}
+
+func (s *SendMessagesRequest) require(field *big.Int) {
+	if s.explicitFields == nil {
+		s.explicitFields = big.NewInt(0)
+	}
+	s.explicitFields.Or(s.explicitFields, field)
+}
+
+// SetIdempotencyKey sets the IdempotencyKey field and marks it as non-optional;
+// this prevents an empty or null value for this field from being omitted during serialization.
+func (s *SendMessagesRequest) SetIdempotencyKey(idempotencyKey string) {
+	s.IdempotencyKey = idempotencyKey
+	s.require(sendMessagesRequestFieldIdempotencyKey)
+}
+
+func (s *SendMessagesRequest) UnmarshalJSON(data []byte) error {
+	body := new(MessageCompose)
+	if err := json.Unmarshal(data, &body); err != nil {
+		return err
+	}
+	s.Body = body
+	return nil
+}
+
+func (s *SendMessagesRequest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(s.Body)
 }
 
 var (

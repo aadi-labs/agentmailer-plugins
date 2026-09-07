@@ -1235,6 +1235,7 @@ import AgentMailer
         let response = try await client.drafts.send(
             inboxId: "inboxId",
             draftId: "draftId",
+            idempotencyKey: "Idempotency-Key",
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)
@@ -1394,6 +1395,7 @@ import AgentMailer
         let response = try await client.drafts.send(
             inboxId: "inboxId",
             draftId: "draftId",
+            idempotencyKey: "idempotencyKey",
             requestOptions: RequestOptions(additionalHeaders: stub.headers)
         )
         try #require(response == expectedResponse)

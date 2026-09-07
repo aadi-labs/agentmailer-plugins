@@ -35,7 +35,7 @@
     "skills:test": "python3 -m unittest tests/test_skills_tooling.py",
     "validate": "pnpm skills:check && pnpm skills:test && python3 scripts/validate.py",
     "check": "pnpm validate && pnpm sdk:check",
-    "sdk:check": "fern check && node scripts/check-client-surface.mjs",
+    "sdk:check": "node --test scripts/generation-replacements.test.mjs scripts/generate-local.test.mjs && fern check && node scripts/check-client-surface.mjs",
     "sdk:drift:check": "pnpm sdk:sync:check",
     "examples:check": "pnpm --filter '@agentmailer/example-*' check",
     "examples:generate": "node scripts/generate-examples.mjs",

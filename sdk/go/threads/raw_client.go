@@ -72,6 +72,7 @@ func (r *RawClient) List(
 			QueryParameters: options.QueryParameters,
 			Client:          options.HTTPClient,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -118,6 +119,7 @@ func (r *RawClient) Get(
 			QueryParameters: options.QueryParameters,
 			Client:          options.HTTPClient,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {

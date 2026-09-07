@@ -38,6 +38,8 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
+// List or search messages
+//
 // Example:
 //
 //	request := &_go.ListMessagesRequest{}
@@ -64,12 +66,17 @@ func (c *Client) List(
 	return response.Body, nil
 }
 
+// Send a message
+//
 // Example:
 //
-//	request := &_go.MessageCompose{
-//	    To: []*_go.MessageComposeToItem{
-//	        &_go.MessageComposeToItem{
-//	            String: "to",
+//	request := &_go.SendMessagesRequest{
+//	    IdempotencyKey: "Idempotency-Key",
+//	    Body: &_go.MessageCompose{
+//	        To: []*_go.MessageComposeToItem{
+//	            &_go.MessageComposeToItem{
+//	                String: "to",
+//	            },
 //	        },
 //	    },
 //	}
@@ -81,7 +88,7 @@ func (c *Client) List(
 func (c *Client) Send(
 	ctx context.Context,
 	inboxID string,
-	request *_go.MessageCompose,
+	request *_go.SendMessagesRequest,
 	opts ...option.RequestOption,
 ) (*_go.SendMessagesResponse, error) {
 	response, err := c.WithRawResponse.Send(
@@ -96,6 +103,8 @@ func (c *Client) Send(
 	return response.Body, nil
 }
 
+// Get a message
+//
 // Example:
 //
 //	client.Messages.Get(
@@ -121,6 +130,8 @@ func (c *Client) Get(
 	return response.Body, nil
 }
 
+// Delete a message
+//
 // Example:
 //
 //	client.Messages.Delete(
@@ -146,9 +157,14 @@ func (c *Client) Delete(
 	return nil
 }
 
+// Reply to a message
+//
 // Example:
 //
-//	request := &_go.ReplyCompose{}
+//	request := &_go.ReplyMessagesRequest{
+//	    IdempotencyKey: "Idempotency-Key",
+//	    Body: &_go.ReplyCompose{},
+//	}
 //	client.Messages.Reply(
 //	    context.TODO(),
 //	    "inboxId",
@@ -159,7 +175,7 @@ func (c *Client) Reply(
 	ctx context.Context,
 	inboxID string,
 	messageID string,
-	request *_go.ReplyCompose,
+	request *_go.ReplyMessagesRequest,
 	opts ...option.RequestOption,
 ) (*_go.ReplyMessagesResponse, error) {
 	response, err := c.WithRawResponse.Reply(
@@ -175,9 +191,14 @@ func (c *Client) Reply(
 	return response.Body, nil
 }
 
+// Reply all to a message
+//
 // Example:
 //
-//	request := &_go.ReplyCompose{}
+//	request := &_go.ReplyAllMessagesRequest{
+//	    IdempotencyKey: "Idempotency-Key",
+//	    Body: &_go.ReplyCompose{},
+//	}
 //	client.Messages.ReplyAll(
 //	    context.TODO(),
 //	    "inboxId",
@@ -188,7 +209,7 @@ func (c *Client) ReplyAll(
 	ctx context.Context,
 	inboxID string,
 	messageID string,
-	request *_go.ReplyCompose,
+	request *_go.ReplyAllMessagesRequest,
 	opts ...option.RequestOption,
 ) (*_go.ReplyAllMessagesResponse, error) {
 	response, err := c.WithRawResponse.ReplyAll(
@@ -204,12 +225,17 @@ func (c *Client) ReplyAll(
 	return response.Body, nil
 }
 
+// Forward a message
+//
 // Example:
 //
-//	request := &_go.MessageCompose{
-//	    To: []*_go.MessageComposeToItem{
-//	        &_go.MessageComposeToItem{
-//	            String: "to",
+//	request := &_go.ForwardMessagesRequest{
+//	    IdempotencyKey: "Idempotency-Key",
+//	    Body: &_go.MessageCompose{
+//	        To: []*_go.MessageComposeToItem{
+//	            &_go.MessageComposeToItem{
+//	                String: "to",
+//	            },
 //	        },
 //	    },
 //	}
@@ -223,7 +249,7 @@ func (c *Client) Forward(
 	ctx context.Context,
 	inboxID string,
 	messageID string,
-	request *_go.MessageCompose,
+	request *_go.ForwardMessagesRequest,
 	opts ...option.RequestOption,
 ) (*_go.ForwardMessagesResponse, error) {
 	response, err := c.WithRawResponse.Forward(

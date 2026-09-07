@@ -68,6 +68,7 @@ func (r *RawClient) List(
 			QueryParameters: options.QueryParameters,
 			Client:          options.HTTPClient,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -96,6 +97,9 @@ func (r *RawClient) Create(
 		r.options.ToHeader(),
 		options.ToHeader(),
 	)
+	if request.IdempotencyKey != nil {
+		headers.Add("Idempotency-Key", *request.IdempotencyKey)
+	}
 	headers.Add("Content-Type", "application/json")
 	core.SetIdempotencyKeyHeader(headers)
 
@@ -113,6 +117,7 @@ func (r *RawClient) Create(
 			Client:          options.HTTPClient,
 			Request:         request,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -157,6 +162,7 @@ func (r *RawClient) Get(
 			QueryParameters: options.QueryParameters,
 			Client:          options.HTTPClient,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -199,6 +205,7 @@ func (r *RawClient) Delete(
 			BodyProperties:  options.BodyProperties,
 			QueryParameters: options.QueryParameters,
 			Client:          options.HTTPClient,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -248,6 +255,7 @@ func (r *RawClient) Update(
 			Client:          options.HTTPClient,
 			Request:         request,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -294,6 +302,7 @@ func (r *RawClient) IssueCredentials(
 			QueryParameters: options.QueryParameters,
 			Client:          options.HTTPClient,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {

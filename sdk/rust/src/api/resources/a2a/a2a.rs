@@ -14,6 +14,16 @@ impl A2AClient {
         })
     }
 
+    /// Call an agent over A2A JSON-RPC
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -58,6 +68,16 @@ impl A2AClient {
             .await
     }
 
+    /// Discover an agent's public A2A card
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -89,6 +109,16 @@ impl A2AClient {
             .await
     }
 
+    /// Update an assigned A2A task
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -132,6 +162,16 @@ impl A2AClient {
             .await
     }
 
+    /// Update the calling agent's public A2A profile
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run

@@ -11,9 +11,9 @@ export interface Attachment {
 
 export namespace Attachment {
     export const Status = {
-        Pending: "pending",
-        Uploaded: "uploaded",
-        Committed: "committed",
-    } as const;
-    export type Status = (typeof Status)[keyof typeof Status];
+            Pending: "pending",
+            Uploaded: "uploaded",
+            Committed: "committed"
+        } as const;
+    export type Status = typeof Status[keyof typeof Status];
 }

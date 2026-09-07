@@ -29,35 +29,35 @@ export interface Message {
 
 export namespace Message {
     export const Direction = {
-        Inbound: "inbound",
-        Outbound: "outbound",
-    } as const;
-    export type Direction = (typeof Direction)[keyof typeof Direction];
+            Inbound: "inbound",
+            Outbound: "outbound"
+        } as const;
+    export type Direction = typeof Direction[keyof typeof Direction];
     export const Status = {
-        Queued: "queued",
-        Sent: "sent",
-        Delivered: "delivered",
-        Bounced: "bounced",
-        Complained: "complained",
-        Rejected: "rejected",
-        Received: "received",
-    } as const;
-    export type Status = (typeof Status)[keyof typeof Status];
+            Queued: "queued",
+            Sent: "sent",
+            Delivered: "delivered",
+            Bounced: "bounced",
+            Complained: "complained",
+            Rejected: "rejected",
+            Received: "received"
+        } as const;
+    export type Status = typeof Status[keyof typeof Status];
     export type From =
         | string
         | {
-              address: string;
-              name?: string | undefined;
-          };
+            address: string;
+            name?: string | undefined;
+        };
     export type To = To.Item[];
 
     export namespace To {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 
     export type Cc = Cc.Item[];
@@ -66,9 +66,9 @@ export namespace Message {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 
     export type Bcc = Bcc.Item[];
@@ -77,9 +77,9 @@ export namespace Message {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 
     export type ReplyTo = ReplyTo.Item[];
@@ -88,9 +88,9 @@ export namespace Message {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 
     export type Attachments = Attachments.Item[];
@@ -107,10 +107,10 @@ export namespace Message {
 
         export namespace Item {
             export const Disposition = {
-                Attachment: "attachment",
-                Inline: "inline",
-            } as const;
-            export type Disposition = (typeof Disposition)[keyof typeof Disposition];
+                    Attachment: "attachment",
+                    Inline: "inline"
+                } as const;
+            export type Disposition = typeof Disposition[keyof typeof Disposition];
         }
     }
 }

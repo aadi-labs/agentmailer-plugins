@@ -26,9 +26,9 @@ export namespace DraftCreate {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 
     export type Cc = Cc.Item[];
@@ -37,9 +37,9 @@ export namespace DraftCreate {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 
     export type Bcc = Bcc.Item[];
@@ -48,9 +48,9 @@ export namespace DraftCreate {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 
     export type ReplyTo = ReplyTo.Item[];
@@ -59,9 +59,9 @@ export namespace DraftCreate {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 
     export type Attachments = Attachments.Item[];
@@ -69,16 +69,16 @@ export namespace DraftCreate {
     export namespace Attachments {
         export type Item =
             | {
-                  filename: string;
-                  contentType: string;
-                  content: string;
-                  contentId?: string | undefined;
-                  disposition?: ("attachment" | "inline") | undefined;
-              }
+                filename: string;
+                contentType: string;
+                content: string;
+                contentId?: string | undefined;
+                disposition?: ("attachment" | "inline") | undefined;
+            }
             | {
-                  attachmentId: string;
-                  contentId?: string | undefined;
-                  disposition?: ("attachment" | "inline") | undefined;
-              };
+                attachmentId: string;
+                contentId?: string | undefined;
+                disposition?: ("attachment" | "inline") | undefined;
+            };
     }
 }

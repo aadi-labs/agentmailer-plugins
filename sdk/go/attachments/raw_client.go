@@ -69,6 +69,7 @@ func (r *RawClient) Upload(
 			Client:          options.HTTPClient,
 			Request:         request,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -117,6 +118,7 @@ func (r *RawClient) Complete(
 			QueryParameters: options.QueryParameters,
 			Client:          options.HTTPClient,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {
@@ -163,6 +165,7 @@ func (r *RawClient) Download(
 			QueryParameters: options.QueryParameters,
 			Client:          options.HTTPClient,
 			Response:        &response,
+			ErrorDecoder:    internal.NewErrorDecoder(_go.ErrorCodes),
 		},
 	)
 	if err != nil {

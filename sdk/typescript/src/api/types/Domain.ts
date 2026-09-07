@@ -12,11 +12,11 @@ export interface Domain {
 
 export namespace Domain {
     export const Status = {
-        Pending: "pending",
-        Verified: "verified",
-        Failed: "failed",
-    } as const;
-    export type Status = (typeof Status)[keyof typeof Status];
+            Pending: "pending",
+            Verified: "verified",
+            Failed: "failed"
+        } as const;
+    export type Status = typeof Status[keyof typeof Status];
     export type Records = Records.Item[];
 
     export namespace Records {
@@ -29,11 +29,11 @@ export namespace Domain {
 
         export namespace Item {
             export const Type = {
-                Cname: "CNAME",
-                Mx: "MX",
-                Txt: "TXT",
-            } as const;
-            export type Type = (typeof Type)[keyof typeof Type];
+                    Cname: "CNAME",
+                    Mx: "MX",
+                    Txt: "TXT"
+                } as const;
+            export type Type = typeof Type[keyof typeof Type];
         }
     }
 }

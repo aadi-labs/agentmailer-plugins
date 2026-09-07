@@ -7,6 +7,8 @@ public final class PodsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
+    /// List Pods
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -30,6 +32,8 @@ public final class PodsClient: Sendable {
         )
     }
 
+    /// Create a Pod
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -54,6 +58,8 @@ public final class PodsClient: Sendable {
         )
     }
 
+    /// Get a Pod
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -77,6 +83,8 @@ public final class PodsClient: Sendable {
         )
     }
 
+    /// Delete a Pod
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -99,6 +107,8 @@ public final class PodsClient: Sendable {
         )
     }
 
+    /// Update a Pod
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer

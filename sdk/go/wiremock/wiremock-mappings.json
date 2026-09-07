@@ -265,6 +265,340 @@
       }
     },
     {
+      "id": "c12ba990-1162-47a7-8a8e-3a5e5c440e28",
+      "name": "List human-channel endpoints - default",
+      "request": {
+        "urlPathTemplate": "/v1/channel-endpoints",
+        "method": "GET",
+        "headers": {
+          "Authorization": {
+            "matches": "Bearer .+"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\n  \"endpoints\": [\n    {\n      \"id\": \"id\",\n      \"inboxId\": \"inboxId\",\n      \"podId\": \"podId\",\n      \"channel\": \"sms\",\n      \"address\": \"address\",\n      \"status\": \"provisioning\",\n      \"capabilities\": [\n        \"sms\"\n      ],\n      \"createdAt\": \"2024-01-15T09:30:00Z\",\n      \"updatedAt\": \"2024-01-15T09:30:00Z\"\n    }\n  ]\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "uuid": "c12ba990-1162-47a7-8a8e-3a5e5c440e28",
+      "persistent": true,
+      "priority": 3,
+      "metadata": {
+        "mocklab": {
+          "created": {
+            "at": "2020-01-01T00:00:00.000Z",
+            "via": "SYSTEM"
+          }
+        }
+      },
+      "postServeActions": []
+    },
+    {
+      "id": "3b529d20-f701-417a-8363-da5f389f783c",
+      "name": "Assign a human-channel endpoint - default",
+      "request": {
+        "urlPathTemplate": "/v1/channel-endpoints",
+        "method": "POST",
+        "headers": {
+          "Authorization": {
+            "matches": "Bearer .+"
+          }
+        }
+      },
+      "response": {
+        "status": 201,
+        "body": "{\n  \"endpoint\": {\n    \"id\": \"id\",\n    \"inboxId\": \"inboxId\",\n    \"podId\": \"podId\",\n    \"channel\": \"sms\",\n    \"address\": \"address\",\n    \"status\": \"provisioning\",\n    \"capabilities\": [\n      \"sms\"\n    ],\n    \"createdAt\": \"2024-01-15T09:30:00Z\",\n    \"updatedAt\": \"2024-01-15T09:30:00Z\"\n  }\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "uuid": "3b529d20-f701-417a-8363-da5f389f783c",
+      "persistent": true,
+      "priority": 3,
+      "metadata": {
+        "mocklab": {
+          "created": {
+            "at": "2020-01-01T00:00:00.000Z",
+            "via": "SYSTEM"
+          }
+        }
+      }
+    },
+    {
+      "id": "29c7b4ee-46d6-4407-9402-0e717cf0aba6",
+      "name": "Get a human-channel endpoint - default",
+      "request": {
+        "urlPathTemplate": "/v1/channel-endpoints/{endpointId}",
+        "method": "GET",
+        "headers": {
+          "Authorization": {
+            "matches": "Bearer .+"
+          }
+        },
+        "pathParameters": {
+          "endpointId": {
+            "equalTo": "endpointId"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\n  \"endpoint\": {\n    \"id\": \"id\",\n    \"inboxId\": \"inboxId\",\n    \"podId\": \"podId\",\n    \"channel\": \"sms\",\n    \"address\": \"address\",\n    \"status\": \"provisioning\",\n    \"capabilities\": [\n      \"sms\"\n    ],\n    \"createdAt\": \"2024-01-15T09:30:00Z\",\n    \"updatedAt\": \"2024-01-15T09:30:00Z\"\n  }\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "uuid": "29c7b4ee-46d6-4407-9402-0e717cf0aba6",
+      "persistent": true,
+      "priority": 3,
+      "metadata": {
+        "mocklab": {
+          "created": {
+            "at": "2020-01-01T00:00:00.000Z",
+            "via": "SYSTEM"
+          }
+        }
+      }
+    },
+    {
+      "id": "6cc243ed-4ccd-4da8-8c73-eede2ef16fac",
+      "name": "Enable or disable a human-channel endpoint - default",
+      "request": {
+        "urlPathTemplate": "/v1/channel-endpoints/{endpointId}",
+        "method": "PATCH",
+        "headers": {
+          "Authorization": {
+            "matches": "Bearer .+"
+          }
+        },
+        "pathParameters": {
+          "endpointId": {
+            "equalTo": "endpointId"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\n  \"endpoint\": {\n    \"id\": \"id\",\n    \"inboxId\": \"inboxId\",\n    \"podId\": \"podId\",\n    \"channel\": \"sms\",\n    \"address\": \"address\",\n    \"status\": \"provisioning\",\n    \"capabilities\": [\n      \"sms\"\n    ],\n    \"createdAt\": \"2024-01-15T09:30:00Z\",\n    \"updatedAt\": \"2024-01-15T09:30:00Z\"\n  }\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "uuid": "6cc243ed-4ccd-4da8-8c73-eede2ef16fac",
+      "persistent": true,
+      "priority": 3,
+      "metadata": {
+        "mocklab": {
+          "created": {
+            "at": "2020-01-01T00:00:00.000Z",
+            "via": "SYSTEM"
+          }
+        }
+      }
+    },
+    {
+      "id": "529233c2-3e6a-43b2-8b08-2cb2563a098b",
+      "name": "List human-channel conversations - default",
+      "request": {
+        "urlPathTemplate": "/v1/channel-conversations",
+        "method": "GET",
+        "headers": {
+          "Authorization": {
+            "matches": "Bearer .+"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\n  \"conversations\": [\n    {\n      \"id\": \"id\",\n      \"endpointId\": \"endpointId\",\n      \"channel\": \"sms\",\n      \"remoteAddress\": \"remoteAddress\",\n      \"status\": \"active\",\n      \"messageCount\": 1,\n      \"lastMessageAt\": \"2024-01-15T09:30:00Z\",\n      \"lastInboundAt\": \"2024-01-15T09:30:00Z\",\n      \"createdAt\": \"2024-01-15T09:30:00Z\",\n      \"updatedAt\": \"2024-01-15T09:30:00Z\"\n    }\n  ],\n  \"nextPageToken\": \"nextPageToken\"\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "uuid": "529233c2-3e6a-43b2-8b08-2cb2563a098b",
+      "persistent": true,
+      "priority": 3,
+      "metadata": {
+        "mocklab": {
+          "created": {
+            "at": "2020-01-01T00:00:00.000Z",
+            "via": "SYSTEM"
+          }
+        }
+      },
+      "postServeActions": []
+    },
+    {
+      "id": "12c4feaa-7518-4304-b1ba-b331e7c59018",
+      "name": "Get a human-channel conversation - default",
+      "request": {
+        "urlPathTemplate": "/v1/channel-conversations/{conversationId}",
+        "method": "GET",
+        "headers": {
+          "Authorization": {
+            "matches": "Bearer .+"
+          }
+        },
+        "pathParameters": {
+          "conversationId": {
+            "equalTo": "conversationId"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\n  \"conversation\": {\n    \"id\": \"id\",\n    \"endpointId\": \"endpointId\",\n    \"channel\": \"sms\",\n    \"remoteAddress\": \"remoteAddress\",\n    \"status\": \"active\",\n    \"messageCount\": 1,\n    \"lastMessageAt\": \"2024-01-15T09:30:00Z\",\n    \"lastInboundAt\": \"2024-01-15T09:30:00Z\",\n    \"createdAt\": \"2024-01-15T09:30:00Z\",\n    \"updatedAt\": \"2024-01-15T09:30:00Z\"\n  }\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "uuid": "12c4feaa-7518-4304-b1ba-b331e7c59018",
+      "persistent": true,
+      "priority": 3,
+      "metadata": {
+        "mocklab": {
+          "created": {
+            "at": "2020-01-01T00:00:00.000Z",
+            "via": "SYSTEM"
+          }
+        }
+      }
+    },
+    {
+      "id": "df4d244f-db6d-405e-83d0-980a22384446",
+      "name": "Open or close a human-channel conversation - default",
+      "request": {
+        "urlPathTemplate": "/v1/channel-conversations/{conversationId}",
+        "method": "PATCH",
+        "headers": {
+          "Authorization": {
+            "matches": "Bearer .+"
+          }
+        },
+        "pathParameters": {
+          "conversationId": {
+            "equalTo": "conversationId"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\n  \"conversation\": {\n    \"id\": \"id\",\n    \"endpointId\": \"endpointId\",\n    \"channel\": \"sms\",\n    \"remoteAddress\": \"remoteAddress\",\n    \"status\": \"active\",\n    \"messageCount\": 1,\n    \"lastMessageAt\": \"2024-01-15T09:30:00Z\",\n    \"lastInboundAt\": \"2024-01-15T09:30:00Z\",\n    \"createdAt\": \"2024-01-15T09:30:00Z\",\n    \"updatedAt\": \"2024-01-15T09:30:00Z\"\n  }\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "uuid": "df4d244f-db6d-405e-83d0-980a22384446",
+      "persistent": true,
+      "priority": 3,
+      "metadata": {
+        "mocklab": {
+          "created": {
+            "at": "2020-01-01T00:00:00.000Z",
+            "via": "SYSTEM"
+          }
+        }
+      }
+    },
+    {
+      "id": "bec5576c-dc33-4580-8031-135cf9f702e7",
+      "name": "List human-channel consent and opt-out state - default",
+      "request": {
+        "urlPathTemplate": "/v1/channel-recipient-permissions",
+        "method": "GET",
+        "headers": {
+          "Authorization": {
+            "matches": "Bearer .+"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\n  \"permissions\": [\n    {\n      \"endpointId\": \"endpointId\",\n      \"channel\": \"sms\",\n      \"recipient\": \"recipient\",\n      \"status\": \"consented\",\n      \"consentBasis\": \"explicit\",\n      \"consentReference\": \"consentReference\",\n      \"consentCapturedAt\": \"2024-01-15T09:30:00Z\",\n      \"optedOutAt\": \"2024-01-15T09:30:00Z\",\n      \"updatedAt\": \"2024-01-15T09:30:00Z\"\n    }\n  ],\n  \"nextPageToken\": \"nextPageToken\"\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "uuid": "bec5576c-dc33-4580-8031-135cf9f702e7",
+      "persistent": true,
+      "priority": 3,
+      "metadata": {
+        "mocklab": {
+          "created": {
+            "at": "2020-01-01T00:00:00.000Z",
+            "via": "SYSTEM"
+          }
+        }
+      },
+      "postServeActions": []
+    },
+    {
+      "id": "54685434-3226-4154-9f50-74a4dd0a3dc8",
+      "name": "List human-channel messages - default",
+      "request": {
+        "urlPathTemplate": "/v1/channel-messages",
+        "method": "GET",
+        "headers": {
+          "Authorization": {
+            "matches": "Bearer .+"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\n  \"messages\": [\n    {\n      \"id\": \"id\",\n      \"endpointId\": \"endpointId\",\n      \"conversationId\": \"conversationId\",\n      \"channel\": \"sms\",\n      \"direction\": \"inbound\",\n      \"status\": \"queued\",\n      \"from\": \"from\",\n      \"to\": \"to\",\n      \"text\": \"text\",\n      \"mediaUrls\": [\n        \"mediaUrls\"\n      ],\n      \"attachmentIds\": [],\n      \"providerMessageId\": \"providerMessageId\",\n      \"failureCode\": \"failureCode\",\n      \"safety\": {\n        \"action\": \"allow\",\n        \"risk\": \"low\",\n        \"score\": 1.1,\n        \"signals\": [\n          \"signals\"\n        ],\n        \"classifier\": \"local\",\n        \"modelStatus\": \"not_configured\"\n      },\n      \"createdAt\": \"2024-01-15T09:30:00Z\",\n      \"sentAt\": \"2024-01-15T09:30:00Z\",\n      \"receivedAt\": \"2024-01-15T09:30:00Z\"\n    }\n  ],\n  \"nextPageToken\": \"nextPageToken\"\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "uuid": "54685434-3226-4154-9f50-74a4dd0a3dc8",
+      "persistent": true,
+      "priority": 3,
+      "metadata": {
+        "mocklab": {
+          "created": {
+            "at": "2020-01-01T00:00:00.000Z",
+            "via": "SYSTEM"
+          }
+        }
+      },
+      "postServeActions": []
+    },
+    {
+      "id": "4fb52d82-be7b-46ae-b5ea-5dc4dd4d2b8e",
+      "name": "Send a human-channel message - default",
+      "request": {
+        "urlPathTemplate": "/v1/channel-messages",
+        "method": "POST",
+        "headers": {
+          "Authorization": {
+            "matches": "Bearer .+"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\n  \"message\": {\n    \"id\": \"id\",\n    \"endpointId\": \"endpointId\",\n    \"conversationId\": \"conversationId\",\n    \"channel\": \"sms\",\n    \"direction\": \"inbound\",\n    \"status\": \"queued\",\n    \"from\": \"from\",\n    \"to\": \"to\",\n    \"text\": \"text\",\n    \"mediaUrls\": [\n      \"mediaUrls\"\n    ],\n    \"attachmentIds\": [\n      {\n        \"key\": \"value\"\n      }\n    ],\n    \"providerMessageId\": \"providerMessageId\",\n    \"failureCode\": \"failureCode\",\n    \"safety\": {\n      \"action\": \"allow\",\n      \"risk\": \"low\",\n      \"score\": 1.1,\n      \"signals\": [\n        \"signals\"\n      ],\n      \"classifier\": \"local\",\n      \"modelStatus\": \"not_configured\"\n    },\n    \"createdAt\": \"2024-01-15T09:30:00Z\",\n    \"sentAt\": \"2024-01-15T09:30:00Z\",\n    \"receivedAt\": \"2024-01-15T09:30:00Z\"\n  },\n  \"replayed\": true\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "uuid": "4fb52d82-be7b-46ae-b5ea-5dc4dd4d2b8e",
+      "persistent": true,
+      "priority": 3,
+      "metadata": {
+        "mocklab": {
+          "created": {
+            "at": "2020-01-01T00:00:00.000Z",
+            "via": "SYSTEM"
+          }
+        }
+      }
+    },
+    {
       "id": "eaf94328-bb0e-4b89-9e42-d345b8fa75b4",
       "name": "List or search messages - default",
       "request": {
@@ -1903,7 +2237,7 @@
       "postServeActions": []
     },
     {
-      "id": "68530d6b-eaf9-4252-b084-e8fde42d020c",
+      "id": "2ad8c965-0099-480e-ba01-17dbbc289c88",
       "name": "Create a subscription checkout session - default",
       "request": {
         "urlPathTemplate": "/v1/billing/checkout",
@@ -1921,7 +2255,7 @@
           "Content-Type": "application/json"
         }
       },
-      "uuid": "68530d6b-eaf9-4252-b084-e8fde42d020c",
+      "uuid": "2ad8c965-0099-480e-ba01-17dbbc289c88",
       "persistent": true,
       "priority": 3,
       "metadata": {
@@ -1934,7 +2268,7 @@
       }
     },
     {
-      "id": "b6933dde-e3d8-489d-b6f0-cc9f694025fe",
+      "id": "1cc96954-e854-48d0-bf97-d7fc12c7d709",
       "name": "Create a billing management session - default",
       "request": {
         "urlPathTemplate": "/v1/billing/portal",
@@ -1952,7 +2286,7 @@
           "Content-Type": "application/json"
         }
       },
-      "uuid": "b6933dde-e3d8-489d-b6f0-cc9f694025fe",
+      "uuid": "1cc96954-e854-48d0-bf97-d7fc12c7d709",
       "persistent": true,
       "priority": 3,
       "metadata": {
@@ -2100,6 +2434,6 @@
     }
   ],
   "meta": {
-    "total": 60
+    "total": 70
   }
 }

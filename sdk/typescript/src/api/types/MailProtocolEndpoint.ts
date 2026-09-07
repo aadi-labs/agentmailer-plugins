@@ -8,8 +8,8 @@ export interface MailProtocolEndpoint {
 
 export namespace MailProtocolEndpoint {
     export const Security = {
-        Tls: "tls",
-        Starttls: "starttls",
-    } as const;
-    export type Security = (typeof Security)[keyof typeof Security];
+            Tls: "tls",
+            Starttls: "starttls"
+        } as const;
+    export type Security = typeof Security[keyof typeof Security];
 }

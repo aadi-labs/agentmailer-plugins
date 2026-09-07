@@ -7,6 +7,8 @@ public final class ThreadsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
+    /// List or search threads
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -38,6 +40,8 @@ public final class ThreadsClient: Sendable {
         )
     }
 
+    /// Get a thread and conversation
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer

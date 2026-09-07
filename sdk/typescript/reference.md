@@ -4,6 +4,20 @@
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create an approved agent's inbox
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -13,7 +27,9 @@
 <dd>
 
 ```typescript
-await client.agent.bootstrap();
+await client.agent.bootstrap({
+    "Idempotency-Key": "Idempotency-Key"
+});
 
 ```
 </dd>
@@ -29,16 +45,16 @@ await client.agent.bootstrap();
 <dl>
 <dd>
 
-**request:** `AgentMailer.BootstrapRequest` 
-    
+**request:** `AgentMailer.BootstrapRequest`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `AgentClient.RequestOptions` 
-    
+**requestOptions:** `AgentClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -52,6 +68,20 @@ await client.agent.bootstrap();
 <details><summary><code>client.agent.<a href="/src/api/resources/agent/client/Client.ts">signUp</a>({ ...params }) -> AgentMailer.SignUpAgentResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Start human approval for an agent
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -81,16 +111,16 @@ await client.agent.signUp({
 <dl>
 <dd>
 
-**request:** `AgentMailer.SignUpAgentRequest` 
-    
+**request:** `AgentMailer.SignUpAgentRequest`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `AgentClient.RequestOptions` 
-    
+**requestOptions:** `AgentClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -105,6 +135,20 @@ await client.agent.signUp({
 <details><summary><code>client.inboxes.<a href="/src/api/resources/inboxes/client/Client.ts">list</a>({ ...params }) -> AgentMailer.ListInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List inboxes
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -131,16 +175,16 @@ await client.inboxes.list();
 <dl>
 <dd>
 
-**request:** `AgentMailer.ListInboxesRequest` 
-    
+**request:** `AgentMailer.ListInboxesRequest`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `InboxesClient.RequestOptions` 
-    
+**requestOptions:** `InboxesClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -154,6 +198,20 @@ await client.inboxes.list();
 <details><summary><code>client.inboxes.<a href="/src/api/resources/inboxes/client/Client.ts">create</a>({ ...params }) -> AgentMailer.CreateInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create an inbox
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -180,16 +238,16 @@ await client.inboxes.create();
 <dl>
 <dd>
 
-**request:** `AgentMailer.InboxCreate` 
-    
+**request:** `AgentMailer.InboxCreate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `InboxesClient.RequestOptions` 
-    
+**requestOptions:** `InboxesClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -203,6 +261,20 @@ await client.inboxes.create();
 <details><summary><code>client.inboxes.<a href="/src/api/resources/inboxes/client/Client.ts">get</a>(inboxId) -> AgentMailer.GetInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get an inbox
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -229,16 +301,16 @@ await client.inboxes.get("inboxId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `InboxesClient.RequestOptions` 
-    
+**requestOptions:** `InboxesClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -252,6 +324,20 @@ await client.inboxes.get("inboxId");
 <details><summary><code>client.inboxes.<a href="/src/api/resources/inboxes/client/Client.ts">delete</a>(inboxId) -> void</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete an inbox
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -278,16 +364,16 @@ await client.inboxes.delete("inboxId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `InboxesClient.RequestOptions` 
-    
+**requestOptions:** `InboxesClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -301,6 +387,20 @@ await client.inboxes.delete("inboxId");
 <details><summary><code>client.inboxes.<a href="/src/api/resources/inboxes/client/Client.ts">update</a>(inboxId, { ...params }) -> AgentMailer.UpdateInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update an inbox
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -327,24 +427,24 @@ await client.inboxes.update("inboxId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.InboxUpdate` 
-    
+**request:** `AgentMailer.InboxUpdate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `InboxesClient.RequestOptions` 
-    
+**requestOptions:** `InboxesClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -358,6 +458,20 @@ await client.inboxes.update("inboxId");
 <details><summary><code>client.inboxes.<a href="/src/api/resources/inboxes/client/Client.ts">issueCredentials</a>(inboxId) -> AgentMailer.IssueCredentialsInboxesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Issue new IMAP and SMTP credentials
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -384,16 +498,682 @@ await client.inboxes.issueCredentials("inboxId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `InboxesClient.RequestOptions` 
-    
+**requestOptions:** `InboxesClient.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## ChannelEndpoints
+<details><summary><code>client.channelEndpoints.<a href="/src/api/resources/channelEndpoints/client/Client.ts">list</a>() -> AgentMailer.ListChannelEndpointsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List human-channel endpoints
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.channelEndpoints.list();
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChannelEndpointsClient.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channelEndpoints.<a href="/src/api/resources/channelEndpoints/client/Client.ts">create</a>({ ...params }) -> AgentMailer.CreateChannelEndpointsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Assign a human-channel endpoint
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.channelEndpoints.create({
+    inboxId: "inboxId",
+    podId: "podId",
+    channel: "sms"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AgentMailer.ChannelEndpointCreate`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChannelEndpointsClient.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channelEndpoints.<a href="/src/api/resources/channelEndpoints/client/Client.ts">get</a>(endpointId) -> AgentMailer.GetChannelEndpointsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a human-channel endpoint
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.channelEndpoints.get("endpointId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**endpointId:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChannelEndpointsClient.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channelEndpoints.<a href="/src/api/resources/channelEndpoints/client/Client.ts">update</a>(endpointId, { ...params }) -> AgentMailer.UpdateChannelEndpointsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Enable or disable a human-channel endpoint
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.channelEndpoints.update("endpointId", {
+    status: "active"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**endpointId:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `AgentMailer.ChannelEndpointUpdate`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChannelEndpointsClient.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## ChannelConversations
+<details><summary><code>client.channelConversations.<a href="/src/api/resources/channelConversations/client/Client.ts">list</a>({ ...params }) -> AgentMailer.ListChannelConversationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List human-channel conversations
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.channelConversations.list();
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AgentMailer.ListChannelConversationsRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChannelConversationsClient.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channelConversations.<a href="/src/api/resources/channelConversations/client/Client.ts">get</a>(conversationId) -> AgentMailer.GetChannelConversationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a human-channel conversation
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.channelConversations.get("conversationId");
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**conversationId:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChannelConversationsClient.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channelConversations.<a href="/src/api/resources/channelConversations/client/Client.ts">update</a>(conversationId, { ...params }) -> AgentMailer.UpdateChannelConversationsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Open or close a human-channel conversation
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.channelConversations.update("conversationId", {
+    status: "active"
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**conversationId:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `AgentMailer.ChannelConversationUpdate`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChannelConversationsClient.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## ChannelRecipientPermissions
+<details><summary><code>client.channelRecipientPermissions.<a href="/src/api/resources/channelRecipientPermissions/client/Client.ts">list</a>({ ...params }) -> AgentMailer.ListChannelRecipientPermissionsResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List human-channel consent and opt-out state
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.channelRecipientPermissions.list();
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AgentMailer.ListChannelRecipientPermissionsRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChannelRecipientPermissionsClient.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## ChannelMessages
+<details><summary><code>client.channelMessages.<a href="/src/api/resources/channelMessages/client/Client.ts">list</a>({ ...params }) -> AgentMailer.ListChannelMessagesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List human-channel messages
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.channelMessages.list();
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AgentMailer.ListChannelMessagesRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChannelMessagesClient.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.channelMessages.<a href="/src/api/resources/channelMessages/client/Client.ts">send</a>({ ...params }) -> AgentMailer.SendChannelMessagesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Sends through an assigned SMS, MMS, RCS, WhatsApp, or outbound voice endpoint. Supports RCS rich cards and replies, plus WhatsApp media and reply buttons. All non-template WhatsApp messages require a recipient message within the last 24 hours; otherwise use an approved template.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.channelMessages.send({
+    "Idempotency-Key": "Idempotency-Key",
+    body: {
+        channel: "sms",
+        endpointId: "endpointId",
+        to: "to",
+        consent: {
+            basis: "explicit",
+            capturedAt: "2024-01-15T09:30:00Z",
+            reference: "reference"
+        },
+        content: {
+            type: "text",
+            body: "body"
+        }
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request:** `AgentMailer.SendChannelMessagesRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `ChannelMessagesClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -408,6 +1188,20 @@ await client.inboxes.issueCredentials("inboxId");
 <details><summary><code>client.messages.<a href="/src/api/resources/messages/client/Client.ts">list</a>(inboxId, { ...params }) -> AgentMailer.ListMessagesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List or search messages
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -434,24 +1228,24 @@ await client.messages.list("inboxId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.ListMessagesRequest` 
-    
+**request:** `AgentMailer.ListMessagesRequest`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `MessagesClient.RequestOptions` 
-    
+**requestOptions:** `MessagesClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -466,6 +1260,20 @@ await client.messages.list("inboxId");
 <dl>
 <dd>
 
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Send a message
+</dd>
+</dl>
+</dd>
+</dl>
+
 #### 🔌 Usage
 
 <dl>
@@ -476,7 +1284,10 @@ await client.messages.list("inboxId");
 
 ```typescript
 await client.messages.send("inboxId", {
-    to: ["to"]
+    "Idempotency-Key": "Idempotency-Key",
+    body: {
+        to: ["to"]
+    }
 });
 
 ```
@@ -493,24 +1304,24 @@ await client.messages.send("inboxId", {
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.MessageCompose` 
-    
+**request:** `AgentMailer.SendMessagesRequest`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `MessagesClient.RequestOptions` 
-    
+**requestOptions:** `MessagesClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -524,6 +1335,20 @@ await client.messages.send("inboxId", {
 <details><summary><code>client.messages.<a href="/src/api/resources/messages/client/Client.ts">get</a>(inboxId, messageId) -> AgentMailer.GetMessagesResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a message
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -550,24 +1375,24 @@ await client.messages.get("inboxId", "messageId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**messageId:** `string` 
-    
+**messageId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `MessagesClient.RequestOptions` 
-    
+**requestOptions:** `MessagesClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -581,6 +1406,20 @@ await client.messages.get("inboxId", "messageId");
 <details><summary><code>client.messages.<a href="/src/api/resources/messages/client/Client.ts">delete</a>(inboxId, messageId) -> void</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a message
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -607,24 +1446,24 @@ await client.messages.delete("inboxId", "messageId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**messageId:** `string` 
-    
+**messageId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `MessagesClient.RequestOptions` 
-    
+**requestOptions:** `MessagesClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -639,7 +1478,7 @@ await client.messages.delete("inboxId", "messageId");
 <dl>
 <dd>
 
-#### 🔌 Usage
+#### 📝 Description
 
 <dl>
 <dd>
@@ -647,62 +1486,11 @@ await client.messages.delete("inboxId", "messageId");
 <dl>
 <dd>
 
-```typescript
-await client.messages.reply("inboxId", "messageId", {});
-
-```
+Reply to a message
 </dd>
 </dl>
 </dd>
 </dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**inboxId:** `string` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**messageId:** `string` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `AgentMailer.ReplyCompose` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `MessagesClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.messages.<a href="/src/api/resources/messages/client/Client.ts">replyAll</a>(inboxId, messageId, { ...params }) -> AgentMailer.ReplyAllMessagesResponse</code></summary>
-<dl>
-<dd>
 
 #### 🔌 Usage
 
@@ -713,73 +1501,9 @@ await client.messages.reply("inboxId", "messageId", {});
 <dd>
 
 ```typescript
-await client.messages.replyAll("inboxId", "messageId", {});
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**inboxId:** `string` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**messageId:** `string` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `AgentMailer.ReplyCompose` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**requestOptions:** `MessagesClient.RequestOptions` 
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.messages.<a href="/src/api/resources/messages/client/Client.ts">forward</a>(inboxId, messageId, { ...params }) -> AgentMailer.ForwardMessagesResponse</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```typescript
-await client.messages.forward("inboxId", "messageId", {
-    to: ["to"]
+await client.messages.reply("inboxId", "messageId", {
+    "Idempotency-Key": "Idempotency-Key",
+    body: {}
 });
 
 ```
@@ -796,32 +1520,198 @@ await client.messages.forward("inboxId", "messageId", {
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**messageId:** `string` 
-    
+**messageId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.MessageCompose` 
-    
+**request:** `AgentMailer.ReplyMessagesRequest`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `MessagesClient.RequestOptions` 
-    
+**requestOptions:** `MessagesClient.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.messages.<a href="/src/api/resources/messages/client/Client.ts">replyAll</a>(inboxId, messageId, { ...params }) -> AgentMailer.ReplyAllMessagesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Reply all to a message
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.messages.replyAll("inboxId", "messageId", {
+    "Idempotency-Key": "Idempotency-Key",
+    body: {}
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**inboxId:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**messageId:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `AgentMailer.ReplyAllMessagesRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `MessagesClient.RequestOptions`
+
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.messages.<a href="/src/api/resources/messages/client/Client.ts">forward</a>(inboxId, messageId, { ...params }) -> AgentMailer.ForwardMessagesResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Forward a message
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```typescript
+await client.messages.forward("inboxId", "messageId", {
+    "Idempotency-Key": "Idempotency-Key",
+    body: {
+        to: ["to"]
+    }
+});
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**inboxId:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**messageId:** `string`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `AgentMailer.ForwardMessagesRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `MessagesClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -836,6 +1726,20 @@ await client.messages.forward("inboxId", "messageId", {
 <details><summary><code>client.threads.<a href="/src/api/resources/threads/client/Client.ts">list</a>(inboxId, { ...params }) -> AgentMailer.ListThreadsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List or search threads
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -862,24 +1766,24 @@ await client.threads.list("inboxId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.ListThreadsRequest` 
-    
+**request:** `AgentMailer.ListThreadsRequest`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `ThreadsClient.RequestOptions` 
-    
+**requestOptions:** `ThreadsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -893,6 +1797,20 @@ await client.threads.list("inboxId");
 <details><summary><code>client.threads.<a href="/src/api/resources/threads/client/Client.ts">get</a>(inboxId, threadId) -> AgentMailer.GetThreadsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a thread and conversation
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -919,24 +1837,24 @@ await client.threads.get("inboxId", "threadId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**threadId:** `string` 
-    
+**threadId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `ThreadsClient.RequestOptions` 
-    
+**requestOptions:** `ThreadsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -951,6 +1869,20 @@ await client.threads.get("inboxId", "threadId");
 <details><summary><code>client.drafts.<a href="/src/api/resources/drafts/client/Client.ts">list</a>(inboxId) -> AgentMailer.ListDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List drafts
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -977,16 +1909,16 @@ await client.drafts.list("inboxId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `DraftsClient.RequestOptions` 
-    
+**requestOptions:** `DraftsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1000,6 +1932,20 @@ await client.drafts.list("inboxId");
 <details><summary><code>client.drafts.<a href="/src/api/resources/drafts/client/Client.ts">create</a>(inboxId, { ...params }) -> AgentMailer.CreateDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1026,24 +1972,24 @@ await client.drafts.create("inboxId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.DraftCreate` 
-    
+**request:** `AgentMailer.DraftCreate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `DraftsClient.RequestOptions` 
-    
+**requestOptions:** `DraftsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1057,6 +2003,20 @@ await client.drafts.create("inboxId");
 <details><summary><code>client.drafts.<a href="/src/api/resources/drafts/client/Client.ts">get</a>(inboxId, draftId) -> AgentMailer.GetDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1083,24 +2043,24 @@ await client.drafts.get("inboxId", "draftId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**draftId:** `string` 
-    
+**draftId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `DraftsClient.RequestOptions` 
-    
+**requestOptions:** `DraftsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1114,6 +2074,20 @@ await client.drafts.get("inboxId", "draftId");
 <details><summary><code>client.drafts.<a href="/src/api/resources/drafts/client/Client.ts">delete</a>(inboxId, draftId) -> void</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1140,24 +2114,24 @@ await client.drafts.delete("inboxId", "draftId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**draftId:** `string` 
-    
+**draftId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `DraftsClient.RequestOptions` 
-    
+**requestOptions:** `DraftsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1171,6 +2145,20 @@ await client.drafts.delete("inboxId", "draftId");
 <details><summary><code>client.drafts.<a href="/src/api/resources/drafts/client/Client.ts">update</a>(inboxId, draftId, { ...params }) -> AgentMailer.UpdateDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1197,32 +2185,32 @@ await client.drafts.update("inboxId", "draftId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**draftId:** `string` 
-    
+**draftId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.DraftUpdate` 
-    
+**request:** `AgentMailer.DraftUpdate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `DraftsClient.RequestOptions` 
-    
+**requestOptions:** `DraftsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1233,9 +2221,23 @@ await client.drafts.update("inboxId", "draftId");
 </dl>
 </details>
 
-<details><summary><code>client.drafts.<a href="/src/api/resources/drafts/client/Client.ts">send</a>(inboxId, draftId) -> AgentMailer.SendDraftsResponse</code></summary>
+<details><summary><code>client.drafts.<a href="/src/api/resources/drafts/client/Client.ts">send</a>(inboxId, draftId, { ...params }) -> AgentMailer.SendDraftsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Send a draft
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1246,7 +2248,9 @@ await client.drafts.update("inboxId", "draftId");
 <dd>
 
 ```typescript
-await client.drafts.send("inboxId", "draftId");
+await client.drafts.send("inboxId", "draftId", {
+    "Idempotency-Key": "Idempotency-Key"
+});
 
 ```
 </dd>
@@ -1262,24 +2266,32 @@ await client.drafts.send("inboxId", "draftId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**draftId:** `string` 
-    
+**draftId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `DraftsClient.RequestOptions` 
-    
+**request:** `AgentMailer.SendDraftsRequest`
+
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**requestOptions:** `DraftsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1294,6 +2306,20 @@ await client.drafts.send("inboxId", "draftId");
 <details><summary><code>client.attachments.<a href="/src/api/resources/attachments/client/Client.ts">upload</a>(inboxId, { ...params }) -> Record&lt;string, unknown&gt;</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a direct attachment upload
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1325,24 +2351,24 @@ await client.attachments.upload("inboxId", {
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.AttachmentUploadCreate` 
-    
+**request:** `AgentMailer.AttachmentUploadCreate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `AttachmentsClient.RequestOptions` 
-    
+**requestOptions:** `AttachmentsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1356,6 +2382,20 @@ await client.attachments.upload("inboxId", {
 <details><summary><code>client.attachments.<a href="/src/api/resources/attachments/client/Client.ts">complete</a>(inboxId, attachmentId) -> AgentMailer.CompleteAttachmentsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Complete a direct attachment upload
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1382,24 +2422,24 @@ await client.attachments.complete("inboxId", "attachmentId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**attachmentId:** `string` 
-    
+**attachmentId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `AttachmentsClient.RequestOptions` 
-    
+**requestOptions:** `AttachmentsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1413,6 +2453,20 @@ await client.attachments.complete("inboxId", "attachmentId");
 <details><summary><code>client.attachments.<a href="/src/api/resources/attachments/client/Client.ts">download</a>(inboxId, attachmentId) -> AgentMailer.DownloadAttachmentsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a short-lived attachment download
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1439,24 +2493,24 @@ await client.attachments.download("inboxId", "attachmentId");
 <dl>
 <dd>
 
-**inboxId:** `string` 
-    
+**inboxId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**attachmentId:** `string` 
-    
+**attachmentId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `AttachmentsClient.RequestOptions` 
-    
+**requestOptions:** `AttachmentsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1471,6 +2525,20 @@ await client.attachments.download("inboxId", "attachmentId");
 <details><summary><code>client.pods.<a href="/src/api/resources/pods/client/Client.ts">list</a>() -> AgentMailer.ListPodsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List Pods
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1497,8 +2565,8 @@ await client.pods.list();
 <dl>
 <dd>
 
-**requestOptions:** `PodsClient.RequestOptions` 
-    
+**requestOptions:** `PodsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1512,6 +2580,20 @@ await client.pods.list();
 <details><summary><code>client.pods.<a href="/src/api/resources/pods/client/Client.ts">create</a>({ ...params }) -> AgentMailer.CreatePodsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a Pod
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1540,16 +2622,16 @@ await client.pods.create({
 <dl>
 <dd>
 
-**request:** `AgentMailer.PodCreate` 
-    
+**request:** `AgentMailer.PodCreate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `PodsClient.RequestOptions` 
-    
+**requestOptions:** `PodsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1563,6 +2645,20 @@ await client.pods.create({
 <details><summary><code>client.pods.<a href="/src/api/resources/pods/client/Client.ts">get</a>(podId) -> AgentMailer.GetPodsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a Pod
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1589,16 +2685,16 @@ await client.pods.get("podId");
 <dl>
 <dd>
 
-**podId:** `string` 
-    
+**podId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `PodsClient.RequestOptions` 
-    
+**requestOptions:** `PodsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1612,6 +2708,20 @@ await client.pods.get("podId");
 <details><summary><code>client.pods.<a href="/src/api/resources/pods/client/Client.ts">delete</a>(podId) -> void</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a Pod
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1638,16 +2748,16 @@ await client.pods.delete("podId");
 <dl>
 <dd>
 
-**podId:** `string` 
-    
+**podId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `PodsClient.RequestOptions` 
-    
+**requestOptions:** `PodsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1661,6 +2771,20 @@ await client.pods.delete("podId");
 <details><summary><code>client.pods.<a href="/src/api/resources/pods/client/Client.ts">update</a>(podId, { ...params }) -> AgentMailer.UpdatePodsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a Pod
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1689,24 +2813,24 @@ await client.pods.update("podId", {
 <dl>
 <dd>
 
-**podId:** `string` 
-    
+**podId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.PodUpdate` 
-    
+**request:** `AgentMailer.PodUpdate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `PodsClient.RequestOptions` 
-    
+**requestOptions:** `PodsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1721,6 +2845,20 @@ await client.pods.update("podId", {
 <details><summary><code>client.domains.<a href="/src/api/resources/domains/client/Client.ts">list</a>() -> AgentMailer.ListDomainsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List custom domains
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1747,8 +2885,8 @@ await client.domains.list();
 <dl>
 <dd>
 
-**requestOptions:** `DomainsClient.RequestOptions` 
-    
+**requestOptions:** `DomainsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1762,6 +2900,20 @@ await client.domains.list();
 <details><summary><code>client.domains.<a href="/src/api/resources/domains/client/Client.ts">create</a>({ ...params }) -> AgentMailer.CreateDomainsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a custom domain
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1790,16 +2942,16 @@ await client.domains.create({
 <dl>
 <dd>
 
-**request:** `AgentMailer.DomainCreate` 
-    
+**request:** `AgentMailer.DomainCreate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `DomainsClient.RequestOptions` 
-    
+**requestOptions:** `DomainsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1813,6 +2965,20 @@ await client.domains.create({
 <details><summary><code>client.domains.<a href="/src/api/resources/domains/client/Client.ts">get</a>(domainId) -> AgentMailer.GetDomainsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a custom domain
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1839,16 +3005,16 @@ await client.domains.get("domainId");
 <dl>
 <dd>
 
-**domainId:** `string` 
-    
+**domainId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `DomainsClient.RequestOptions` 
-    
+**requestOptions:** `DomainsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1862,6 +3028,20 @@ await client.domains.get("domainId");
 <details><summary><code>client.domains.<a href="/src/api/resources/domains/client/Client.ts">delete</a>(domainId) -> void</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a custom domain
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1888,16 +3068,16 @@ await client.domains.delete("domainId");
 <dl>
 <dd>
 
-**domainId:** `string` 
-    
+**domainId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `DomainsClient.RequestOptions` 
-    
+**requestOptions:** `DomainsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1911,6 +3091,20 @@ await client.domains.delete("domainId");
 <details><summary><code>client.domains.<a href="/src/api/resources/domains/client/Client.ts">verify</a>(domainId) -> AgentMailer.VerifyDomainsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Verify a custom domain's DNS records
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1937,16 +3131,16 @@ await client.domains.verify("domainId");
 <dl>
 <dd>
 
-**domainId:** `string` 
-    
+**domainId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `DomainsClient.RequestOptions` 
-    
+**requestOptions:** `DomainsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -1961,6 +3155,20 @@ await client.domains.verify("domainId");
 <details><summary><code>client.webhooks.<a href="/src/api/resources/webhooks/client/Client.ts">list</a>() -> AgentMailer.ListWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List webhook endpoints
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -1987,8 +3195,8 @@ await client.webhooks.list();
 <dl>
 <dd>
 
-**requestOptions:** `WebhooksClient.RequestOptions` 
-    
+**requestOptions:** `WebhooksClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2002,6 +3210,20 @@ await client.webhooks.list();
 <details><summary><code>client.webhooks.<a href="/src/api/resources/webhooks/client/Client.ts">create</a>({ ...params }) -> AgentMailer.CreateWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a webhook endpoint
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2030,16 +3252,16 @@ await client.webhooks.create({
 <dl>
 <dd>
 
-**request:** `AgentMailer.WebhookCreate` 
-    
+**request:** `AgentMailer.WebhookCreate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `WebhooksClient.RequestOptions` 
-    
+**requestOptions:** `WebhooksClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2053,6 +3275,20 @@ await client.webhooks.create({
 <details><summary><code>client.webhooks.<a href="/src/api/resources/webhooks/client/Client.ts">get</a>(webhookId) -> AgentMailer.GetWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a webhook endpoint
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2079,16 +3315,16 @@ await client.webhooks.get("webhookId");
 <dl>
 <dd>
 
-**webhookId:** `string` 
-    
+**webhookId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `WebhooksClient.RequestOptions` 
-    
+**requestOptions:** `WebhooksClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2102,6 +3338,20 @@ await client.webhooks.get("webhookId");
 <details><summary><code>client.webhooks.<a href="/src/api/resources/webhooks/client/Client.ts">delete</a>(webhookId) -> void</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a webhook endpoint
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2128,16 +3378,16 @@ await client.webhooks.delete("webhookId");
 <dl>
 <dd>
 
-**webhookId:** `string` 
-    
+**webhookId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `WebhooksClient.RequestOptions` 
-    
+**requestOptions:** `WebhooksClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2151,6 +3401,20 @@ await client.webhooks.delete("webhookId");
 <details><summary><code>client.webhooks.<a href="/src/api/resources/webhooks/client/Client.ts">update</a>(webhookId, { ...params }) -> AgentMailer.UpdateWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a webhook endpoint
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2177,24 +3441,24 @@ await client.webhooks.update("webhookId");
 <dl>
 <dd>
 
-**webhookId:** `string` 
-    
+**webhookId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.WebhookUpdate` 
-    
+**request:** `AgentMailer.WebhookUpdate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `WebhooksClient.RequestOptions` 
-    
+**requestOptions:** `WebhooksClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2208,6 +3472,20 @@ await client.webhooks.update("webhookId");
 <details><summary><code>client.webhooks.<a href="/src/api/resources/webhooks/client/Client.ts">rotateSecret</a>(webhookId) -> AgentMailer.RotateSecretWebhooksResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Rotate a webhook signing secret
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2234,16 +3512,16 @@ await client.webhooks.rotateSecret("webhookId");
 <dl>
 <dd>
 
-**webhookId:** `string` 
-    
+**webhookId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `WebhooksClient.RequestOptions` 
-    
+**requestOptions:** `WebhooksClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2258,6 +3536,20 @@ await client.webhooks.rotateSecret("webhookId");
 <details><summary><code>client.labels.<a href="/src/api/resources/labels/client/Client.ts">list</a>({ ...params }) -> AgentMailer.ListLabelsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List labels
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2284,16 +3576,16 @@ await client.labels.list();
 <dl>
 <dd>
 
-**request:** `AgentMailer.ListLabelsRequest` 
-    
+**request:** `AgentMailer.ListLabelsRequest`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `LabelsClient.RequestOptions` 
-    
+**requestOptions:** `LabelsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2307,6 +3599,20 @@ await client.labels.list();
 <details><summary><code>client.labels.<a href="/src/api/resources/labels/client/Client.ts">create</a>({ ...params }) -> AgentMailer.CreateLabelsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a label
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2336,16 +3642,16 @@ await client.labels.create({
 <dl>
 <dd>
 
-**request:** `AgentMailer.LabelCreate` 
-    
+**request:** `AgentMailer.LabelCreate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `LabelsClient.RequestOptions` 
-    
+**requestOptions:** `LabelsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2359,6 +3665,20 @@ await client.labels.create({
 <details><summary><code>client.labels.<a href="/src/api/resources/labels/client/Client.ts">delete</a>(labelId) -> void</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a label
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2385,16 +3705,16 @@ await client.labels.delete("labelId");
 <dl>
 <dd>
 
-**labelId:** `string` 
-    
+**labelId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `LabelsClient.RequestOptions` 
-    
+**requestOptions:** `LabelsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2408,6 +3728,20 @@ await client.labels.delete("labelId");
 <details><summary><code>client.labels.<a href="/src/api/resources/labels/client/Client.ts">updateMessage</a>(messageId, { ...params }) -> AgentMailer.UpdateMessageLabelsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Add or remove message labels
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2434,24 +3768,24 @@ await client.labels.updateMessage("messageId", {});
 <dl>
 <dd>
 
-**messageId:** `string` 
-    
+**messageId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.LabelMutation` 
-    
+**request:** `AgentMailer.LabelMutation`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `LabelsClient.RequestOptions` 
-    
+**requestOptions:** `LabelsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2465,6 +3799,20 @@ await client.labels.updateMessage("messageId", {});
 <details><summary><code>client.labels.<a href="/src/api/resources/labels/client/Client.ts">updateThread</a>(threadId, { ...params }) -> AgentMailer.UpdateThreadLabelsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Add or remove thread labels
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2491,24 +3839,24 @@ await client.labels.updateThread("threadId", {});
 <dl>
 <dd>
 
-**threadId:** `string` 
-    
+**threadId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.LabelMutation` 
-    
+**request:** `AgentMailer.LabelMutation`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `LabelsClient.RequestOptions` 
-    
+**requestOptions:** `LabelsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2523,6 +3871,20 @@ await client.labels.updateThread("threadId", {});
 <details><summary><code>client.lists.<a href="/src/api/resources/lists/client/Client.ts">list</a>({ ...params }) -> AgentMailer.ListListsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List allow and block lists
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2549,16 +3911,16 @@ await client.lists.list();
 <dl>
 <dd>
 
-**request:** `AgentMailer.ListListsRequest` 
-    
+**request:** `AgentMailer.ListListsRequest`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `ListsClient.RequestOptions` 
-    
+**requestOptions:** `ListsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2572,6 +3934,20 @@ await client.lists.list();
 <details><summary><code>client.lists.<a href="/src/api/resources/lists/client/Client.ts">create</a>({ ...params }) -> AgentMailer.CreateListsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create an allow or block list
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2602,16 +3978,16 @@ await client.lists.create({
 <dl>
 <dd>
 
-**request:** `AgentMailer.ListCreate` 
-    
+**request:** `AgentMailer.ListCreate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `ListsClient.RequestOptions` 
-    
+**requestOptions:** `ListsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2625,6 +4001,20 @@ await client.lists.create({
 <details><summary><code>client.lists.<a href="/src/api/resources/lists/client/Client.ts">delete</a>(listId) -> void</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete an allow or block list
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2651,16 +4041,16 @@ await client.lists.delete("listId");
 <dl>
 <dd>
 
-**listId:** `string` 
-    
+**listId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `ListsClient.RequestOptions` 
-    
+**requestOptions:** `ListsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2674,6 +4064,20 @@ await client.lists.delete("listId");
 <details><summary><code>client.lists.<a href="/src/api/resources/lists/client/Client.ts">addEntry</a>(listId, { ...params }) -> AgentMailer.AddEntryListsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Add an address pattern to a list
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2702,24 +4106,24 @@ await client.lists.addEntry("listId", {
 <dl>
 <dd>
 
-**listId:** `string` 
-    
+**listId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.ListEntry` 
-    
+**request:** `AgentMailer.ListEntry`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `ListsClient.RequestOptions` 
-    
+**requestOptions:** `ListsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2733,6 +4137,20 @@ await client.lists.addEntry("listId", {
 <details><summary><code>client.lists.<a href="/src/api/resources/lists/client/Client.ts">removeEntry</a>(listId, { ...params }) -> AgentMailer.RemoveEntryListsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Remove an address pattern from a list
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2759,24 +4177,24 @@ await client.lists.removeEntry("listId");
 <dl>
 <dd>
 
-**listId:** `string` 
-    
+**listId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.RemoveEntryListsRequest` 
-    
+**request:** `AgentMailer.RemoveEntryListsRequest`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `ListsClient.RequestOptions` 
-    
+**requestOptions:** `ListsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2791,6 +4209,20 @@ await client.lists.removeEntry("listId");
 <details><summary><code>client.events.<a href="/src/api/resources/events/client/Client.ts">createTicket</a>({ ...params }) -> AgentMailer.CreateTicketEventsResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a short-lived realtime ticket
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2819,16 +4251,16 @@ await client.events.createTicket({
 <dl>
 <dd>
 
-**request:** `AgentMailer.CreateTicketEventsRequest` 
-    
+**request:** `AgentMailer.CreateTicketEventsRequest`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `EventsClient.RequestOptions` 
-    
+**requestOptions:** `EventsClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2843,6 +4275,20 @@ await client.events.createTicket({
 <details><summary><code>client.billing.<a href="/src/api/resources/billing/client/Client.ts">get</a>() -> AgentMailer.GetBillingResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get plan and subscription entitlement
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2869,8 +4315,8 @@ await client.billing.get();
 <dl>
 <dd>
 
-**requestOptions:** `BillingClient.RequestOptions` 
-    
+**requestOptions:** `BillingClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2884,6 +4330,20 @@ await client.billing.get();
 <details><summary><code>client.billing.<a href="/src/api/resources/billing/client/Client.ts">createCheckout</a>({ ...params }) -> AgentMailer.CreateCheckoutBillingResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a subscription checkout session
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2910,16 +4370,16 @@ await client.billing.createCheckout();
 <dl>
 <dd>
 
-**request:** `AgentMailer.BillingSelection` 
-    
+**request:** `AgentMailer.BillingSelection`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `BillingClient.RequestOptions` 
-    
+**requestOptions:** `BillingClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2933,6 +4393,20 @@ await client.billing.createCheckout();
 <details><summary><code>client.billing.<a href="/src/api/resources/billing/client/Client.ts">createPortal</a>() -> AgentMailer.CreatePortalBillingResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a billing management session
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -2959,8 +4433,8 @@ await client.billing.createPortal();
 <dl>
 <dd>
 
-**requestOptions:** `BillingClient.RequestOptions` 
-    
+**requestOptions:** `BillingClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -2975,6 +4449,20 @@ await client.billing.createPortal();
 <details><summary><code>client.a2A.<a href="/src/api/resources/a2A/client/Client.ts">sendTask</a>(handle, { ...params }) -> Record&lt;string, unknown&gt;</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Call an agent over A2A JSON-RPC
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3004,24 +4492,24 @@ await client.a2A.sendTask("handle", {
 <dl>
 <dd>
 
-**handle:** `string` 
-    
+**handle:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.A2AJsonRpcRequest` 
-    
+**request:** `AgentMailer.A2AJsonRpcRequest`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `A2AClient.RequestOptions` 
-    
+**requestOptions:** `A2AClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -3035,6 +4523,20 @@ await client.a2A.sendTask("handle", {
 <details><summary><code>client.a2A.<a href="/src/api/resources/a2A/client/Client.ts">getAgentCard</a>(handle) -> AgentMailer.A2AAgentCard</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Discover an agent's public A2A card
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3061,16 +4563,16 @@ await client.a2A.getAgentCard("handle");
 <dl>
 <dd>
 
-**handle:** `string` 
-    
+**handle:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `A2AClient.RequestOptions` 
-    
+**requestOptions:** `A2AClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -3084,6 +4586,20 @@ await client.a2A.getAgentCard("handle");
 <details><summary><code>client.a2A.<a href="/src/api/resources/a2A/client/Client.ts">updateTask</a>(taskId, { ...params }) -> AgentMailer.UpdateTaskA2AResponse</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update an assigned A2A task
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3112,24 +4628,24 @@ await client.a2A.updateTask("taskId", {
 <dl>
 <dd>
 
-**taskId:** `string` 
-    
+**taskId:** `string`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**request:** `AgentMailer.A2ATaskUpdate` 
-    
+**request:** `AgentMailer.A2ATaskUpdate`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `A2AClient.RequestOptions` 
-    
+**requestOptions:** `A2AClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -3143,6 +4659,20 @@ await client.a2A.updateTask("taskId", {
 <details><summary><code>client.a2A.<a href="/src/api/resources/a2A/client/Client.ts">updateIdentity</a>({ ...params }) -> Record&lt;string, unknown&gt;</code></summary>
 <dl>
 <dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update the calling agent's public A2A profile
+</dd>
+</dl>
+</dd>
+</dl>
 
 #### 🔌 Usage
 
@@ -3169,16 +4699,16 @@ await client.a2A.updateIdentity();
 <dl>
 <dd>
 
-**request:** `AgentMailer.A2AIdentitySettings` 
-    
+**request:** `AgentMailer.A2AIdentitySettings`
+
 </dd>
 </dl>
 
 <dl>
 <dd>
 
-**requestOptions:** `A2AClient.RequestOptions` 
-    
+**requestOptions:** `A2AClient.RequestOptions`
+
 </dd>
 </dl>
 </dd>
@@ -3188,4 +4718,3 @@ await client.a2A.updateIdentity();
 </dd>
 </dl>
 </details>
-

@@ -10,6 +10,8 @@ module AgentMailer
         @client = client
       end
 
+      # Create a short-lived realtime ticket
+      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Events::Types::CreateTicketEventsRequest]
       # @option request_options [String] :base_url

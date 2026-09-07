@@ -43,6 +43,8 @@ class DraftsClient:
 
     def list(self, inbox_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> ListDraftsResponse:
         """
+        List drafts
+
         Parameters
         ----------
         inbox_id : str
@@ -88,6 +90,8 @@ class DraftsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateDraftsResponse:
         """
+        Create a draft
+
         Parameters
         ----------
         inbox_id : str
@@ -157,6 +161,8 @@ class DraftsClient:
         self, inbox_id: str, draft_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> GetDraftsResponse:
         """
+        Get a draft
+
         Parameters
         ----------
         inbox_id : str
@@ -188,6 +194,8 @@ class DraftsClient:
 
     def delete(self, inbox_id: str, draft_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
+        Delete a draft
+
         Parameters
         ----------
         inbox_id : str
@@ -236,6 +244,8 @@ class DraftsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UpdateDraftsResponse:
         """
+        Update a draft
+
         Parameters
         ----------
         inbox_id : str
@@ -306,14 +316,24 @@ class DraftsClient:
         return _response.data
 
     def send(
-        self, inbox_id: str, draft_id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self,
+        inbox_id: str,
+        draft_id: str,
+        *,
+        idempotency_key: str,
+        request_options: typing.Optional[RequestOptions] = None,
     ) -> SendDraftsResponse:
         """
+        Send a draft
+
         Parameters
         ----------
         inbox_id : str
 
         draft_id : str
+
+        idempotency_key : str
+            Stable caller-generated key used to make retries safe without duplicating the operation.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -333,9 +353,12 @@ class DraftsClient:
         client.drafts.send(
             inbox_id="inboxId",
             draft_id="draftId",
+            idempotency_key="Idempotency-Key",
         )
         """
-        _response = self._raw_client.send(inbox_id, draft_id, request_options=request_options)
+        _response = self._raw_client.send(
+            inbox_id, draft_id, idempotency_key=idempotency_key, request_options=request_options
+        )
         return _response.data
 
 
@@ -358,6 +381,8 @@ class AsyncDraftsClient:
         self, inbox_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> ListDraftsResponse:
         """
+        List drafts
+
         Parameters
         ----------
         inbox_id : str
@@ -411,6 +436,8 @@ class AsyncDraftsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateDraftsResponse:
         """
+        Create a draft
+
         Parameters
         ----------
         inbox_id : str
@@ -488,6 +515,8 @@ class AsyncDraftsClient:
         self, inbox_id: str, draft_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> GetDraftsResponse:
         """
+        Get a draft
+
         Parameters
         ----------
         inbox_id : str
@@ -529,6 +558,8 @@ class AsyncDraftsClient:
         self, inbox_id: str, draft_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> None:
         """
+        Delete a draft
+
         Parameters
         ----------
         inbox_id : str
@@ -585,6 +616,8 @@ class AsyncDraftsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UpdateDraftsResponse:
         """
+        Update a draft
+
         Parameters
         ----------
         inbox_id : str
@@ -663,14 +696,24 @@ class AsyncDraftsClient:
         return _response.data
 
     async def send(
-        self, inbox_id: str, draft_id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self,
+        inbox_id: str,
+        draft_id: str,
+        *,
+        idempotency_key: str,
+        request_options: typing.Optional[RequestOptions] = None,
     ) -> SendDraftsResponse:
         """
+        Send a draft
+
         Parameters
         ----------
         inbox_id : str
 
         draft_id : str
+
+        idempotency_key : str
+            Stable caller-generated key used to make retries safe without duplicating the operation.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -695,10 +738,13 @@ class AsyncDraftsClient:
             await client.drafts.send(
                 inbox_id="inboxId",
                 draft_id="draftId",
+                idempotency_key="Idempotency-Key",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.send(inbox_id, draft_id, request_options=request_options)
+        _response = await self._raw_client.send(
+            inbox_id, draft_id, idempotency_key=idempotency_key, request_options=request_options
+        )
         return _response.data

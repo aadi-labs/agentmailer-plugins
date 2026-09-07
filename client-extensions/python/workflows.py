@@ -51,10 +51,19 @@ class AgentMailerWorkflows:
             display_name=request.display_name,
         ).inbox
 
-    def send_text(self, *, inbox_id: str, to: str | Iterable[str], subject: str, text: str) -> Message:
+    def send_text(
+        self,
+        *,
+        inbox_id: str,
+        idempotency_key: str,
+        to: str | Iterable[str],
+        subject: str,
+        text: str,
+    ) -> Message:
         recipients = [to] if isinstance(to, str) else list(to)
         return self.client.messages.send(
             inbox_id,
+            idempotency_key=idempotency_key,
             to=recipients,
             subject=subject,
             text=text,

@@ -10,6 +10,7 @@
     "agentmailer-check-email",
     "agentmailer-inbox",
     "agentmailer-a2a",
+    "agentmailer-channels",
     "agentmailer-events",
     "agentmailer-security"
   ]

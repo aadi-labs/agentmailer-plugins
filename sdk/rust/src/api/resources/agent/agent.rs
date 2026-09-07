@@ -13,6 +13,16 @@ impl AgentClient {
         })
     }
 
+    /// Create an approved agent's inbox
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -31,7 +41,7 @@ impl AgentClient {
     ///             &BootstrapRequest {
     ///                 ..Default::default()
     ///             },
-    ///             None,
+    ///             Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
     ///         )
     ///         .await;
     /// }
@@ -52,6 +62,16 @@ impl AgentClient {
             .await
     }
 
+    /// Start human approval for an agent
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run

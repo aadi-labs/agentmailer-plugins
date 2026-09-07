@@ -13,6 +13,7 @@ export interface EnsureInboxRequest {
 
 export interface SendTextRequest {
     inboxId: string;
+    idempotencyKey: string;
     to: string | string[];
     subject: string;
     text: string;
@@ -59,9 +60,12 @@ export class AgentMailerWorkflows {
 
     public async sendText(request: SendTextRequest): Promise<Message> {
         const { message } = await this.client.messages.send(request.inboxId, {
-            to: Array.isArray(request.to) ? request.to : [request.to],
-            subject: request.subject,
-            text: request.text,
+            "Idempotency-Key": request.idempotencyKey,
+            body: {
+                to: Array.isArray(request.to) ? request.to : [request.to],
+                subject: request.subject,
+                text: request.text,
+            },
         });
         return message;
     }

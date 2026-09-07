@@ -1,5 +1,5 @@
-import type { Mock } from "vitest";
 import { makePassthroughRequest } from "../../../src/core/fetcher/makePassthroughRequest";
+import { Mock } from "vitest";
 
 describe("makePassthroughRequest", () => {
     let mockFetch: Mock;
@@ -109,7 +109,7 @@ describe("makePassthroughRequest", () => {
             const headers = calledOptions.headers;
 
             // requestOptions.headers wins for Authorization (highest priority)
-            expect(headers.authorization).toBe("from-request-options");
+            expect(headers["authorization"]).toBe("from-request-options");
             // init.headers wins over SDK defaults for X-Custom
             expect(headers["x-custom"]).toBe("from-init");
             // SDK-only header is preserved
@@ -140,7 +140,11 @@ describe("makePassthroughRequest", () => {
         it("should handle Headers object in init", async () => {
             const initHeaders = new Headers();
             initHeaders.set("X-From-Headers-Object", "value");
-            await makePassthroughRequest("https://api.example.com", { headers: initHeaders }, { fetch: mockFetch });
+            await makePassthroughRequest(
+                "https://api.example.com",
+                { headers: initHeaders },
+                { fetch: mockFetch },
+            );
             const [, calledOptions] = mockFetch.mock.calls[0];
             expect(calledOptions.headers["x-from-headers-object"]).toBe("value");
         });
@@ -174,7 +178,7 @@ describe("makePassthroughRequest", () => {
                 fetch: mockFetch,
             });
             const [, calledOptions] = mockFetch.mock.calls[0];
-            expect(calledOptions.headers.authorization).toBe("Bearer my-token");
+            expect(calledOptions.headers["authorization"]).toBe("Bearer my-token");
         });
 
         it("should work without auth headers", async () => {
@@ -182,7 +186,7 @@ describe("makePassthroughRequest", () => {
                 fetch: mockFetch,
             });
             const [, calledOptions] = mockFetch.mock.calls[0];
-            expect(calledOptions.headers.authorization).toBeUndefined();
+            expect(calledOptions.headers["authorization"]).toBeUndefined();
         });
 
         it("should allow init headers to override auth headers", async () => {
@@ -196,7 +200,7 @@ describe("makePassthroughRequest", () => {
                 },
             );
             const [, calledOptions] = mockFetch.mock.calls[0];
-            expect(calledOptions.headers.authorization).toBe("Bearer override");
+            expect(calledOptions.headers["authorization"]).toBe("Bearer override");
         });
     });
 
@@ -208,7 +212,7 @@ describe("makePassthroughRequest", () => {
                 fetch: mockFetch,
             });
             const [, calledOptions] = mockFetch.mock.calls[0];
-            expect(calledOptions.headers.authorization).toBe("Bearer my-token");
+            expect(calledOptions.headers["authorization"]).toBe("Bearer my-token");
         });
 
         it("should attach auth headers to same-origin absolute URLs", async () => {
@@ -218,7 +222,7 @@ describe("makePassthroughRequest", () => {
                 fetch: mockFetch,
             });
             const [, calledOptions] = mockFetch.mock.calls[0];
-            expect(calledOptions.headers.authorization).toBe("Bearer my-token");
+            expect(calledOptions.headers["authorization"]).toBe("Bearer my-token");
         });
 
         it("should attach auth headers when the absolute URL matches the environment origin", async () => {
@@ -228,7 +232,7 @@ describe("makePassthroughRequest", () => {
                 fetch: mockFetch,
             });
             const [, calledOptions] = mockFetch.mock.calls[0];
-            expect(calledOptions.headers.authorization).toBe("Bearer my-token");
+            expect(calledOptions.headers["authorization"]).toBe("Bearer my-token");
         });
 
         it("should NOT attach auth headers to a cross-origin absolute URL", async () => {
@@ -238,7 +242,7 @@ describe("makePassthroughRequest", () => {
                 fetch: mockFetch,
             });
             const [, calledOptions] = mockFetch.mock.calls[0];
-            expect(calledOptions.headers.authorization).toBeUndefined();
+            expect(calledOptions.headers["authorization"]).toBeUndefined();
         });
 
         it("should NOT attach auth headers to a cross-origin URL differing only by port", async () => {
@@ -248,7 +252,7 @@ describe("makePassthroughRequest", () => {
                 fetch: mockFetch,
             });
             const [, calledOptions] = mockFetch.mock.calls[0];
-            expect(calledOptions.headers.authorization).toBeUndefined();
+            expect(calledOptions.headers["authorization"]).toBeUndefined();
         });
 
         it("should NOT attach auth headers when no baseUrl or environment is configured", async () => {
@@ -257,7 +261,7 @@ describe("makePassthroughRequest", () => {
                 fetch: mockFetch,
             });
             const [, calledOptions] = mockFetch.mock.calls[0];
-            expect(calledOptions.headers.authorization).toBeUndefined();
+            expect(calledOptions.headers["authorization"]).toBeUndefined();
         });
 
         it("should still allow explicit init headers on cross-origin requests", async () => {
@@ -271,7 +275,7 @@ describe("makePassthroughRequest", () => {
                 },
             );
             const [, calledOptions] = mockFetch.mock.calls[0];
-            expect(calledOptions.headers.authorization).toBeUndefined();
+            expect(calledOptions.headers["authorization"]).toBeUndefined();
             expect(calledOptions.headers["x-custom"]).toBe("keep-me");
         });
     });
@@ -376,19 +380,19 @@ describe("makePassthroughRequest", () => {
 
     describe("credentials", () => {
         it("should pass credentials include when set", async () => {
-            await makePassthroughRequest("https://api.example.com", { credentials: "include" }, { fetch: mockFetch });
+            await makePassthroughRequest(
+                "https://api.example.com",
+                { credentials: "include" },
+                { fetch: mockFetch },
+            );
             const [, calledOptions] = mockFetch.mock.calls[0];
             expect(calledOptions.credentials).toBe("include");
         });
 
         it("should not pass credentials when not set to include", async () => {
-            await makePassthroughRequest(
-                "https://api.example.com",
-                { credentials: "same-origin" },
-                {
-                    fetch: mockFetch,
-                },
-            );
+            await makePassthroughRequest("https://api.example.com", { credentials: "same-origin" }, {
+                fetch: mockFetch,
+            });
             const [, calledOptions] = mockFetch.mock.calls[0];
             expect(calledOptions.credentials).toBeUndefined();
         });

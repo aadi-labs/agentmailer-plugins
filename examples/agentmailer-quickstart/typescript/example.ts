@@ -10,6 +10,7 @@ if (process.env.SEND_EXAMPLE === "1") {
   if (!inbox) throw new Error("Create an inbox before sending the example");
   const message = await workflows.sendText({
     inboxId: inbox.id,
+    idempotencyKey: crypto.randomUUID(),
     to: [required("AGENTMAILER_RECIPIENT")],
     subject: "Hello from AgentMailer",
     text: "This message was sent from the AgentMailer TypeScript quickstart.",

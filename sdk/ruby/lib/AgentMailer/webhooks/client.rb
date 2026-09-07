@@ -10,6 +10,8 @@ module AgentMailer
         @client = client
       end
 
+      # List webhook endpoints
+      #
       # @param request_options [Hash]
       # @param _params [Hash]
       # @option request_options [String] :base_url
@@ -43,6 +45,8 @@ module AgentMailer
         end
       end
 
+      # Create a webhook endpoint
+      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Webhooks::Types::WebhookCreate]
       # @option request_options [String] :base_url
@@ -80,6 +84,8 @@ module AgentMailer
         end
       end
 
+      # Get a webhook endpoint
+      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -115,6 +121,8 @@ module AgentMailer
         end
       end
 
+      # Delete a webhook endpoint
+      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -148,6 +156,8 @@ module AgentMailer
         raise error_class.new(response.body, code: code)
       end
 
+      # Update a webhook endpoint
+      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Webhooks::Types::WebhookUpdate]
       # @option request_options [String] :base_url
@@ -190,6 +200,8 @@ module AgentMailer
         end
       end
 
+      # Rotate a webhook signing secret
+      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url

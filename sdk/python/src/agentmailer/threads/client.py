@@ -38,6 +38,8 @@ class ThreadsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ListThreadsResponse:
         """
+        List or search threads
+
         Parameters
         ----------
         inbox_id : str
@@ -89,6 +91,8 @@ class ThreadsClient:
         self, inbox_id: str, thread_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> GetThreadsResponse:
         """
+        Get a thread and conversation
+
         Parameters
         ----------
         inbox_id : str
@@ -147,6 +151,8 @@ class AsyncThreadsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ListThreadsResponse:
         """
+        List or search threads
+
         Parameters
         ----------
         inbox_id : str
@@ -206,6 +212,8 @@ class AsyncThreadsClient:
         self, inbox_id: str, thread_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> GetThreadsResponse:
         """
+        Get a thread and conversation
+
         Parameters
         ----------
         inbox_id : str

@@ -27,9 +27,9 @@ export namespace Draft {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 
     export type Cc = Cc.Item[];
@@ -38,9 +38,9 @@ export namespace Draft {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 
     export type Bcc = Bcc.Item[];
@@ -49,9 +49,9 @@ export namespace Draft {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 
     export type ReplyTo = ReplyTo.Item[];
@@ -60,9 +60,9 @@ export namespace Draft {
         export type Item =
             | string
             | {
-                  address: string;
-                  name?: string | undefined;
-              };
+                address: string;
+                name?: string | undefined;
+            };
     }
 
     export type Attachments = Attachments.Item[];
@@ -70,23 +70,23 @@ export namespace Draft {
     export namespace Attachments {
         export type Item =
             | {
-                  filename: string;
-                  contentType?: unknown | undefined;
-                  content: string;
-                  contentId?: string | undefined;
-                  disposition: "attachment" | "inline";
-              }
+                filename: string;
+                contentType?: unknown | undefined;
+                content: string;
+                contentId?: string | undefined;
+                disposition: "attachment" | "inline";
+            }
             | {
-                  attachmentId: string;
-                  contentId?: string | undefined;
-                  disposition: "attachment" | "inline";
-              };
+                attachmentId: string;
+                contentId?: string | undefined;
+                disposition: "attachment" | "inline";
+            };
     }
 
     export const SendStatus = {
-        Scheduled: "scheduled",
-        Sending: "sending",
-        Failed: "failed",
-    } as const;
-    export type SendStatus = (typeof SendStatus)[keyof typeof SendStatus];
+            Scheduled: "scheduled",
+            Sending: "sending",
+            Failed: "failed"
+        } as const;
+    export type SendStatus = typeof SendStatus[keyof typeof SendStatus];
 }

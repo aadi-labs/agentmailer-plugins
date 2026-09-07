@@ -14,13 +14,16 @@ export interface Inbox {
 
 export namespace Inbox {
     export namespace Metadata {
-        export type Value = string | number | boolean;
+        export type Value =
+            | string
+            | number
+            | boolean;
     }
 
     export const Status = {
-        Provisioning: "provisioning",
-        Active: "active",
-        Failed: "failed",
-    } as const;
-    export type Status = (typeof Status)[keyof typeof Status];
+            Provisioning: "provisioning",
+            Active: "active",
+            Failed: "failed"
+        } as const;
+    export type Status = typeof Status[keyof typeof Status];
 }

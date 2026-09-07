@@ -7,6 +7,8 @@ public final class BillingClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
+    /// Get plan and subscription entitlement
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -30,6 +32,8 @@ public final class BillingClient: Sendable {
         )
     }
 
+    /// Create a subscription checkout session
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -54,6 +58,8 @@ public final class BillingClient: Sendable {
         )
     }
 
+    /// Create a billing management session
+    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer

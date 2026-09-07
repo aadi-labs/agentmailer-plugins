@@ -21,7 +21,7 @@ async fn test_agent_bootstrap_with_wiremock() {
             &BootstrapRequest {
                 ..Default::default()
             },
-            None,
+            Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
         )
         .await;
 

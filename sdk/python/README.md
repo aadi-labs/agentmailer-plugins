@@ -75,7 +75,9 @@ client = AsyncAgentMailer(
 
 
 async def main() -> None:
-    await client.agent.bootstrap()
+    await client.agent.bootstrap(
+        idempotency_key="Idempotency-Key",
+    )
 
 
 asyncio.run(main())

@@ -55,6 +55,7 @@ groups:
             environment: AgentMailerEnvironment
           generateWireTests: true
           packageJson:
+            packageManager: pnpm@11.23.0
             name: "@agentmailer/sdk"
             description: Official TypeScript SDK for the AgentMailer API.
             license: MIT

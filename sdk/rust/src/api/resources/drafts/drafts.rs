@@ -13,6 +13,16 @@ impl DraftsClient {
         })
     }
 
+    /// List drafts
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -44,6 +54,16 @@ impl DraftsClient {
             .await
     }
 
+    /// Create a draft
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -85,6 +105,16 @@ impl DraftsClient {
             .await
     }
 
+    /// Get a draft
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -120,6 +150,16 @@ impl DraftsClient {
             .await
     }
 
+    /// Delete a draft
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// Empty response
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -155,6 +195,16 @@ impl DraftsClient {
             .await
     }
 
+    /// Update a draft
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -198,6 +248,16 @@ impl DraftsClient {
             .await
     }
 
+    /// Send a draft
+    ///
+    /// # Arguments
+    ///
+    /// * `options` - Additional request options such as headers, timeout, etc.
+    ///
+    /// # Returns
+    ///
+    /// JSON response from the API
+    ///
     /// # Examples
     ///
     /// ```no_run
@@ -212,7 +272,11 @@ impl DraftsClient {
     ///     let client = AgentMailer::new(config).expect("Failed to build client");
     ///     client
     ///         .drafts
-    ///         .send(&"inboxId".to_string(), &"draftId".to_string(), None)
+    ///         .send(
+    ///             &"inboxId".to_string(),
+    ///             &"draftId".to_string(),
+    ///             Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
+    ///         )
     ///         .await;
     /// }
     /// ```
