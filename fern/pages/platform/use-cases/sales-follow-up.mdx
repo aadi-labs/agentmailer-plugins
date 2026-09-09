@@ -1,0 +1,19 @@
+---
+title: "AI agents for sales follow-up"
+description: "Keep autonomous follow-up in the original conversation while preserving review and escalation controls."
+---
+
+Keep autonomous follow-up in the original conversation while preserving review and escalation controls.
+
+## Problem
+
+Send-only APIs lose the reply context that determines whether a lead is interested, blocked, or asking for a person.
+
+## Workflow
+
+1. Create an inbox for each sales identity or campaign.
+2. Classify replies using the complete thread.
+3. Prepare a draft for sensitive or high-value responses.
+4. Use labels to track interested, objection, handoff, and closed states.
+
+AgentMailer supplies the communication substrate. Your runtime owns model execution, application state, schedules, and business approvals. Check the [examples catalog](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples) for Python and TypeScript implementations.

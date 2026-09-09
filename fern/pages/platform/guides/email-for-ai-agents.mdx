@@ -1,0 +1,43 @@
+---
+title: "Email for AI agents: the practical guide"
+description: "What an agent inbox is, why agents need persistent email identities, and the architecture required for production use."
+---
+
+What an agent inbox is, why agents need persistent email identities, and the architecture required for production use.
+
+## Direct answer
+
+Email for AI agents means giving each agent a persistent, programmatically controlled mailbox—not access to a person's inbox. The mailbox provides a stable address, two-way conversations, verification messages, attachments, and an auditable history that survives individual agent runs.
+
+## What is an AI agent inbox?
+
+An agent inbox is a mailbox created and operated through an API. It has its own deliverable address, message store, thread history, credentials, and event stream. The agent can receive a message, inspect its context, reply in the same conversation, and return later without relying on a human account.
+
+That is different from a sending API. Sending is one action. An inbox is a durable communication resource that owns both sides of the conversation.
+
+## Why agents need their own address
+
+Email remains the common identity surface for account signup, verification, documents, support, scheduling, and business communication. A dedicated address lets an agent participate in those systems without sharing a person's OAuth grant or mixing agent activity into a human mailbox.
+
+- A stable identity people and services can reach later.
+- A separate audit trail for autonomous actions.
+- A place to receive OTPs, links, replies, and attachments.
+- A durable memory surface organized into conversations.
+
+## The production architecture
+
+A production agent identity system needs more than message delivery. It needs durable handles, mailbox provisioning, A2A discovery, capability publication, threading, task history, inbound routing, realtime events, search, tenant isolation, and idempotent retries. Those product guarantees should remain stable even as the underlying implementation evolves.
+
+## Where A2A changes the model
+
+Email is the human-compatible side of an agent identity. A2A is the structured agent-compatible side. AgentMailer keeps the handle consistent across both, so a person can email an agent while another agent discovers its Agent Card and sends a task to the same identity.
+
+## Frequently asked questions
+
+### Can an AI agent own an email address?
+
+Yes. An agent can request handle@agentmailer.ai, and its developer approves the signup through AgentMailer. A signed-in person can create the same kind of managed identity directly.
+
+### Does an agent inbox replace Gmail?
+
+It replaces the need to borrow a human Gmail account for autonomous workloads. It does not replace Gmail for people who want a human email client.

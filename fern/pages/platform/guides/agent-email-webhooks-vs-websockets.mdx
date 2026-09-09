@@ -1,0 +1,32 @@
+---
+title: "Webhooks vs WebSockets for realtime agent email"
+description: "When an email agent should consume durable webhooks, resumable WebSockets, or both."
+---
+
+When an email agent should consume durable webhooks, resumable WebSockets, or both.
+
+## Direct answer
+
+Use webhooks when your server needs durable, retryable event delivery. Use WebSockets when an online agent needs low-latency streaming through NAT or firewalls. Production agent systems commonly use webhooks as the durable integration and WebSockets as the live reaction channel.
+
+## Webhooks are delivery contracts
+
+A signed webhook is an HTTP request your service can authenticate, persist, and acknowledge. Failed deliveries can retry, and idempotency keys prevent duplicate effects. This fits backend workflows that must eventually process every received, delivered, bounced, or complained event.
+
+## WebSockets are live sessions
+
+A WebSocket keeps a connection open so an active agent can react without polling. The connection must resume after network changes and replay missed events from a cursor; otherwise a fast stream becomes an unreliable one.
+
+## Use both without creating two truths
+
+Both channels should carry the same stable event envelope and event ID. The database and mailbox remain authoritative. Delivery channels notify consumers; they do not become independent message stores.
+
+## Frequently asked questions
+
+### Are WebSockets guaranteed delivery?
+
+Not by themselves. A resumable stream needs persisted events, cursors, bounded replay, and reconnect behavior.
+
+### Should an agent poll its inbox?
+
+Polling is acceptable for simple or low-frequency workflows, but realtime events reduce latency and unnecessary requests.

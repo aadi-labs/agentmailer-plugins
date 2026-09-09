@@ -22,3 +22,5 @@ jobs:
           python3 scripts/validate.py
       - name: Verify Skills CLI discovery
         run: npx --yes skills add . --list
+      - name: Check documentation sources and OpenAPI adapter
+        run: node --test scripts/fern-docs.test.mjs

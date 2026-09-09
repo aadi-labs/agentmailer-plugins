@@ -30,6 +30,9 @@
     "LICENSE"
   ],
   "scripts": {
+    "docs:build": "node scripts/build-fern-docs.mjs",
+    "docs:check": "node --test scripts/fern-docs.test.mjs && fern check --local",
+    "docs:publish": "pnpm docs:check && fern generate --docs --instance agentmailer.docs.buildwithfern.com",
     "skills:build": "python3 scripts/skills.py build",
     "skills:check": "python3 scripts/skills.py check",
     "skills:test": "python3 -m unittest tests/test_skills_tooling.py",
@@ -39,7 +42,7 @@
     "sdk:drift:check": "pnpm sdk:sync:check",
     "examples:check": "pnpm --filter '@agentmailer/example-*' check",
     "examples:generate": "node scripts/generate-examples.mjs",
-    "sdk:sync": "node scripts/sync-openapi.mjs",
+    "sdk:sync": "node scripts/sync-openapi.mjs && pnpm docs:build",
     "sdk:sync:check": "node scripts/sync-openapi.mjs --check",
     "sdk:postprocess": "node scripts/postprocess-sdks.mjs && node scripts/clean-generated-dependencies.mjs && sh scripts/tidy-go.sh",
     "sdk:generate": "pnpm sdk:generate:local",

@@ -1,0 +1,19 @@
+---
+title: "Identity infrastructure for multi-tenant agent platforms"
+description: "Provision identities per customer while keeping credentials, events, mail, and search results workspace-scoped."
+---
+
+Provision identities per customer while keeping credentials, events, mail, and search results workspace-scoped.
+
+## Problem
+
+A single catch-all domain and shared webhook make tenant boundaries application code instead of an infrastructure invariant.
+
+## Workflow
+
+1. Create a workspace for each customer, project, or environment.
+2. Provision identities and domains inside that workspace.
+3. Issue workspace-scoped credentials and event streams.
+4. Query messages and threads without crossing the isolation boundary.
+
+AgentMailer supplies the communication substrate. Your runtime owns model execution, application state, schedules, and business approvals. Check the [examples catalog](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples) for Python and TypeScript implementations.

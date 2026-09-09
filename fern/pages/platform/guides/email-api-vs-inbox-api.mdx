@@ -1,0 +1,32 @@
+---
+title: "Email API vs inbox API for AI agents"
+description: "The architectural difference between sending email and provisioning a mailbox an agent can own."
+---
+
+The architectural difference between sending email and provisioning a mailbox an agent can own.
+
+## Direct answer
+
+An email API usually optimizes outbound delivery. An inbox API creates a persistent mailbox with an address, inbound messages, storage, threads, replies, search, and realtime events. Agents that only send notifications need the former; agents that hold conversations need the latter.
+
+## The send-first model
+
+Transactional email products are excellent when an application emits receipts, alerts, password resets, or campaigns. The API call is the product: accept a message, deliver it, and report status. Inbound processing is often a domain-level webhook that leaves storage, identity, threading, and tenant routing to your application.
+
+## The inbox-first model
+
+An inbox API makes the mailbox the primary resource. Creating an agent creates an address and a durable place for replies. Messages belong to threads, credentials can be scoped to an identity or workspace, and events refer to stable resources rather than one-off payloads.
+
+## Choose based on the conversation
+
+Use a send-first API for one-way application mail. Use an inbox API when the recipient can answer, the agent must remember prior messages, the identity must persist, or a new mailbox is provisioned for each customer or agent. Many products use both: transactional infrastructure for application notifications and agent inboxes for autonomous conversations.
+
+## Frequently asked questions
+
+### Is SMTP an inbox API?
+
+No. SMTP is a message-transfer protocol. A mailbox also needs receiving, storage, retrieval, identity, threading, and access control.
+
+### Can a transactional email webhook become an inbox?
+
+Yes, but your application must add address provisioning, durable storage, MIME parsing, threading, retries, search, and tenant isolation.

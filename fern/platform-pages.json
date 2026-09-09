@@ -1,0 +1,140 @@
+[
+  {
+    "section": "guides",
+    "title": "Email for AI agents: the practical guide",
+    "path": "pages/platform/guides/email-for-ai-agents.mdx",
+    "originalUrl": "https://agentmailer.ai/blog/email-for-ai-agents"
+  },
+  {
+    "section": "guides",
+    "title": "Email API vs inbox API for AI agents",
+    "path": "pages/platform/guides/email-api-vs-inbox-api.mdx",
+    "originalUrl": "https://agentmailer.ai/blog/email-api-vs-inbox-api"
+  },
+  {
+    "section": "guides",
+    "title": "One agent identity across email and A2A",
+    "path": "pages/platform/guides/email-and-a2a-agent-identity.mdx",
+    "originalUrl": "https://agentmailer.ai/blog/email-and-a2a-agent-identity"
+  },
+  {
+    "section": "guides",
+    "title": "Webhooks vs WebSockets for realtime agent email",
+    "path": "pages/platform/guides/agent-email-webhooks-vs-websockets.mdx",
+    "originalUrl": "https://agentmailer.ai/blog/agent-email-webhooks-vs-websockets"
+  },
+  {
+    "section": "guides",
+    "title": "Multi-tenant identity infrastructure for AI agents",
+    "path": "pages/platform/guides/multi-tenant-agent-email.mdx",
+    "originalUrl": "https://agentmailer.ai/blog/multi-tenant-agent-email"
+  },
+  {
+    "section": "guides",
+    "title": "Architecture for durable agent identities",
+    "path": "pages/platform/guides/agent-identity-infrastructure.mdx",
+    "originalUrl": "https://agentmailer.ai/blog/agent-identity-infrastructure"
+  },
+  {
+    "section": "guides",
+    "title": "Gmail API vs a dedicated agent inbox API",
+    "path": "pages/platform/guides/gmail-api-vs-agent-inbox-api.mdx",
+    "originalUrl": "https://agentmailer.ai/blog/gmail-api-vs-agent-inbox-api"
+  },
+  {
+    "section": "guides",
+    "title": "IMAP, SMTP, REST, MCP, or A2A for an AI agent?",
+    "path": "pages/platform/guides/imap-smtp-rest-for-ai-agents.mdx",
+    "originalUrl": "https://agentmailer.ai/blog/imap-smtp-rest-for-ai-agents"
+  },
+  {
+    "section": "integrations",
+    "title": "Codex integration",
+    "path": "pages/platform/integrations/codex.mdx",
+    "originalUrl": "https://agentmailer.ai/build/codex"
+  },
+  {
+    "section": "integrations",
+    "title": "Claude Code integration",
+    "path": "pages/platform/integrations/claude-code.mdx",
+    "originalUrl": "https://agentmailer.ai/build/claude-code"
+  },
+  {
+    "section": "integrations",
+    "title": "OpenClaw integration",
+    "path": "pages/platform/integrations/openclaw.mdx",
+    "originalUrl": "https://agentmailer.ai/build/openclaw"
+  },
+  {
+    "section": "integrations",
+    "title": "Cursor integration",
+    "path": "pages/platform/integrations/cursor.mdx",
+    "originalUrl": "https://agentmailer.ai/build/cursor"
+  },
+  {
+    "section": "integrations",
+    "title": "Vercel AI SDK integration",
+    "path": "pages/platform/integrations/vercel.mdx",
+    "originalUrl": "https://agentmailer.ai/build/vercel"
+  },
+  {
+    "section": "integrations",
+    "title": "MCP and A2A integration",
+    "path": "pages/platform/integrations/mcp.mdx",
+    "originalUrl": "https://agentmailer.ai/build/mcp"
+  },
+  {
+    "section": "integrations",
+    "title": "Hermes Agent integration",
+    "path": "pages/platform/integrations/hermes.mdx",
+    "originalUrl": "https://agentmailer.ai/build/hermes"
+  },
+  {
+    "section": "integrations",
+    "title": "Eve integration",
+    "path": "pages/platform/integrations/eve.mdx",
+    "originalUrl": "https://agentmailer.ai/build/eve"
+  },
+  {
+    "section": "integrations",
+    "title": "Grok Bot integration",
+    "path": "pages/platform/integrations/grok-bot.mdx",
+    "originalUrl": "https://agentmailer.ai/build/grok-bot"
+  },
+  {
+    "section": "use-cases",
+    "title": "AI agents for customer support",
+    "path": "pages/platform/use-cases/customer-support.mdx",
+    "originalUrl": "https://agentmailer.ai/use-cases/customer-support"
+  },
+  {
+    "section": "use-cases",
+    "title": "Email for browser agents",
+    "path": "pages/platform/use-cases/browser-automation.mdx",
+    "originalUrl": "https://agentmailer.ai/use-cases/browser-automation"
+  },
+  {
+    "section": "use-cases",
+    "title": "AI agents for sales follow-up",
+    "path": "pages/platform/use-cases/sales-follow-up.mdx",
+    "originalUrl": "https://agentmailer.ai/use-cases/sales-follow-up"
+  },
+  {
+    "section": "use-cases",
+    "title": "Invoice-processing agents",
+    "path": "pages/platform/use-cases/invoice-processing.mdx",
+    "originalUrl": "https://agentmailer.ai/use-cases/invoice-processing"
+  },
+  {
+    "section": "use-cases",
+    "title": "Scheduling agents over email and A2A",
+    "path": "pages/platform/use-cases/scheduling.mdx",
+    "originalUrl": "https://agentmailer.ai/use-cases/scheduling"
+  },
+  {
+    "section": "use-cases",
+    "title": "Identity infrastructure for multi-tenant agent platforms",
+    "path": "pages/platform/use-cases/multi-tenant-platforms.mdx",
+    "originalUrl": "https://agentmailer.ai/use-cases/multi-tenant-platforms"
+  }
+]

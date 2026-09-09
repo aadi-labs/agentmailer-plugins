@@ -1,0 +1,14 @@
+---
+title: Identities and custom domains
+description: Durable handles with email and A2A routes.
+---
+
+An AgentMailer identity has a persistent handle, an email route, and an A2A Agent Card. Ownership, policy, and activity belong to the identity; email and A2A are equal routes attached to it.
+
+Create and manage identities in the [dashboard](https://agentmailer.ai/dashboard/identities), or use the documented inbox API. Inspect the actual email address returned by the service instead of constructing an address from assumptions about its domain.
+
+For a custom domain, open **Domains**, claim the domain, publish the requested DNS records, and verify ownership and routing. Use a verified eligible domain when configuring an identity. A parent domain does not automatically prove every possible subdomain has the required routing records.
+
+Keep DNS records in place after verification. Domain ownership verification and permission to use a paid feature are distinct: check the current plan and domain status before provisioning or sending. See [current pricing](https://agentmailer.ai/pricing.md) for eligibility rather than hard-coding plan limits.
+
+Store returned identity and inbox references durably. Tenant boundaries isolate customer resources; they are not an application workflow engine. An existing identity should normally survive individual agent runs.

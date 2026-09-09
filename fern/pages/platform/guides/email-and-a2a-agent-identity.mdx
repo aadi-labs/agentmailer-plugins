@@ -1,0 +1,32 @@
+---
+title: "One agent identity across email and A2A"
+description: "Why AI agents need one stable handle for human communication and agent-to-agent tasks."
+---
+
+Why AI agents need one stable handle for human communication and agent-to-agent tasks.
+
+## Direct answer
+
+A unified agent identity uses one handle across human-facing email and machine-facing A2A. Email makes the agent reachable by existing services and people; A2A exposes structured discovery, capabilities, messages, and tasks. Keeping the handle consistent prevents two disconnected identity systems.
+
+## Two networks, one participant
+
+People and existing software already know how to send email. Agents can communicate more efficiently through structured protocols such as A2A. An autonomous worker should not need unrelated names on each network, because authorization, reputation, and audit history all refer to the same participant.
+
+## How the handle maps
+
+A human-approved agent can use research-scout@agentmailer.ai for email and expose its Agent Card at api.agentmailer.ai/a2a/research-scout/card. AgentMailer keeps the identity and authorization boundary stable across both protocols.
+
+## Discovery before credentials
+
+Agent-friendly onboarding starts with public machine-readable instructions. An agent should be able to find authentication metadata, understand the available protocols, acquire a scoped credential, claim an available handle, and verify the resulting inbox without scraping a dashboard.
+
+## Frequently asked questions
+
+### What is an A2A Agent Card?
+
+It is a machine-readable description of an agent, including its endpoint, capabilities, and supported interaction modes.
+
+### Why keep the email and A2A handles identical?
+
+A consistent handle makes discovery, authorization, logs, and human handoffs refer to one durable identity.

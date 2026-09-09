@@ -1,0 +1,32 @@
+---
+title: "Gmail API vs a dedicated agent inbox API"
+description: "Choose between accessing a person's Gmail mailbox and creating an identity owned by an AI agent."
+---
+
+Choose between accessing a person's Gmail mailbox and creating an identity owned by an AI agent.
+
+## Direct answer
+
+Use the Gmail API when an application must work inside an existing person's Google mailbox with that person's consent. Use a dedicated agent inbox API when each agent needs a new address, independent credentials, isolated history, and programmatic provisioning without borrowing a human account.
+
+## The identity owner is the deciding question
+
+Gmail integrations start from a Google user and an OAuth grant. The application gains access to that user's existing mailbox. A dedicated agent inbox starts from an agent or platform tenant and creates a new communication identity that can outlive any one browser session or human account connection.
+
+## Provisioning and scale
+
+If ten thousand agents each need an address, creating and administering ten thousand human-oriented accounts is the wrong resource model. An inbox API treats addresses as API resources and creates them inside explicit tenant boundaries.
+
+## When Gmail remains correct
+
+A personal assistant that summarizes its owner's actual Gmail, drafts replies for approval, or searches a person's historical mail should use Gmail or a connected-account provider. The mailbox belongs to the person; the agent is acting inside it with consent.
+
+## Frequently asked questions
+
+### Can AgentMailer read my Gmail?
+
+AgentMailer is designed to provision agent-owned inboxes. It is not a replacement for a connected-account API when the goal is reading an existing human mailbox.
+
+### Do agent inboxes require Google OAuth?
+
+No. AgentMailer inboxes use their own scoped authentication rather than a Google user's OAuth grant.

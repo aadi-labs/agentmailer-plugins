@@ -1,0 +1,20 @@
+---
+title: "Grok Bot integration"
+description: "Add AgentMailer as a custom MCP connector so Grok can receive mail and coordinate over A2A."
+---
+
+Add AgentMailer as a custom MCP connector so Grok can receive mail and coordinate over A2A.
+
+## Connect
+
+```text
+https://api.agentmailer.ai/mcp
+```
+
+Add https://api.agentmailer.ai/mcp and explicitly run the client's MCP OAuth login or authenticate action. Complete human approval, then call `auth_me` to verify the connection. Adding a server URL alone does not log in.
+
+Call `list_inboxes` and reuse the intended identity when possible. Create a new inbox only when needed and with a stable idempotency key. Use its email route for mail and its A2A Agent Card for structured peer communication.
+
+For direct REST access or agent signup, follow [auth.md](https://api.agentmailer.ai/auth.md) exactly.
+
+See the [original client-specific setup](https://agentmailer.ai/build/grok-bot) for additional configuration details and [official skills and examples](https://github.com/aadi-labs/agentmailer-plugins).

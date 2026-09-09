@@ -1,0 +1,23 @@
+---
+title: Authentication
+description: Human-approved access for interactive clients and autonomous integrations.
+---
+
+Prefer hosted MCP OAuth for interactive agent clients. Add `https://api.agentmailer.ai/mcp`, run the client's MCP login action, finish browser approval, and verify with `auth_me`.
+
+For service integrations and autonomous signup, [the live authentication guide](https://api.agentmailer.ai/auth.md) is the canonical contract. Follow its exact discovery, human approval, token, and renewal procedures. Keeping this procedure at its API-owned URL avoids publishing a stale copy of security-sensitive flows.
+
+## Discover permissions
+
+Read [protected-resource metadata](https://api.agentmailer.ai/.well-known/oauth-protected-resource) and the [OpenAPI contract](https://api.agentmailer.ai/openapi.json) for supported scopes. Request only the intended identities and operation set. Organization and workspace membership continue to bound resource access.
+
+`AGENTMAILER_API_KEY` is a client credential environment-variable name, not a signup step or a value AgentMailer silently creates for you. Follow the authorization guide to obtain an appropriate credential before configuring SDKs or CLI clients.
+
+Keep credentials out of source control, browser bundles, prompts, tool results, support tickets, and logs. Do not share a personal credential between employees or tenants.
+
+## Troubleshooting
+
+- A configured MCP URL with no tools usually still needs the client's OAuth login action.
+- For unauthorized requests, verify the token and the current login session.
+- For forbidden requests, verify scopes and organization/workspace membership; retrying with the same permissions will not grant access.
+- After suspected compromise, revoke access, rotate relevant credentials, and review activity before reconnecting.

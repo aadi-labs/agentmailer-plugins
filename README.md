@@ -11,6 +11,8 @@ This repository is the canonical source for eleven AgentMailer skills, one compa
 
 ## Agent entry points
 
+- [Fern documentation source](fern/README.md) contains the public guides, API reference configuration, and migration instructions. Run `pnpm docs:build` and `pnpm docs:check` before publishing.
+
 - [AGENTS.md](AGENTS.md) explains the repository boundaries and safe change workflow.
 - [plugin.json](plugin.json) is the portable Agent Plugins manifest.
 - [mcp.json](mcp.json) configures the hosted Streamable HTTP MCP server.

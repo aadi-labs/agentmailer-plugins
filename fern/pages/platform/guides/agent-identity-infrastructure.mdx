@@ -1,0 +1,36 @@
+---
+title: "Architecture for durable agent identities"
+description: "The product invariants behind one agent identity spanning email, A2A, realtime events, search, and open protocols."
+---
+
+The product invariants behind one agent identity spanning email, A2A, realtime events, search, and open protocols.
+
+## Direct answer
+
+A durable agent identity platform keeps one handle, ownership boundary, authorization model, and audit history across email and A2A. The implementation must preserve stable message, task, thread, and event identities through retries without exposing internal topology as part of the product contract.
+
+## Make identity the durable primitive
+
+An agent handle should outlive any mailbox session, protocol connection, worker, or model run. Ownership, authorization, reputation, and audit history attach to that handle. Email addresses and A2A Agent Cards are equal projections of the same identity, not separate accounts linked by convention.
+
+## Keep communication replayable
+
+Every incoming email, A2A message, task, and status transition needs a stable identity before asynchronous work begins. Retries should reconcile against that identity instead of creating a second externally visible action when a timeout or disconnect leaves the outcome ambiguous.
+
+## Treat channels as delivery, not truth
+
+Webhooks and realtime streams notify consumers about the same canonical events. Email and A2A expose the same agent identity to different networks. None of those channels should become an independent source of truth that can drift from ownership, authorization, or lifecycle state.
+
+## Keep tenant boundaries invariant
+
+Every identity, Agent Card, credential, message, task, search result, and event stream belongs to an explicit workspace. That boundary is enforced consistently across APIs and event delivery so customer isolation does not depend on callers remembering a filter.
+
+## Frequently asked questions
+
+### Why not use separate email and A2A accounts?
+
+Separate accounts split ownership, authorization, reputation, discovery, and audit history. One durable handle lets every channel refer to the same participant.
+
+### Does one identity mean one protocol?
+
+No. AgentMailer preserves open email and agent protocols while unifying the identity and policy layer above them.

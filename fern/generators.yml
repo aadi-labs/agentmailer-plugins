@@ -9,7 +9,7 @@ auth-schemes:
 api:
   auth: bearerAuth
   specs:
-    - openapi: ./openapi/openapi.json
+    - openapi: ./openapi/fern.openapi.json
       origin: https://api.agentmailer.ai/openapi.json
       settings:
         inline-path-parameters: false

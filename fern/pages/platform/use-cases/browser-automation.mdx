@@ -1,0 +1,19 @@
+---
+title: "Email for browser agents"
+description: "Let browser agents sign up for services, receive verification links, and retain account history."
+---
+
+Let browser agents sign up for services, receive verification links, and retain account history.
+
+## Problem
+
+Borrowing a human Gmail account introduces OAuth, shared credentials, and identity ambiguity into autonomous browser sessions.
+
+## Workflow
+
+1. Provision an inbox with the browser session.
+2. Receive OTP and verification messages in real time.
+3. Extract the code or link from the message body.
+4. Keep the inbox attached to the agent identity for future recovery.
+
+AgentMailer supplies the communication substrate. Your runtime owns model execution, application state, schedules, and business approvals. Check the [examples catalog](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples) for Python and TypeScript implementations.

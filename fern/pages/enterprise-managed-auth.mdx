@@ -1,0 +1,27 @@
+---
+title: Enterprise-managed authentication for Claude
+description: Roll out centrally governed access without sharing credentials.
+---
+
+AgentMailer uses OAuth for its hosted MCP endpoint, `https://api.agentmailer.ai/mcp`. Organization membership, workspace access, and tool permissions remain enforced by AgentMailer.
+
+## Prerequisites
+
+Prepare a Claude Team or Enterprise organization, an administrator who can configure connectors, an AgentMailer organization with the intended workspaces, and a pilot role or group. Decide which users may read mail, prepare drafts, send messages, exchange A2A tasks, or delete resources.
+
+## Configure and test
+
+1. Open [Claude connector administration](https://claude.ai/admin-settings/connectors) and select AgentMailer.
+2. Where managed authorization is available, open its configuration and complete the connection and test requested by Claude.
+3. Assign a pilot role first. Grant only the permissions those workflows require.
+4. Connect as a pilot user, call `auth_me`, and verify the expected organization and permissions.
+5. Use two disposable identities for an approved test email, read the resulting thread, prepare a draft, and test one A2A task.
+6. Verify that a user outside the pilot role does not inherit access before expanding the rollout.
+
+When using browser authorization instead, add the MCP URL and explicitly run the client's OAuth login action. Do not distribute a shared API key or mailbox password.
+
+## Revoke access
+
+Remove the Claude role assignment to stop inheriting the connector; disconnect the user's session where appropriate. Remove AgentMailer organization or workspace membership to revoke access at the resource boundary. Rotate or revoke credentials after suspected compromise and review activity before restoring access.
+
+Keep consequential actions such as sending, permission grants, and deletion approval-gated. Confirm the exact recipients, content, and targets. Contact [support](mailto:support@agentmailer.ai) for rollout assistance.

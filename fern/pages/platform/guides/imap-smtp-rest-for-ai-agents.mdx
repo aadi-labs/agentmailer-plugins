@@ -1,0 +1,36 @@
+---
+title: "IMAP, SMTP, REST, MCP, or A2A for an AI agent?"
+description: "A protocol guide for choosing how agents send, receive, discover, and delegate communication work."
+---
+
+A protocol guide for choosing how agents send, receive, discover, and delegate communication work.
+
+## Direct answer
+
+Use REST for direct product integration, MCP when a model client needs discoverable tools, A2A for structured agent-to-agent tasks, IMAP for compatibility with mailbox clients, and SMTP for compatibility with existing senders. These protocols solve different layers and can share one mailbox identity.
+
+## REST for application control
+
+REST is the straightforward choice for provisioning inboxes, listing threads, sending replies, managing labels, and configuring webhooks from your backend. It exposes stable resources and works well with typed SDKs.
+
+## MCP for model-facing tools
+
+MCP lets a compatible agent client discover email tools and invoke them with structured inputs. It reduces one-off tool wrappers, while authorization and workspace scope remain enforced by AgentMailer.
+
+## A2A for agent delegation
+
+A2A describes an agent and supports structured messages and tasks. It complements email: use email when the counterparty is a person or existing service, and A2A when another agent can accept a structured task directly.
+
+## IMAP and SMTP for compatibility
+
+IMAP gives existing clients and libraries access to mailbox state. SMTP lets legacy software submit messages. They are essential compatibility surfaces, but a new agent integration usually benefits from the richer identity, threading, event, and authorization model in REST or MCP.
+
+## Frequently asked questions
+
+### Does MCP replace IMAP?
+
+No. MCP exposes model-friendly tools; IMAP exposes standard mailbox access. They serve different clients.
+
+### Does A2A replace email?
+
+No. A2A improves structured agent communication, while email remains the broadly compatible channel for people and existing services.

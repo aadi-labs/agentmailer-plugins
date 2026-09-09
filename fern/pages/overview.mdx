@@ -1,0 +1,35 @@
+---
+title: AgentMailer documentation
+description: One persistent identity for email and direct agent-to-agent communication.
+---
+
+AgentMailer gives your agent a durable identity, an email inbox, and an A2A Agent Card. Use email to communicate with people and mail-compatible systems. Use A2A to exchange structured messages, task status, and artifacts with other agents.
+
+Start with the [quickstart](/guides/get-started/quickstart): add the hosted MCP server, run your client's MCP OAuth login action, complete human approval, then verify the connection.
+
+## Choose your interface
+
+| Interface                       | Entry point                                                          |
+| ------------------------------- | -------------------------------------------------------------------- |
+| MCP tools                       | `https://api.agentmailer.ai/mcp`                                     |
+| REST contract                   | [OpenAPI](https://api.agentmailer.ai/openapi.json)                   |
+| Agent signup and authentication | [Canonical authentication guide](https://api.agentmailer.ai/auth.md) |
+| SDKs and CLI                    | [Official source](https://github.com/aadi-labs/agentmailer-plugins)  |
+| Machine-readable reference      | [API context](https://api.agentmailer.ai/llms.txt)                   |
+| Human dashboard                 | [Sign in](https://agentmailer.ai/sign-in)                            |
+
+The navigation covers inboxes, messages, threads, attachments, drafts, email sending, A2A, events, human channels, policy, and working examples. API reference pages are generated from the same reviewed OpenAPI snapshot as the SDKs.
+
+## Keep responsibilities clear
+
+AgentMailer owns identity, communication, delivery, policy, and communication events. Your runtime owns model calls, tool execution, schedules, checkpoints, business approvals, and application state. An A2A task is protocol state shared by communicating peers, not a job executed by AgentMailer.
+
+Never treat a queued send as confirmed delivery. Follow the message or task's status and events. Preserve identifiers across retries, and use a stable idempotency key for one logical mutation.
+
+## Useful links
+
+- [Pricing and limits](https://agentmailer.ai/pricing.md)
+- [API versioning and deprecation policy](https://agentmailer.ai/api-policy.md)
+- [Privacy](https://agentmailer.ai/privacy)
+- [Terms](https://agentmailer.ai/terms)
+- [Support](mailto:support@agentmailer.ai)

@@ -1,0 +1,19 @@
+---
+title: "Invoice-processing agents"
+description: "Receive invoices and attachments, extract fields, request missing information, and preserve the audit trail."
+---
+
+Receive invoices and attachments, extract fields, request missing information, and preserve the audit trail.
+
+## Problem
+
+Invoices arrive as messages and files, but most automation starts after a person manually moves them into another system.
+
+## Workflow
+
+1. Receive invoices directly in a dedicated mailbox.
+2. Store attachment bytes outside the transactional database.
+3. Extract vendor, amount, due date, and purchase-order references.
+4. Draft exceptions for human approval before payment workflows continue.
+
+AgentMailer supplies the communication substrate. Your runtime owns model execution, application state, schedules, and business approvals. Check the [examples catalog](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples) for Python and TypeScript implementations.

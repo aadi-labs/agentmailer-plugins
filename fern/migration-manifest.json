@@ -1,0 +1,254 @@
+[
+  {
+    "source": "agentmailer-mcp/SKILL.md",
+    "destination": "fern/pages/generated/agentmailer-mcp/SKILL.mdx"
+  },
+  {
+    "source": "agentmailer-mcp/references/troubleshooting.md",
+    "destination": "fern/pages/generated/agentmailer-mcp/references/troubleshooting.mdx"
+  },
+  {
+    "source": "agentmailer-sdk/SKILL.md",
+    "destination": "fern/pages/generated/agentmailer-sdk/SKILL.mdx"
+  },
+  {
+    "source": "agentmailer-sdk/references/languages.md",
+    "destination": "fern/pages/generated/agentmailer-sdk/references/languages.mdx"
+  },
+  {
+    "source": "agentmailer-cli/SKILL.md",
+    "destination": "fern/pages/generated/agentmailer-cli/SKILL.mdx"
+  },
+  {
+    "source": "agentmailer-cli/references/commands.md",
+    "destination": "fern/pages/generated/agentmailer-cli/references/commands.mdx"
+  },
+  {
+    "source": "agentmailer-toolkit/SKILL.md",
+    "destination": "fern/pages/generated/agentmailer-toolkit/SKILL.mdx"
+  },
+  {
+    "source": "agentmailer-toolkit/references/frameworks.md",
+    "destination": "fern/pages/generated/agentmailer-toolkit/references/frameworks.mdx"
+  },
+  {
+    "source": "agentmailer-manage-inboxes/SKILL.md",
+    "destination": "fern/pages/generated/agentmailer-manage-inboxes/SKILL.mdx"
+  },
+  {
+    "source": "agentmailer-manage-inboxes/references/inbox-tools.md",
+    "destination": "fern/pages/generated/agentmailer-manage-inboxes/references/inbox-tools.mdx"
+  },
+  {
+    "source": "agentmailer-check-email/SKILL.md",
+    "destination": "fern/pages/generated/agentmailer-check-email/SKILL.mdx"
+  },
+  {
+    "source": "agentmailer-check-email/references/read-tools.md",
+    "destination": "fern/pages/generated/agentmailer-check-email/references/read-tools.mdx"
+  },
+  {
+    "source": "agentmailer-send-email/SKILL.md",
+    "destination": "fern/pages/generated/agentmailer-send-email/SKILL.mdx"
+  },
+  {
+    "source": "agentmailer-send-email/references/write-tools.md",
+    "destination": "fern/pages/generated/agentmailer-send-email/references/write-tools.mdx"
+  },
+  {
+    "source": "agentmailer-email/SKILL.md",
+    "destination": "fern/pages/generated/agentmailer-email/SKILL.mdx"
+  },
+  {
+    "source": "agentmailer-email/references/email-tools.md",
+    "destination": "fern/pages/generated/agentmailer-email/references/email-tools.mdx"
+  },
+  {
+    "source": "agentmailer-a2a/SKILL.md",
+    "destination": "fern/pages/generated/agentmailer-a2a/SKILL.mdx"
+  },
+  {
+    "source": "agentmailer-a2a/references/a2a-tools.md",
+    "destination": "fern/pages/generated/agentmailer-a2a/references/a2a-tools.mdx"
+  },
+  {
+    "source": "agentmailer-events/SKILL.md",
+    "destination": "fern/pages/generated/agentmailer-events/SKILL.mdx"
+  },
+  {
+    "source": "agentmailer-events/references/events-api.md",
+    "destination": "fern/pages/generated/agentmailer-events/references/events-api.mdx"
+  },
+  {
+    "source": "agentmailer-channels/SKILL.md",
+    "destination": "fern/pages/generated/agentmailer-channels/SKILL.mdx"
+  },
+  {
+    "source": "agentmailer-channels/references/channels.md",
+    "destination": "fern/pages/generated/agentmailer-channels/references/channels.mdx"
+  },
+  {
+    "source": "agentmailer-security/SKILL.md",
+    "destination": "fern/pages/generated/agentmailer-security/SKILL.mdx"
+  },
+  {
+    "source": "agentmailer-security/references/authorization.md",
+    "destination": "fern/pages/generated/agentmailer-security/references/authorization.mdx"
+  },
+  {
+    "source": "agentmailer-security/references/threat-model.md",
+    "destination": "fern/pages/generated/agentmailer-security/references/threat-model.mdx"
+  },
+  {
+    "source": "examples/README.md",
+    "destination": "fern/pages/generated/examples/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-a2a-delegation/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-a2a-delegation/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-approval-inbox/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-approval-inbox/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-browser-signup-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-browser-signup-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-browser-use/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-browser-use/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-cold-email-researcher/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-cold-email-researcher/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-collections-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-collections-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-contract-redline-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-contract-redline-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-dinner-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-dinner-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-dinner-reservation/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-dinner-reservation/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-docs-assistant/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-docs-assistant/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-email-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-email-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-github-maintainer-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-github-maintainer-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-gtm-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-gtm-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-hiring-screener-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-hiring-screener-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-human-approved-signup/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-human-approved-signup/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-inbox-zero/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-inbox-zero/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-invoice-processor/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-invoice-processor/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-kernel-browser/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-kernel-browser/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-langchain-terminal/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-langchain-terminal/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-legal-intake-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-legal-intake-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-negotiation-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-negotiation-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-newsletter-digest/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-newsletter-digest/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-note-taker/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-note-taker/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-openai-terminal/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-openai-terminal/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-podcast-booking-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-podcast-booking-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-quickstart/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-quickstart/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-receipt-parser-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-receipt-parser-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-recruiter-coordinator/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-recruiter-coordinator/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-sales-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-sales-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-sales-signal-router/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-sales-signal-router/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-scheduling-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-scheduling-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-support-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-support-agent/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-voice-to-email/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-voice-to-email/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-webhook-consumer/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-webhook-consumer/README.mdx"
+  },
+  {
+    "source": "examples/agentmailer-x402-payment-agent/README.md",
+    "destination": "fern/pages/generated/examples/agentmailer-x402-payment-agent/README.mdx"
+  },
+  {
+    "source": "examples/cli/README.md",
+    "destination": "fern/pages/generated/examples/cli/README.mdx"
+  },
+  {
+    "source": "examples/clients/README.md",
+    "destination": "fern/pages/generated/examples/clients/README.mdx"
+  }
+]

@@ -1,0 +1,32 @@
+---
+title: "Multi-tenant identity infrastructure for AI agents"
+description: "How workspace boundaries isolate identities, credentials, events, search, and domains for agent platforms."
+---
+
+How workspace boundaries isolate identities, credentials, events, search, and domains for agent platforms.
+
+## Direct answer
+
+Multi-tenant agent email requires isolation at every resource boundary, not just a tenant identifier. A workspace groups a customer's identities, domains, credentials, messages, threads, and event streams so authorization and queries remain scoped by construction.
+
+## Why a catch-all is not tenant isolation
+
+A catch-all domain can receive mail for many addresses, but it does not define who may read a message, search a thread, register a webhook, or use a sender identity. Those boundaries must exist in authorization and persistence, not only in routing code.
+
+## The workspace boundary
+
+A workspace represents a customer, project, or environment. Identities and domains belong to it. API access, list queries, semantic search, webhooks, and WebSocket replay are evaluated within that scope. Development and production can use separate workspaces without changing the public identity model.
+
+## Operational invariants
+
+Every asynchronous event and data request must preserve the owning workspace boundary. Search, replay, and audit history follow the same scope so tenant separation does not depend on callers remembering a filter.
+
+## Frequently asked questions
+
+### Is one inbox per tenant enough?
+
+It can be for simple products, but the tenant still needs a boundary for credentials, events, domains, and future additional inboxes.
+
+### Can workspaces represent environments?
+
+Yes. Workspaces can isolate development, staging, and production as well as separate customers or projects.

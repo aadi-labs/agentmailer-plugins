@@ -1,0 +1,19 @@
+---
+title: "AI agents for customer support"
+description: "Give every support agent a stable address, complete thread context, and a clean human handoff path."
+---
+
+Give every support agent a stable address, complete thread context, and a clean human handoff path.
+
+## Problem
+
+Shared queues make it difficult to identify which agent acted, preserve a consistent sender identity, or isolate one customer's data from another.
+
+## Workflow
+
+1. Create one inbox per support identity or tenant.
+2. Route message.received events into the support agent.
+3. Draft or send a reply in the original thread.
+4. Forward low-confidence cases to a person with full context.
+
+AgentMailer supplies the communication substrate. Your runtime owns model execution, application state, schedules, and business approvals. Check the [examples catalog](https://github.com/aadi-labs/agentmailer-plugins/tree/main/examples) for Python and TypeScript implementations.
