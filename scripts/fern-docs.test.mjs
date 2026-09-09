@@ -7,6 +7,14 @@ import test from "node:test";
 import { fernOpenApi } from "./fern-openapi.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+test("custom domain survives documentation generation", () => {
+  for (const file of ["docs.template.yml", "docs.yml"]) {
+    assert.match(
+      readFileSync(path.join(root, "fern", file), "utf8"),
+      /instances:\n  - url: agentmailer\.docs\.buildwithfern\.com\n    custom-domain: docs\.agentmailer\.ai\n/,
+    );
+  }
+});
 test("Fern renders the page title once and both themes have a logo", () => {
   for (const file of readdirSync(path.join(root, "fern/pages"), {
     recursive: true,
