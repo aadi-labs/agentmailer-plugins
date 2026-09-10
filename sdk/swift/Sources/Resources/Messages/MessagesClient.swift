@@ -7,8 +7,6 @@ public final class MessagesClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    /// List or search messages
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -41,8 +39,6 @@ public final class MessagesClient: Sendable {
         )
     }
 
-    /// Send a message
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -52,7 +48,6 @@ public final class MessagesClient: Sendable {
     ///
     ///     _ = try await client.messages.send(
     ///         inboxId: "inboxId",
-    ///         idempotencyKey: "Idempotency-Key",
     ///         request: MessageCompose(
     ///             to: [
     ///                 MessageComposeToItem.string(
@@ -66,23 +61,17 @@ public final class MessagesClient: Sendable {
     /// try await main()
     /// ```
     ///
-    /// - Parameter idempotencyKey: Stable caller-generated key used to make retries safe without duplicating the operation.
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func send(inboxId: String, idempotencyKey: String, request: MessageCompose, requestOptions: RequestOptions? = nil) async throws -> SendMessagesResponse {
+    public func send(inboxId: String, request: MessageCompose, requestOptions: RequestOptions? = nil) async throws -> SendMessagesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inboxes/\(inboxId)/messages/send",
-            headers: [
-                "Idempotency-Key": idempotencyKey
-            ],
             body: request,
             requestOptions: requestOptions,
             responseType: SendMessagesResponse.self
         )
     }
 
-    /// Get a message
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -109,8 +98,6 @@ public final class MessagesClient: Sendable {
         )
     }
 
-    /// Delete a message
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -136,8 +123,6 @@ public final class MessagesClient: Sendable {
         )
     }
 
-    /// Reply to a message
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -148,7 +133,6 @@ public final class MessagesClient: Sendable {
     ///     _ = try await client.messages.reply(
     ///         inboxId: "inboxId",
     ///         messageId: "messageId",
-    ///         idempotencyKey: "Idempotency-Key",
     ///         request: ReplyCompose(
     ///
     ///         )
@@ -158,23 +142,17 @@ public final class MessagesClient: Sendable {
     /// try await main()
     /// ```
     ///
-    /// - Parameter idempotencyKey: Stable caller-generated key used to make retries safe without duplicating the operation.
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func reply(inboxId: String, messageId: String, idempotencyKey: String, request: ReplyCompose, requestOptions: RequestOptions? = nil) async throws -> ReplyMessagesResponse {
+    public func reply(inboxId: String, messageId: String, request: ReplyCompose, requestOptions: RequestOptions? = nil) async throws -> ReplyMessagesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inboxes/\(inboxId)/messages/\(messageId)/reply",
-            headers: [
-                "Idempotency-Key": idempotencyKey
-            ],
             body: request,
             requestOptions: requestOptions,
             responseType: ReplyMessagesResponse.self
         )
     }
 
-    /// Reply all to a message
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -185,7 +163,6 @@ public final class MessagesClient: Sendable {
     ///     _ = try await client.messages.replyAll(
     ///         inboxId: "inboxId",
     ///         messageId: "messageId",
-    ///         idempotencyKey: "Idempotency-Key",
     ///         request: ReplyCompose(
     ///
     ///         )
@@ -195,23 +172,17 @@ public final class MessagesClient: Sendable {
     /// try await main()
     /// ```
     ///
-    /// - Parameter idempotencyKey: Stable caller-generated key used to make retries safe without duplicating the operation.
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func replyAll(inboxId: String, messageId: String, idempotencyKey: String, request: ReplyCompose, requestOptions: RequestOptions? = nil) async throws -> ReplyAllMessagesResponse {
+    public func replyAll(inboxId: String, messageId: String, request: ReplyCompose, requestOptions: RequestOptions? = nil) async throws -> ReplyAllMessagesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inboxes/\(inboxId)/messages/\(messageId)/reply-all",
-            headers: [
-                "Idempotency-Key": idempotencyKey
-            ],
             body: request,
             requestOptions: requestOptions,
             responseType: ReplyAllMessagesResponse.self
         )
     }
 
-    /// Forward a message
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -222,7 +193,6 @@ public final class MessagesClient: Sendable {
     ///     _ = try await client.messages.forward(
     ///         inboxId: "inboxId",
     ///         messageId: "messageId",
-    ///         idempotencyKey: "Idempotency-Key",
     ///         request: MessageCompose(
     ///             to: [
     ///                 MessageComposeToItem.string(
@@ -236,15 +206,11 @@ public final class MessagesClient: Sendable {
     /// try await main()
     /// ```
     ///
-    /// - Parameter idempotencyKey: Stable caller-generated key used to make retries safe without duplicating the operation.
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func forward(inboxId: String, messageId: String, idempotencyKey: String, request: MessageCompose, requestOptions: RequestOptions? = nil) async throws -> ForwardMessagesResponse {
+    public func forward(inboxId: String, messageId: String, request: MessageCompose, requestOptions: RequestOptions? = nil) async throws -> ForwardMessagesResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inboxes/\(inboxId)/messages/\(messageId)/forward",
-            headers: [
-                "Idempotency-Key": idempotencyKey
-            ],
             body: request,
             requestOptions: requestOptions,
             responseType: ForwardMessagesResponse.self

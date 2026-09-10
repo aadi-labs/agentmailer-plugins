@@ -61,6 +61,5 @@ def test_drafts_send() -> None:
     client.drafts.send(
         inbox_id="inboxId",
         draft_id="draftId",
-        idempotency_key="Idempotency-Key",
     )
     verify_request_count(test_id, "POST", "/v1/inboxes/inboxId/drafts/draftId/send", None, 1)

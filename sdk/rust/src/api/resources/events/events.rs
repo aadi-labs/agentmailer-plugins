@@ -13,16 +13,6 @@ impl EventsClient {
         })
     }
 
-    /// Create a short-lived realtime ticket
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run

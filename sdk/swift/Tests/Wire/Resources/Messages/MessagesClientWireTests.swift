@@ -550,7 +550,6 @@ import AgentMailer
         )
         let response = try await client.messages.send(
             inboxId: "inboxId",
-            idempotencyKey: "Idempotency-Key",
             request: MessageCompose(
                 to: [
                     MessageComposeToItem.string(
@@ -716,7 +715,6 @@ import AgentMailer
         )
         let response = try await client.messages.send(
             inboxId: "inboxId",
-            idempotencyKey: "idempotencyKey",
             request: MessageCompose(
                 to: [
                     MessageComposeToItem.string(
@@ -1136,7 +1134,6 @@ import AgentMailer
         let response = try await client.messages.reply(
             inboxId: "inboxId",
             messageId: "messageId",
-            idempotencyKey: "Idempotency-Key",
             request: ReplyCompose(
 
             ),
@@ -1299,7 +1296,6 @@ import AgentMailer
         let response = try await client.messages.reply(
             inboxId: "inboxId",
             messageId: "messageId",
-            idempotencyKey: "idempotencyKey",
             request: ReplyCompose(
 
             ),
@@ -1428,7 +1424,6 @@ import AgentMailer
         let response = try await client.messages.replyAll(
             inboxId: "inboxId",
             messageId: "messageId",
-            idempotencyKey: "Idempotency-Key",
             request: ReplyCompose(
 
             ),
@@ -1591,7 +1586,6 @@ import AgentMailer
         let response = try await client.messages.replyAll(
             inboxId: "inboxId",
             messageId: "messageId",
-            idempotencyKey: "idempotencyKey",
             request: ReplyCompose(
 
             ),
@@ -1720,7 +1714,6 @@ import AgentMailer
         let response = try await client.messages.forward(
             inboxId: "inboxId",
             messageId: "messageId",
-            idempotencyKey: "Idempotency-Key",
             request: MessageCompose(
                 to: [
                     MessageComposeToItem.string(
@@ -1887,7 +1880,6 @@ import AgentMailer
         let response = try await client.messages.forward(
             inboxId: "inboxId",
             messageId: "messageId",
-            idempotencyKey: "idempotencyKey",
             request: MessageCompose(
                 to: [
                     MessageComposeToItem.string(

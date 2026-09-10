@@ -11,48 +11,21 @@ import (
 )
 
 var (
-	errorFieldType      = big.NewInt(1 << 0)
-	errorFieldTitle     = big.NewInt(1 << 1)
-	errorFieldStatus    = big.NewInt(1 << 2)
-	errorFieldCode      = big.NewInt(1 << 3)
-	errorFieldDetail    = big.NewInt(1 << 4)
-	errorFieldRequestID = big.NewInt(1 << 5)
+	errorFieldCode      = big.NewInt(1 << 0)
+	errorFieldMessage   = big.NewInt(1 << 1)
+	errorFieldRequestID = big.NewInt(1 << 2)
 )
 
 type Error struct {
-	Type      string  `json:"type" url:"type"`
-	Title     string  `json:"title" url:"title"`
-	Status    int     `json:"status" url:"status"`
 	Code      string  `json:"code" url:"code"`
-	Detail    *string `json:"detail,omitempty" url:"detail,omitempty"`
-	RequestID string  `json:"requestId" url:"requestId"`
+	Message   string  `json:"message" url:"message"`
+	RequestID *string `json:"requestId,omitempty" url:"requestId,omitempty"`
 
 	// Private bitmask of fields set to an explicit value and therefore not to be omitted
 	explicitFields *big.Int `json:"-" url:"-"`
 
 	extraProperties map[string]interface{}
 	rawJSON         json.RawMessage
-}
-
-func (e *Error) GetType() string {
-	if e == nil {
-		return ""
-	}
-	return e.Type
-}
-
-func (e *Error) GetTitle() string {
-	if e == nil {
-		return ""
-	}
-	return e.Title
-}
-
-func (e *Error) GetStatus() int {
-	if e == nil {
-		return 0
-	}
-	return e.Status
 }
 
 func (e *Error) GetCode() string {
@@ -62,16 +35,16 @@ func (e *Error) GetCode() string {
 	return e.Code
 }
 
-func (e *Error) GetDetail() *string {
-	if e == nil {
-		return nil
-	}
-	return e.Detail
-}
-
-func (e *Error) GetRequestID() string {
+func (e *Error) GetMessage() string {
 	if e == nil {
 		return ""
+	}
+	return e.Message
+}
+
+func (e *Error) GetRequestID() *string {
+	if e == nil {
+		return nil
 	}
 	return e.RequestID
 }
@@ -90,27 +63,6 @@ func (e *Error) require(field *big.Int) {
 	e.explicitFields.Or(e.explicitFields, field)
 }
 
-// SetType sets the Type field and marks it as non-optional;
-// this prevents an empty or null value for this field from being omitted during serialization.
-func (e *Error) SetType(type_ string) {
-	e.Type = type_
-	e.require(errorFieldType)
-}
-
-// SetTitle sets the Title field and marks it as non-optional;
-// this prevents an empty or null value for this field from being omitted during serialization.
-func (e *Error) SetTitle(title string) {
-	e.Title = title
-	e.require(errorFieldTitle)
-}
-
-// SetStatus sets the Status field and marks it as non-optional;
-// this prevents an empty or null value for this field from being omitted during serialization.
-func (e *Error) SetStatus(status int) {
-	e.Status = status
-	e.require(errorFieldStatus)
-}
-
 // SetCode sets the Code field and marks it as non-optional;
 // this prevents an empty or null value for this field from being omitted during serialization.
 func (e *Error) SetCode(code string) {
@@ -118,16 +70,16 @@ func (e *Error) SetCode(code string) {
 	e.require(errorFieldCode)
 }
 
-// SetDetail sets the Detail field and marks it as non-optional;
+// SetMessage sets the Message field and marks it as non-optional;
 // this prevents an empty or null value for this field from being omitted during serialization.
-func (e *Error) SetDetail(detail *string) {
-	e.Detail = detail
-	e.require(errorFieldDetail)
+func (e *Error) SetMessage(message string) {
+	e.Message = message
+	e.require(errorFieldMessage)
 }
 
 // SetRequestID sets the RequestID field and marks it as non-optional;
 // this prevents an empty or null value for this field from being omitted during serialization.
-func (e *Error) SetRequestID(requestID string) {
+func (e *Error) SetRequestID(requestID *string) {
 	e.RequestID = requestID
 	e.require(errorFieldRequestID)
 }

@@ -4,10 +4,6 @@ import { A2AClient } from "./api/resources/a2A/client/Client.js";
 import { AgentClient } from "./api/resources/agent/client/Client.js";
 import { AttachmentsClient } from "./api/resources/attachments/client/Client.js";
 import { BillingClient } from "./api/resources/billing/client/Client.js";
-import { ChannelConversationsClient } from "./api/resources/channelConversations/client/Client.js";
-import { ChannelEndpointsClient } from "./api/resources/channelEndpoints/client/Client.js";
-import { ChannelMessagesClient } from "./api/resources/channelMessages/client/Client.js";
-import { ChannelRecipientPermissionsClient } from "./api/resources/channelRecipientPermissions/client/Client.js";
 import { DomainsClient } from "./api/resources/domains/client/Client.js";
 import { DraftsClient } from "./api/resources/drafts/client/Client.js";
 import { EventsClient } from "./api/resources/events/client/Client.js";
@@ -19,25 +15,19 @@ import { PodsClient } from "./api/resources/pods/client/Client.js";
 import { ThreadsClient } from "./api/resources/threads/client/Client.js";
 import { WebhooksClient } from "./api/resources/webhooks/client/Client.js";
 import type { BaseClientOptions, BaseRequestOptions } from "./BaseClient.js";
-import { normalizeClientOptionsWithAuth, type NormalizedClientOptionsWithAuth } from "./BaseClient.js";
+import { type NormalizedClientOptionsWithAuth, normalizeClientOptionsWithAuth } from "./BaseClient.js";
 import * as core from "./core/index.js";
-import * as environments from "./environments.js";
 
 export declare namespace AgentMailerClient {
     export type Options = BaseClientOptions;
 
-    export interface RequestOptions extends BaseRequestOptions {
-    }
+    export interface RequestOptions extends BaseRequestOptions {}
 }
 
 export class AgentMailerClient {
     protected readonly _options: NormalizedClientOptionsWithAuth<AgentMailerClient.Options>;
     protected _agent: AgentClient | undefined;
     protected _inboxes: InboxesClient | undefined;
-    protected _channelEndpoints: ChannelEndpointsClient | undefined;
-    protected _channelConversations: ChannelConversationsClient | undefined;
-    protected _channelRecipientPermissions: ChannelRecipientPermissionsClient | undefined;
-    protected _channelMessages: ChannelMessagesClient | undefined;
     protected _messages: MessagesClient | undefined;
     protected _threads: ThreadsClient | undefined;
     protected _drafts: DraftsClient | undefined;
@@ -52,7 +42,6 @@ export class AgentMailerClient {
     protected _a2A: A2AClient | undefined;
 
     constructor(options: AgentMailerClient.Options = {}) {
-
         this._options = normalizeClientOptionsWithAuth(options);
     }
 
@@ -62,22 +51,6 @@ export class AgentMailerClient {
 
     public get inboxes(): InboxesClient {
         return (this._inboxes ??= new InboxesClient(this._options));
-    }
-
-    public get channelEndpoints(): ChannelEndpointsClient {
-        return (this._channelEndpoints ??= new ChannelEndpointsClient(this._options));
-    }
-
-    public get channelConversations(): ChannelConversationsClient {
-        return (this._channelConversations ??= new ChannelConversationsClient(this._options));
-    }
-
-    public get channelRecipientPermissions(): ChannelRecipientPermissionsClient {
-        return (this._channelRecipientPermissions ??= new ChannelRecipientPermissionsClient(this._options));
-    }
-
-    public get channelMessages(): ChannelMessagesClient {
-        return (this._channelMessages ??= new ChannelMessagesClient(this._options));
     }
 
     public get messages(): MessagesClient {
@@ -138,16 +111,24 @@ export class AgentMailerClient {
      * @param {core.PassthroughRequest.RequestOptions} requestOptions - Per-request overrides (timeout, retries, headers, abort signal).
      * @returns {Promise<Response>} A standard Response object.
      */
-    public async fetch(input: Request | string | URL, init?: RequestInit, requestOptions?: core.PassthroughRequest.RequestOptions): Promise<Response> {
-
-        return core.makePassthroughRequest(input, init, {
-            baseUrl: this._options.baseUrl ?? this._options.environment,
-            headers: this._options.headers,
-            timeoutInSeconds: this._options.timeoutInSeconds,
-            maxRetries: this._options.maxRetries,
-            fetch: this._options.fetch,
-            logging: this._options.logging,
-            getAuthHeaders: async () => (await this._options.authProvider.getAuthRequest()).headers,
-        }, requestOptions);
+    public async fetch(
+        input: Request | string | URL,
+        init?: RequestInit,
+        requestOptions?: core.PassthroughRequest.RequestOptions,
+    ): Promise<Response> {
+        return core.makePassthroughRequest(
+            input,
+            init,
+            {
+                baseUrl: this._options.baseUrl ?? this._options.environment,
+                headers: this._options.headers,
+                timeoutInSeconds: this._options.timeoutInSeconds,
+                maxRetries: this._options.maxRetries,
+                fetch: this._options.fetch,
+                logging: this._options.logging,
+                getAuthHeaders: async () => (await this._options.authProvider.getAuthRequest()).headers,
+            },
+            requestOptions,
+        );
     }
 }

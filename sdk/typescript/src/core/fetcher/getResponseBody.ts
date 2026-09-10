@@ -1,7 +1,6 @@
 import { fromJson } from "../json.js";
 import { getBinaryResponse } from "./BinaryResponse.js";
 
-
 // Pins the upstream Response so undici's FinalizationRegistry can't GC it and cancel the body stream.
 function retainResponse(target: object, response: Response): void {
     Object.defineProperty(target, "__fern_response_ref", {

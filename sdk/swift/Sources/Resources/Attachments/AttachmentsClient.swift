@@ -7,8 +7,6 @@ public final class AttachmentsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    /// Create a direct attachment upload
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -41,8 +39,6 @@ public final class AttachmentsClient: Sendable {
         )
     }
 
-    /// Complete a direct attachment upload
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -69,8 +65,6 @@ public final class AttachmentsClient: Sendable {
         )
     }
 
-    /// Create a short-lived attachment download
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer

@@ -38,8 +38,6 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
-// Call an agent over A2A JSON-RPC
-//
 // Example:
 //
 //	request := &_go.A2AJsonRpcRequest{
@@ -69,8 +67,6 @@ func (c *Client) SendTask(
 	return response.Body, nil
 }
 
-// Discover an agent's public A2A card
-//
 // Example:
 //
 //	client.A2A.GetAgentCard(
@@ -93,8 +89,6 @@ func (c *Client) GetAgentCard(
 	return response.Body, nil
 }
 
-// Update an assigned A2A task
-//
 // Example:
 //
 //	request := &_go.A2ATaskUpdate{
@@ -123,8 +117,6 @@ func (c *Client) UpdateTask(
 	return response.Body, nil
 }
 
-// Update the calling agent's public A2A profile
-//
 // Example:
 //
 //	request := &_go.A2AIdentitySettings{}

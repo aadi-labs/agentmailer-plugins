@@ -7,8 +7,6 @@ public final class DraftsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    /// List drafts
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -32,8 +30,6 @@ public final class DraftsClient: Sendable {
         )
     }
 
-    /// Create a draft
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -61,8 +57,6 @@ public final class DraftsClient: Sendable {
         )
     }
 
-    /// Get a draft
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -89,8 +83,6 @@ public final class DraftsClient: Sendable {
         )
     }
 
-    /// Delete a draft
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -116,8 +108,6 @@ public final class DraftsClient: Sendable {
         )
     }
 
-    /// Update a draft
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -146,8 +136,6 @@ public final class DraftsClient: Sendable {
         )
     }
 
-    /// Send a draft
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -157,23 +145,18 @@ public final class DraftsClient: Sendable {
     ///
     ///     _ = try await client.drafts.send(
     ///         inboxId: "inboxId",
-    ///         draftId: "draftId",
-    ///         idempotencyKey: "Idempotency-Key"
+    ///         draftId: "draftId"
     ///     )
     /// }
     ///
     /// try await main()
     /// ```
     ///
-    /// - Parameter idempotencyKey: Stable caller-generated key used to make retries safe without duplicating the operation.
     /// - Parameter requestOptions: Additional options for configuring the request, such as custom headers or timeout settings.
-    public func send(inboxId: String, draftId: String, idempotencyKey: String, requestOptions: RequestOptions? = nil) async throws -> SendDraftsResponse {
+    public func send(inboxId: String, draftId: String, requestOptions: RequestOptions? = nil) async throws -> SendDraftsResponse {
         return try await httpClient.performRequest(
             method: .post,
             path: "/v1/inboxes/\(inboxId)/drafts/\(draftId)/send",
-            headers: [
-                "Idempotency-Key": idempotencyKey
-            ],
             requestOptions: requestOptions,
             responseType: SendDraftsResponse.self
         )

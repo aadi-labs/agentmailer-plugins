@@ -38,8 +38,6 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
-// List Pods
-//
 // Example:
 //
 //	client.Pods.List(
@@ -59,8 +57,6 @@ func (c *Client) List(
 	return response.Body, nil
 }
 
-// Create a Pod
-//
 // Example:
 //
 //	request := &_go.PodCreate{
@@ -86,8 +82,6 @@ func (c *Client) Create(
 	return response.Body, nil
 }
 
-// Get a Pod
-//
 // Example:
 //
 //	client.Pods.Get(
@@ -110,8 +104,6 @@ func (c *Client) Get(
 	return response.Body, nil
 }
 
-// Delete a Pod
-//
 // Example:
 //
 //	client.Pods.Delete(
@@ -134,8 +126,6 @@ func (c *Client) Delete(
 	return nil
 }
 
-// Update a Pod
-//
 // Example:
 //
 //	request := &_go.PodUpdate{

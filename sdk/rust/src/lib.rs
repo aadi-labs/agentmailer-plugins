@@ -20,7 +20,7 @@
 //!             &BootstrapRequest {
 //!                 ..Default::default()
 //!             },
-//!             Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
+//!             None,
 //!         )
 //!         .await;
 //! }

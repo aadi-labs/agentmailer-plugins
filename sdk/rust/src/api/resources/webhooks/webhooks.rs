@@ -13,16 +13,6 @@ impl WebhooksClient {
         })
     }
 
-    /// List webhook endpoints
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -47,16 +37,6 @@ impl WebhooksClient {
             .await
     }
 
-    /// Create a webhook endpoint
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -100,16 +80,6 @@ impl WebhooksClient {
             .await
     }
 
-    /// Get a webhook endpoint
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -141,16 +111,6 @@ impl WebhooksClient {
             .await
     }
 
-    /// Delete a webhook endpoint
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// Empty response
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -182,16 +142,6 @@ impl WebhooksClient {
             .await
     }
 
-    /// Update a webhook endpoint
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -233,16 +183,6 @@ impl WebhooksClient {
             .await
     }
 
-    /// Rotate a webhook signing secret
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run

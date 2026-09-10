@@ -14,16 +14,6 @@ impl AttachmentsClient {
         })
     }
 
-    /// Create a direct attachment upload
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -68,16 +58,6 @@ impl AttachmentsClient {
             .await
     }
 
-    /// Complete a direct attachment upload
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -116,16 +96,6 @@ impl AttachmentsClient {
             .await
     }
 
-    /// Create a short-lived attachment download
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run

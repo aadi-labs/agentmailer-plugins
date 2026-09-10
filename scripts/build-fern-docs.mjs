@@ -31,7 +31,7 @@ const sections = [
     ],
   ],
   ["Agent-to-agent communication", ["agentmailer-a2a"]],
-  ["Events and channels", ["agentmailer-events", "agentmailer-channels"]],
+  ["Events", ["agentmailer-events"]],
   ["Security and permissions", ["agentmailer-security"]],
 ];
 const migrations = [];

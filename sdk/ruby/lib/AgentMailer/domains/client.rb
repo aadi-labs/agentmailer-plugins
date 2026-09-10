@@ -10,8 +10,6 @@ module AgentMailer
         @client = client
       end
 
-      # List custom domains
-      #
       # @param request_options [Hash]
       # @param _params [Hash]
       # @option request_options [String] :base_url
@@ -45,8 +43,6 @@ module AgentMailer
         end
       end
 
-      # Create a custom domain
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Domains::Types::DomainCreate]
       # @option request_options [String] :base_url
@@ -84,8 +80,6 @@ module AgentMailer
         end
       end
 
-      # Get a custom domain
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -121,8 +115,6 @@ module AgentMailer
         end
       end
 
-      # Delete a custom domain
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -156,8 +148,6 @@ module AgentMailer
         raise error_class.new(response.body, code: code)
       end
 
-      # Verify a custom domain's DNS records
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url

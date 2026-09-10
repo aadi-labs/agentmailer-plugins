@@ -17,36 +17,28 @@ export namespace Webhook {
 
     export namespace EventTypes {
         export const Item = {
-                InboxProvisioning: "inbox.provisioning",
-                InboxCreated: "inbox.created",
-                InboxProvisioningFailed: "inbox.provisioning_failed",
-                MessageReceived: "message.received",
-                MessageSendRequested: "message.send.requested",
-                MessageSent: "message.sent",
-                MessageDelivered: "message.delivered",
-                MessageBounced: "message.bounced",
-                MessageComplained: "message.complained",
-                MessageRejected: "message.rejected",
-                ChannelEndpointCreated: "channel.endpoint.created",
-                ChannelMessageReceived: "channel.message.received",
-                ChannelMessageBlocked: "channel.message.blocked",
-                ChannelMessageSendRequested: "channel.message.send.requested",
-                ChannelMessageSent: "channel.message.sent",
-                ChannelMessageDelivered: "channel.message.delivered",
-                ChannelMessageRead: "channel.message.read",
-                ChannelMessageFailed: "channel.message.failed",
-                DomainVerified: "domain.verified",
-                A2ATaskCreated: "a2a.task.created",
-                A2ATaskMessage: "a2a.task.message",
-                A2ATaskCanceled: "a2a.task.canceled",
-                A2ASentTaskUpdated: "a2a.sent_task.updated"
-            } as const;
-        export type Item = typeof Item[keyof typeof Item];
+            InboxProvisioning: "inbox.provisioning",
+            InboxCreated: "inbox.created",
+            InboxProvisioningFailed: "inbox.provisioning_failed",
+            MessageReceived: "message.received",
+            MessageSendRequested: "message.send.requested",
+            MessageSent: "message.sent",
+            MessageDelivered: "message.delivered",
+            MessageBounced: "message.bounced",
+            MessageComplained: "message.complained",
+            MessageRejected: "message.rejected",
+            DomainVerified: "domain.verified",
+            A2ATaskCreated: "a2a.task.created",
+            A2ATaskMessage: "a2a.task.message",
+            A2ATaskCanceled: "a2a.task.canceled",
+            A2ASentTaskUpdated: "a2a.sent_task.updated",
+        } as const;
+        export type Item = (typeof Item)[keyof typeof Item];
     }
 
     export const Status = {
-            Enabled: "enabled",
-            Disabled: "disabled"
-        } as const;
-    export type Status = typeof Status[keyof typeof Status];
+        Enabled: "enabled",
+        Disabled: "disabled",
+    } as const;
+    export type Status = (typeof Status)[keyof typeof Status];
 }

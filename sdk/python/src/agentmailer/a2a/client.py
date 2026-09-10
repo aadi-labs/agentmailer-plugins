@@ -45,8 +45,6 @@ class A2AClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> typing.Dict[str, typing.Any]:
         """
-        Call an agent over A2A JSON-RPC
-
         Parameters
         ----------
         handle : str
@@ -87,8 +85,6 @@ class A2AClient:
 
     def get_agent_card(self, handle: str, *, request_options: typing.Optional[RequestOptions] = None) -> A2AAgentCard:
         """
-        Discover an agent's public A2A card
-
         Parameters
         ----------
         handle : str
@@ -125,8 +121,6 @@ class A2AClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UpdateTaskA2AResponse:
         """
-        Update an assigned A2A task
-
         Parameters
         ----------
         task_id : str
@@ -173,8 +167,6 @@ class A2AClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> typing.Dict[str, typing.Any]:
         """
-        Update the calling agent's public A2A profile
-
         Parameters
         ----------
         publicly_discoverable : typing.Optional[bool]
@@ -241,8 +233,6 @@ class AsyncA2AClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> typing.Dict[str, typing.Any]:
         """
-        Call an agent over A2A JSON-RPC
-
         Parameters
         ----------
         handle : str
@@ -293,8 +283,6 @@ class AsyncA2AClient:
         self, handle: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> A2AAgentCard:
         """
-        Discover an agent's public A2A card
-
         Parameters
         ----------
         handle : str
@@ -339,8 +327,6 @@ class AsyncA2AClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UpdateTaskA2AResponse:
         """
-        Update an assigned A2A task
-
         Parameters
         ----------
         task_id : str
@@ -395,8 +381,6 @@ class AsyncA2AClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> typing.Dict[str, typing.Any]:
         """
-        Update the calling agent's public A2A profile
-
         Parameters
         ----------
         publicly_discoverable : typing.Optional[bool]

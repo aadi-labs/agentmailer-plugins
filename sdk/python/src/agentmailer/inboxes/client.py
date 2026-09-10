@@ -40,8 +40,6 @@ class InboxesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ListInboxesResponse:
         """
-        List inboxes
-
         Parameters
         ----------
         limit : typing.Optional[int]
@@ -71,7 +69,6 @@ class InboxesClient:
     def create(
         self,
         *,
-        idempotency_key: typing.Optional[str] = None,
         username: typing.Optional[str] = OMIT,
         pod_id: typing.Optional[str] = OMIT,
         domain_id: typing.Optional[str] = OMIT,
@@ -81,13 +78,8 @@ class InboxesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateInboxesResponse:
         """
-        Create an inbox
-
         Parameters
         ----------
-        idempotency_key : typing.Optional[str]
-            Stable caller-generated key used to make retries safe without duplicating the operation.
-
         username : typing.Optional[str]
 
         pod_id : typing.Optional[str]
@@ -118,7 +110,6 @@ class InboxesClient:
         client.inboxes.create()
         """
         _response = self._raw_client.create(
-            idempotency_key=idempotency_key,
             username=username,
             pod_id=pod_id,
             domain_id=domain_id,
@@ -131,8 +122,6 @@ class InboxesClient:
 
     def get(self, inbox_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> GetInboxesResponse:
         """
-        Get an inbox
-
         Parameters
         ----------
         inbox_id : str
@@ -161,8 +150,6 @@ class InboxesClient:
 
     def delete(self, inbox_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
-        Delete an inbox
-
         Parameters
         ----------
         inbox_id : str
@@ -198,8 +185,6 @@ class InboxesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UpdateInboxesResponse:
         """
-        Update an inbox
-
         Parameters
         ----------
         inbox_id : str
@@ -238,8 +223,6 @@ class InboxesClient:
         self, inbox_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> IssueCredentialsInboxesResponse:
         """
-        Issue new IMAP and SMTP credentials
-
         Parameters
         ----------
         inbox_id : str
@@ -290,8 +273,6 @@ class AsyncInboxesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ListInboxesResponse:
         """
-        List inboxes
-
         Parameters
         ----------
         limit : typing.Optional[int]
@@ -329,7 +310,6 @@ class AsyncInboxesClient:
     async def create(
         self,
         *,
-        idempotency_key: typing.Optional[str] = None,
         username: typing.Optional[str] = OMIT,
         pod_id: typing.Optional[str] = OMIT,
         domain_id: typing.Optional[str] = OMIT,
@@ -339,13 +319,8 @@ class AsyncInboxesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateInboxesResponse:
         """
-        Create an inbox
-
         Parameters
         ----------
-        idempotency_key : typing.Optional[str]
-            Stable caller-generated key used to make retries safe without duplicating the operation.
-
         username : typing.Optional[str]
 
         pod_id : typing.Optional[str]
@@ -384,7 +359,6 @@ class AsyncInboxesClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.create(
-            idempotency_key=idempotency_key,
             username=username,
             pod_id=pod_id,
             domain_id=domain_id,
@@ -399,8 +373,6 @@ class AsyncInboxesClient:
         self, inbox_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> GetInboxesResponse:
         """
-        Get an inbox
-
         Parameters
         ----------
         inbox_id : str
@@ -437,8 +409,6 @@ class AsyncInboxesClient:
 
     async def delete(self, inbox_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
-        Delete an inbox
-
         Parameters
         ----------
         inbox_id : str
@@ -482,8 +452,6 @@ class AsyncInboxesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UpdateInboxesResponse:
         """
-        Update an inbox
-
         Parameters
         ----------
         inbox_id : str
@@ -530,8 +498,6 @@ class AsyncInboxesClient:
         self, inbox_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> IssueCredentialsInboxesResponse:
         """
-        Issue new IMAP and SMTP credentials
-
         Parameters
         ----------
         inbox_id : str

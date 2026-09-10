@@ -23,7 +23,6 @@ MCP_SKILLS = {
     "agentmailer-send-email",
     "agentmailer-email",
     "agentmailer-a2a",
-    "agentmailer-channels",
     "agentmailer-manage-inboxes",
 }
 HOSTED_SKILLS = tuple(SKILL_CATALOG["hostedSkills"])

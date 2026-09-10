@@ -38,8 +38,6 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
-// List drafts
-//
 // Example:
 //
 //	client.Drafts.List(
@@ -62,8 +60,6 @@ func (c *Client) List(
 	return response.Body, nil
 }
 
-// Create a draft
-//
 // Example:
 //
 //	request := &_go.DraftCreate{}
@@ -90,8 +86,6 @@ func (c *Client) Create(
 	return response.Body, nil
 }
 
-// Get a draft
-//
 // Example:
 //
 //	client.Drafts.Get(
@@ -117,8 +111,6 @@ func (c *Client) Get(
 	return response.Body, nil
 }
 
-// Delete a draft
-//
 // Example:
 //
 //	client.Drafts.Delete(
@@ -144,8 +136,6 @@ func (c *Client) Delete(
 	return nil
 }
 
-// Update a draft
-//
 // Example:
 //
 //	request := &_go.DraftUpdate{}
@@ -175,31 +165,23 @@ func (c *Client) Update(
 	return response.Body, nil
 }
 
-// Send a draft
-//
 // Example:
 //
-//	request := &_go.SendDraftsRequest{
-//	    IdempotencyKey: "Idempotency-Key",
-//	}
 //	client.Drafts.Send(
 //	    context.TODO(),
 //	    "inboxId",
 //	    "draftId",
-//	    request,
 //	)
 func (c *Client) Send(
 	ctx context.Context,
 	inboxID string,
 	draftID string,
-	request *_go.SendDraftsRequest,
 	opts ...option.RequestOption,
 ) (*_go.SendDraftsResponse, error) {
 	response, err := c.WithRawResponse.Send(
 		ctx,
 		inboxID,
 		draftID,
-		request,
 		opts...,
 	)
 	if err != nil {

@@ -63,7 +63,7 @@ class AgentMailerWorkflows:
         recipients = [to] if isinstance(to, str) else list(to)
         return self.client.messages.send(
             inbox_id,
-            idempotency_key=idempotency_key,
+            request_options={"additional_headers": {"Idempotency-Key": idempotency_key}},
             to=recipients,
             subject=subject,
             text=text,

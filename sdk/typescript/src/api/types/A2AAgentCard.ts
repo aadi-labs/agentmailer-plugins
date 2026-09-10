@@ -27,13 +27,13 @@ export namespace A2AAgentCard {
 
         export namespace Item {
             export const ProtocolBinding = {
-                    Jsonrpc: "JSONRPC"
-                } as const;
-            export type ProtocolBinding = typeof ProtocolBinding[keyof typeof ProtocolBinding];
+                Jsonrpc: "JSONRPC",
+            } as const;
+            export type ProtocolBinding = (typeof ProtocolBinding)[keyof typeof ProtocolBinding];
             export const ProtocolVersion = {
-                    One0: "1.0"
-                } as const;
-            export type ProtocolVersion = typeof ProtocolVersion[keyof typeof ProtocolVersion];
+                One0: "1.0",
+            } as const;
+            export type ProtocolVersion = (typeof ProtocolVersion)[keyof typeof ProtocolVersion];
         }
     }
 

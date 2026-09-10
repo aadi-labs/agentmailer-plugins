@@ -10,8 +10,6 @@ module AgentMailer
         @client = client
       end
 
-      # List labels
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -51,8 +49,6 @@ module AgentMailer
         end
       end
 
-      # Create a label
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Labels::Types::LabelCreate]
       # @option request_options [String] :base_url
@@ -93,8 +89,6 @@ module AgentMailer
         end
       end
 
-      # Delete a label
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -128,8 +122,6 @@ module AgentMailer
         raise error_class.new(response.body, code: code)
       end
 
-      # Add or remove message labels
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Types::LabelMutation]
       # @option request_options [String] :base_url
@@ -171,8 +163,6 @@ module AgentMailer
         end
       end
 
-      # Add or remove thread labels
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Types::LabelMutation]
       # @option request_options [String] :base_url

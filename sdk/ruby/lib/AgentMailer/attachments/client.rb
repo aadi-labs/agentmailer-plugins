@@ -10,8 +10,6 @@ module AgentMailer
         @client = client
       end
 
-      # Create a direct attachment upload
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Attachments::Types::AttachmentUploadCreate]
       # @option request_options [String] :base_url
@@ -58,8 +56,6 @@ module AgentMailer
         raise error_class.new(response.body, code: code)
       end
 
-      # Complete a direct attachment upload
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -99,8 +95,6 @@ module AgentMailer
         end
       end
 
-      # Create a short-lived attachment download
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url

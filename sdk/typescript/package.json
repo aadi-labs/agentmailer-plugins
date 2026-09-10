@@ -40,50 +40,6 @@
             },
             "default": "./dist/cjs/api/resources/inboxes/exports.js"
         },
-        "./channelEndpoints": {
-            "import": {
-                "types": "./dist/esm/api/resources/channelEndpoints/exports.d.mts",
-                "default": "./dist/esm/api/resources/channelEndpoints/exports.mjs"
-            },
-            "require": {
-                "types": "./dist/cjs/api/resources/channelEndpoints/exports.d.ts",
-                "default": "./dist/cjs/api/resources/channelEndpoints/exports.js"
-            },
-            "default": "./dist/cjs/api/resources/channelEndpoints/exports.js"
-        },
-        "./channelConversations": {
-            "import": {
-                "types": "./dist/esm/api/resources/channelConversations/exports.d.mts",
-                "default": "./dist/esm/api/resources/channelConversations/exports.mjs"
-            },
-            "require": {
-                "types": "./dist/cjs/api/resources/channelConversations/exports.d.ts",
-                "default": "./dist/cjs/api/resources/channelConversations/exports.js"
-            },
-            "default": "./dist/cjs/api/resources/channelConversations/exports.js"
-        },
-        "./channelRecipientPermissions": {
-            "import": {
-                "types": "./dist/esm/api/resources/channelRecipientPermissions/exports.d.mts",
-                "default": "./dist/esm/api/resources/channelRecipientPermissions/exports.mjs"
-            },
-            "require": {
-                "types": "./dist/cjs/api/resources/channelRecipientPermissions/exports.d.ts",
-                "default": "./dist/cjs/api/resources/channelRecipientPermissions/exports.js"
-            },
-            "default": "./dist/cjs/api/resources/channelRecipientPermissions/exports.js"
-        },
-        "./channelMessages": {
-            "import": {
-                "types": "./dist/esm/api/resources/channelMessages/exports.d.mts",
-                "default": "./dist/esm/api/resources/channelMessages/exports.mjs"
-            },
-            "require": {
-                "types": "./dist/cjs/api/resources/channelMessages/exports.d.ts",
-                "default": "./dist/cjs/api/resources/channelMessages/exports.js"
-            },
-            "default": "./dist/cjs/api/resources/channelMessages/exports.js"
-        },
         "./messages": {
             "import": {
                 "types": "./dist/esm/api/resources/messages/exports.d.mts",

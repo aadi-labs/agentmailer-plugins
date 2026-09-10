@@ -13,8 +13,8 @@ export interface BillingSelection {
 
 export namespace BillingSelection {
     export const Interval = {
-            Month: "month",
-            Year: "year"
-        } as const;
-    export type Interval = typeof Interval[keyof typeof Interval];
+        Month: "month",
+        Year: "year",
+    } as const;
+    export type Interval = (typeof Interval)[keyof typeof Interval];
 }

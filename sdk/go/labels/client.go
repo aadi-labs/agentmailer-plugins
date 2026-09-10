@@ -38,8 +38,6 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
-// List labels
-//
 // Example:
 //
 //	request := &_go.ListLabelsRequest{}
@@ -63,8 +61,6 @@ func (c *Client) List(
 	return response.Body, nil
 }
 
-// Create a label
-//
 // Example:
 //
 //	request := &_go.LabelCreate{
@@ -91,8 +87,6 @@ func (c *Client) Create(
 	return response.Body, nil
 }
 
-// Delete a label
-//
 // Example:
 //
 //	client.Labels.Delete(
@@ -115,8 +109,6 @@ func (c *Client) Delete(
 	return nil
 }
 
-// Add or remove message labels
-//
 // Example:
 //
 //	request := &_go.LabelMutation{}
@@ -143,8 +135,6 @@ func (c *Client) UpdateMessage(
 	return response.Body, nil
 }
 
-// Add or remove thread labels
-//
 // Example:
 //
 //	request := &_go.LabelMutation{}

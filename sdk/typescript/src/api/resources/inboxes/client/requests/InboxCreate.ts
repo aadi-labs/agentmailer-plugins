@@ -5,8 +5,6 @@
  *     {}
  */
 export interface InboxCreate {
-    /** Stable caller-generated key used to make retries safe without duplicating the operation. */
-    "Idempotency-Key"?: string;
     username?: string;
     podId?: string;
     domainId?: string;
@@ -17,9 +15,6 @@ export interface InboxCreate {
 
 export namespace InboxCreate {
     export namespace Metadata {
-        export type Value =
-            | string
-            | number
-            | boolean;
+        export type Value = string | number | boolean;
     }
 }

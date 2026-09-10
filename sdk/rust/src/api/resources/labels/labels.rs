@@ -13,16 +13,6 @@ impl LabelsClient {
         })
     }
 
-    /// List labels
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -64,16 +54,6 @@ impl LabelsClient {
             .await
     }
 
-    /// Create a label
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -115,16 +95,6 @@ impl LabelsClient {
             .await
     }
 
-    /// Delete a label
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// Empty response
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -156,16 +126,6 @@ impl LabelsClient {
             .await
     }
 
-    /// Add or remove message labels
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -207,16 +167,6 @@ impl LabelsClient {
             .await
     }
 
-    /// Add or remove thread labels
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run

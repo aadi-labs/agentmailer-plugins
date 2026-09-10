@@ -10,8 +10,6 @@ module AgentMailer
         @client = client
       end
 
-      # Create an approved agent's inbox
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Agent::Types::BootstrapRequest]
       # @option request_options [String] :base_url
@@ -19,27 +17,20 @@ module AgentMailer
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
-      # @option params [String] :idempotency_key
       #
       # @example
-      #   client.agent.bootstrap(idempotency_key: "Idempotency-Key")
+      #   client.agent.bootstrap
       #
       # @return [AgentMailer::Types::BootstrapResponse]
       def bootstrap(request_options: {}, **params)
         params = AgentMailer::Internal::Types::Utils.normalize_keys(params)
-        request_data = AgentMailer::Agent::Types::BootstrapRequest.new(params).to_h
-        non_body_param_names = %w[Idempotency-Key]
-        body = request_data.except(*non_body_param_names)
-
-        headers = {}
-        headers["Idempotency-Key"] = params[:idempotency_key] if params[:idempotency_key]
-
+        headers = { "Idempotency-Key" => AgentMailer::Internal::IdempotencyKey.generate }
         request = AgentMailer::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/agent/bootstrap",
           headers: headers,
-          body: body,
+          body: AgentMailer::Agent::Types::BootstrapRequest.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -56,8 +47,6 @@ module AgentMailer
         end
       end
 
-      # Start human approval for an agent
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Agent::Types::SignUpAgentRequest]
       # @option request_options [String] :base_url

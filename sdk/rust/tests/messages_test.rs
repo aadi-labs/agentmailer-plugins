@@ -54,7 +54,7 @@ async fn test_messages_send_with_wiremock() {
                 to: vec![MessageComposeToItem::String("to".to_string())],
                 ..Default::default()
             },
-            Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
+            None,
         )
         .await;
 
@@ -141,7 +141,7 @@ async fn test_messages_reply_with_wiremock() {
             &ReplyCompose {
                 ..Default::default()
             },
-            Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
+            None,
         )
         .await;
 
@@ -178,7 +178,7 @@ async fn test_messages_reply_all_with_wiremock() {
             &ReplyCompose {
                 ..Default::default()
             },
-            Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
+            None,
         )
         .await;
 
@@ -216,7 +216,7 @@ async fn test_messages_forward_with_wiremock() {
                 to: vec![MessageComposeToItem::String("to".to_string())],
                 ..Default::default()
             },
-            Some(RequestOptions::new().additional_header("Idempotency-Key", "Idempotency-Key")),
+            None,
         )
         .await;
 

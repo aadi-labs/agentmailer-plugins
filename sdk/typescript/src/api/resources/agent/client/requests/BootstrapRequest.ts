@@ -2,13 +2,9 @@
 
 /**
  * @example
- *     {
- *         "Idempotency-Key": "Idempotency-Key"
- *     }
+ *     {}
  */
 export interface BootstrapRequest {
-    /** Stable caller-generated key used to make retries safe without duplicating the operation. */
-    "Idempotency-Key": string;
     requestedLocalPart?: string;
     podName?: string;
 }

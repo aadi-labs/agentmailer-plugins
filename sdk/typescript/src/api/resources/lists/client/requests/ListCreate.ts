@@ -16,8 +16,8 @@ export interface ListCreate {
 
 export namespace ListCreate {
     export const Kind = {
-            Allow: "allow",
-            Block: "block"
-        } as const;
-    export type Kind = typeof Kind[keyof typeof Kind];
+        Allow: "allow",
+        Block: "block",
+    } as const;
+    export type Kind = (typeof Kind)[keyof typeof Kind];
 }

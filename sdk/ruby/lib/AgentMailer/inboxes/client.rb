@@ -10,8 +10,6 @@ module AgentMailer
         @client = client
       end
 
-      # List inboxes
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -53,8 +51,6 @@ module AgentMailer
         end
       end
 
-      # Create an inbox
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Inboxes::Types::InboxCreate]
       # @option request_options [String] :base_url
@@ -62,7 +58,6 @@ module AgentMailer
       # @option request_options [Hash{String => Object}] :additional_query_parameters
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
-      # @option params [String, nil] :idempotency_key
       #
       # @example
       #   client.inboxes.create
@@ -70,19 +65,13 @@ module AgentMailer
       # @return [AgentMailer::Inboxes::Types::CreateInboxesResponse]
       def create(request_options: {}, **params)
         params = AgentMailer::Internal::Types::Utils.normalize_keys(params)
-        request_data = AgentMailer::Inboxes::Types::InboxCreate.new(params).to_h
-        non_body_param_names = %w[Idempotency-Key]
-        body = request_data.except(*non_body_param_names)
-
-        headers = {}
-        headers["Idempotency-Key"] = params[:idempotency_key] if params[:idempotency_key]
-
+        headers = { "Idempotency-Key" => AgentMailer::Internal::IdempotencyKey.generate }
         request = AgentMailer::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
           path: "v1/inboxes",
           headers: headers,
-          body: body,
+          body: AgentMailer::Inboxes::Types::InboxCreate.new(params).to_h,
           request_options: request_options
         )
         begin
@@ -99,8 +88,6 @@ module AgentMailer
         end
       end
 
-      # Get an inbox
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -136,8 +123,6 @@ module AgentMailer
         end
       end
 
-      # Delete an inbox
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -171,8 +156,6 @@ module AgentMailer
         raise error_class.new(response.body, code: code)
       end
 
-      # Update an inbox
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Inboxes::Types::InboxUpdate]
       # @option request_options [String] :base_url
@@ -215,8 +198,6 @@ module AgentMailer
         end
       end
 
-      # Issue new IMAP and SMTP credentials
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url

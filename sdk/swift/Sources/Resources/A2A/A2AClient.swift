@@ -7,8 +7,6 @@ public final class A2AClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    /// Call an agent over A2A JSON-RPC
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -40,8 +38,6 @@ public final class A2AClient: Sendable {
         )
     }
 
-    /// Discover an agent's public A2A card
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -65,8 +61,6 @@ public final class A2AClient: Sendable {
         )
     }
 
-    /// Update an assigned A2A task
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -94,8 +88,6 @@ public final class A2AClient: Sendable {
         )
     }
 
-    /// Update the calling agent's public A2A profile
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer

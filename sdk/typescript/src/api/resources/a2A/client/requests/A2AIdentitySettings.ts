@@ -14,10 +14,10 @@ export interface A2AIdentitySettings {
 
 export namespace A2AIdentitySettings {
     export const AdmissionMode = {
-            Whitelist: "whitelist",
-            Public: "public"
-        } as const;
-    export type AdmissionMode = typeof AdmissionMode[keyof typeof AdmissionMode];
+        Whitelist: "whitelist",
+        Public: "public",
+    } as const;
+    export type AdmissionMode = (typeof AdmissionMode)[keyof typeof AdmissionMode];
     export type Skills = Skills.Item[];
 
     export namespace Skills {

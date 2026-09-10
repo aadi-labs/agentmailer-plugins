@@ -13,16 +13,6 @@ impl ListsClient {
         })
     }
 
-    /// List allow and block lists
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -64,16 +54,6 @@ impl ListsClient {
             .await
     }
 
-    /// Create an allow or block list
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -115,16 +95,6 @@ impl ListsClient {
             .await
     }
 
-    /// Delete an allow or block list
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// Empty response
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -156,16 +126,6 @@ impl ListsClient {
             .await
     }
 
-    /// Add an address pattern to a list
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -208,16 +168,6 @@ impl ListsClient {
             .await
     }
 
-    /// Remove an address pattern from a list
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run

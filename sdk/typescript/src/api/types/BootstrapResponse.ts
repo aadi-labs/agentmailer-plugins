@@ -19,11 +19,11 @@ export namespace BootstrapResponse {
 
     export namespace Agent {
         export const TrustTier = {
-                Bootstrap: "bootstrap",
-                Verified: "verified",
-                Established: "established"
-            } as const;
-        export type TrustTier = typeof TrustTier[keyof typeof TrustTier];
+            Bootstrap: "bootstrap",
+            Verified: "verified",
+            Established: "established",
+        } as const;
+        export type TrustTier = (typeof TrustTier)[keyof typeof TrustTier];
     }
 
     export interface Identity {
@@ -49,9 +49,9 @@ export namespace BootstrapResponse {
 
     export namespace Inbox {
         export const Status = {
-                Active: "active"
-            } as const;
-        export type Status = typeof Status[keyof typeof Status];
+            Active: "active",
+        } as const;
+        export type Status = (typeof Status)[keyof typeof Status];
     }
 
     export interface Capabilities {

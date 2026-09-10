@@ -199,6 +199,11 @@ await replaceInFile(
 
 const typescriptPath = resolve("sdk/typescript/package.json");
 const typescript = JSON.parse(await readFile(typescriptPath, "utf8"));
+for (const key of Object.keys(typescript.exports ?? {})) {
+  if (/^\.\/channel(?:Endpoints|Conversations|RecipientPermissions|Messages)$/.test(key)) {
+    delete typescript.exports[key];
+  }
+}
 typescript.repository = {
   type: "git",
   url: "https://github.com/aadi-labs/agentmailer-plugins.git",

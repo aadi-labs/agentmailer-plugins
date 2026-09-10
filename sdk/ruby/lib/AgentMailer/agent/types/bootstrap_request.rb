@@ -4,8 +4,6 @@ module AgentMailer
   module Agent
     module Types
       class BootstrapRequest < Internal::Types::Model
-        field :idempotency_key, -> { String }, optional: false, nullable: false, api_name: "Idempotency-Key"
-
         field :requested_local_part, -> { String }, optional: true, nullable: false, api_name: "requestedLocalPart"
 
         field :pod_name, -> { String }, optional: true, nullable: false, api_name: "podName"

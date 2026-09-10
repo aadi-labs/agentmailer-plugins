@@ -210,14 +210,10 @@ func TestDraftsSendWithWireMock(
 		option.WithBaseURL(WireMockBaseURL),
 		option.WithAPIKey("test-token"),
 	)
-	request := &_go.SendDraftsRequest{
-		IdempotencyKey: "Idempotency-Key",
-	}
 	_, invocationErr := client.Drafts.Send(
 		context.TODO(),
 		"inboxId",
 		"draftId",
-		request,
 		option.WithHTTPHeader(
 			http.Header{"X-Test-Id": []string{"TestDraftsSendWithWireMock"}},
 		),

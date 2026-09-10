@@ -12,9 +12,8 @@ pub mod resources;
 pub mod types;
 
 pub use resources::{
-    A2AClient, AgentClient, AgentMailer, AttachmentsClient, BillingClient,
-    ChannelConversationsClient, ChannelEndpointsClient, ChannelMessagesClient,
-    ChannelRecipientPermissionsClient, DomainsClient, DraftsClient, EventsClient, InboxesClient,
-    LabelsClient, ListsClient, MessagesClient, PodsClient, ThreadsClient, WebhooksClient,
+    A2AClient, AgentClient, AgentMailer, AttachmentsClient, BillingClient, DomainsClient,
+    DraftsClient, EventsClient, InboxesClient, LabelsClient, ListsClient, MessagesClient,
+    PodsClient, ThreadsClient, WebhooksClient,
 };
 pub use types::*;

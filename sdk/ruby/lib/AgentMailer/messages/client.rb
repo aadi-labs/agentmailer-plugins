@@ -10,8 +10,6 @@ module AgentMailer
         @client = client
       end
 
-      # List or search messages
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -64,8 +62,6 @@ module AgentMailer
         end
       end
 
-      # Send a message
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Types::MessageCompose]
       # @option request_options [String] :base_url
@@ -74,12 +70,10 @@ module AgentMailer
       # @option request_options [Hash{String => Object}] :additional_body_parameters
       # @option request_options [Integer] :timeout_in_seconds
       # @option params [String] :inbox_id
-      # @option params [String] :idempotency_key
       #
       # @example
       #   client.messages.send_(
       #     inbox_id: "inboxId",
-      #     idempotency_key: "Idempotency-Key",
       #     to: ["to"]
       #   )
       #
@@ -89,9 +83,7 @@ module AgentMailer
         path_param_names = %i[inbox_id]
         body_params = params.except(*path_param_names)
 
-        headers = {}
-        headers["Idempotency-Key"] = params[:idempotency_key] if params[:idempotency_key]
-
+        headers = { "Idempotency-Key" => AgentMailer::Internal::IdempotencyKey.generate }
         request = AgentMailer::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
@@ -114,8 +106,6 @@ module AgentMailer
         end
       end
 
-      # Get a message
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -155,8 +145,6 @@ module AgentMailer
         end
       end
 
-      # Delete a message
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -194,8 +182,6 @@ module AgentMailer
         raise error_class.new(response.body, code: code)
       end
 
-      # Reply to a message
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Types::ReplyCompose]
       # @option request_options [String] :base_url
@@ -205,13 +191,11 @@ module AgentMailer
       # @option request_options [Integer] :timeout_in_seconds
       # @option params [String] :inbox_id
       # @option params [String] :message_id
-      # @option params [String] :idempotency_key
       #
       # @example
       #   client.messages.reply(
       #     inbox_id: "inboxId",
-      #     message_id: "messageId",
-      #     idempotency_key: "Idempotency-Key"
+      #     message_id: "messageId"
       #   )
       #
       # @return [AgentMailer::Messages::Types::ReplyMessagesResponse]
@@ -220,9 +204,7 @@ module AgentMailer
         path_param_names = %i[inbox_id message_id]
         body_params = params.except(*path_param_names)
 
-        headers = {}
-        headers["Idempotency-Key"] = params[:idempotency_key] if params[:idempotency_key]
-
+        headers = { "Idempotency-Key" => AgentMailer::Internal::IdempotencyKey.generate }
         request = AgentMailer::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
@@ -245,8 +227,6 @@ module AgentMailer
         end
       end
 
-      # Reply all to a message
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Types::ReplyCompose]
       # @option request_options [String] :base_url
@@ -256,13 +236,11 @@ module AgentMailer
       # @option request_options [Integer] :timeout_in_seconds
       # @option params [String] :inbox_id
       # @option params [String] :message_id
-      # @option params [String] :idempotency_key
       #
       # @example
       #   client.messages.reply_all(
       #     inbox_id: "inboxId",
-      #     message_id: "messageId",
-      #     idempotency_key: "Idempotency-Key"
+      #     message_id: "messageId"
       #   )
       #
       # @return [AgentMailer::Messages::Types::ReplyAllMessagesResponse]
@@ -271,9 +249,7 @@ module AgentMailer
         path_param_names = %i[inbox_id message_id]
         body_params = params.except(*path_param_names)
 
-        headers = {}
-        headers["Idempotency-Key"] = params[:idempotency_key] if params[:idempotency_key]
-
+        headers = { "Idempotency-Key" => AgentMailer::Internal::IdempotencyKey.generate }
         request = AgentMailer::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",
@@ -296,8 +272,6 @@ module AgentMailer
         end
       end
 
-      # Forward a message
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Types::MessageCompose]
       # @option request_options [String] :base_url
@@ -307,13 +281,11 @@ module AgentMailer
       # @option request_options [Integer] :timeout_in_seconds
       # @option params [String] :inbox_id
       # @option params [String] :message_id
-      # @option params [String] :idempotency_key
       #
       # @example
       #   client.messages.forward(
       #     inbox_id: "inboxId",
       #     message_id: "messageId",
-      #     idempotency_key: "Idempotency-Key",
       #     to: ["to"]
       #   )
       #
@@ -323,9 +295,7 @@ module AgentMailer
         path_param_names = %i[inbox_id message_id]
         body_params = params.except(*path_param_names)
 
-        headers = {}
-        headers["Idempotency-Key"] = params[:idempotency_key] if params[:idempotency_key]
-
+        headers = { "Idempotency-Key" => AgentMailer::Internal::IdempotencyKey.generate }
         request = AgentMailer::Internal::JSON::Request.new(
           base_url: request_options[:base_url],
           method: "POST",

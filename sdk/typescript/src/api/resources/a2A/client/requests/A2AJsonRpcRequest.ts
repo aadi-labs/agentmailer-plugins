@@ -16,10 +16,8 @@ export interface A2AJsonRpcRequest {
 
 export namespace A2AJsonRpcRequest {
     export const Jsonrpc = {
-            Two0: "2.0"
-        } as const;
-    export type Jsonrpc = typeof Jsonrpc[keyof typeof Jsonrpc];
-    export type Id =
-        | string
-        | number;
+        Two0: "2.0",
+    } as const;
+    export type Jsonrpc = (typeof Jsonrpc)[keyof typeof Jsonrpc];
+    export type Id = string | number;
 }

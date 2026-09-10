@@ -12,24 +12,24 @@ export interface BillingAccount {
 
 export namespace BillingAccount {
     export const Plan = {
-            Free: "free",
-            Developer: "developer",
-            Startup: "startup",
-            Enterprise: "enterprise"
-        } as const;
-    export type Plan = typeof Plan[keyof typeof Plan];
+        Free: "free",
+        Developer: "developer",
+        Startup: "startup",
+        Enterprise: "enterprise",
+    } as const;
+    export type Plan = (typeof Plan)[keyof typeof Plan];
     export const Status = {
-            Active: "active",
-            Trialing: "trialing",
-            PastDue: "past_due",
-            Paused: "paused",
-            Canceled: "canceled",
-            Unpaid: "unpaid"
-        } as const;
-    export type Status = typeof Status[keyof typeof Status];
+        Active: "active",
+        Trialing: "trialing",
+        PastDue: "past_due",
+        Paused: "paused",
+        Canceled: "canceled",
+        Unpaid: "unpaid",
+    } as const;
+    export type Status = (typeof Status)[keyof typeof Status];
     export const BillingInterval = {
-            Month: "month",
-            Year: "year"
-        } as const;
-    export type BillingInterval = typeof BillingInterval[keyof typeof BillingInterval];
+        Month: "month",
+        Year: "year",
+    } as const;
+    export type BillingInterval = (typeof BillingInterval)[keyof typeof BillingInterval];
 }

@@ -56,8 +56,6 @@ class MessagesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ListMessagesResponse:
         """
-        List or search messages
-
         Parameters
         ----------
         inbox_id : str
@@ -112,7 +110,6 @@ class MessagesClient:
         self,
         inbox_id: str,
         *,
-        idempotency_key: str,
         to: typing.Sequence[MessageComposeToItem],
         cc: typing.Optional[typing.Sequence[MessageComposeCcItem]] = OMIT,
         bcc: typing.Optional[typing.Sequence[MessageComposeBccItem]] = OMIT,
@@ -125,14 +122,9 @@ class MessagesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> SendMessagesResponse:
         """
-        Send a message
-
         Parameters
         ----------
         inbox_id : str
-
-        idempotency_key : str
-            Stable caller-generated key used to make retries safe without duplicating the operation.
 
         to : typing.Sequence[MessageComposeToItem]
 
@@ -169,13 +161,11 @@ class MessagesClient:
         )
         client.messages.send(
             inbox_id="inboxId",
-            idempotency_key="Idempotency-Key",
             to=["to"],
         )
         """
         _response = self._raw_client.send(
             inbox_id,
-            idempotency_key=idempotency_key,
             to=to,
             cc=cc,
             bcc=bcc,
@@ -193,8 +183,6 @@ class MessagesClient:
         self, inbox_id: str, message_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> GetMessagesResponse:
         """
-        Get a message
-
         Parameters
         ----------
         inbox_id : str
@@ -228,8 +216,6 @@ class MessagesClient:
         self, inbox_id: str, message_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> None:
         """
-        Delete a message
-
         Parameters
         ----------
         inbox_id : str
@@ -263,7 +249,6 @@ class MessagesClient:
         inbox_id: str,
         message_id: str,
         *,
-        idempotency_key: str,
         to: typing.Optional[typing.Sequence[ReplyComposeToItem]] = OMIT,
         cc: typing.Optional[typing.Sequence[ReplyComposeCcItem]] = OMIT,
         bcc: typing.Optional[typing.Sequence[ReplyComposeBccItem]] = OMIT,
@@ -276,16 +261,11 @@ class MessagesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReplyMessagesResponse:
         """
-        Reply to a message
-
         Parameters
         ----------
         inbox_id : str
 
         message_id : str
-
-        idempotency_key : str
-            Stable caller-generated key used to make retries safe without duplicating the operation.
 
         to : typing.Optional[typing.Sequence[ReplyComposeToItem]]
 
@@ -323,13 +303,11 @@ class MessagesClient:
         client.messages.reply(
             inbox_id="inboxId",
             message_id="messageId",
-            idempotency_key="Idempotency-Key",
         )
         """
         _response = self._raw_client.reply(
             inbox_id,
             message_id,
-            idempotency_key=idempotency_key,
             to=to,
             cc=cc,
             bcc=bcc,
@@ -348,7 +326,6 @@ class MessagesClient:
         inbox_id: str,
         message_id: str,
         *,
-        idempotency_key: str,
         to: typing.Optional[typing.Sequence[ReplyComposeToItem]] = OMIT,
         cc: typing.Optional[typing.Sequence[ReplyComposeCcItem]] = OMIT,
         bcc: typing.Optional[typing.Sequence[ReplyComposeBccItem]] = OMIT,
@@ -361,16 +338,11 @@ class MessagesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReplyAllMessagesResponse:
         """
-        Reply all to a message
-
         Parameters
         ----------
         inbox_id : str
 
         message_id : str
-
-        idempotency_key : str
-            Stable caller-generated key used to make retries safe without duplicating the operation.
 
         to : typing.Optional[typing.Sequence[ReplyComposeToItem]]
 
@@ -408,13 +380,11 @@ class MessagesClient:
         client.messages.reply_all(
             inbox_id="inboxId",
             message_id="messageId",
-            idempotency_key="Idempotency-Key",
         )
         """
         _response = self._raw_client.reply_all(
             inbox_id,
             message_id,
-            idempotency_key=idempotency_key,
             to=to,
             cc=cc,
             bcc=bcc,
@@ -433,7 +403,6 @@ class MessagesClient:
         inbox_id: str,
         message_id: str,
         *,
-        idempotency_key: str,
         to: typing.Sequence[MessageComposeToItem],
         cc: typing.Optional[typing.Sequence[MessageComposeCcItem]] = OMIT,
         bcc: typing.Optional[typing.Sequence[MessageComposeBccItem]] = OMIT,
@@ -446,16 +415,11 @@ class MessagesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ForwardMessagesResponse:
         """
-        Forward a message
-
         Parameters
         ----------
         inbox_id : str
 
         message_id : str
-
-        idempotency_key : str
-            Stable caller-generated key used to make retries safe without duplicating the operation.
 
         to : typing.Sequence[MessageComposeToItem]
 
@@ -493,14 +457,12 @@ class MessagesClient:
         client.messages.forward(
             inbox_id="inboxId",
             message_id="messageId",
-            idempotency_key="Idempotency-Key",
             to=["to"],
         )
         """
         _response = self._raw_client.forward(
             inbox_id,
             message_id,
-            idempotency_key=idempotency_key,
             to=to,
             cc=cc,
             bcc=bcc,
@@ -544,8 +506,6 @@ class AsyncMessagesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ListMessagesResponse:
         """
-        List or search messages
-
         Parameters
         ----------
         inbox_id : str
@@ -608,7 +568,6 @@ class AsyncMessagesClient:
         self,
         inbox_id: str,
         *,
-        idempotency_key: str,
         to: typing.Sequence[MessageComposeToItem],
         cc: typing.Optional[typing.Sequence[MessageComposeCcItem]] = OMIT,
         bcc: typing.Optional[typing.Sequence[MessageComposeBccItem]] = OMIT,
@@ -621,14 +580,9 @@ class AsyncMessagesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> SendMessagesResponse:
         """
-        Send a message
-
         Parameters
         ----------
         inbox_id : str
-
-        idempotency_key : str
-            Stable caller-generated key used to make retries safe without duplicating the operation.
 
         to : typing.Sequence[MessageComposeToItem]
 
@@ -670,7 +624,6 @@ class AsyncMessagesClient:
         async def main() -> None:
             await client.messages.send(
                 inbox_id="inboxId",
-                idempotency_key="Idempotency-Key",
                 to=["to"],
             )
 
@@ -679,7 +632,6 @@ class AsyncMessagesClient:
         """
         _response = await self._raw_client.send(
             inbox_id,
-            idempotency_key=idempotency_key,
             to=to,
             cc=cc,
             bcc=bcc,
@@ -697,8 +649,6 @@ class AsyncMessagesClient:
         self, inbox_id: str, message_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> GetMessagesResponse:
         """
-        Get a message
-
         Parameters
         ----------
         inbox_id : str
@@ -740,8 +690,6 @@ class AsyncMessagesClient:
         self, inbox_id: str, message_id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> None:
         """
-        Delete a message
-
         Parameters
         ----------
         inbox_id : str
@@ -783,7 +731,6 @@ class AsyncMessagesClient:
         inbox_id: str,
         message_id: str,
         *,
-        idempotency_key: str,
         to: typing.Optional[typing.Sequence[ReplyComposeToItem]] = OMIT,
         cc: typing.Optional[typing.Sequence[ReplyComposeCcItem]] = OMIT,
         bcc: typing.Optional[typing.Sequence[ReplyComposeBccItem]] = OMIT,
@@ -796,16 +743,11 @@ class AsyncMessagesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReplyMessagesResponse:
         """
-        Reply to a message
-
         Parameters
         ----------
         inbox_id : str
 
         message_id : str
-
-        idempotency_key : str
-            Stable caller-generated key used to make retries safe without duplicating the operation.
 
         to : typing.Optional[typing.Sequence[ReplyComposeToItem]]
 
@@ -848,7 +790,6 @@ class AsyncMessagesClient:
             await client.messages.reply(
                 inbox_id="inboxId",
                 message_id="messageId",
-                idempotency_key="Idempotency-Key",
             )
 
 
@@ -857,7 +798,6 @@ class AsyncMessagesClient:
         _response = await self._raw_client.reply(
             inbox_id,
             message_id,
-            idempotency_key=idempotency_key,
             to=to,
             cc=cc,
             bcc=bcc,
@@ -876,7 +816,6 @@ class AsyncMessagesClient:
         inbox_id: str,
         message_id: str,
         *,
-        idempotency_key: str,
         to: typing.Optional[typing.Sequence[ReplyComposeToItem]] = OMIT,
         cc: typing.Optional[typing.Sequence[ReplyComposeCcItem]] = OMIT,
         bcc: typing.Optional[typing.Sequence[ReplyComposeBccItem]] = OMIT,
@@ -889,16 +828,11 @@ class AsyncMessagesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReplyAllMessagesResponse:
         """
-        Reply all to a message
-
         Parameters
         ----------
         inbox_id : str
 
         message_id : str
-
-        idempotency_key : str
-            Stable caller-generated key used to make retries safe without duplicating the operation.
 
         to : typing.Optional[typing.Sequence[ReplyComposeToItem]]
 
@@ -941,7 +875,6 @@ class AsyncMessagesClient:
             await client.messages.reply_all(
                 inbox_id="inboxId",
                 message_id="messageId",
-                idempotency_key="Idempotency-Key",
             )
 
 
@@ -950,7 +883,6 @@ class AsyncMessagesClient:
         _response = await self._raw_client.reply_all(
             inbox_id,
             message_id,
-            idempotency_key=idempotency_key,
             to=to,
             cc=cc,
             bcc=bcc,
@@ -969,7 +901,6 @@ class AsyncMessagesClient:
         inbox_id: str,
         message_id: str,
         *,
-        idempotency_key: str,
         to: typing.Sequence[MessageComposeToItem],
         cc: typing.Optional[typing.Sequence[MessageComposeCcItem]] = OMIT,
         bcc: typing.Optional[typing.Sequence[MessageComposeBccItem]] = OMIT,
@@ -982,16 +913,11 @@ class AsyncMessagesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ForwardMessagesResponse:
         """
-        Forward a message
-
         Parameters
         ----------
         inbox_id : str
 
         message_id : str
-
-        idempotency_key : str
-            Stable caller-generated key used to make retries safe without duplicating the operation.
 
         to : typing.Sequence[MessageComposeToItem]
 
@@ -1034,7 +960,6 @@ class AsyncMessagesClient:
             await client.messages.forward(
                 inbox_id="inboxId",
                 message_id="messageId",
-                idempotency_key="Idempotency-Key",
                 to=["to"],
             )
 
@@ -1044,7 +969,6 @@ class AsyncMessagesClient:
         _response = await self._raw_client.forward(
             inbox_id,
             message_id,
-            idempotency_key=idempotency_key,
             to=to,
             cc=cc,
             bcc=bcc,

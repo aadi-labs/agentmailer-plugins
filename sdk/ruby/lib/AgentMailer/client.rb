@@ -28,26 +28,6 @@ module AgentMailer
       @inboxes ||= AgentMailer::Inboxes::Client.new(client: @raw_client)
     end
 
-    # @return [AgentMailer::ChannelEndpoints::Client]
-    def channel_endpoints
-      @channel_endpoints ||= AgentMailer::ChannelEndpoints::Client.new(client: @raw_client)
-    end
-
-    # @return [AgentMailer::ChannelConversations::Client]
-    def channel_conversations
-      @channel_conversations ||= AgentMailer::ChannelConversations::Client.new(client: @raw_client)
-    end
-
-    # @return [AgentMailer::ChannelRecipientPermissions::Client]
-    def channel_recipient_permissions
-      @channel_recipient_permissions ||= AgentMailer::ChannelRecipientPermissions::Client.new(client: @raw_client)
-    end
-
-    # @return [AgentMailer::ChannelMessages::Client]
-    def channel_messages
-      @channel_messages ||= AgentMailer::ChannelMessages::Client.new(client: @raw_client)
-    end
-
     # @return [AgentMailer::Messages::Client]
     def messages
       @messages ||= AgentMailer::Messages::Client.new(client: @raw_client)

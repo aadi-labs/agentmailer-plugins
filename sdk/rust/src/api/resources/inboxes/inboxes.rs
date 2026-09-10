@@ -13,16 +13,6 @@ impl InboxesClient {
         })
     }
 
-    /// List inboxes
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -65,16 +55,6 @@ impl InboxesClient {
             .await
     }
 
-    /// Create an inbox
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -114,16 +94,6 @@ impl InboxesClient {
             .await
     }
 
-    /// Get an inbox
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -155,16 +125,6 @@ impl InboxesClient {
             .await
     }
 
-    /// Delete an inbox
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// Empty response
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -196,16 +156,6 @@ impl InboxesClient {
             .await
     }
 
-    /// Update an inbox
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -247,16 +197,6 @@ impl InboxesClient {
             .await
     }
 
-    /// Issue new IMAP and SMTP credentials
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run

@@ -113,13 +113,10 @@ func TestMessagesSendWithWireMock(
 		option.WithBaseURL(WireMockBaseURL),
 		option.WithAPIKey("test-token"),
 	)
-	request := &_go.SendMessagesRequest{
-		IdempotencyKey: "Idempotency-Key",
-		Body: &_go.MessageCompose{
-			To: []*_go.MessageComposeToItem{
-				&_go.MessageComposeToItem{
-					String: "to",
-				},
+	request := &_go.MessageCompose{
+		To: []*_go.MessageComposeToItem{
+			&_go.MessageComposeToItem{
+				String: "to",
 			},
 		},
 	}
@@ -195,10 +192,7 @@ func TestMessagesReplyWithWireMock(
 		option.WithBaseURL(WireMockBaseURL),
 		option.WithAPIKey("test-token"),
 	)
-	request := &_go.ReplyMessagesRequest{
-		IdempotencyKey: "Idempotency-Key",
-		Body:           &_go.ReplyCompose{},
-	}
+	request := &_go.ReplyCompose{}
 	_, invocationErr := client.Messages.Reply(
 		context.TODO(),
 		"inboxId",
@@ -224,10 +218,7 @@ func TestMessagesReplyAllWithWireMock(
 		option.WithBaseURL(WireMockBaseURL),
 		option.WithAPIKey("test-token"),
 	)
-	request := &_go.ReplyAllMessagesRequest{
-		IdempotencyKey: "Idempotency-Key",
-		Body:           &_go.ReplyCompose{},
-	}
+	request := &_go.ReplyCompose{}
 	_, invocationErr := client.Messages.ReplyAll(
 		context.TODO(),
 		"inboxId",
@@ -253,13 +244,10 @@ func TestMessagesForwardWithWireMock(
 		option.WithBaseURL(WireMockBaseURL),
 		option.WithAPIKey("test-token"),
 	)
-	request := &_go.ForwardMessagesRequest{
-		IdempotencyKey: "Idempotency-Key",
-		Body: &_go.MessageCompose{
-			To: []*_go.MessageComposeToItem{
-				&_go.MessageComposeToItem{
-					String: "to",
-				},
+	request := &_go.MessageCompose{
+		To: []*_go.MessageComposeToItem{
+			&_go.MessageComposeToItem{
+				String: "to",
 			},
 		},
 	}

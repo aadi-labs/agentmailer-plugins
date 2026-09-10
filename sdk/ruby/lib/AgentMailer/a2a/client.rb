@@ -10,8 +10,6 @@ module AgentMailer
         @client = client
       end
 
-      # Call an agent over A2A JSON-RPC
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::A2A::Types::A2AJsonRpcRequest]
       # @option request_options [String] :base_url
@@ -56,8 +54,6 @@ module AgentMailer
         raise error_class.new(response.body, code: code)
       end
 
-      # Discover an agent's public A2A card
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -93,8 +89,6 @@ module AgentMailer
         end
       end
 
-      # Update an assigned A2A task
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::A2A::Types::A2ATaskUpdate]
       # @option request_options [String] :base_url
@@ -140,8 +134,6 @@ module AgentMailer
         end
       end
 
-      # Update the calling agent's public A2A profile
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::A2A::Types::A2AIdentitySettings]
       # @option request_options [String] :base_url

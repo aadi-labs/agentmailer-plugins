@@ -10,8 +10,6 @@ module AgentMailer
         @client = client
       end
 
-      # List allow and block lists
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -51,8 +49,6 @@ module AgentMailer
         end
       end
 
-      # Create an allow or block list
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Lists::Types::ListCreate]
       # @option request_options [String] :base_url
@@ -94,8 +90,6 @@ module AgentMailer
         end
       end
 
-      # Delete an allow or block list
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url
@@ -129,8 +123,6 @@ module AgentMailer
         raise error_class.new(response.body, code: code)
       end
 
-      # Add an address pattern to a list
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Lists::Types::ListEntry]
       # @option request_options [String] :base_url
@@ -176,8 +168,6 @@ module AgentMailer
         end
       end
 
-      # Remove an address pattern from a list
-      #
       # @param request_options [Hash]
       # @param params [Hash]
       # @option request_options [String] :base_url

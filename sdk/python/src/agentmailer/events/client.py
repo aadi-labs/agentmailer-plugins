@@ -30,8 +30,6 @@ class EventsClient:
         self, *, pod_id: str, request_options: typing.Optional[RequestOptions] = None
     ) -> CreateTicketEventsResponse:
         """
-        Create a short-lived realtime ticket
-
         Parameters
         ----------
         pod_id : str
@@ -78,8 +76,6 @@ class AsyncEventsClient:
         self, *, pod_id: str, request_options: typing.Optional[RequestOptions] = None
     ) -> CreateTicketEventsResponse:
         """
-        Create a short-lived realtime ticket
-
         Parameters
         ----------
         pod_id : str

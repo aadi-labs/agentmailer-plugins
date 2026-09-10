@@ -68,16 +68,12 @@ navigation:
             path: pages/generated/agentmailer-a2a/SKILL.mdx
           - page: "Direct agent communication tool reference"
             path: pages/generated/agentmailer-a2a/references/a2a-tools.mdx
-      - section: "Events and channels"
+      - section: "Events"
         contents:
           - page: "AgentMailer events"
             path: pages/generated/agentmailer-events/SKILL.mdx
           - page: "Event API reference"
             path: pages/generated/agentmailer-events/references/events-api.mdx
-          - page: "AgentMailer human communication channels"
-            path: pages/generated/agentmailer-channels/SKILL.mdx
-          - page: "Human channel tool map"
-            path: pages/generated/agentmailer-channels/references/channels.mdx
       - section: "Security and permissions"
         contents:
           - page: "AgentMailer security"

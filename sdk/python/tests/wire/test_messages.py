@@ -17,7 +17,6 @@ def test_messages_send() -> None:
     client = get_client(test_id)
     client.messages.send(
         inbox_id="inboxId",
-        idempotency_key="Idempotency-Key",
         to=["to"],
     )
     verify_request_count(test_id, "POST", "/v1/inboxes/inboxId/messages/send", None, 1)
@@ -52,7 +51,6 @@ def test_messages_reply() -> None:
     client.messages.reply(
         inbox_id="inboxId",
         message_id="messageId",
-        idempotency_key="Idempotency-Key",
     )
     verify_request_count(test_id, "POST", "/v1/inboxes/inboxId/messages/messageId/reply", None, 1)
 
@@ -64,7 +62,6 @@ def test_messages_reply_all() -> None:
     client.messages.reply_all(
         inbox_id="inboxId",
         message_id="messageId",
-        idempotency_key="Idempotency-Key",
     )
     verify_request_count(test_id, "POST", "/v1/inboxes/inboxId/messages/messageId/reply-all", None, 1)
 
@@ -76,7 +73,6 @@ def test_messages_forward() -> None:
     client.messages.forward(
         inbox_id="inboxId",
         message_id="messageId",
-        idempotency_key="Idempotency-Key",
         to=["to"],
     )
     verify_request_count(test_id, "POST", "/v1/inboxes/inboxId/messages/messageId/forward", None, 1)

@@ -34,8 +34,6 @@ class ListsClient:
         self, *, pod_id: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
     ) -> ListListsResponse:
         """
-        List allow and block lists
-
         Parameters
         ----------
         pod_id : typing.Optional[str]
@@ -64,8 +62,6 @@ class ListsClient:
         self, *, pod_id: str, name: str, kind: ListCreateKind, request_options: typing.Optional[RequestOptions] = None
     ) -> CreateListsResponse:
         """
-        Create an allow or block list
-
         Parameters
         ----------
         pod_id : str
@@ -100,8 +96,6 @@ class ListsClient:
 
     def delete(self, list_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
-        Delete an allow or block list
-
         Parameters
         ----------
         list_id : str
@@ -136,8 +130,6 @@ class ListsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AddEntryListsResponse:
         """
-        Add an address pattern to a list
-
         Parameters
         ----------
         list_id : str
@@ -179,8 +171,6 @@ class ListsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> RemoveEntryListsResponse:
         """
-        Remove an address pattern from a list
-
         Parameters
         ----------
         list_id : str
@@ -231,8 +221,6 @@ class AsyncListsClient:
         self, *, pod_id: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
     ) -> ListListsResponse:
         """
-        List allow and block lists
-
         Parameters
         ----------
         pod_id : typing.Optional[str]
@@ -269,8 +257,6 @@ class AsyncListsClient:
         self, *, pod_id: str, name: str, kind: ListCreateKind, request_options: typing.Optional[RequestOptions] = None
     ) -> CreateListsResponse:
         """
-        Create an allow or block list
-
         Parameters
         ----------
         pod_id : str
@@ -313,8 +299,6 @@ class AsyncListsClient:
 
     async def delete(self, list_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
-        Delete an allow or block list
-
         Parameters
         ----------
         list_id : str
@@ -357,8 +341,6 @@ class AsyncListsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AddEntryListsResponse:
         """
-        Add an address pattern to a list
-
         Parameters
         ----------
         list_id : str
@@ -408,8 +390,6 @@ class AsyncListsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> RemoveEntryListsResponse:
         """
-        Remove an address pattern from a list
-
         Parameters
         ----------
         list_id : str

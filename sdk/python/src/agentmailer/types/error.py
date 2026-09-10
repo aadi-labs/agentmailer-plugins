@@ -9,12 +9,11 @@ from ..core.serialization import FieldMetadata
 
 
 class Error(UniversalBaseModel):
-    type: str
-    title: str
-    status: int
     code: str
-    detail: typing.Optional[str] = None
-    request_id: typing_extensions.Annotated[str, FieldMetadata(alias="requestId"), pydantic.Field(alias="requestId")]
+    message: str
+    request_id: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="requestId"), pydantic.Field(alias="requestId")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

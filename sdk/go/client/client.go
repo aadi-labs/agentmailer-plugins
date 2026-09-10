@@ -9,10 +9,6 @@ import (
 	agent "github.com/aadi-labs/agentmailer-plugins/sdk/go/agent"
 	attachments "github.com/aadi-labs/agentmailer-plugins/sdk/go/attachments"
 	billing "github.com/aadi-labs/agentmailer-plugins/sdk/go/billing"
-	channelconversations "github.com/aadi-labs/agentmailer-plugins/sdk/go/channelconversations"
-	channelendpoints "github.com/aadi-labs/agentmailer-plugins/sdk/go/channelendpoints"
-	channelmessages "github.com/aadi-labs/agentmailer-plugins/sdk/go/channelmessages"
-	channelrecipientpermissions "github.com/aadi-labs/agentmailer-plugins/sdk/go/channelrecipientpermissions"
 	core "github.com/aadi-labs/agentmailer-plugins/sdk/go/core"
 	domains "github.com/aadi-labs/agentmailer-plugins/sdk/go/domains"
 	drafts "github.com/aadi-labs/agentmailer-plugins/sdk/go/drafts"
@@ -29,24 +25,20 @@ import (
 )
 
 type AgentMailer struct {
-	Agent                       *agent.Client
-	Inboxes                     *inboxes.Client
-	ChannelEndpoints            *channelendpoints.Client
-	ChannelConversations        *channelconversations.Client
-	ChannelRecipientPermissions *channelrecipientpermissions.Client
-	ChannelMessages             *channelmessages.Client
-	Messages                    *messages.Client
-	Threads                     *threads.Client
-	Drafts                      *drafts.Client
-	Attachments                 *attachments.Client
-	Pods                        *pods.Client
-	Domains                     *domains.Client
-	Webhooks                    *webhooks.Client
-	Labels                      *labels.Client
-	Lists                       *lists.Client
-	Events                      *events.Client
-	Billing                     *billing.Client
-	A2A                         *a2a.Client
+	Agent       *agent.Client
+	Inboxes     *inboxes.Client
+	Messages    *messages.Client
+	Threads     *threads.Client
+	Drafts      *drafts.Client
+	Attachments *attachments.Client
+	Pods        *pods.Client
+	Domains     *domains.Client
+	Webhooks    *webhooks.Client
+	Labels      *labels.Client
+	Lists       *lists.Client
+	Events      *events.Client
+	Billing     *billing.Client
+	A2A         *a2a.Client
 
 	options *core.RequestOptions
 	baseURL string
@@ -59,26 +51,22 @@ func New(opts ...option.RequestOption) *AgentMailer {
 		options.APIKey = os.Getenv("AGENTMAILER_API_KEY")
 	}
 	return &AgentMailer{
-		Agent:                       agent.NewClient(options),
-		Inboxes:                     inboxes.NewClient(options),
-		ChannelEndpoints:            channelendpoints.NewClient(options),
-		ChannelConversations:        channelconversations.NewClient(options),
-		ChannelRecipientPermissions: channelrecipientpermissions.NewClient(options),
-		ChannelMessages:             channelmessages.NewClient(options),
-		Messages:                    messages.NewClient(options),
-		Threads:                     threads.NewClient(options),
-		Drafts:                      drafts.NewClient(options),
-		Attachments:                 attachments.NewClient(options),
-		Pods:                        pods.NewClient(options),
-		Domains:                     domains.NewClient(options),
-		Webhooks:                    webhooks.NewClient(options),
-		Labels:                      labels.NewClient(options),
-		Lists:                       lists.NewClient(options),
-		Events:                      events.NewClient(options),
-		Billing:                     billing.NewClient(options),
-		A2A:                         a2a.NewClient(options),
-		options:                     options,
-		baseURL:                     options.BaseURL,
+		Agent:       agent.NewClient(options),
+		Inboxes:     inboxes.NewClient(options),
+		Messages:    messages.NewClient(options),
+		Threads:     threads.NewClient(options),
+		Drafts:      drafts.NewClient(options),
+		Attachments: attachments.NewClient(options),
+		Pods:        pods.NewClient(options),
+		Domains:     domains.NewClient(options),
+		Webhooks:    webhooks.NewClient(options),
+		Labels:      labels.NewClient(options),
+		Lists:       lists.NewClient(options),
+		Events:      events.NewClient(options),
+		Billing:     billing.NewClient(options),
+		A2A:         a2a.NewClient(options),
+		options:     options,
+		baseURL:     options.BaseURL,
 		caller: internal.NewCaller(
 			&internal.CallerParams{
 				Client:         options.HTTPClient,

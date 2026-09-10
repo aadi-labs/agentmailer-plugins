@@ -15,14 +15,11 @@ class AgentWireTest < WireMockTestCase
   def test_agent_bootstrap_with_wiremock
     test_id = "agent.bootstrap.0"
 
-    @client.agent.bootstrap(
-      idempotency_key: "Idempotency-Key",
-      request_options: {
-        additional_headers: {
-          "X-Test-Id" => "agent.bootstrap.0"
-        }
+    @client.agent.bootstrap(request_options: {
+      additional_headers: {
+        "X-Test-Id" => "agent.bootstrap.0"
       }
-    )
+    })
 
     verify_request_count(
       test_id: test_id,

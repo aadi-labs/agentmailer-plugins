@@ -126,7 +126,6 @@ class DraftsWireTest < WireMockTestCase
     @client.drafts.send_(
       inbox_id: "inboxId",
       draft_id: "draftId",
-      idempotency_key: "Idempotency-Key",
       request_options: {
         additional_headers: {
           "X-Test-Id" => "drafts.send_.0"

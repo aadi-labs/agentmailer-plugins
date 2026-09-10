@@ -86,11 +86,11 @@ func (b *BillingSelection) MarshalJSON() ([]byte, error) {
 var (
 	billingAccountFieldPlan              = big.NewInt(1 << 0)
 	billingAccountFieldStatus            = big.NewInt(1 << 1)
-	billingAccountFieldCurrentPeriodEnd  = big.NewInt(1 << 2)
-	billingAccountFieldInboxLimit        = big.NewInt(1 << 3)
-	billingAccountFieldMonthlySendLimit  = big.NewInt(1 << 4)
-	billingAccountFieldCustomDomainLimit = big.NewInt(1 << 5)
-	billingAccountFieldBillingInterval   = big.NewInt(1 << 6)
+	billingAccountFieldCurrentPeriodEnd  = big.NewInt(1 << 4)
+	billingAccountFieldInboxLimit        = big.NewInt(1 << 5)
+	billingAccountFieldMonthlySendLimit  = big.NewInt(1 << 6)
+	billingAccountFieldCustomDomainLimit = big.NewInt(1 << 7)
+	billingAccountFieldBillingInterval   = big.NewInt(1 << 8)
 )
 
 type BillingAccount struct {

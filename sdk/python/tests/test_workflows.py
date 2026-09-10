@@ -56,7 +56,7 @@ def test_send_text_preserves_the_caller_idempotency_key() -> None:
     assert result is message
     send.assert_called_once_with(
         "inb_sender",
-        idempotency_key="send-welcome-42",
+        request_options={"additional_headers": {"Idempotency-Key": "send-welcome-42"}},
         to=["recipient@example.com"],
         subject="Welcome",
         text="Hello",

@@ -1,2 +1,0 @@
-pub mod channel_recipient_permissions;
-pub use channel_recipient_permissions::ChannelRecipientPermissionsClient;

@@ -88,9 +88,7 @@ func TestAgentBootstrapWithWireMock(
 		option.WithBaseURL(WireMockBaseURL),
 		option.WithAPIKey("test-token"),
 	)
-	request := &_go.BootstrapRequest{
-		IdempotencyKey: "Idempotency-Key",
-	}
+	request := &_go.BootstrapRequest{}
 	_, invocationErr := client.Agent.Bootstrap(
 		context.TODO(),
 		request,

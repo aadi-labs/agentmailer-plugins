@@ -13,16 +13,6 @@ impl PodsClient {
         })
     }
 
-    /// List Pods
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -47,16 +37,6 @@ impl PodsClient {
             .await
     }
 
-    /// Create a Pod
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -96,16 +76,6 @@ impl PodsClient {
             .await
     }
 
-    /// Get a Pod
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -137,16 +107,6 @@ impl PodsClient {
             .await
     }
 
-    /// Delete a Pod
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// Empty response
-    ///
     /// # Examples
     ///
     /// ```no_run
@@ -178,16 +138,6 @@ impl PodsClient {
             .await
     }
 
-    /// Update a Pod
-    ///
-    /// # Arguments
-    ///
-    /// * `options` - Additional request options such as headers, timeout, etc.
-    ///
-    /// # Returns
-    ///
-    /// JSON response from the API
-    ///
     /// # Examples
     ///
     /// ```no_run

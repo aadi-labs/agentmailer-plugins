@@ -31,8 +31,6 @@ class BillingClient:
 
     def get(self, *, request_options: typing.Optional[RequestOptions] = None) -> GetBillingResponse:
         """
-        Get plan and subscription entitlement
-
         Parameters
         ----------
         request_options : typing.Optional[RequestOptions]
@@ -65,8 +63,6 @@ class BillingClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateCheckoutBillingResponse:
         """
-        Create a subscription checkout session
-
         Parameters
         ----------
         inboxes : typing.Optional[int]
@@ -105,8 +101,6 @@ class BillingClient:
 
     def create_portal(self, *, request_options: typing.Optional[RequestOptions] = None) -> CreatePortalBillingResponse:
         """
-        Create a billing management session
-
         Parameters
         ----------
         request_options : typing.Optional[RequestOptions]
@@ -147,8 +141,6 @@ class AsyncBillingClient:
 
     async def get(self, *, request_options: typing.Optional[RequestOptions] = None) -> GetBillingResponse:
         """
-        Get plan and subscription entitlement
-
         Parameters
         ----------
         request_options : typing.Optional[RequestOptions]
@@ -189,8 +181,6 @@ class AsyncBillingClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateCheckoutBillingResponse:
         """
-        Create a subscription checkout session
-
         Parameters
         ----------
         inboxes : typing.Optional[int]
@@ -239,8 +229,6 @@ class AsyncBillingClient:
         self, *, request_options: typing.Optional[RequestOptions] = None
     ) -> CreatePortalBillingResponse:
         """
-        Create a billing management session
-
         Parameters
         ----------
         request_options : typing.Optional[RequestOptions]

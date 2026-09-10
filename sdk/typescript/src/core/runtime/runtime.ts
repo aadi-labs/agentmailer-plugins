@@ -139,9 +139,7 @@ function evaluateRuntime(): Runtime {
      * Edge Runtime warns about Node.js APIs even when they are guarded).
      */
     const _process = typeof process !== "undefined" ? process : undefined;
-    const isNode =
-        typeof _process !== "undefined" &&
-        typeof _process.versions?.node === "string";
+    const isNode = typeof _process !== "undefined" && typeof _process.versions?.node === "string";
     if (isNode) {
         return {
             type: "node",
@@ -215,7 +213,7 @@ export function getUserAgent(sdkName: string, sdkVersion: string): string {
     let userAgent = `${encodeProductName(sdkName)}/${sdkVersion}`;
 
     const platform = [RUNTIME.os, normalizeArch(RUNTIME.arch)].filter(
-        (part): part is string => part != null && part.length > 0
+        (part): part is string => part != null && part.length > 0,
     );
     if (platform.length > 0) {
         userAgent += ` (${platform.join("; ")})`;

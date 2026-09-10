@@ -33,8 +33,6 @@ class LabelsClient:
         self, *, pod_id: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
     ) -> ListLabelsResponse:
         """
-        List labels
-
         Parameters
         ----------
         pod_id : typing.Optional[str]
@@ -68,8 +66,6 @@ class LabelsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateLabelsResponse:
         """
-        Create a label
-
         Parameters
         ----------
         pod_id : str
@@ -103,8 +99,6 @@ class LabelsClient:
 
     def delete(self, label_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
-        Delete a label
-
         Parameters
         ----------
         label_id : str
@@ -139,8 +133,6 @@ class LabelsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UpdateMessageLabelsResponse:
         """
-        Add or remove message labels
-
         Parameters
         ----------
         message_id : str
@@ -180,8 +172,6 @@ class LabelsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UpdateThreadLabelsResponse:
         """
-        Add or remove thread labels
-
         Parameters
         ----------
         thread_id : str
@@ -232,8 +222,6 @@ class AsyncLabelsClient:
         self, *, pod_id: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
     ) -> ListLabelsResponse:
         """
-        List labels
-
         Parameters
         ----------
         pod_id : typing.Optional[str]
@@ -275,8 +263,6 @@ class AsyncLabelsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CreateLabelsResponse:
         """
-        Create a label
-
         Parameters
         ----------
         pod_id : str
@@ -320,8 +306,6 @@ class AsyncLabelsClient:
 
     async def delete(self, label_id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
-        Delete a label
-
         Parameters
         ----------
         label_id : str
@@ -364,8 +348,6 @@ class AsyncLabelsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UpdateMessageLabelsResponse:
         """
-        Add or remove message labels
-
         Parameters
         ----------
         message_id : str
@@ -415,8 +397,6 @@ class AsyncLabelsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UpdateThreadLabelsResponse:
         """
-        Add or remove thread labels
-
         Parameters
         ----------
         thread_id : str

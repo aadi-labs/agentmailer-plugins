@@ -10,14 +10,11 @@ import (
 )
 
 var (
-	bootstrapRequestFieldIdempotencyKey     = big.NewInt(1 << 0)
-	bootstrapRequestFieldRequestedLocalPart = big.NewInt(1 << 1)
-	bootstrapRequestFieldPodName            = big.NewInt(1 << 2)
+	bootstrapRequestFieldRequestedLocalPart = big.NewInt(1 << 0)
+	bootstrapRequestFieldPodName            = big.NewInt(1 << 1)
 )
 
 type BootstrapRequest struct {
-	// Stable caller-generated key used to make retries safe without duplicating the operation.
-	IdempotencyKey     string  `json:"-" url:"-"`
 	RequestedLocalPart *string `json:"requestedLocalPart,omitempty" url:"-"`
 	PodName            *string `json:"podName,omitempty" url:"-"`
 
@@ -30,13 +27,6 @@ func (b *BootstrapRequest) require(field *big.Int) {
 		b.explicitFields = big.NewInt(0)
 	}
 	b.explicitFields.Or(b.explicitFields, field)
-}
-
-// SetIdempotencyKey sets the IdempotencyKey field and marks it as non-optional;
-// this prevents an empty or null value for this field from being omitted during serialization.
-func (b *BootstrapRequest) SetIdempotencyKey(idempotencyKey string) {
-	b.IdempotencyKey = idempotencyKey
-	b.require(bootstrapRequestFieldIdempotencyKey)
 }
 
 // SetRequestedLocalPart sets the RequestedLocalPart field and marks it as non-optional;

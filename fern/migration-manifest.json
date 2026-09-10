@@ -80,14 +80,6 @@
     "destination": "fern/pages/generated/agentmailer-events/references/events-api.mdx"
   },
   {
-    "source": "agentmailer-channels/SKILL.md",
-    "destination": "fern/pages/generated/agentmailer-channels/SKILL.mdx"
-  },
-  {
-    "source": "agentmailer-channels/references/channels.md",
-    "destination": "fern/pages/generated/agentmailer-channels/references/channels.mdx"
-  },
-  {
     "source": "agentmailer-security/SKILL.md",
     "destination": "fern/pages/generated/agentmailer-security/SKILL.mdx"
   },

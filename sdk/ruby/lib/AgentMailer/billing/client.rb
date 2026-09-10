@@ -10,8 +10,6 @@ module AgentMailer
         @client = client
       end
 
-      # Get plan and subscription entitlement
-      #
       # @param request_options [Hash]
       # @param _params [Hash]
       # @option request_options [String] :base_url
@@ -45,8 +43,6 @@ module AgentMailer
         end
       end
 
-      # Create a subscription checkout session
-      #
       # @param request_options [Hash]
       # @param params [AgentMailer::Billing::Types::BillingSelection]
       # @option request_options [String] :base_url
@@ -84,8 +80,6 @@ module AgentMailer
         end
       end
 
-      # Create a billing management session
-      #
       # @param request_options [Hash]
       # @param _params [Hash]
       # @option request_options [String] :base_url

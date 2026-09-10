@@ -7,8 +7,6 @@ public final class WebhooksClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    /// List webhook endpoints
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -32,8 +30,6 @@ public final class WebhooksClient: Sendable {
         )
     }
 
-    /// Create a webhook endpoint
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -58,8 +54,6 @@ public final class WebhooksClient: Sendable {
         )
     }
 
-    /// Get a webhook endpoint
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -83,8 +77,6 @@ public final class WebhooksClient: Sendable {
         )
     }
 
-    /// Delete a webhook endpoint
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -107,8 +99,6 @@ public final class WebhooksClient: Sendable {
         )
     }
 
-    /// Update a webhook endpoint
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -136,8 +126,6 @@ public final class WebhooksClient: Sendable {
         )
     }
 
-    /// Rotate a webhook signing secret
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer

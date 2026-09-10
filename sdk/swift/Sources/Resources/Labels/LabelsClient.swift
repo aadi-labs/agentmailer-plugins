@@ -7,8 +7,6 @@ public final class LabelsClient: Sendable {
         self.httpClient = HTTPClient(config: config)
     }
 
-    /// List labels
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -35,8 +33,6 @@ public final class LabelsClient: Sendable {
         )
     }
 
-    /// Create a label
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -64,8 +60,6 @@ public final class LabelsClient: Sendable {
         )
     }
 
-    /// Delete a label
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -88,8 +82,6 @@ public final class LabelsClient: Sendable {
         )
     }
 
-    /// Add or remove message labels
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer
@@ -119,8 +111,6 @@ public final class LabelsClient: Sendable {
         )
     }
 
-    /// Add or remove thread labels
-    ///
     /// ```swift
     /// import Foundation
     /// import AgentMailer

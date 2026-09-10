@@ -22,7 +22,6 @@ import Testing
 
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(additionalHeaders: stub.headers)
             )
@@ -51,7 +50,6 @@ import Testing
 
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(additionalHeaders: stub.headers)
             )
@@ -80,7 +78,6 @@ import Testing
 
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(additionalHeaders: stub.headers)
             )
@@ -108,7 +105,6 @@ import Testing
 
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(additionalHeaders: stub.headers)
             )
@@ -135,7 +131,6 @@ import Testing
 
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(additionalHeaders: stub.headers)
             )
@@ -163,7 +158,6 @@ import Testing
 
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(additionalHeaders: stub.headers)
             )
@@ -191,7 +185,6 @@ import Testing
 
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(additionalHeaders: stub.headers)
             )
@@ -224,7 +217,6 @@ import Testing
         let startTime = Date()
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(additionalHeaders: stub.headers)
             )
@@ -267,7 +259,6 @@ import Testing
         let startTime = Date()
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(additionalHeaders: stub.headers)
             )
@@ -306,7 +297,6 @@ import Testing
         let startTime = Date()
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(additionalHeaders: stub.headers)
             )
@@ -356,7 +346,6 @@ import Testing
 
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(maxRetries: 5, additionalHeaders: stub.headers)
             )
@@ -380,7 +369,6 @@ import Testing
 
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(maxRetries: 0, additionalHeaders: stub.headers)
             )
@@ -408,7 +396,6 @@ import Testing
 
         do {
             _ = try await client.agent.bootstrap(
-                idempotencyKey: "Idempotency-Key",
                 request: .init(),
                 requestOptions: RequestOptions(additionalHeaders: stub.headers)
             )

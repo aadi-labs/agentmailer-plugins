@@ -1,22 +1,10 @@
 # Reference
+
 ## agent
+
 <details><summary><code>client.agent.<a href="/lib/AgentMailer/agent/client.rb">bootstrap</a>(request) -> AgentMailer::Types::BootstrapResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create an approved agent's inbox
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -27,8 +15,9 @@ Create an approved agent's inbox
 <dd>
 
 ```ruby
-client.agent.bootstrap(idempotency_key: "Idempotency-Key")
+client.agent.bootstrap
 ```
+
 </dd>
 </dl>
 </dd>
@@ -38,14 +27,6 @@ client.agent.bootstrap(idempotency_key: "Idempotency-Key")
 
 <dl>
 <dd>
-
-<dl>
-<dd>
-
-**idempotency_key:** `String` — Stable caller-generated key used to make retries safe without duplicating the operation.
-
-</dd>
-</dl>
 
 <dl>
 <dd>
@@ -73,7 +54,6 @@ client.agent.bootstrap(idempotency_key: "Idempotency-Key")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -81,20 +61,6 @@ client.agent.bootstrap(idempotency_key: "Idempotency-Key")
 <details><summary><code>client.agent.<a href="/lib/AgentMailer/agent/client.rb">sign_up</a>(request) -> AgentMailer::Agent::Types::SignUpAgentResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Start human approval for an agent
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -110,6 +76,7 @@ client.agent.sign_up(
   username: "username"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -146,29 +113,15 @@ client.agent.sign_up(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
 
 ## inboxes
+
 <details><summary><code>client.inboxes.<a href="/lib/AgentMailer/inboxes/client.rb">list</a>() -> AgentMailer::Inboxes::Types::ListInboxesResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List inboxes
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -181,6 +134,7 @@ List inboxes
 ```ruby
 client.inboxes.list
 ```
+
 </dd>
 </dl>
 </dd>
@@ -217,7 +171,6 @@ client.inboxes.list
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -225,20 +178,6 @@ client.inboxes.list
 <details><summary><code>client.inboxes.<a href="/lib/AgentMailer/inboxes/client.rb">create</a>(request) -> AgentMailer::Inboxes::Types::CreateInboxesResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create an inbox
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -251,6 +190,7 @@ Create an inbox
 ```ruby
 client.inboxes.create
 ```
+
 </dd>
 </dl>
 </dd>
@@ -260,14 +200,6 @@ client.inboxes.create
 
 <dl>
 <dd>
-
-<dl>
-<dd>
-
-**idempotency_key:** `String` — Stable caller-generated key used to make retries safe without duplicating the operation.
-
-</dd>
-</dl>
 
 <dl>
 <dd>
@@ -327,7 +259,6 @@ client.inboxes.create
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -335,20 +266,6 @@ client.inboxes.create
 <details><summary><code>client.inboxes.<a href="/lib/AgentMailer/inboxes/client.rb">get</a>(inbox_id:) -> AgentMailer::Inboxes::Types::GetInboxesResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get an inbox
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -361,6 +278,7 @@ Get an inbox
 ```ruby
 client.inboxes.get(inbox_id: "inboxId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -389,7 +307,6 @@ client.inboxes.get(inbox_id: "inboxId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -397,20 +314,6 @@ client.inboxes.get(inbox_id: "inboxId")
 <details><summary><code>client.inboxes.<a href="/lib/AgentMailer/inboxes/client.rb">delete</a>(inbox_id:) -> </code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete an inbox
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -423,6 +326,7 @@ Delete an inbox
 ```ruby
 client.inboxes.delete(inbox_id: "inboxId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -451,7 +355,6 @@ client.inboxes.delete(inbox_id: "inboxId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -459,20 +362,6 @@ client.inboxes.delete(inbox_id: "inboxId")
 <details><summary><code>client.inboxes.<a href="/lib/AgentMailer/inboxes/client.rb">update</a>(inbox_id:, request) -> AgentMailer::Inboxes::Types::UpdateInboxesResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Update an inbox
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -485,6 +374,7 @@ Update an inbox
 ```ruby
 client.inboxes.update(inbox_id: "inboxId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -537,7 +427,6 @@ client.inboxes.update(inbox_id: "inboxId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -545,20 +434,6 @@ client.inboxes.update(inbox_id: "inboxId")
 <details><summary><code>client.inboxes.<a href="/lib/AgentMailer/inboxes/client.rb">issue_credentials</a>(inbox_id:) -> AgentMailer::Inboxes::Types::IssueCredentialsInboxesResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Issue new IMAP and SMTP credentials
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -571,6 +446,7 @@ Issue new IMAP and SMTP credentials
 ```ruby
 client.inboxes.issue_credentials(inbox_id: "inboxId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -599,791 +475,15 @@ client.inboxes.issue_credentials(inbox_id: "inboxId")
 </dd>
 </dl>
 
-
-</dd>
-</dl>
-</details>
-
-## ChannelEndpoints
-<details><summary><code>client.channel_endpoints.<a href="/lib/AgentMailer/channel_endpoints/client.rb">list</a>() -> AgentMailer::ChannelEndpoints::Types::ListChannelEndpointsResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List human-channel endpoints
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.channel_endpoints.list
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request_options:** `AgentMailer::ChannelEndpoints::RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.channel_endpoints.<a href="/lib/AgentMailer/channel_endpoints/client.rb">create</a>(request) -> AgentMailer::ChannelEndpoints::Types::CreateChannelEndpointsResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Assign a human-channel endpoint
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.channel_endpoints.create(
-  inbox_id: "inboxId",
-  pod_id: "podId",
-  channel: "sms"
-)
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**inbox_id:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**pod_id:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**channel:** `AgentMailer::ChannelEndpoints::Types::ChannelEndpointCreateChannel`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `AgentMailer::ChannelEndpoints::RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.channel_endpoints.<a href="/lib/AgentMailer/channel_endpoints/client.rb">get</a>(endpoint_id:) -> AgentMailer::ChannelEndpoints::Types::GetChannelEndpointsResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get a human-channel endpoint
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.channel_endpoints.get(endpoint_id: "endpointId")
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**endpoint_id:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `AgentMailer::ChannelEndpoints::RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.channel_endpoints.<a href="/lib/AgentMailer/channel_endpoints/client.rb">update</a>(endpoint_id:, request) -> AgentMailer::ChannelEndpoints::Types::UpdateChannelEndpointsResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Enable or disable a human-channel endpoint
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.channel_endpoints.update(
-  endpoint_id: "endpointId",
-  status: "active"
-)
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**endpoint_id:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**status:** `AgentMailer::ChannelEndpoints::Types::ChannelEndpointUpdateStatus`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `AgentMailer::ChannelEndpoints::RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-## ChannelConversations
-<details><summary><code>client.channel_conversations.<a href="/lib/AgentMailer/channel_conversations/client.rb">list</a>() -> AgentMailer::ChannelConversations::Types::ListChannelConversationsResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List human-channel conversations
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.channel_conversations.list
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**limit:** `Integer`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**page_token:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**endpoint_id:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**channel:** `AgentMailer::ChannelConversations::Types::ListChannelConversationsRequestChannel`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**status:** `AgentMailer::ChannelConversations::Types::ListChannelConversationsRequestStatus`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `AgentMailer::ChannelConversations::RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.channel_conversations.<a href="/lib/AgentMailer/channel_conversations/client.rb">get</a>(conversation_id:) -> AgentMailer::ChannelConversations::Types::GetChannelConversationsResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get a human-channel conversation
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.channel_conversations.get(conversation_id: "conversationId")
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**conversation_id:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `AgentMailer::ChannelConversations::RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.channel_conversations.<a href="/lib/AgentMailer/channel_conversations/client.rb">update</a>(conversation_id:, request) -> AgentMailer::ChannelConversations::Types::UpdateChannelConversationsResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Open or close a human-channel conversation
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.channel_conversations.update(
-  conversation_id: "conversationId",
-  status: "active"
-)
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**conversation_id:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**status:** `AgentMailer::ChannelConversations::Types::ChannelConversationUpdateStatus`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `AgentMailer::ChannelConversations::RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-## ChannelRecipientPermissions
-<details><summary><code>client.channel_recipient_permissions.<a href="/lib/AgentMailer/channel_recipient_permissions/client.rb">list</a>() -> AgentMailer::ChannelRecipientPermissions::Types::ListChannelRecipientPermissionsResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List human-channel consent and opt-out state
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.channel_recipient_permissions.list
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**limit:** `Integer`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**page_token:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**endpoint_id:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**channel:** `AgentMailer::ChannelRecipientPermissions::Types::ListChannelRecipientPermissionsRequestChannel`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**status:** `AgentMailer::ChannelRecipientPermissions::Types::ListChannelRecipientPermissionsRequestStatus`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `AgentMailer::ChannelRecipientPermissions::RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-## ChannelMessages
-<details><summary><code>client.channel_messages.<a href="/lib/AgentMailer/channel_messages/client.rb">list</a>() -> AgentMailer::ChannelMessages::Types::ListChannelMessagesResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List human-channel messages
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.channel_messages.list
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**limit:** `Integer`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**page_token:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**endpoint_id:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**conversation_id:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**channel:** `AgentMailer::ChannelMessages::Types::ListChannelMessagesRequestChannel`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `AgentMailer::ChannelMessages::RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.channel_messages.<a href="/lib/AgentMailer/channel_messages/client.rb">send_</a>(request) -> AgentMailer::ChannelMessages::Types::SendChannelMessagesResponse</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Sends through an assigned SMS, MMS, RCS, WhatsApp, or outbound voice endpoint. Supports RCS rich cards and replies, plus WhatsApp media and reply buttons. All non-template WhatsApp messages require a recipient message within the last 24 hours; otherwise use an approved template.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```ruby
-client.channel_messages.send_(idempotency_key: "Idempotency-Key")
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**idempotency_key:** `String` — Stable caller-generated key used to make retries safe without duplicating the operation.
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request:** `AgentMailer::Types::ChannelMessageSend`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `AgentMailer::ChannelMessages::RequestOptions`
-
-</dd>
-</dl>
-</dd>
-</dl>
-
-
 </dd>
 </dl>
 </details>
 
 ## messages
+
 <details><summary><code>client.messages.<a href="/lib/AgentMailer/messages/client.rb">list</a>(inbox_id:) -> AgentMailer::Messages::Types::ListMessagesResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List or search messages
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -1396,6 +496,7 @@ List or search messages
 ```ruby
 client.messages.list(inbox_id: "inboxId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -1480,7 +581,6 @@ client.messages.list(inbox_id: "inboxId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -1488,20 +588,6 @@ client.messages.list(inbox_id: "inboxId")
 <details><summary><code>client.messages.<a href="/lib/AgentMailer/messages/client.rb">send_</a>(inbox_id:, request) -> AgentMailer::Messages::Types::SendMessagesResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Send a message
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -1514,10 +600,10 @@ Send a message
 ```ruby
 client.messages.send_(
   inbox_id: "inboxId",
-  idempotency_key: "Idempotency-Key",
   to: ["to"]
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -1532,14 +618,6 @@ client.messages.send_(
 <dd>
 
 **inbox_id:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**idempotency_key:** `String` — Stable caller-generated key used to make retries safe without duplicating the operation.
 
 </dd>
 </dl>
@@ -1562,7 +640,6 @@ client.messages.send_(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -1570,20 +647,6 @@ client.messages.send_(
 <details><summary><code>client.messages.<a href="/lib/AgentMailer/messages/client.rb">get</a>(inbox_id:, message_id:) -> AgentMailer::Messages::Types::GetMessagesResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get a message
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -1599,6 +662,7 @@ client.messages.get(
   message_id: "messageId"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -1635,7 +699,6 @@ client.messages.get(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -1643,20 +706,6 @@ client.messages.get(
 <details><summary><code>client.messages.<a href="/lib/AgentMailer/messages/client.rb">delete</a>(inbox_id:, message_id:) -> </code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete a message
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -1672,6 +721,7 @@ client.messages.delete(
   message_id: "messageId"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -1708,7 +758,6 @@ client.messages.delete(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -1716,20 +765,6 @@ client.messages.delete(
 <details><summary><code>client.messages.<a href="/lib/AgentMailer/messages/client.rb">reply</a>(inbox_id:, message_id:, request) -> AgentMailer::Messages::Types::ReplyMessagesResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Reply to a message
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -1742,10 +777,10 @@ Reply to a message
 ```ruby
 client.messages.reply(
   inbox_id: "inboxId",
-  message_id: "messageId",
-  idempotency_key: "Idempotency-Key"
+  message_id: "messageId"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -1775,14 +810,6 @@ client.messages.reply(
 <dl>
 <dd>
 
-**idempotency_key:** `String` — Stable caller-generated key used to make retries safe without duplicating the operation.
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **request:** `AgentMailer::Types::ReplyCompose`
 
 </dd>
@@ -1798,7 +825,6 @@ client.messages.reply(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -1806,20 +832,6 @@ client.messages.reply(
 <details><summary><code>client.messages.<a href="/lib/AgentMailer/messages/client.rb">reply_all</a>(inbox_id:, message_id:, request) -> AgentMailer::Messages::Types::ReplyAllMessagesResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Reply all to a message
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -1832,10 +844,10 @@ Reply all to a message
 ```ruby
 client.messages.reply_all(
   inbox_id: "inboxId",
-  message_id: "messageId",
-  idempotency_key: "Idempotency-Key"
+  message_id: "messageId"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -1865,14 +877,6 @@ client.messages.reply_all(
 <dl>
 <dd>
 
-**idempotency_key:** `String` — Stable caller-generated key used to make retries safe without duplicating the operation.
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **request:** `AgentMailer::Types::ReplyCompose`
 
 </dd>
@@ -1888,7 +892,6 @@ client.messages.reply_all(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -1896,20 +899,6 @@ client.messages.reply_all(
 <details><summary><code>client.messages.<a href="/lib/AgentMailer/messages/client.rb">forward</a>(inbox_id:, message_id:, request) -> AgentMailer::Messages::Types::ForwardMessagesResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Forward a message
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -1923,10 +912,10 @@ Forward a message
 client.messages.forward(
   inbox_id: "inboxId",
   message_id: "messageId",
-  idempotency_key: "Idempotency-Key",
   to: ["to"]
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -1949,14 +938,6 @@ client.messages.forward(
 <dd>
 
 **message_id:** `String`
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**idempotency_key:** `String` — Stable caller-generated key used to make retries safe without duplicating the operation.
 
 </dd>
 </dl>
@@ -1979,29 +960,15 @@ client.messages.forward(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
 
 ## threads
+
 <details><summary><code>client.threads.<a href="/lib/AgentMailer/threads/client.rb">list</a>(inbox_id:) -> AgentMailer::Threads::Types::ListThreadsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List or search threads
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -2014,6 +981,7 @@ List or search threads
 ```ruby
 client.threads.list(inbox_id: "inboxId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -2090,7 +1058,6 @@ client.threads.list(inbox_id: "inboxId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -2098,20 +1065,6 @@ client.threads.list(inbox_id: "inboxId")
 <details><summary><code>client.threads.<a href="/lib/AgentMailer/threads/client.rb">get</a>(inbox_id:, thread_id:) -> AgentMailer::Threads::Types::GetThreadsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get a thread and conversation
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -2127,6 +1080,7 @@ client.threads.get(
   thread_id: "threadId"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -2163,29 +1117,15 @@ client.threads.get(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
 
 ## drafts
+
 <details><summary><code>client.drafts.<a href="/lib/AgentMailer/drafts/client.rb">list</a>(inbox_id:) -> AgentMailer::Drafts::Types::ListDraftsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List drafts
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -2198,6 +1138,7 @@ List drafts
 ```ruby
 client.drafts.list(inbox_id: "inboxId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -2226,7 +1167,6 @@ client.drafts.list(inbox_id: "inboxId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -2234,20 +1174,6 @@ client.drafts.list(inbox_id: "inboxId")
 <details><summary><code>client.drafts.<a href="/lib/AgentMailer/drafts/client.rb">create</a>(inbox_id:, request) -> AgentMailer::Drafts::Types::CreateDraftsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create a draft
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -2260,6 +1186,7 @@ Create a draft
 ```ruby
 client.drafts.create(inbox_id: "inboxId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -2384,7 +1311,6 @@ client.drafts.create(inbox_id: "inboxId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -2392,20 +1318,6 @@ client.drafts.create(inbox_id: "inboxId")
 <details><summary><code>client.drafts.<a href="/lib/AgentMailer/drafts/client.rb">get</a>(inbox_id:, draft_id:) -> AgentMailer::Drafts::Types::GetDraftsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get a draft
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -2421,6 +1333,7 @@ client.drafts.get(
   draft_id: "draftId"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -2457,7 +1370,6 @@ client.drafts.get(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -2465,20 +1377,6 @@ client.drafts.get(
 <details><summary><code>client.drafts.<a href="/lib/AgentMailer/drafts/client.rb">delete</a>(inbox_id:, draft_id:) -> </code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete a draft
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -2494,6 +1392,7 @@ client.drafts.delete(
   draft_id: "draftId"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -2530,7 +1429,6 @@ client.drafts.delete(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -2538,20 +1436,6 @@ client.drafts.delete(
 <details><summary><code>client.drafts.<a href="/lib/AgentMailer/drafts/client.rb">update</a>(inbox_id:, draft_id:, request) -> AgentMailer::Drafts::Types::UpdateDraftsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Update a draft
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -2567,6 +1451,7 @@ client.drafts.update(
   draft_id: "draftId"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -2699,7 +1584,6 @@ client.drafts.update(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -2707,20 +1591,6 @@ client.drafts.update(
 <details><summary><code>client.drafts.<a href="/lib/AgentMailer/drafts/client.rb">send_</a>(inbox_id:, draft_id:) -> AgentMailer::Drafts::Types::SendDraftsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Send a draft
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -2733,10 +1603,10 @@ Send a draft
 ```ruby
 client.drafts.send_(
   inbox_id: "inboxId",
-  draft_id: "draftId",
-  idempotency_key: "Idempotency-Key"
+  draft_id: "draftId"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -2766,14 +1636,6 @@ client.drafts.send_(
 <dl>
 <dd>
 
-**idempotency_key:** `String` — Stable caller-generated key used to make retries safe without duplicating the operation.
-
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **request_options:** `AgentMailer::Drafts::RequestOptions`
 
 </dd>
@@ -2781,29 +1643,15 @@ client.drafts.send_(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
 
 ## attachments
+
 <details><summary><code>client.attachments.<a href="/lib/AgentMailer/attachments/client.rb">upload</a>(inbox_id:, request) -> Internal::Types::Hash[String, Object]</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create a direct attachment upload
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -2822,6 +1670,7 @@ client.attachments.upload(
   checksum_sha256: "checksumSha256"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -2882,7 +1731,6 @@ client.attachments.upload(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -2890,20 +1738,6 @@ client.attachments.upload(
 <details><summary><code>client.attachments.<a href="/lib/AgentMailer/attachments/client.rb">complete</a>(inbox_id:, attachment_id:) -> AgentMailer::Attachments::Types::CompleteAttachmentsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Complete a direct attachment upload
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -2919,6 +1753,7 @@ client.attachments.complete(
   attachment_id: "attachmentId"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -2955,7 +1790,6 @@ client.attachments.complete(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -2963,20 +1797,6 @@ client.attachments.complete(
 <details><summary><code>client.attachments.<a href="/lib/AgentMailer/attachments/client.rb">download</a>(inbox_id:, attachment_id:) -> AgentMailer::Attachments::Types::DownloadAttachmentsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create a short-lived attachment download
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -2992,6 +1812,7 @@ client.attachments.download(
   attachment_id: "attachmentId"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3028,29 +1849,15 @@ client.attachments.download(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
 
 ## pods
+
 <details><summary><code>client.pods.<a href="/lib/AgentMailer/pods/client.rb">list</a>() -> AgentMailer::Pods::Types::ListPodsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List Pods
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3063,6 +1870,7 @@ List Pods
 ```ruby
 client.pods.list
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3083,7 +1891,6 @@ client.pods.list
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -3091,20 +1898,6 @@ client.pods.list
 <details><summary><code>client.pods.<a href="/lib/AgentMailer/pods/client.rb">create</a>(request) -> AgentMailer::Pods::Types::CreatePodsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create a Pod
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3117,6 +1910,7 @@ Create a Pod
 ```ruby
 client.pods.create(name: "name")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3145,7 +1939,6 @@ client.pods.create(name: "name")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -3153,20 +1946,6 @@ client.pods.create(name: "name")
 <details><summary><code>client.pods.<a href="/lib/AgentMailer/pods/client.rb">get</a>(pod_id:) -> AgentMailer::Pods::Types::GetPodsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get a Pod
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3179,6 +1958,7 @@ Get a Pod
 ```ruby
 client.pods.get(pod_id: "podId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3207,7 +1987,6 @@ client.pods.get(pod_id: "podId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -3215,20 +1994,6 @@ client.pods.get(pod_id: "podId")
 <details><summary><code>client.pods.<a href="/lib/AgentMailer/pods/client.rb">delete</a>(pod_id:) -> </code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete a Pod
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3241,6 +2006,7 @@ Delete a Pod
 ```ruby
 client.pods.delete(pod_id: "podId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3269,7 +2035,6 @@ client.pods.delete(pod_id: "podId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -3277,20 +2042,6 @@ client.pods.delete(pod_id: "podId")
 <details><summary><code>client.pods.<a href="/lib/AgentMailer/pods/client.rb">update</a>(pod_id:, request) -> AgentMailer::Pods::Types::UpdatePodsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Update a Pod
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3306,6 +2057,7 @@ client.pods.update(
   name: "name"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3342,29 +2094,15 @@ client.pods.update(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
 
 ## domains
+
 <details><summary><code>client.domains.<a href="/lib/AgentMailer/domains/client.rb">list</a>() -> AgentMailer::Domains::Types::ListDomainsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List custom domains
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3377,6 +2115,7 @@ List custom domains
 ```ruby
 client.domains.list
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3397,7 +2136,6 @@ client.domains.list
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -3405,20 +2143,6 @@ client.domains.list
 <details><summary><code>client.domains.<a href="/lib/AgentMailer/domains/client.rb">create</a>(request) -> AgentMailer::Domains::Types::CreateDomainsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create a custom domain
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3431,6 +2155,7 @@ Create a custom domain
 ```ruby
 client.domains.create(domain: "domain")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3467,7 +2192,6 @@ client.domains.create(domain: "domain")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -3475,20 +2199,6 @@ client.domains.create(domain: "domain")
 <details><summary><code>client.domains.<a href="/lib/AgentMailer/domains/client.rb">get</a>(domain_id:) -> AgentMailer::Domains::Types::GetDomainsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get a custom domain
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3501,6 +2211,7 @@ Get a custom domain
 ```ruby
 client.domains.get(domain_id: "domainId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3529,7 +2240,6 @@ client.domains.get(domain_id: "domainId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -3537,20 +2247,6 @@ client.domains.get(domain_id: "domainId")
 <details><summary><code>client.domains.<a href="/lib/AgentMailer/domains/client.rb">delete</a>(domain_id:) -> </code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete a custom domain
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3563,6 +2259,7 @@ Delete a custom domain
 ```ruby
 client.domains.delete(domain_id: "domainId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3591,7 +2288,6 @@ client.domains.delete(domain_id: "domainId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -3599,20 +2295,6 @@ client.domains.delete(domain_id: "domainId")
 <details><summary><code>client.domains.<a href="/lib/AgentMailer/domains/client.rb">verify</a>(domain_id:) -> AgentMailer::Domains::Types::VerifyDomainsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Verify a custom domain's DNS records
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3625,6 +2307,7 @@ Verify a custom domain's DNS records
 ```ruby
 client.domains.verify(domain_id: "domainId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3653,29 +2336,15 @@ client.domains.verify(domain_id: "domainId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
 
 ## webhooks
+
 <details><summary><code>client.webhooks.<a href="/lib/AgentMailer/webhooks/client.rb">list</a>() -> AgentMailer::Webhooks::Types::ListWebhooksResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List webhook endpoints
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3688,6 +2357,7 @@ List webhook endpoints
 ```ruby
 client.webhooks.list
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3708,7 +2378,6 @@ client.webhooks.list
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -3716,20 +2385,6 @@ client.webhooks.list
 <details><summary><code>client.webhooks.<a href="/lib/AgentMailer/webhooks/client.rb">create</a>(request) -> AgentMailer::Webhooks::Types::CreateWebhooksResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create a webhook endpoint
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3742,6 +2397,7 @@ Create a webhook endpoint
 ```ruby
 client.webhooks.create(url: "url")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3802,7 +2458,6 @@ client.webhooks.create(url: "url")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -3810,20 +2465,6 @@ client.webhooks.create(url: "url")
 <details><summary><code>client.webhooks.<a href="/lib/AgentMailer/webhooks/client.rb">get</a>(webhook_id:) -> AgentMailer::Webhooks::Types::GetWebhooksResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get a webhook endpoint
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3836,6 +2477,7 @@ Get a webhook endpoint
 ```ruby
 client.webhooks.get(webhook_id: "webhookId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3864,7 +2506,6 @@ client.webhooks.get(webhook_id: "webhookId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -3872,20 +2513,6 @@ client.webhooks.get(webhook_id: "webhookId")
 <details><summary><code>client.webhooks.<a href="/lib/AgentMailer/webhooks/client.rb">delete</a>(webhook_id:) -> </code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete a webhook endpoint
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3898,6 +2525,7 @@ Delete a webhook endpoint
 ```ruby
 client.webhooks.delete(webhook_id: "webhookId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -3926,7 +2554,6 @@ client.webhooks.delete(webhook_id: "webhookId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -3934,20 +2561,6 @@ client.webhooks.delete(webhook_id: "webhookId")
 <details><summary><code>client.webhooks.<a href="/lib/AgentMailer/webhooks/client.rb">update</a>(webhook_id:, request) -> AgentMailer::Webhooks::Types::UpdateWebhooksResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Update a webhook endpoint
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -3960,6 +2573,7 @@ Update a webhook endpoint
 ```ruby
 client.webhooks.update(webhook_id: "webhookId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4020,7 +2634,6 @@ client.webhooks.update(webhook_id: "webhookId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -4028,20 +2641,6 @@ client.webhooks.update(webhook_id: "webhookId")
 <details><summary><code>client.webhooks.<a href="/lib/AgentMailer/webhooks/client.rb">rotate_secret</a>(webhook_id:) -> AgentMailer::Webhooks::Types::RotateSecretWebhooksResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Rotate a webhook signing secret
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4054,6 +2653,7 @@ Rotate a webhook signing secret
 ```ruby
 client.webhooks.rotate_secret(webhook_id: "webhookId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4082,29 +2682,15 @@ client.webhooks.rotate_secret(webhook_id: "webhookId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
 
 ## labels
+
 <details><summary><code>client.labels.<a href="/lib/AgentMailer/labels/client.rb">list</a>() -> AgentMailer::Labels::Types::ListLabelsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List labels
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4117,6 +2703,7 @@ List labels
 ```ruby
 client.labels.list
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4145,7 +2732,6 @@ client.labels.list
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -4153,20 +2739,6 @@ client.labels.list
 <details><summary><code>client.labels.<a href="/lib/AgentMailer/labels/client.rb">create</a>(request) -> AgentMailer::Labels::Types::CreateLabelsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create a label
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4182,6 +2754,7 @@ client.labels.create(
   name: "name"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4226,7 +2799,6 @@ client.labels.create(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -4234,20 +2806,6 @@ client.labels.create(
 <details><summary><code>client.labels.<a href="/lib/AgentMailer/labels/client.rb">delete</a>(label_id:) -> </code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete a label
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4260,6 +2818,7 @@ Delete a label
 ```ruby
 client.labels.delete(label_id: "labelId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4288,7 +2847,6 @@ client.labels.delete(label_id: "labelId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -4296,20 +2854,6 @@ client.labels.delete(label_id: "labelId")
 <details><summary><code>client.labels.<a href="/lib/AgentMailer/labels/client.rb">update_message</a>(message_id:, request) -> AgentMailer::Labels::Types::UpdateMessageLabelsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Add or remove message labels
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4322,6 +2866,7 @@ Add or remove message labels
 ```ruby
 client.labels.update_message(message_id: "messageId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4358,7 +2903,6 @@ client.labels.update_message(message_id: "messageId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -4366,20 +2910,6 @@ client.labels.update_message(message_id: "messageId")
 <details><summary><code>client.labels.<a href="/lib/AgentMailer/labels/client.rb">update_thread</a>(thread_id:, request) -> AgentMailer::Labels::Types::UpdateThreadLabelsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Add or remove thread labels
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4392,6 +2922,7 @@ Add or remove thread labels
 ```ruby
 client.labels.update_thread(thread_id: "threadId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4428,29 +2959,15 @@ client.labels.update_thread(thread_id: "threadId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
 
 ## lists
+
 <details><summary><code>client.lists.<a href="/lib/AgentMailer/lists/client.rb">list</a>() -> AgentMailer::Lists::Types::ListListsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List allow and block lists
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4463,6 +2980,7 @@ List allow and block lists
 ```ruby
 client.lists.list
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4491,7 +3009,6 @@ client.lists.list
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -4499,20 +3016,6 @@ client.lists.list
 <details><summary><code>client.lists.<a href="/lib/AgentMailer/lists/client.rb">create</a>(request) -> AgentMailer::Lists::Types::CreateListsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create an allow or block list
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4529,6 +3032,7 @@ client.lists.create(
   kind: "allow"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4573,7 +3077,6 @@ client.lists.create(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -4581,20 +3084,6 @@ client.lists.create(
 <details><summary><code>client.lists.<a href="/lib/AgentMailer/lists/client.rb">delete</a>(list_id:) -> </code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete an allow or block list
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4607,6 +3096,7 @@ Delete an allow or block list
 ```ruby
 client.lists.delete(list_id: "listId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4635,7 +3125,6 @@ client.lists.delete(list_id: "listId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -4643,20 +3132,6 @@ client.lists.delete(list_id: "listId")
 <details><summary><code>client.lists.<a href="/lib/AgentMailer/lists/client.rb">add_entry</a>(list_id:, request) -> AgentMailer::Lists::Types::AddEntryListsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Add an address pattern to a list
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4672,6 +3147,7 @@ client.lists.add_entry(
   address_pattern: "addressPattern"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4716,7 +3192,6 @@ client.lists.add_entry(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -4724,20 +3199,6 @@ client.lists.add_entry(
 <details><summary><code>client.lists.<a href="/lib/AgentMailer/lists/client.rb">remove_entry</a>(list_id:) -> AgentMailer::Lists::Types::RemoveEntryListsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Remove an address pattern from a list
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4750,6 +3211,7 @@ Remove an address pattern from a list
 ```ruby
 client.lists.remove_entry(list_id: "listId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4786,29 +3248,15 @@ client.lists.remove_entry(list_id: "listId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
 
 ## events
+
 <details><summary><code>client.events.<a href="/lib/AgentMailer/events/client.rb">create_ticket</a>(request) -> AgentMailer::Events::Types::CreateTicketEventsResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create a short-lived realtime ticket
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4821,6 +3269,7 @@ Create a short-lived realtime ticket
 ```ruby
 client.events.create_ticket(pod_id: "podId")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4849,29 +3298,15 @@ client.events.create_ticket(pod_id: "podId")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
 
 ## billing
+
 <details><summary><code>client.billing.<a href="/lib/AgentMailer/billing/client.rb">get</a>() -> AgentMailer::Billing::Types::GetBillingResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get plan and subscription entitlement
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4884,6 +3319,7 @@ Get plan and subscription entitlement
 ```ruby
 client.billing.get
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4904,7 +3340,6 @@ client.billing.get
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -4912,20 +3347,6 @@ client.billing.get
 <details><summary><code>client.billing.<a href="/lib/AgentMailer/billing/client.rb">create_checkout</a>(request) -> AgentMailer::Billing::Types::CreateCheckoutBillingResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create a subscription checkout session
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -4938,6 +3359,7 @@ Create a subscription checkout session
 ```ruby
 client.billing.create_checkout
 ```
+
 </dd>
 </dl>
 </dd>
@@ -4990,7 +3412,6 @@ client.billing.create_checkout
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -4998,20 +3419,6 @@ client.billing.create_checkout
 <details><summary><code>client.billing.<a href="/lib/AgentMailer/billing/client.rb">create_portal</a>() -> AgentMailer::Billing::Types::CreatePortalBillingResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create a billing management session
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -5024,6 +3431,7 @@ Create a billing management session
 ```ruby
 client.billing.create_portal
 ```
+
 </dd>
 </dl>
 </dd>
@@ -5044,29 +3452,15 @@ client.billing.create_portal
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
 
 ## a2a
+
 <details><summary><code>client.a2a.<a href="/lib/AgentMailer/a2a/client.rb">send_task</a>(handle:, request) -> Internal::Types::Hash[String, Object]</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Call an agent over A2A JSON-RPC
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -5083,6 +3477,7 @@ client.a2a.send_task(
   method_: "method"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -5120,7 +3515,7 @@ client.a2a.send_task(
 <dl>
 <dd>
 
-**method_:** `String`
+**method\_:** `String`
 
 </dd>
 </dl>
@@ -5143,7 +3538,6 @@ client.a2a.send_task(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -5151,20 +3545,6 @@ client.a2a.send_task(
 <details><summary><code>client.a2a.<a href="/lib/AgentMailer/a2a/client.rb">get_agent_card</a>(handle:) -> AgentMailer::Types::A2AAgentCard</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Discover an agent's public A2A card
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -5177,6 +3557,7 @@ Discover an agent's public A2A card
 ```ruby
 client.a2a.get_agent_card(handle: "handle")
 ```
+
 </dd>
 </dl>
 </dd>
@@ -5205,7 +3586,6 @@ client.a2a.get_agent_card(handle: "handle")
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -5213,20 +3593,6 @@ client.a2a.get_agent_card(handle: "handle")
 <details><summary><code>client.a2a.<a href="/lib/AgentMailer/a2a/client.rb">update_task</a>(task_id:, request) -> AgentMailer::A2A::Types::UpdateTaskA2AResponse</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Update an assigned A2A task
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -5242,6 +3608,7 @@ client.a2a.update_task(
   state: "TASK_STATE_SUBMITTED"
 )
 ```
+
 </dd>
 </dl>
 </dd>
@@ -5294,7 +3661,6 @@ client.a2a.update_task(
 </dd>
 </dl>
 
-
 </dd>
 </dl>
 </details>
@@ -5302,20 +3668,6 @@ client.a2a.update_task(
 <details><summary><code>client.a2a.<a href="/lib/AgentMailer/a2a/client.rb">update_identity</a>(request) -> Internal::Types::Hash[String, Object]</code></summary>
 <dl>
 <dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Update the calling agent's public A2A profile
-</dd>
-</dl>
-</dd>
-</dl>
 
 #### 🔌 Usage
 
@@ -5328,6 +3680,7 @@ Update the calling agent's public A2A profile
 ```ruby
 client.a2a.update_identity
 ```
+
 </dd>
 </dl>
 </dd>
@@ -5387,7 +3740,6 @@ client.a2a.update_identity
 </dl>
 </dd>
 </dl>
-
 
 </dd>
 </dl>

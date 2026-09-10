@@ -61,28 +61,6 @@ const operations = {
   "GET /v1/domains/{domainId}": ["domains", "get"],
   "POST /v1/domains/{domainId}/verify": ["domains", "verify"],
   "DELETE /v1/domains/{domainId}": ["domains", "delete"],
-  "GET /v1/channel-endpoints": ["channelEndpoints", "list"],
-  "POST /v1/channel-endpoints": ["channelEndpoints", "create"],
-  "GET /v1/channel-endpoints/{endpointId}": ["channelEndpoints", "get"],
-  "PATCH /v1/channel-endpoints/{endpointId}": [
-    "channelEndpoints",
-    "update",
-  ],
-  "GET /v1/channel-conversations": ["channelConversations", "list"],
-  "GET /v1/channel-conversations/{conversationId}": [
-    "channelConversations",
-    "get",
-  ],
-  "PATCH /v1/channel-conversations/{conversationId}": [
-    "channelConversations",
-    "update",
-  ],
-  "GET /v1/channel-recipient-permissions": [
-    "channelRecipientPermissions",
-    "list",
-  ],
-  "GET /v1/channel-messages": ["channelMessages", "list"],
-  "POST /v1/channel-messages": ["channelMessages", "send"],
   "GET /v1/webhooks": ["webhooks", "list"],
   "POST /v1/webhooks": ["webhooks", "create"],
   "GET /v1/webhooks/{webhookId}": ["webhooks", "get"],

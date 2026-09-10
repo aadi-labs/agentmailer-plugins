@@ -38,8 +38,6 @@ func NewClient(options *core.RequestOptions) *Client {
 	}
 }
 
-// Create a short-lived realtime ticket
-//
 // Example:
 //
 //	request := &_go.CreateTicketEventsRequest{

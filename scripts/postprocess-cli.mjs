@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { copyFile, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const cliRoot = resolve("cli");
@@ -6,10 +6,19 @@ const cargoPath = resolve(cliRoot, "Cargo.toml");
 const readmePath = resolve(cliRoot, "README.md");
 const mainPath = resolve(cliRoot, "cli/agentmailer/main.rs");
 
+// The CLI discovers commands dynamically. Embed the reviewed public contract,
+// including its current authorization and rate-limit metadata.
+await copyFile(
+  resolve("fern/openapi/openapi.json"),
+  resolve(cliRoot, "cli/agentmailer/openapi0.json"),
+);
+
 const replaceRequired = (source, from, to, label) => {
   if (source.includes(to)) return source;
   if (!source.includes(from)) {
-    throw new Error(`Unable to post-process ${label}; expected content is missing`);
+    throw new Error(
+      `Unable to post-process ${label}; expected content is missing`,
+    );
   }
   return source.replace(from, to);
 };
@@ -65,8 +74,14 @@ await writeFile(cargoPath, cargo);
 
 let readme = await readFile(readmePath, "utf8");
 readme = readme
-  .replaceAll("https://github.com/<org>/<repo>", "https://github.com/aadi-labs/agentmailer-plugins")
-  .replaceAll("https://github.com/aadi-labs/agentmailer-cli", "https://github.com/aadi-labs/agentmailer-plugins")
+  .replaceAll(
+    "https://github.com/<org>/<repo>",
+    "https://github.com/aadi-labs/agentmailer-plugins",
+  )
+  .replaceAll(
+    "https://github.com/aadi-labs/agentmailer-cli",
+    "https://github.com/aadi-labs/agentmailer-plugins",
+  )
   .replaceAll("fern-cli-sdk-installer", "agentmailer-cli-installer")
   .replaceAll("AGENTMAILER_TOKEN", "AGENTMAILER_API_KEY");
 readme = replaceRequired(
@@ -141,4 +156,6 @@ lock = replaceRequired(
 );
 await writeFile(lockPath, lock);
 
-console.log("Applied AgentMailer package, repository, and authentication metadata to the generated CLI.");
+console.log(
+  "Applied AgentMailer package, repository, and authentication metadata to the generated CLI.",
+);
